@@ -29,5 +29,3 @@ These are gaps. They are listed rather than quietly passed.
 - `experiments/redraw-2026-07-24/results-redraw.json` — NumPy version and timestamp not recorded anywhere in the run directory.
 - `experiments/real-agentic-2026-07-25/results-real-agentic.json` — timestamp not recorded. A date does appear in `build_public_release.py`, but it is a hard-coded constant in a script rather than the moment the run happened, so it is not used here.
 - `experiments/real-agentic-2026-07-25/pilot/results-pilot.json` — timestamp not recorded.
-- `experiments/real-agentic-aggregation-2026-08-16/results-aggregation-pilot.json` — ⚠ this run *does* import `safeai.rga`, `safeai.rge` and `safeai.rgr`, yet records no pin, no NumPy version and no timestamp. Of everything on this list this is the one worth repairing by re-running, because a result that depends on a pinned package without naming the version is the case the pin rule exists to prevent.
-- `experiments/real-agentic-aggregation-2026-08-16/results-aggregation-production.json` — same, and this one feeds Section 8.

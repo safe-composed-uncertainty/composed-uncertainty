@@ -10,17 +10,17 @@
 [G3] paired_fixed_A_rf: point gap 0.0e+00, max replicate gap over B=2000: 0.0e+00
 [G3] paired_fixed_B_logit: point gap 0.0e+00, max replicate gap over B=2000: 0.0e+00
 [G3] paired_fixed_B_rf: point gap 0.0e+00, max replicate gap over B=2000: 0.0e+00
-[gates] G1-G3 passed at 10.3s
+[gates] G1-G3 passed at 11.0s
 [grid] severity s_t = t/9, t = 0..9 -> curve length L = 10
 [G4] A_logit fastpath vs package curves: RGA 0.0e+00 RGE 0.0e+00 RGR 0.0e+00
-[bootstrap] A_logit: paired + independent, both families, B=2000, 14.7s
-[arm] A_logit complete in 15.4s
+[bootstrap] A_logit: paired + independent, both families, B=2000, 14.8s
+[arm] A_logit complete in 15.5s
 [G4] A_rf fastpath vs package curves: RGA 0.0e+00 RGE 0.0e+00 RGR 0.0e+00
-[bootstrap] A_rf: paired + independent, both families, B=2000, 20.0s
-[arm] A_rf complete in 20.7s
+[bootstrap] A_rf: paired + independent, both families, B=2000, 23.5s
+[arm] A_rf complete in 24.2s
 [G4] B_logit fastpath vs package curves: RGA 0.0e+00 RGE 0.0e+00 RGR 0.0e+00
-[bootstrap] B_logit: paired + independent, both families, B=2000, 14.7s
-[arm] B_logit complete in 15.5s
+[bootstrap] B_logit: paired + independent, both families, B=2000, 15.0s
+[arm] B_logit complete in 15.7s
 [G4] B_rf fastpath vs package curves: RGA 0.0e+00 RGE 1.1e-16 RGR 0.0e+00
-[bootstrap] B_rf: paired + independent, both families, B=2000, 24.2s
-[arm] B_rf complete in 24.9s
+[bootstrap] B_rf: paired + independent, both families, B=2000, 24.4s
+[arm] B_rf complete in 25.1s

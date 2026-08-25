@@ -59,6 +59,7 @@ import math
 import os
 import sys
 import time
+from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 EXP = os.path.normpath(os.path.join(HERE, ".."))
@@ -106,6 +107,24 @@ LOG = []
 def say(msg=""):
     print(msg, flush=True)
     LOG.append(msg)
+
+
+def safeai_commit():
+    """The commit the imported safeai actually resolves to. Read from the
+    clone's git metadata; hard-fail rather than guess — an invented pin is
+    worse than a missing one."""
+    src = os.path.dirname(os.path.dirname(
+        os.path.abspath(sys.modules["safeai.rga"].__file__)))
+    head_path = os.path.join(src, ".git", "HEAD")
+    with open(head_path, encoding="ascii") as fh:
+        head = fh.read().strip()
+    if head.startswith("ref: "):
+        ref = os.path.join(src, ".git", *head[5:].split("/"))
+        with open(ref, encoding="ascii") as fh:
+            head = fh.read().strip()
+    if not (len(head) == 40 and all(c in "0123456789abcdef" for c in head)):
+        raise RuntimeError(f"cannot resolve safeai commit from {head_path}")
+    return head
 
 
 def sha256_file(path):
@@ -267,7 +286,11 @@ def main():
                 os.path.join(REAL, "replicates-real-agentic.npz")),
             "episodes_csv_sha256": sha256_file(
                 os.path.join(REAL, "episodes-real-agentic.csv")),
+            "safeai_commit": safeai_commit(),
         },
+        "numpy_version": np.__version__,
+        "generated_utc": datetime.now(timezone.utc).isoformat(
+            timespec="seconds"),
         "gates": "G1 split, G2 y/p_full, G3 scalar replicates: all bit-level",
         "arms": {},
     }

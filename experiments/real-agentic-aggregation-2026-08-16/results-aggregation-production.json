@@ -14,8 +14,11 @@
  "pins": {
   "pavia_module_sha256": "9bf1e6a089fa22e7139d0408cbaf0bd42bf2873164f5e238a6d8ee878aaa54d4",
   "frozen_npz_sha256": "5d262536075ac3c1e33723c46a726810f8afc5a32a611d9aa2d5ad3b1c7c463e",
-  "episodes_csv_sha256": "76e6eca616caa6f08c04522c6699e0a28c7aa393658d97479d9db5dbf27bab0f"
+  "episodes_csv_sha256": "76e6eca616caa6f08c04522c6699e0a28c7aa393658d97479d9db5dbf27bab0f",
+  "safeai_commit": "39768fcd5264c881f7174268bbffda52b298ae89"
  },
+ "numpy_version": "2.5.0",
+ "generated_utc": "2026-08-25T14:49:31+00:00",
  "gates": "G1 split, G2 y/p_full, G3 scalar replicates: all bit-level",
  "arms": {
   "A_logit": {
@@ -4227,5 +4230,5 @@
    }
   }
  },
- "runtime_seconds": 86.8
+ "runtime_seconds": 91.5
 }

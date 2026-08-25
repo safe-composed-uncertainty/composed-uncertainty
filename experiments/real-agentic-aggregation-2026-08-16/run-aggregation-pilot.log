@@ -10,7 +10,7 @@
 [G3] paired_fixed_A_rf: point gap 0.0e+00, max replicate gap over B=2000: 0.0e+00
 [G3] paired_fixed_B_logit: point gap 0.0e+00, max replicate gap over B=2000: 0.0e+00
 [G3] paired_fixed_B_rf: point gap 0.0e+00, max replicate gap over B=2000: 0.0e+00
-[gates] G1-G3 passed at 8.9s
+[gates] G1-G3 passed at 10.8s
 [grid] severity s_t = t/9, t = 0..9 -> curve length L = 10
 [G4] A_logit fastpath vs package curves: RGA 0.0e+00 RGE 0.0e+00 RGR 0.0e+00
 [bootstrap] A_logit: paired + independent, both families, B=200, 1.5s

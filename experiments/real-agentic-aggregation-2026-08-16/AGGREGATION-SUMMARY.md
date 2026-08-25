@@ -121,3 +121,13 @@ goes into the manuscript.
   precompute; a redraw variant is a possible extension, noted, not run.
 - The tail-swap curve is rebuilt on top of the pinned package's
   `rgr_score` exactly as in Section 6 (the package ships no tail-swap).
+
+## Re-run 2026-08-25 (provenance repair)
+
+Both tags re-run with the harness now stamping the four provenance fields
+(safeai commit 39768fcd5264c881f7174268bbffda52b298ae89, NumPy 2.5.0, UTC
+timestamp, seed unchanged). Every number in `arms` and every non-volatile
+field is bit-identical to the 2026-08-16 run; the only changes are the added
+provenance fields and runtime. Verified by JSON comparison against the
+preserved 16.08 files before overwrite. G1-G4 all passed again; pilot 14.5 s,
+production 91.5 s.
