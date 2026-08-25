@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Composed uncertainty for SAFE compliance scores — code and run records"
+authors:
+  - family-names: Giudici
+    given-names: Paolo
+    affiliation: "University of Pavia"
+  - family-names: Kolesnikov
+    given-names: Vasily
+    affiliation: "University of Pavia"
+  - family-names: Sokolov
+    given-names: Anton
+    affiliation: "Tyche Institute"
+    orcid: "https://orcid.org/0000-0003-2452-7096"
+license: MIT
