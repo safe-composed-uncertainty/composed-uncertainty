@@ -1,0 +1,66 @@
+==============================================================================
+Independent recomputation of the second-dataset run
+run of 2026-07-28T01:13:53+00:00
+==============================================================================
+[target] /srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/second-dataset-2026-07-27/results-second-dataset.json
+[target] primary run of 2026-07-28T00:18:18+00:00, B = 2000
+
+==============================================================================
+A. factorisation of the triple sum, re-verified by brute force
+==============================================================================
+  arithmetic closed form : max |brute - closed| = 4.885e-15  (factorises)
+  geometric  closed form : max |brute - closed| = 1.055e-15  (factorises)
+  rms: nearest natural candidate closed form is off by at least 2.083e-02
+  terminal RGA knot, logit: -1.110e-16 (negative -> the pinned ** form is nan; the real cube root is used here and agrees with the tensor)
+  terminal RGA knot, rf: -1.110e-16 (negative -> the pinned ** form is nan; the real cube root is used here and agrees with the tensor)
+
+[data] n_test = 9000, d = 23, L = 24 (stored: 9000, 23, 24)
+
+==============================================================================
+logit
+==============================================================================
+[point] max abs gap vs the primary curves: RGA 0.00e+00  RGE 0.00e+00  RGR 0.00e+00
+[point] greedy removal order identical to the primary run: True
+  [paired] 500/2000, 110 s
+  [paired] 1000/2000, 220 s
+  [paired] 1500/2000, 330 s
+  [paired] 2000/2000, 439 s
+[paired] regenerated B = 2000 replicates in 439.4 s
+[B] max |Sigma_recomputed - Sigma_stored| = 0.00e+00
+[B] corr(curve means): RGA-RGE +0.280462  RGA-RGR -0.254040  RGE-RGR -0.542339
+[B] primary          : RGA-RGE +0.280462  RGA-RGR -0.254040  RGE-RGR -0.542339
+[B] arithmetic by hand: under% = -9.8312 (primary -9.8312), cross share -20.6288 (primary -20.6288)
+[B] geometric  by hand: under% = -13.4041 (primary -13.4041)
+[B] rms        by hand: under% = -5.1659 (primary -5.1659); corr of projections RGA-RGE +0.2891 RGA-RGR -0.2335 RGE-RGR -0.4357
+[ind] regenerated independent streams in 193.5 s
+[ind] arithmetic empirical understatement -11.9591% (primary -11.9591%)
+[ind] geometric  empirical understatement -11.0486% (primary -11.0486%)
+[C] scalar metrics on the SAME index streams:
+    recomputed: RGA-RGE +0.2093  RGA-RGR +0.2224  RGE-RGR +0.5028
+    primary   : RGA-RGE +0.2093  RGA-RGR +0.2224  RGE-RGR +0.5028
+[D] RGE-RGR correlation, bridged one estimator change at a time:
+      +0.5028 (primary +0.5028)   scalar RGE (bare)      x scalar RGR (bare)      [deposit pair]
+      +0.4952 (primary +0.4952)   scalar RGE (class_ord) x scalar RGR (class_ord) [convention only]
+      +0.4490 (primary +0.4490)   curve-mean RGE         x scalar RGR (class_ord) [RGE estimator swapped]
+      -0.3789 (primary -0.3789)   scalar RGE (class_ord) x curve-mean RGR (swap)  [RGR estimator swapped]
+      +0.6062 (primary +0.6062)   curve-mean RGE         x noise-sweep RGR mean   [sweep, same family]
+      -0.5423 (primary -0.5423)   curve-mean RGE         x curve-mean RGR (swap)  [study pair]
+[D] RGA-RGE: scalars +0.2093 -> curve means +0.2805 (primary +0.2093 -> +0.2805)
+[D] RGA-RGR: scalars +0.2224 -> curve means -0.2540 (primary +0.2224 -> -0.2540)
+[E] max |corr(all 24 knots) - corr(deterministic knot deleted)| = 9.38e-15
+[E] arithmetic cross share, deterministic knots deleted: -20.6288% (all knots: -20.6288%)
+[E] replicate sd of the deterministic knots: RGA[-1] 1.32e-16, RGE[0] 0.00e+00, RGR[0] 0.00e+00
+[G] per-severity-index RGE-RGR, max abs gap vs the primary: 0.00e+00
+[G] recomputed: na -0.185 -0.083 -0.156 -0.093 -0.050 -0.088 -0.093 -0.167 -0.221 -0.240 -0.301 -0.258 -0.213 -0.281 -0.289 -0.296 -0.296 -0.364 -0.329 -0.401 -0.343 -0.475 +0.011
+[diag] arithmetic diagonal == product space at every replicate: max |diff| = 2.22e-16
+
+==============================================================================
+rf
+==============================================================================
+[point] max abs gap vs the primary curves: RGA 0.00e+00  RGE 1.40e-07  RGR 1.23e-08
+[point] greedy removal order identical to the primary run: True
+Traceback (most recent call last):
+  File "/srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/second-dataset-2026-07-27/verify_second_dataset.py", line 235, in <module>
+    assert max(gaps) < 1e-12
+           ^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,256 @@
+==============================================================================
+The second dataset for the composed-uncertainty article
+UCI Default of Credit Card Clients (Taiwan), OpenML id 42477
+Anton Sokolov, Tyche Institute, Tallinn -- run of 2026-07-28T00:14:16+00:00
+==============================================================================
+
+[anchors] reading the deposited German-credit artefacts, read-only
+[anchors] 42 of 42 frozen pre-registered values reproduced from the deposits
+[data]  uci-default-of-credit-card-clients-taiwan (OpenML id 42477 v1): train = 21000, test = 9000, d = 23, positive share 0.2212
+[grid]  severity grid t/23, t = 0..23  ->  curve length L = 24, tensor cells 13824
+[boot]  B = 6 paired and 6 independent-stream replicates; B_full = 3 (logit) / 2 (rf)
+[subst] safeai @ 39768fcd5264 (vendored, read-only)
+[fit]   both models fitted on 21000 rows, untuned
+[streams] paired + three independent index streams drawn in 0.0 s (2 MB int64)
+[topsis] reference check at L = 24: Ci(best) = 1.000000, Ci(worst) = 0.000000 (thesis: 1.0 and 0.0)
+
+##############################################################################
+### logit
+##############################################################################
+[curves] point estimate in 1.1 s
+  RGA  len=24  [0.7511 0.7402 0.7251 0.7060 ... 0.0389 -0.0000]
+  RGE  len=24  [1.0000 1.0000 0.9999 0.9999 ... 0.9283 0.5006]
+  RGR  len=24  [1.0000 0.7918 0.6648 0.5366 ... 0.0912 0.0912]
+[anchor] RGA curve anchor 0.751133589691 vs the scalar rga_score 0.751133589691 -> |gap| 0.00e+00
+[composite] point estimate, three ways
+  arithmetic brute=0.541985508102  tensor=0.541985508102  closed=0.541985508102  |tensor-brute|=1.78e-15
+  geometric  brute=nan  tensor=0.394666208685  closed=0.394666208685  |tensor-brute|=nan
+  rms        brute=0.650804618785  tensor=0.650804618785  closed=none          |tensor-brute|=1.44e-15
+  rms gradient check (Euler): 0.650804618785 vs V = 0.650804618785, |gap| = 1.11e-16
+[precompute] curve path 0.3 s (24 masked + 24 swapped + 24 noise), scalar path 0.0 s (23 single masks + 1 fixed draw)
+[fastpath] max abs gap vs the package curves: RGA 0.00e+00  RGE 0.00e+00  RGR 0.00e+00
+[convention] RGE fast path vs package curve: with class_order 0.00e+00, without 1.10e-02
+[convention] RGR at p = 0.5: matrix convention 0.0912 vs bare vector 0.1339 (max gap over the curve 0.0428)
+[bootstrap] paired pass, B = 6, 1.3 s (222.0 ms a replicate)
+[bootstrap] independent-stream pass, B = 6, 0.6 s
+[summaries] corr of the three curve means: RGA-RGE +0.7828 (mc se 0.1804)  RGA-RGR -0.6689 (mc se 0.2203)  RGE-RGR -0.9359 (mc se 0.1574)
+[summaries] mean correlation at matched severity index: RGA-RGE +0.3724  RGA-RGR -0.3902  RGE-RGR -0.4247
+[summaries] per-index RGE-RGR: na +0.246 +0.118 -0.613 +0.585 -0.770 -0.841 -0.297 -0.440 -0.250 -0.239 -0.469 -0.168 -0.221 -0.631 -0.470 -0.583 -0.785 -0.324 -0.776 -0.653 -0.730 -0.808 -0.649
+[summaries] per-index RGA-RGR: na -0.435 -0.281 -0.585 -0.988 -0.874 -0.929 -0.528 -0.651 -0.739 -0.673 -0.711 -0.633 -0.312 +0.213 +0.122 -0.032 -0.166 -0.268 -0.110 +0.167 +0.177 -0.348 na
+[summaries] half-grid means RGE-RGR: first -0.2700, second -0.5665
+
+[arms] point value, paired bootstrap interval, and the cross-term cost
+  arithmetic                       V = 0.541986  boot95 = [0.538930, 0.542095]  w = 0.003165  delta w = 0.004543, declared-zero w = 0.007032, understated by -54.79% (mc se 152.96)
+                                     empirical (independent streams) width = 0.003666, understated by -15.83% (mc se 258.68)
+                                     corr(summaries) RGA-RGE +0.7828  RGA-RGR -0.6689  RGE-RGR -0.9359 | 2 g g Sigma: +2.467e-07 -1.936e-06 -1.860e-07 | cross share -139.60% (mc se 2661.56)
+  geometric                        V = 0.394666  boot95 = [0.390331, 0.395572]  w = 0.005241  delta w = 0.007799, declared-zero w = 0.010719, understated by -37.45% (mc se 42.10)
+                                     empirical (independent streams) width = 0.004153, understated by +20.75% (mc se 42.52)
+                                     corr(summaries) RGA-RGE +0.6604  RGA-RGR -0.4655  RGE-RGR -0.8747 | 2 g g Sigma: +1.124e-07 -3.478e-06 -1.534e-07 | cross share -88.91% (mc se 146.83)
+  rms                              V = 0.650805  boot95 = [0.648834, 0.650763]  w = 0.001929  delta w = 0.003398, declared-zero w = 0.004463, understated by -31.33% (mc se 115.81)
+                                     empirical (independent streams) width = 0.003286, understated by -70.36% (mc se 354.74)
+                                     corr(summaries) RGA-RGE +0.8511  RGA-RGR -0.7372  RGE-RGR -0.9385 | 2 g g Sigma: +2.714e-07 -6.859e-07 -1.301e-07 | cross share -72.47% (mc se 1375.43)
+  topsis                           V = 0.304668  boot95 = [0.301939, 0.304612]  w = 0.002673  delta w = 0.004172, declared-zero w = 0.006372, understated by -52.72% (mc se 42.67)
+                                     empirical (independent streams) width = 0.004156, understated by -55.48% (mc se 94.67)
+                                     corr(summaries) RGA-RGE +0.8042  RGA-RGR -0.7319  RGE-RGR -0.9556 | 2 g g Sigma: +6.897e-08 -1.538e-06 -4.059e-08 | cross share -133.22% (mc se 175.36)
+  arithmetic_weighted_SENSITIVITY  V = 0.472941  boot95 = [0.468722, 0.473481]  w = 0.004759  delta w = 0.007244, declared-zero w = 0.009527, understated by -31.52% (mc se 43.47)
+                                     empirical (independent streams) width = 0.005460, understated by -14.72% (mc se 96.83)
+                                     corr(summaries) RGA-RGE +0.7828  RGA-RGR -0.6689  RGE-RGR -0.9359 | 2 g g Sigma: +2.220e-07 -2.614e-06 -1.004e-07 | cross share -72.96% (mc se 226.23)
+  arithmetic_diagonal              V = 0.541986  boot95 = [0.538930, 0.542095]  w = 0.003165
+                                     empirical (independent streams) width = 0.003666, understated by -15.83% (mc se 258.68)
+  geometric_diagonal               V = 0.422387  boot95 = [0.418359, 0.423020]  w = 0.004661
+                                     empirical (independent streams) width = 0.003691, understated by +20.80% (mc se 42.21)
+  rms_diagonal                     V = 0.645477  boot95 = [0.643553, 0.645435]  w = 0.001882
+                                     empirical (independent streams) width = 0.003145, understated by -67.07% (mc se 2168.62)
+
+[diagonal] product space against the matched-severity diagonal
+  arithmetic product = 0.541986  diagonal = 0.541986  diff = +0.000000  boot95 of diff = [+0.000000, +0.000000]  excludes zero: False
+  geometric  product = 0.394666  diagonal = 0.422387  diff = +0.027721  boot95 of diff = [+0.027438, +0.028045]  excludes zero: True
+  rms        product = 0.650805  diagonal = 0.645477  diff = -0.005328  boot95 of diff = [-0.005355, -0.005270]  excludes zero: True
+
+[ordering] geometric 0.394666 <= arithmetic 0.541986 <= rms 0.650805 : True (replicates: 6/6 and 6/6)
+
+[sens] anchor dropped, L = 23: arithmetic -0.016307, geometric -0.017953, rms -0.013019
+[sens] terminal knot dropped, L = 23: arithmetic +0.014988, geometric +0.024686, rms +0.013149
+[sens] scaled Gaussian noise RGR: arithmetic +0.231324, geometric +0.273636, rms +0.176315
+[sens] TOPSIS at length 23: terminal-dropped 0.311299, anchor-dropped 0.291584, spread 0.019715 = 7.38 of the primary interval width
+
+[bridge] RGE-RGR correlation, one estimator change at a time:
+      +0.8389  (mc se 0.2020)  scalar RGE (bare)      x scalar RGR (bare)      [deposit pair]
+      +0.8019  (mc se 0.2403)  scalar RGE (class_ord) x scalar RGR (class_ord) [convention only]
+      +0.7718  (mc se 0.4572)  curve-mean RGE         x scalar RGR (class_ord) [RGE estimator swapped]
+      -0.6109  (mc se 0.4828)  scalar RGE (class_ord) x curve-mean RGR (swap)  [RGR estimator swapped]
+      +0.9408  (mc se 0.1110)  curve-mean RGE         x noise-sweep RGR mean   [sweep, same family]
+      -0.9359  (mc se 0.1574)  curve-mean RGE         x curve-mean RGR (swap)  [study pair]
+[bridge] RGA-RGE: scalars +0.4999 -> curve means +0.7828
+[bridge] RGA-RGR: scalars +0.4157 -> curve means -0.6689
+[invariance] max |corr(all 24 knots) - corr(deterministic knot deleted)| = 6.75e-14
+
+[conditioning] reduced-B check, B_full = 3 (logit), on the same index stream
+  arithmetic sd frozen 0.001399  sd full 0.002134  ratio 1.525  mc band [0.224, 1.740]  mean |paired diff| 0.000607
+  geometric  sd frozen 0.001335  sd full 0.002393  ratio 1.792  mc band [0.737, 2.401]  mean |paired diff| 0.001157
+  rms        sd frozen 0.001106  sd full 0.001565  ratio 1.415  mc band [1.236, 3.307]  mean |paired diff| 0.000404
+  cost: 3.2 s for 3 replicates (1.07 s a replicate)
+
+##############################################################################
+### rf
+##############################################################################
+[curves] point estimate in 27.1 s
+  RGA  len=24  [0.7654 0.7539 0.7400 0.7200 ... 0.0404 -0.0000]
+  RGE  len=24  [1.0000 0.9970 0.9938 0.9911 ... 0.8243 0.5006]
+  RGR  len=24  [1.0000 0.9403 0.8606 0.7653 ... 0.3645 0.3645]
+[anchor] RGA curve anchor 0.765361005914 vs the scalar rga_score 0.765361005914 -> |gap| 0.00e+00
+[composite] point estimate, three ways
+  arithmetic brute=0.614616754216  tensor=0.614616754216  closed=0.614616754216  |tensor-brute|=4.44e-16
+  geometric  brute=nan  tensor=0.530703469428  closed=0.530703469428  |tensor-brute|=nan
+  rms        brute=0.674229876061  tensor=0.674229876061  closed=none          |tensor-brute|=2.66e-15
+  rms gradient check (Euler): 0.674229876061 vs V = 0.674229876061, |gap| = 0.00e+00
+[precompute] curve path 7.1 s (24 masked + 24 swapped + 24 noise), scalar path 2.5 s (23 single masks + 1 fixed draw)
+[fastpath] max abs gap vs the package curves: RGA 0.00e+00  RGE 1.48e-07  RGR 5.68e-08
+[convention] RGE fast path vs package curve: with class_order 1.48e-07, without 2.65e-02
+[convention] RGR at p = 0.5: matrix convention 0.3645 vs bare vector 0.3834 (max gap over the curve 0.0345)
+[bootstrap] paired pass, B = 6, 1.1 s (187.9 ms a replicate)
+[bootstrap] independent-stream pass, B = 6, 0.5 s
+[summaries] corr of the three curve means: RGA-RGE +0.7164 (mc se 0.1867)  RGA-RGR -0.1813 (mc se 0.4397)  RGE-RGR -0.2352 (mc se 0.4777)
+[summaries] mean correlation at matched severity index: RGA-RGE +0.4799  RGA-RGR -0.0027  RGE-RGR -0.2368
+[summaries] per-index RGE-RGR: na +0.420 +0.684 +0.480 +0.142 +0.209 -0.336 -0.152 -0.447 -0.638 -0.630 -0.411 -0.461 -0.421 -0.587 -0.071 -0.638 -0.606 -0.283 -0.349 -0.395 -0.495 -0.122 -0.339
+[summaries] per-index RGA-RGR: na +0.723 +0.705 +0.511 +0.294 -0.269 -0.239 -0.301 -0.469 -0.268 -0.195 +0.011 +0.072 -0.201 -0.303 +0.216 +0.181 +0.003 -0.040 -0.397 -0.049 -0.134 +0.092 na
+[summaries] half-grid means RGE-RGR: first -0.0617, second -0.3972
+
+[arms] point value, paired bootstrap interval, and the cross-term cost
+  arithmetic                       V = 0.614617  boot95 = [0.613290, 0.618135]  w = 0.004845  delta w = 0.007766, declared-zero w = 0.007630, understated by +1.75% (mc se 39.86)
+                                     empirical (independent streams) width = 0.002168, understated by +55.25% (mc se 32.19)
+                                     corr(summaries) RGA-RGE +0.7164  RGA-RGR -0.1813  RGE-RGR -0.2352 | 2 g g Sigma: +9.637e-07 -6.100e-07 -2.175e-07 | cross share +3.47% (mc se 183.32)
+  geometric                        V = 0.530703  boot95 = [0.530343, 0.536829]  w = 0.006485  delta w = 0.010352, declared-zero w = 0.010643, understated by -2.81% (mc se 76.69)
+                                     empirical (independent streams) width = 0.004145, understated by +36.08% (mc se 94.09)
+                                     corr(summaries) RGA-RGE +0.5740  RGA-RGR -0.1451  RGE-RGR -0.2947 | 2 g g Sigma: +6.907e-07 -8.935e-07 -1.944e-07 | cross share -5.69% (mc se 399.82)
+  rms                              V = 0.674230  boot95 = [0.672796, 0.676518]  w = 0.003722  delta w = 0.006701, declared-zero w = 0.005813, understated by +13.26% (mc se 130.97)
+                                     empirical (independent streams) width = 0.002371, understated by +36.29% (mc se 237.25)
+                                     corr(summaries) RGA-RGE +0.8062  RGA-RGR -0.1466  RGE-RGR -0.1364 | 2 g g Sigma: +1.089e-06 -2.469e-07 -1.185e-07 | cross share +24.76% (mc se 3530.17)
+  topsis                           V = 0.370052  boot95 = [0.368658, 0.372546]  w = 0.003888  delta w = 0.006065, declared-zero w = 0.006656, understated by -9.75% (mc se 31.23)
+                                     empirical (independent streams) width = 0.001955, understated by +49.73% (mc se 31.02)
+                                     corr(summaries) RGA-RGE -0.8506  RGA-RGR -0.1609  RGE-RGR +0.3000 | 2 g g Sigma: -8.545e-08 -4.238e-07 +1.960e-08 | cross share -20.46% (mc se 100.81)
+  arithmetic_weighted_SENSITIVITY  V = 0.545836  boot95 = [0.544567, 0.550297]  w = 0.005730  delta w = 0.009945, declared-zero w = 0.010002, understated by -0.57% (mc se 269.42)
+                                     empirical (independent streams) width = 0.002800, understated by +51.13% (mc se 181.16)
+                                     corr(summaries) RGA-RGE +0.7164  RGA-RGR -0.1813  RGE-RGR -0.2352 | 2 g g Sigma: +8.673e-07 -8.235e-07 -1.174e-07 | cross share -1.14% (mc se 6698.36)
+  arithmetic_diagonal              V = 0.614617  boot95 = [0.613290, 0.618135]  w = 0.004845
+                                     empirical (independent streams) width = 0.002168, understated by +55.25% (mc se 32.19)
+  geometric_diagonal               V = 0.549098  boot95 = [0.548524, 0.554884]  w = 0.006360
+                                     empirical (independent streams) width = 0.003933, understated by +38.17% (mc se 81.41)
+  rms_diagonal                     V = 0.667371  boot95 = [0.665988, 0.669632]  w = 0.003644
+                                     empirical (independent streams) width = 0.002307, understated by +36.69% (mc se 329.07)
+
+[diagonal] product space against the matched-severity diagonal
+  arithmetic product = 0.614617  diagonal = 0.614617  diff = +0.000000  boot95 of diff = [+0.000000, +0.000000]  excludes zero: False
+  geometric  product = 0.530703  diagonal = 0.549098  diff = +0.018395  boot95 of diff = [+0.018028, +0.018401]  excludes zero: True
+  rms        product = 0.674230  diagonal = 0.667371  diff = -0.006859  boot95 of diff = [-0.006891, -0.006778]  excludes zero: True
+
+[ordering] geometric 0.530703 <= arithmetic 0.614617 <= rms 0.674230 : True (replicates: 6/6 and 6/6)
+
+[sens] anchor dropped, L = 23: arithmetic -0.013355, geometric -0.014154, rms -0.012186
+[sens] terminal knot dropped, L = 23: arithmetic +0.014184, geometric +0.029491, rms +0.011834
+[sens] scaled Gaussian noise RGR: arithmetic +0.118484, geometric +0.114224, rms +0.104222
+[sens] TOPSIS at length 23: terminal-dropped 0.375461, anchor-dropped 0.358322, spread 0.017139 = 4.41 of the primary interval width
+
+[bridge] RGE-RGR correlation, one estimator change at a time:
+      +0.8190  (mc se 0.2448)  scalar RGE (bare)      x scalar RGR (bare)      [deposit pair]
+      +0.8992  (mc se 0.1120)  scalar RGE (class_ord) x scalar RGR (class_ord) [convention only]
+      +0.8347  (mc se 0.1269)  curve-mean RGE         x scalar RGR (class_ord) [RGE estimator swapped]
+      -0.2180  (mc se 0.5040)  scalar RGE (class_ord) x curve-mean RGR (swap)  [RGR estimator swapped]
+      +0.9601  (mc se 0.2760)  curve-mean RGE         x noise-sweep RGR mean   [sweep, same family]
+      -0.2352  (mc se 0.4777)  curve-mean RGE         x curve-mean RGR (swap)  [study pair]
+[bridge] RGA-RGE: scalars +0.8751 -> curve means +0.7164
+[bridge] RGA-RGR: scalars +0.8366 -> curve means -0.1813
+[invariance] max |corr(all 24 knots) - corr(deterministic knot deleted)| = 1.90e-14
+
+[conditioning] reduced-B check, B_full = 2 (rf), on the same index stream
+  arithmetic sd frozen 0.003138  sd full 0.004517  ratio 1.439  mc band [1.439, 1.439]  mean |paired diff| 0.000975
+  geometric  sd frozen 0.004283  sd full 0.005743  ratio 1.341  mc band [1.341, 1.341]  mean |paired diff| 0.001032
+  rms        sd frozen 0.002571  sd full 0.003747  ratio 1.457  mc band [1.457, 1.457]  mean |paired diff| 0.000832
+  cost: 59.7 s for 2 replicates (29.84 s a replicate)
+
+[topsis-norm] thesis step 2 (column normalisation), measured
+  models_and_references              alternatives=4  min column norm 8.67e-01  logit 0.286400 (-0.018268)  rf 0.368225 (-0.001827)
+  models_only                        alternatives=2  min column norm 2.48e-16  logit 0.000000 (-0.304668)  rf 0.000000 (-0.370052)
+  one_model_logit_and_references     alternatives=3  min column norm 7.08e-01  logit 0.293168 (-0.011500)  rf 0.369075 (-0.000978)
+  one_model_rf_and_references        alternatives=3  min column norm 7.08e-01  logit 0.292771 (-0.011897)  rf 0.360903 (-0.009150)
+
+##############################################################################
+### the scalar construction: two conditioning schemes and the two-link chain
+##############################################################################
+[redraw] logit: 6 fresh perturbation draws + predictions, 0.0 s cumulative
+[redraw] rf: 6 fresh perturbation draws + predictions, 0.6 s cumulative
+[logit] fixed-draw corr: RGA-RGE +0.4999  RGA-RGR +0.4157  RGE-RGR +0.8389
+[logit] redraw     corr: RGA-RGE +0.4999  RGA-RGR +0.7414  RGE-RGR +0.9075
+[rf] fixed-draw corr: RGA-RGE +0.8751  RGA-RGR +0.8366  RGE-RGR +0.8190
+[rf] redraw     corr: RGA-RGE +0.8751  RGA-RGR +0.5343  RGE-RGR +0.6810
+[chain/fixed_draw] rho = +0.8613 (mc se 0.2527)  h = 0.7696  measured width 0.013680  declared-zero width 0.010068  understatement +26.40% (mc se 26.67)
+[chain/redraw] rho = +0.8234 (mc se 0.2817)  h = 0.7696  measured width 0.016438  declared-zero width 0.012254  understatement +25.45% (mc se 10.08)
+[chain] pass in 0.3 s
+
+##############################################################################
+### pre-registered coding sensitivity: y' = 1 - y (y' = 1 is now 'no default')
+##############################################################################
+[coding] logit under y' = 1 - y: curve-mean RGE-RGR -0.9359 (primary -0.9359), RGA-RGR -0.5459 (primary -0.6689), rung 4 -0.6109 (primary -0.6109)
+[coding] rf under y' = 1 - y: curve-mean RGE-RGR -0.2352 (primary -0.2352), RGA-RGR -0.4063 (primary -0.1813), rung 4 -0.2179 (primary -0.2180)
+[coding] pass in 40.0 s
+
+##############################################################################
+### the pre-registered verdict, applied
+##############################################################################
+[verdict] INCONCLUSIVE
+  generalises (a) rung 4 negative on both models                                                              True
+  generalises (b) rung 5 positive on both models                                                              True
+  generalises (c) rung 6 negative on both models                                                              True
+  generalises (d) delta understatement of the three volume variants within 6 pp of zero on both models        False
+  generalises (e) chain understatement >= 10 pp and rho > 0 under both schemes                                True
+  failure     (a') rung 4 positive on both models                                                             False
+  failure     (b') rung 6 positive on both models                                                             False
+  failure     (c') volume delta understatement exceeds +15 pp on both models (read as: the largest of the three variants exceeds +15 on each model) False
+  failure     (d') chain understatement below 5 pp under both schemes                                         False
+  inconclusive quantities_inside_two_mc_standard_errors_of_zero                                               ['bridge rung 4 on logit (-0.6109, mc se 0.4828)', 'bridge rung 4 on rf (-0.2180, mc se 0.5040)', 'bridge rung 6 on rf (-0.2352, mc se 0.4777)', 'chain understatement under fixed_draw (26.40, mc se 26.67)']
+  inconclusive models_disagree_in_sign_on_rung_4                                                              False
+  inconclusive models_disagree_in_sign_on_rung_6                                                              False
+  inconclusive coding_sensitivity_flips_rung_6                                                                False
+  inconclusive coding_sensitivity_flips_rung_4                                                                False
+
+[compare] German credit beside Taiwan, pre-registered quantities only
+  quantity                                                   German       Taiwan      mc se
+  P1 corr(curve-mean RGE, curve-mean RGR), logit            -0.1372      -0.9359     0.1574
+  P2 corr(curve-mean RGA, curve-mean RGR), logit            -0.0583      -0.6689     0.2203
+  P3 delta understatement % arithmetic, logit               -0.9138     -54.7904   152.9609
+  P4 empirical understatement % arithmetic, logit            0.8904     -15.8291   258.6820
+  P3 delta understatement % geometric, logit                -1.8622     -37.4456    42.0992
+  P4 empirical understatement % geometric, logit             1.4481      20.7515    42.5196
+  P3 delta understatement % rms, logit                       1.2643     -31.3297   115.8142
+  P4 empirical understatement % rms, logit                  -1.4054     -70.3562   354.7385
+  P3 delta understatement % topsis, logit                   -1.4977     -52.7170    42.6745
+  P4 empirical understatement % topsis, logit               -3.0995     -55.4800    94.6651
+  P6 bridge rung 1, logit                                    0.5967       0.8389     0.2020
+  P6 bridge rung 2, logit                                    0.6144       0.8019     0.2403
+  P6 bridge rung 3, logit                                    0.4249       0.7718     0.4572
+  P6 bridge rung 4, logit                                   -0.2083      -0.6109     0.4828
+  P6 bridge rung 5, logit                                    0.5354       0.9408     0.1110
+  P6 bridge rung 6, logit                                   -0.1372      -0.9359     0.1574
+  P1 corr(curve-mean RGE, curve-mean RGR), rf               -0.3102      -0.2352     0.4777
+  P2 corr(curve-mean RGA, curve-mean RGR), rf               -0.0800      -0.1813     0.4397
+  P3 delta understatement % arithmetic, rf                  -3.0756       1.7513    39.8597
+  P4 empirical understatement % arithmetic, rf              -6.4861      55.2541    32.1897
+  P3 delta understatement % geometric, rf                   -3.0856      -2.8080    76.6894
+  P4 empirical understatement % geometric, rf               -5.2052      36.0828    94.0920
+  P3 delta understatement % rms, rf                         -1.4984      13.2586   130.9678
+  P4 empirical understatement % rms, rf                     -4.8581      36.2939   237.2458
+  P3 delta understatement % topsis, rf                      -3.1111      -9.7526    31.2299
+  P4 empirical understatement % topsis, rf                  -7.5554      49.7252    31.0221
+  P6 bridge rung 1, rf                                       0.3415       0.8190     0.2448
+  P6 bridge rung 2, rf                                       0.3437       0.8992     0.1120
+  P6 bridge rung 3, rf                                       0.2879       0.8347     0.1269
+  P6 bridge rung 4, rf                                      -0.1529      -0.2180     0.5040
+  P6 bridge rung 5, rf                                       0.4711       0.9601     0.2760
+  P6 bridge rung 6, rf                                      -0.3102      -0.2352     0.4777
+  P5 chain rho, fixed_draw                                   0.7222       0.8613     0.2527
+  P5 chain understatement %, fixed_draw                     23.7927      26.4006    26.6670
+  P5 chain rho, redraw                                       0.7120       0.8234     0.2817
+  P5 chain understatement %, redraw                         23.5711      25.4537    10.0828
+
+[replicates] /srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/second-dataset-2026-07-27/replicates-second-dataset-SMOKE.npz
+[done] total runtime 148.1 s (2.5 min)

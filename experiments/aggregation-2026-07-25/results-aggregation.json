@@ -1,0 +1,4167 @@
+{
+  "study": "aggregation layer for the composed rank-graduation score: one interval construction, several composites",
+  "generated_utc": "2026-07-25T09:38:24Z",
+  "dataset": "statlog-german-credit (OpenML credit-g v1)",
+  "n_test": 300,
+  "B": 2000,
+  "alpha": 0.05,
+  "noise_sd": 0.5,
+  "seed": 20260723,
+  "z_two_sided_95": 1.959963984540054,
+  "safeai_commit": "39768fcd5264c881f7174268bbffda52b298ae89",
+  "conventions": {
+    "understatement_of_width_pct": "100 * (1 - width_declared_zero / width_measured); the denominator is the wider, honest width, matching the deposited chain convention",
+    "cross_covariance_share_of_variance_pct": "100 * (1 - var_declared_zero / var_measured)",
+    "delta_centre_under_redraw": "the fixed-draw point vector is reused as the linearisation centre under the redraw scheme, as in the deposited redraw run, which stores point_fixed_draw only",
+    "independent_stream": "fixed draw only; the empirical counterpart of declaring the cross-terms zero"
+  },
+  "composites": {
+    "wsum_equal": {
+      "description": "weighted sum, equal weights w = (1/3, 1/3, 1/3); linear, delta method exact",
+      "weights": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    },
+    "wsum_accuracy_led": {
+      "description": "weighted sum, w = (0.50, 0.20, 0.30); a declared unequal profile, not a recommendation",
+      "weights": [
+        0.5,
+        0.2,
+        0.3
+      ]
+    },
+    "wsum_accuracy_light": {
+      "description": "weighted sum, w = (0.20, 0.40, 0.40); downweights the variance-dominant component",
+      "weights": [
+        0.2,
+        0.4,
+        0.4
+      ]
+    },
+    "geomean": {
+      "description": "geometric mean (RGA*RGE*RGR)^(1/3); the deposited composite, continuity case"
+    },
+    "topsis": {
+      "description": "TOPSIS with ideal fixed at 1 and anti-ideal at 0, Euclidean distance, closeness cc = d_minus/(d_minus + d_plus)",
+      "instantiation": "ideal point fixed at (1,1,1), anti-ideal at (0,0,0), Euclidean distance, closeness coefficient. A data-dependent ideal would make the composite depend on the other alternatives and would require the joint covariance ACROSS models: out of scope here."
+    },
+    "shapley_min": {
+      "description": "sum of Shapley values of the game v(S) = min_{k in S} theta_k, v(empty) = 0",
+      "instantiation": "v(S) = min over S, v(empty) = 0; composite = sum of the three Shapley values. ONE defensible instantiation, not a canonical one; the Shapley-Lorenz line of the Pavia group is a different construction and this is a placeholder until their composite is known."
+    },
+    "shapley_prod": {
+      "description": "sum of Shapley values of the game v(S) = prod_{k in S} theta_k, v(empty) = 0",
+      "instantiation": "v(S) = prod over S, v(empty) = 0; the smooth counterpart of shapley_min."
+    }
+  },
+  "models": {
+    "logit": {
+      "point_fixed_draw": {
+        "RGA": 0.8052154195011337,
+        "RGE": 0.9895241103151701,
+        "RGR": 0.9542332361339708
+      },
+      "Sigma_fixed_draw": [
+        [
+          0.0008655310792022873,
+          8.020739791888096e-06,
+          2.8854270412130535e-05
+        ],
+        [
+          8.020739791888096e-06,
+          9.098701989895637e-07,
+          3.497016735227184e-06
+        ],
+        [
+          2.8854270412130535e-05,
+          3.497016735227184e-06,
+          3.774486738687082e-05
+        ]
+      ],
+      "Sigma_redraw": [
+        [
+          0.0008655310792022873,
+          8.020739791888096e-06,
+          2.60244097418348e-05
+        ],
+        [
+          8.020739791888096e-06,
+          9.098701989895637e-07,
+          2.8463899947327613e-06
+        ],
+        [
+          2.60244097418348e-05,
+          2.8463899947327613e-06,
+          4.816415450191128e-05
+        ]
+      ],
+      "Corr_fixed_draw": [
+        [
+          0.9999999999999999,
+          0.2858139179651909,
+          0.15963929901596527
+        ],
+        [
+          0.28581391796519084,
+          1.0,
+          0.5967316024170706
+        ],
+        [
+          0.15963929901596527,
+          0.5967316024170706,
+          0.9999999999999999
+        ]
+      ],
+      "Corr_redraw": [
+        [
+          0.9999999999999999,
+          0.2858139179651909,
+          0.1274610771077333
+        ],
+        [
+          0.28581391796519084,
+          1.0,
+          0.42997451305979617
+        ],
+        [
+          0.1274610771077333,
+          0.42997451305979617,
+          1.0
+        ]
+      ],
+      "mean_RGR_redraw_replicates": 0.9569832135456117,
+      "arms": {
+        "wsum_equal": {
+          "gradient_analytic": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "gradient_numerical_central_difference": [
+            0.33333333332441484,
+            0.333333333379926,
+            0.33333333332441484
+          ],
+          "gradient_max_abs_difference": 4.6592674163292713e-11,
+          "fixed_draw": {
+            "C_point": 0.9163242553167582,
+            "gradient_at_point": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "var_delta_measured_covariance": 0.00010943665229629325,
+            "var_delta_cross_terms_declared_zero": 0.00010046509075423863,
+            "cross_covariance_share_of_variance_pct": 8.197949547802907,
+            "ci95_delta_measured_covariance": [
+              0.8958206850600728,
+              0.9368278255734436
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8966790902869167,
+              0.9359694203465997
+            ],
+            "width_delta_measured": 0.04100714051337073,
+            "width_delta_declared_zero": 0.039290330059682965,
+            "understatement_of_width_pct": 4.186613434135911,
+            "ci95_paired_bootstrap_percentile": [
+              0.8944720992376397,
+              0.9357279643726603
+            ],
+            "width_paired_bootstrap": 0.04125586513502055,
+            "sd_paired_bootstrap": 0.010461197459960941,
+            "sd_delta_measured": 0.010461197459960941,
+            "mean_paired_bootstrap": 0.916302477048519,
+            "plugin_minus_bootstrap_mean": 2.1778268239236453e-05,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 33.33333333333333,
+                "RGE": 33.33333333333333,
+                "RGR": 33.33333333333333
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 9.617011991136526e-05,
+                "RGE": 1.0109668877661817e-07,
+                "RGR": 4.193874154096758e-06
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 87.87743218879754,
+                "RGE": 0.09237918618243628,
+                "RGR": 3.8322390772171024
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.782386620419577e-06,
+                "RGA_RGR": 6.412060091584563e-06,
+                "RGE_RGR": 7.771148300504852e-07
+              },
+              "cross_total": 8.971561542054625e-06,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 19.867072326980693,
+                "RGA_RGR": 71.47094807885699,
+                "RGE_RGR": 8.661979594162313
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.8953152330529979,
+              0.935370213607693
+            ],
+            "width_independent_stream_bootstrap": 0.04005498055469514,
+            "sd_independent_stream_bootstrap": 0.010265505416374061,
+            "empirical_understatement_of_width_pct": 2.910821470826519
+          },
+          "redraw": {
+            "C_point": 0.9163242553167582,
+            "gradient_at_point": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "var_delta_measured_covariance": 0.00010982090921778883,
+            "var_delta_cross_terms_declared_zero": 0.00010162278932257647,
+            "cross_covariance_share_of_variance_pct": 7.464990003820171,
+            "ci95_delta_measured_covariance": [
+              0.8957847202584536,
+              0.9368637903750628
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8965662250397607,
+              0.9360822855937557
+            ],
+            "width_delta_measured": 0.04107907011660927,
+            "width_delta_declared_zero": 0.039516060553995036,
+            "understatement_of_width_pct": 3.8048805831714105,
+            "ci95_paired_bootstrap_percentile": [
+              0.8957042540948341,
+              0.936258342361012
+            ],
+            "width_paired_bootstrap": 0.0405540882661779,
+            "sd_paired_bootstrap": 0.010479547185722712,
+            "sd_delta_measured": 0.010479547185722712,
+            "mean_paired_bootstrap": 0.9172854691153021,
+            "plugin_minus_bootstrap_mean": -0.0009612137985438585,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 33.33333333333333,
+                "RGE": 33.33333333333333,
+                "RGR": 33.33333333333333
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 9.617011991136526e-05,
+                "RGE": 1.0109668877661817e-07,
+                "RGR": 5.351572722434586e-06
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 87.56995420666902,
+                "RGE": 0.09205595682706522,
+                "RGR": 4.872999832683717
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.782386620419577e-06,
+                "RGA_RGR": 5.783202164852178e-06,
+                "RGE_RGR": 6.325311099406136e-07
+              },
+              "cross_total": 8.198119895212368e-06,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 21.741407093356557,
+                "RGA_RGR": 70.54302985041141,
+                "RGE_RGR": 7.715563056232032
+              }
+            }
+          }
+        },
+        "wsum_accuracy_led": {
+          "gradient_analytic": [
+            0.5,
+            0.2,
+            0.3
+          ],
+          "gradient_numerical_central_difference": [
+            0.5000000000143778,
+            0.20000000000575113,
+            0.29999999995311555
+          ],
+          "gradient_max_abs_difference": 4.6884440774164204e-11,
+          "fixed_draw": {
+            "C_point": 0.8867825026537921,
+            "gradient_at_point": [
+              0.5,
+              0.2,
+              0.3
+            ],
+            "var_delta_measured_covariance": 0.00023049627376359386,
+            "var_delta_cross_terms_declared_zero": 0.00021981620267334977,
+            "cross_covariance_share_of_variance_pct": 4.633511386478206,
+            "ci95_delta_measured_covariance": [
+              0.8570261261273014,
+              0.9165388791802828
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8577236848751724,
+              0.9158413204324118
+            ],
+            "width_delta_measured": 0.059512753052981315,
+            "width_delta_declared_zero": 0.05811763555723948,
+            "understatement_of_width_pct": 2.344232831070392,
+            "ci95_paired_bootstrap_percentile": [
+              0.854824639983945,
+              0.9149139690399978
+            ],
+            "width_paired_bootstrap": 0.0600893290560528,
+            "sd_paired_bootstrap": 0.015182103733132437,
+            "sd_delta_measured": 0.015182103733132436,
+            "mean_paired_bootstrap": 0.8867936785540287,
+            "plugin_minus_bootstrap_mean": -1.1175900236581882e-05,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 50.0,
+                "RGE": 20.0,
+                "RGR": 30.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.00021638276980057183,
+                "RGE": 3.6394807959582553e-08,
+                "RGR": 3.397038064818374e-06
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 93.87690580304245,
+                "RGE": 0.01578975979321493,
+                "RGR": 1.4737930506861519
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.6041479583776193e-06,
+                "RGA_RGR": 8.65628112363916e-06,
+                "RGE_RGR": 4.1964200822726206e-07
+              },
+              "cross_total": 1.068007109024404e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 15.020011990771911,
+                "RGA_RGR": 81.05078187678396,
+                "RGE_RGR": 3.929206132444135
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.8556774386711083,
+              0.9154258915156074
+            ],
+            "width_independent_stream_bootstrap": 0.059748452844499034,
+            "sd_independent_stream_bootstrap": 0.015151197446493191,
+            "empirical_understatement_of_width_pct": 0.5672824391761533
+          },
+          "redraw": {
+            "C_point": 0.8867825026537921,
+            "gradient_at_point": [
+              0.5,
+              0.2,
+              0.3
+            ],
+            "var_delta_measured_covariance": 0.00023050697619399942,
+            "var_delta_cross_terms_declared_zero": 0.0002207539385137034,
+            "cross_covariance_share_of_variance_pct": 4.231124732679525,
+            "ci95_delta_measured_covariance": [
+              0.8570254353095129,
+              0.9165395699980713
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8576617683858099,
+              0.9159032369217743
+            ],
+            "width_delta_measured": 0.05951413468855837,
+            "width_delta_declared_zero": 0.05824146853596446,
+            "understatement_of_width_pct": 2.1384267103165766,
+            "ci95_paired_bootstrap_percentile": [
+              0.856379488820379,
+              0.915304451027975
+            ],
+            "width_paired_bootstrap": 0.05892496220759602,
+            "sd_paired_bootstrap": 0.015182456197664444,
+            "sd_delta_measured": 0.015182456197664443,
+            "mean_paired_bootstrap": 0.8876783714141334,
+            "plugin_minus_bootstrap_mean": -0.0008958687603413118,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 50.0,
+                "RGE": 20.0,
+                "RGR": 30.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.00021638276980057183,
+                "RGE": 3.6394807959582553e-08,
+                "RGR": 4.334773905172015e-06
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 93.87254710176738,
+                "RGE": 0.015789026675249923,
+                "RGR": 1.8805391388778532
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.6041479583776193e-06,
+                "RGA_RGR": 7.80732292255044e-06,
+                "RGE_RGR": 3.4156679936793136e-07
+              },
+              "cross_total": 9.75303768029599e-06,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 16.447675185531896,
+                "RGA_RGR": 80.05016671189053,
+                "RGE_RGR": 3.5021581025775896
+              }
+            }
+          }
+        },
+        "wsum_accuracy_light": {
+          "gradient_analytic": [
+            0.2,
+            0.4,
+            0.4
+          ],
+          "gradient_numerical_central_difference": [
+            0.20000000000575113,
+            0.40000000001150227,
+            0.40000000001150227
+          ],
+          "gradient_max_abs_difference": 1.150224360202401e-11,
+          "fixed_draw": {
+            "C_point": 0.9385460224798832,
+            "gradient_at_point": [
+              0.2,
+              0.4,
+              0.4
+            ],
+            "var_delta_measured_covariance": 4.782504816974485e-05,
+            "var_delta_cross_terms_declared_zero": 4.080600118182916e-05,
+            "cross_covariance_share_of_variance_pct": 14.67650793158236,
+            "ci95_delta_measured_covariance": [
+              0.924991762885874,
+              0.9521002820738923
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.9260258558205614,
+              0.9510661891392049
+            ],
+            "width_delta_measured": 0.027108519188018265,
+            "width_delta_declared_zero": 0.025040333318643526,
+            "understatement_of_width_pct": 7.629283824137689,
+            "ci95_paired_bootstrap_percentile": [
+              0.9241148689955682,
+              0.9511783757789336
+            ],
+            "width_paired_bootstrap": 0.027063506783365443,
+            "sd_paired_bootstrap": 0.006915565643513539,
+            "sd_delta_measured": 0.0069155656435135405,
+            "mean_paired_bootstrap": 0.938490460064629,
+            "plugin_minus_bootstrap_mean": 5.556241525417338e-05,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 20.0,
+                "RGE": 40.0,
+                "RGR": 40.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 3.46212431680915e-05,
+                "RGE": 1.4557923183833021e-07,
+                "RGR": 6.039178781899333e-06
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 72.39144442721889,
+                "RGE": 0.30439955088310144,
+                "RGR": 12.627648090315667
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.2833183667020956e-06,
+                "RGA_RGR": 4.616683265940887e-06,
+                "RGE_RGR": 1.1190453552726992e-06
+              },
+              "cross_total": 7.019046987915681e-06,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 18.283370504735423,
+                "RGA_RGR": 65.77364810193156,
+                "RGE_RGR": 15.942981393333024
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.9251952883619328,
+              0.9506311889637628
+            ],
+            "width_independent_stream_bootstrap": 0.025435900601829986,
+            "sd_independent_stream_bootstrap": 0.006563238678216614,
+            "empirical_understatement_of_width_pct": 6.01402543492946
+          },
+          "redraw": {
+            "C_point": 0.9385460224798832,
+            "gradient_at_point": [
+              0.2,
+              0.4,
+              0.4
+            ],
+            "var_delta_measured_covariance": 4.883115584394579e-05,
+            "var_delta_cross_terms_declared_zero": 4.247308712023563e-05,
+            "cross_covariance_share_of_variance_pct": 13.020516540770032,
+            "ci95_delta_measured_covariance": [
+              0.9248499327334841,
+              0.9522421122262822
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.9257726668064457,
+              0.9513193781533207
+            ],
+            "width_delta_measured": 0.02739217949279804,
+            "width_delta_declared_zero": 0.02554671134687503,
+            "understatement_of_width_pct": 6.737208137849072,
+            "ci95_paired_bootstrap_percentile": [
+              0.9253735763288677,
+              0.952382284029992
+            ],
+            "width_paired_bootstrap": 0.02700870770112429,
+            "sd_paired_bootstrap": 0.006987929295860525,
+            "sd_delta_measured": 0.006987929295860526,
+            "mean_paired_bootstrap": 0.9396700505447686,
+            "plugin_minus_bootstrap_mean": -0.0011240280648854295,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 20.0,
+                "RGE": 40.0,
+                "RGR": 40.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 3.46212431680915e-05,
+                "RGE": 1.4557923183833021e-07,
+                "RGR": 7.706264720305806e-06
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 70.89990513174374,
+                "RGE": 0.2981277615126932,
+                "RGR": 15.781450565973547
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.2833183667020956e-06,
+                "RGA_RGR": 4.163905558693569e-06,
+                "RGE_RGR": 9.108447983144838e-07
+              },
+              "cross_total": 6.3580687237101485e-06,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 20.184090837464808,
+                "RGA_RGR": 65.49009989724976,
+                "RGE_RGR": 14.325809265285434
+              }
+            }
+          }
+        },
+        "geomean": {
+          "gradient_analytic": [
+            0.37783106570143493,
+            0.3074562781218543,
+            0.3188270839338359
+          ],
+          "gradient_numerical_central_difference": [
+            0.37783106571209757,
+            0.30745627810357945,
+            0.3188270839560303
+          ],
+          "gradient_max_abs_difference": 2.2194412974130273e-11,
+          "fixed_draw": {
+            "C_point": 0.9127062002080241,
+            "gradient_at_point": [
+              0.37783106570143493,
+              0.3074562781218543,
+              0.3188270839338359
+            ],
+            "var_delta_measured_covariance": 0.00013698363569666417,
+            "var_delta_cross_terms_declared_zero": 0.00012748282869857352,
+            "cross_covariance_share_of_variance_pct": 6.935724073734761,
+            "ci95_delta_measured_covariance": [
+              0.8897667800837554,
+              0.9356456203322927
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8905765812146664,
+              0.9348358192013817
+            ],
+            "width_delta_measured": 0.04587884024853728,
+            "width_delta_declared_zero": 0.04425923798671527,
+            "understatement_of_width_pct": 3.530172630886508,
+            "ci95_paired_bootstrap_percentile": [
+              0.8876996343085799,
+              0.9337505776594492
+            ],
+            "width_paired_bootstrap": 0.046050943350869344,
+            "sd_paired_bootstrap": 0.011738308998637655,
+            "sd_delta_measured": 0.011704000841450079,
+            "mean_paired_bootstrap": 0.9125590784571999,
+            "plugin_minus_bootstrap_mean": 0.00014712175082420842,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 37.628287698782536,
+                "RGE": 30.619645492856293,
+                "RGR": 31.75206680836118
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.00012356002670032762,
+                "RGE": 8.600945028362647e-08,
+                "RGR": 3.836792547962273e-06
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 90.20057474159779,
+                "RGE": 0.062788120527101,
+                "RGR": 2.8009130641403366
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.8634830709566947e-06,
+                "RGA_RGR": 6.951731078376039e-06,
+                "RGE_RGR": 6.855928487579398e-07
+              },
+              "cross_total": 9.500806998090674e-06,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 19.613945124147758,
+                "RGA_RGR": 73.16990103864957,
+                "RGE_RGR": 7.216153837202668
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.8885401989991459,
+              0.9337780884808239
+            ],
+            "width_independent_stream_bootstrap": 0.04523788948167795,
+            "sd_independent_stream_bootstrap": 0.011600672291736,
+            "empirical_understatement_of_width_pct": 1.7655531244965106
+          },
+          "redraw": {
+            "C_point": 0.9127062002080241,
+            "gradient_at_point": [
+              0.37783106570143493,
+              0.3074562781218543,
+              0.3188270839338359
+            ],
+            "var_delta_measured_covariance": 0.00013723342199658772,
+            "var_delta_cross_terms_declared_zero": 0.00012854195662577805,
+            "cross_covariance_share_of_variance_pct": 6.333344490255277,
+            "ci95_delta_measured_covariance": [
+              0.889745874874466,
+              0.9356665255415821
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8904848448688604,
+              0.9349275555471878
+            ],
+            "width_delta_measured": 0.04592065066711615,
+            "width_delta_declared_zero": 0.04444271067832739,
+            "understatement_of_width_pct": 3.2184648242519653,
+            "ci95_paired_bootstrap_percentile": [
+              0.8889449924995799,
+              0.9345003944775262
+            ],
+            "width_paired_bootstrap": 0.045555401977946275,
+            "sd_paired_bootstrap": 0.011759155739980908,
+            "sd_delta_measured": 0.0117146669605494,
+            "mean_paired_bootstrap": 0.9134967883994871,
+            "plugin_minus_bootstrap_mean": -0.0007905881914630486,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 37.628287698782536,
+                "RGE": 30.619645492856293,
+                "RGR": 31.75206680836118
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.00012356002670032762,
+                "RGE": 8.600945028362647e-08,
+                "RGR": 4.895920475166809e-06
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 90.03639558255706,
+                "RGE": 0.06267383632375287,
+                "RGR": 3.567586090863889
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.8634830709566947e-06,
+                "RGA_RGR": 6.2699453292240354e-06,
+                "RGE_RGR": 5.580369706289536e-07
+              },
+              "cross_total": 8.691465370809683e-06,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 21.440378479965062,
+                "RGA_RGR": 72.13910499237181,
+                "RGE_RGR": 6.420516527663134
+              }
+            }
+          }
+        },
+        "topsis": {
+          "gradient_analytic": [
+            0.5129721946987852,
+            0.06458437659554397,
+            0.15044032838584792
+          ],
+          "gradient_numerical_central_difference": [
+            0.5129721946661725,
+            0.06458437656897686,
+            0.15044032841693422
+          ],
+          "gradient_max_abs_difference": 3.261269032606151e-11,
+          "fixed_draw": {
+            "C_point": 0.8882838564082639,
+            "gradient_at_point": [
+              0.5129721946987852,
+              0.06458437659554397,
+              0.15044032838584792
+            ],
+            "var_delta_measured_covariance": 0.00023366718050119492,
+            "var_delta_cross_terms_declared_zero": 0.00022861430524723981,
+            "cross_covariance_share_of_variance_pct": 2.1624240268218853,
+            "ci95_delta_measured_covariance": [
+              0.8583235017434232,
+              0.9182442110731046
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8586492071032887,
+              0.9179185057132391
+            ],
+            "width_delta_measured": 0.05992070932968141,
+            "width_delta_declared_zero": 0.05926929860995034,
+            "understatement_of_width_pct": 1.087121175664052,
+            "ci95_paired_bootstrap_percentile": [
+              0.8567937733659106,
+              0.9169384742268439
+            ],
+            "width_paired_bootstrap": 0.060144700860933376,
+            "sd_paired_bootstrap": 0.015241657482391776,
+            "sd_delta_measured": 0.015286176124237053,
+            "mean_paired_bootstrap": 0.8883625982425127,
+            "plugin_minus_bootstrap_mean": -7.874183424882997e-05,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 70.46351363915748,
+                "RGE": 8.87151808255188,
+                "RGR": 20.66496827829064
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.0002277562571742294,
+                "RGE": 3.7951975288065304e-09,
+                "RGR": 8.542528754816359e-07
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 97.47036647838723,
+                "RGE": 0.0016241893793840344,
+                "RGR": 0.3655853054114577
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 5.314540486585533e-07,
+                "RGA_RGR": 4.453466512898032e-06,
+                "RGE_RGR": 6.7954692398569e-08
+              },
+              "cross_total": 5.0528752539551544e-06,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 10.517854131517613,
+                "RGA_RGR": 88.13727410768882,
+                "RGE_RGR": 1.3448717607935647
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.8567266404427539,
+              0.9173841647882504
+            ],
+            "width_independent_stream_bootstrap": 0.06065752434549643,
+            "sd_independent_stream_bootstrap": 0.015368780854958578,
+            "empirical_understatement_of_width_pct": -0.8526494890194858
+          },
+          "redraw": {
+            "C_point": 0.8882838564082639,
+            "gradient_at_point": [
+              0.5129721946987852,
+              0.06458437659554397,
+              0.15044032838584792
+            ],
+            "var_delta_measured_covariance": 0.00023345357940354766,
+            "var_delta_cross_terms_declared_zero": 0.00022885011759987743,
+            "cross_covariance_share_of_variance_pct": 1.9718960040928213,
+            "ci95_delta_measured_covariance": [
+              0.8583371986344426,
+              0.9182305141820852
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8586339271862415,
+              0.9179337856302863
+            ],
+            "width_delta_measured": 0.059893315547642656,
+            "width_delta_declared_zero": 0.05929985844404473,
+            "understatement_of_width_pct": 0.9908569899187758,
+            "ci95_paired_bootstrap_percentile": [
+              0.8573154564415495,
+              0.917203788771285
+            ],
+            "width_paired_bootstrap": 0.05988833232973545,
+            "sd_paired_bootstrap": 0.015259438580729609,
+            "sd_delta_measured": 0.015279187786120951,
+            "mean_paired_bootstrap": 0.8887889245508545,
+            "plugin_minus_bootstrap_mean": -0.0005050681425905479,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 70.46351363915748,
+                "RGE": 8.87151808255188,
+                "RGR": 20.66496827829064
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.0002277562571742294,
+                "RGE": 3.7951975288065304e-09,
+                "RGR": 1.0900652281192318e-06
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 97.5595481363471,
+                "RGE": 0.001625675450555485,
+                "RGR": 0.4669301841095124
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 5.314540486585533e-07,
+                "RGA_RGR": 4.016696164823975e-06,
+                "RGE_RGR": 5.531159018770418e-08
+              },
+              "cross_total": 4.603461803670232e-06,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 11.54466076453241,
+                "RGA_RGR": 87.25381758618173,
+                "RGE_RGR": 1.201521649285882
+              }
+            }
+          }
+        },
+        "shapley_min": {
+          "gradient_analytic": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "gradient_numerical_central_difference": [
+            1.0000000000287557,
+            0.0,
+            0.0
+          ],
+          "gradient_max_abs_difference": 2.8755664516211255e-11,
+          "fixed_draw": {
+            "C_point": 0.8052154195011336,
+            "gradient_at_point": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "var_delta_measured_covariance": 0.0008655310792022873,
+            "var_delta_cross_terms_declared_zero": 0.0008655310792022873,
+            "cross_covariance_share_of_variance_pct": 0.0,
+            "ci95_delta_measured_covariance": [
+              0.7475534563123336,
+              0.8628773826899336
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.7475534563123336,
+              0.8628773826899336
+            ],
+            "width_delta_measured": 0.11532392637760003,
+            "width_delta_declared_zero": 0.11532392637760003,
+            "understatement_of_width_pct": 0.0,
+            "ci95_paired_bootstrap_percentile": [
+              0.7443038803389271,
+              0.8601003709315189
+            ],
+            "width_paired_bootstrap": 0.11579649059259178,
+            "sd_paired_bootstrap": 0.029419909571619808,
+            "sd_delta_measured": 0.02941990957161982,
+            "mean_paired_bootstrap": 0.8053625619679696,
+            "plugin_minus_bootstrap_mean": -0.0001471424668360033,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 100.0,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.0008655310792022873,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 100.0,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 0.0,
+                "RGA_RGR": 0.0,
+                "RGE_RGR": 0.0
+              },
+              "cross_total": 0.0,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": null,
+                "RGA_RGR": null,
+                "RGE_RGR": null
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.7438614963809747,
+              0.8615299199578588
+            ],
+            "width_independent_stream_bootstrap": 0.11766842357688412,
+            "sd_independent_stream_bootstrap": 0.029935730455113715,
+            "empirical_understatement_of_width_pct": -1.6165714303712164
+          },
+          "redraw": {
+            "C_point": 0.8052154195011336,
+            "gradient_at_point": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "var_delta_measured_covariance": 0.0008655310792022873,
+            "var_delta_cross_terms_declared_zero": 0.0008655310792022873,
+            "cross_covariance_share_of_variance_pct": 0.0,
+            "ci95_delta_measured_covariance": [
+              0.7475534563123336,
+              0.8628773826899336
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.7475534563123336,
+              0.8628773826899336
+            ],
+            "width_delta_measured": 0.11532392637760003,
+            "width_delta_declared_zero": 0.11532392637760003,
+            "understatement_of_width_pct": 0.0,
+            "ci95_paired_bootstrap_percentile": [
+              0.7443038803389271,
+              0.860100370931519
+            ],
+            "width_paired_bootstrap": 0.1157964905925919,
+            "sd_paired_bootstrap": 0.02941990957161981,
+            "sd_delta_measured": 0.02941990957161982,
+            "mean_paired_bootstrap": 0.8053625619679696,
+            "plugin_minus_bootstrap_mean": -0.0001471424668360033,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 100.0,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.0008655310792022873,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 100.0,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 0.0,
+                "RGA_RGR": 0.0,
+                "RGE_RGR": 0.0
+              },
+              "cross_total": 0.0,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": null,
+                "RGA_RGR": null,
+                "RGE_RGR": null
+              }
+            }
+          }
+        },
+        "shapley_prod": {
+          "gradient_analytic": [
+            0.9442367940186331,
+            0.7683633155355397,
+            0.7967800715939158
+          ],
+          "gradient_numerical_central_difference": [
+            0.9442367940870611,
+            0.7683633155286529,
+            0.7967800715880102
+          ],
+          "gradient_max_abs_difference": 6.842792998895675e-11,
+          "fixed_draw": {
+            "C_point": 0.7603140262041191,
+            "gradient_at_point": [
+              0.9442367940186331,
+              0.7683633155355397,
+              0.7967800715939158
+            ],
+            "var_delta_measured_covariance": 0.0008555299176463301,
+            "var_delta_cross_terms_declared_zero": 0.0007961927231901303,
+            "cross_covariance_share_of_variance_pct": 6.9357240737347725,
+            "ci95_delta_measured_covariance": [
+              0.7029861712947454,
+              0.8176418811134929
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.7050099435386304,
+              0.8156181088696078
+            ],
+            "width_delta_measured": 0.11465570981874751,
+            "width_delta_declared_zero": 0.11060816533097739,
+            "understatement_of_width_pct": 3.530172630886541,
+            "ci95_paired_bootstrap_percentile": [
+              0.6995167600527326,
+              0.8141279272520577
+            ],
+            "width_paired_bootstrap": 0.11461116719932518,
+            "sd_paired_bootstrap": 0.029235140928968735,
+            "sd_delta_measured": 0.029249443031386598,
+            "mean_paired_bootstrap": 0.7603230149478482,
+            "plugin_minus_bootstrap_mean": -8.988743729010373e-06,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 37.628287698782536,
+                "RGE": 30.61964549285629,
+                "RGR": 31.752066808361178
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.000771692902803308,
+                "RGE": 5.371711558371858e-07,
+                "RGR": 2.3962649230985116e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 90.2005747415978,
+                "RGE": 0.06278812052710102,
+                "RGR": 2.800913064140336
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.1638364758847868e-05,
+                "RGA_RGR": 4.341696646271242e-05,
+                "RGE_RGR": 4.281863234639468e-06
+              },
+              "cross_total": 5.933719445619976e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 19.61394512414776,
+                "RGA_RGR": 73.16990103864957,
+                "RGE_RGR": 7.216153837202669
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.7015057619956224,
+              0.8141998856581514
+            ],
+            "width_independent_stream_bootstrap": 0.11269412366252896,
+            "sd_independent_stream_bootstrap": 0.028869048919853396,
+            "empirical_understatement_of_width_pct": 1.672649867933207
+          },
+          "redraw": {
+            "C_point": 0.7603140262041191,
+            "gradient_at_point": [
+              0.9442367940186331,
+              0.7683633155355397,
+              0.7967800715939158
+            ],
+            "var_delta_measured_covariance": 0.0008570899554677527,
+            "var_delta_cross_terms_declared_zero": 0.0008028074959966042,
+            "cross_covariance_share_of_variance_pct": 6.333344490255288,
+            "ci95_delta_measured_covariance": [
+              0.7029339271317061,
+              0.8176941252765322
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.7047806854364729,
+              0.8158473669717654
+            ],
+            "width_delta_measured": 0.11476019814482608,
+            "width_delta_declared_zero": 0.11106668153529253,
+            "understatement_of_width_pct": 3.218464824252365,
+            "ci95_paired_bootstrap_percentile": [
+              0.7024649563902521,
+              0.816090772685794
+            ],
+            "width_paired_bootstrap": 0.11362581629554191,
+            "sd_paired_bootstrap": 0.029343024185872195,
+            "sd_delta_measured": 0.029276098706414976,
+            "mean_paired_bootstrap": 0.762669805826143,
+            "plugin_minus_bootstrap_mean": -0.0023557796220238236,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 37.628287698782536,
+                "RGE": 30.61964549285629,
+                "RGR": 31.752066808361178
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.000771692902803308,
+                "RGE": 5.371711558371858e-07,
+                "RGR": 3.057742203745904e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 90.03639558255708,
+                "RGE": 0.06267383632375288,
+                "RGR": 3.567586090863889
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.1638364758847868e-05,
+                "RGA_RGR": 3.9158880430333457e-05,
+                "RGE_RGR": 3.4852142819671284e-06
+              },
+              "cross_total": 5.428245947114845e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 21.44037847996506,
+                "RGA_RGR": 72.1391049923718,
+                "RGE_RGR": 6.420516527663134
+              }
+            }
+          }
+        }
+      }
+    },
+    "rf": {
+      "point_fixed_draw": {
+        "RGA": 0.8272108843537415,
+        "RGE": 0.9877025996971712,
+        "RGR": 0.9091507824866948
+      },
+      "Sigma_fixed_draw": [
+        [
+          0.0007762303354183281,
+          7.855674303583472e-06,
+          5.381990709083492e-05
+        ],
+        [
+          7.855674303583472e-06,
+          9.311505448562985e-07,
+          4.16105674317848e-06
+        ],
+        [
+          5.381990709083492e-05,
+          4.16105674317848e-06,
+          0.0001594236897498948
+        ]
+      ],
+      "Sigma_redraw": [
+        [
+          0.0007762303354183281,
+          7.855674303583472e-06,
+          5.166881598810581e-05
+        ],
+        [
+          7.855674303583472e-06,
+          9.311505448562985e-07,
+          4.2330968983111226e-06
+        ],
+        [
+          5.166881598810581e-05,
+          4.2330968983111226e-06,
+          0.0001782522931470087
+        ]
+      ],
+      "Corr_fixed_draw": [
+        [
+          1.0,
+          0.2921986552172537,
+          0.15299287644635887
+        ],
+        [
+          0.2921986552172537,
+          0.9999999999999999,
+          0.3415208786622705
+        ],
+        [
+          0.15299287644635884,
+          0.34152087866227054,
+          1.0
+        ]
+      ],
+      "Corr_redraw": [
+        [
+          1.0,
+          0.2921986552172537,
+          0.13890428434150667
+        ],
+        [
+          0.2921986552172537,
+          0.9999999999999999,
+          0.32857210963473354
+        ],
+        [
+          0.13890428434150667,
+          0.3285721096347336,
+          1.0
+        ]
+      ],
+      "mean_RGR_redraw_replicates": 0.9190728553635015,
+      "arms": {
+        "wsum_equal": {
+          "gradient_analytic": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "gradient_numerical_central_difference": [
+            0.333333333379926,
+            0.333333333379926,
+            0.33333333332441484
+          ],
+          "gradient_max_abs_difference": 4.6592674163292713e-11,
+          "fixed_draw": {
+            "C_point": 0.9080214221792025,
+            "gradient_at_point": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "var_delta_measured_covariance": 0.00011869538355425253,
+            "var_delta_cross_terms_declared_zero": 0.00010406501952367546,
+            "cross_covariance_share_of_variance_pct": 12.325975612935203,
+            "ci95_delta_measured_covariance": [
+              0.8866681220096699,
+              0.929374722348735
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8880273858889751,
+              0.9280154584694298
+            ],
+            "width_delta_measured": 0.04270660033906504,
+            "width_delta_declared_zero": 0.03998807258045467,
+            "understatement_of_width_pct": 6.36559158778004,
+            "ci95_paired_bootstrap_percentile": [
+              0.8850228490519193,
+              0.9275663744713913
+            ],
+            "width_paired_bootstrap": 0.04254352541947204,
+            "sd_paired_bootstrap": 0.010894741096246965,
+            "sd_delta_measured": 0.010894741096246965,
+            "mean_paired_bootstrap": 0.9078255316846499,
+            "plugin_minus_bootstrap_mean": 0.00019589049455259744,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 33.33333333333333,
+                "RGE": 33.33333333333333,
+                "RGR": 33.33333333333333
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 8.62478150464809e-05,
+                "RGE": 1.0346117165069983e-07,
+                "RGR": 1.7713743305543866e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 72.66315880521105,
+                "RGE": 0.08716528693250351,
+                "RGR": 14.923700294921224
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.745705400796327e-06,
+                "RGA_RGR": 1.195997935351887e-05,
+                "RGE_RGR": 9.246792762618844e-07
+              },
+              "cross_total": 1.4630364030577081e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 11.932070843540515,
+                "RGA_RGR": 81.74765391020226,
+                "RGE_RGR": 6.320275246257227
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.886406048399755,
+              0.9276911731556323
+            ],
+            "width_independent_stream_bootstrap": 0.04128512475587731,
+            "sd_independent_stream_bootstrap": 0.01047677011934529,
+            "empirical_understatement_of_width_pct": 2.95791345730545
+          },
+          "redraw": {
+            "C_point": 0.9080214221792025,
+            "gradient_at_point": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "var_delta_measured_covariance": 0.0001203254392766882,
+            "var_delta_cross_terms_declared_zero": 0.00010615708656779923,
+            "cross_covariance_share_of_variance_pct": 11.775026789064002,
+            "ci95_delta_measured_covariance": [
+              0.8865219984645228,
+              0.9295208458938821
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8878274112706419,
+              0.928215433087763
+            ],
+            "width_delta_measured": 0.04299884742935922,
+            "width_delta_declared_zero": 0.04038802181712109,
+            "understatement_of_width_pct": 6.071850220002606,
+            "ci95_paired_bootstrap_percentile": [
+              0.8882607767558196,
+              0.9308138398028011
+            ],
+            "width_paired_bootstrap": 0.042553063046981476,
+            "sd_paired_bootstrap": 0.010969295295354583,
+            "sd_delta_measured": 0.010969295295354583,
+            "mean_paired_bootstrap": 0.9112335521265944,
+            "plugin_minus_bootstrap_mean": -0.0032121299473919507,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 33.33333333333333,
+                "RGE": 33.33333333333333,
+                "RGR": 33.33333333333333
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 8.62478150464809e-05,
+                "RGE": 1.0346117165069983e-07,
+                "RGR": 1.9805810349667632e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 71.67878676773758,
+                "RGE": 0.08598445372203545,
+                "RGR": 16.460201989476385
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.745705400796327e-06,
+                "RGA_RGR": 1.1481959108467957e-05,
+                "RGE_RGR": 9.406881996246938e-07
+              },
+              "cross_total": 1.4168352708888977e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 12.321159958850416,
+                "RGA_RGR": 81.03947822575292,
+                "RGE_RGR": 6.639361815396665
+              }
+            }
+          }
+        },
+        "wsum_accuracy_led": {
+          "gradient_analytic": [
+            0.5,
+            0.2,
+            0.3
+          ],
+          "gradient_numerical_central_difference": [
+            0.5000000000143778,
+            0.20000000000575113,
+            0.30000000006413785
+          ],
+          "gradient_max_abs_difference": 6.413786168835145e-11,
+          "fixed_draw": {
+            "C_point": 0.8838911968623134,
+            "gradient_at_point": [
+              0.5,
+              0.2,
+              0.3
+            ],
+            "var_delta_measured_covariance": 0.0002266593957510154,
+            "var_delta_cross_terms_declared_zero": 0.00020844296195386683,
+            "cross_covariance_share_of_variance_pct": 8.036919774179264,
+            "ci95_delta_measured_covariance": [
+              0.8543835243837709,
+              0.913398869340856
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.855594111238361,
+              0.9121882824862658
+            ],
+            "width_delta_measured": 0.05901534495708516,
+            "width_delta_declared_zero": 0.05659417124790478,
+            "understatement_of_width_pct": 4.1026172276735995,
+            "ci95_paired_bootstrap_percentile": [
+              0.8518862938645553,
+              0.91110081600009
+            ],
+            "width_paired_bootstrap": 0.059214522135534686,
+            "sd_paired_bootstrap": 0.015055211581077676,
+            "sd_delta_measured": 0.015055211581077678,
+            "mean_paired_bootstrap": 0.8836505067866567,
+            "plugin_minus_bootstrap_mean": 0.0002406900756567465,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 50.0,
+                "RGE": 20.0,
+                "RGR": 30.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.00019405758385458203,
+                "RGE": 3.724602179425195e-08,
+                "RGR": 1.4348132077490531e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 85.61638630138839,
+                "RGE": 0.016432595556359193,
+                "RGR": 6.330261328875997
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.5711348607166944e-06,
+                "RGA_RGR": 1.6145972127250476e-05,
+                "RGE_RGR": 4.993268091814176e-07
+              },
+              "cross_total": 1.8216433797148586e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 8.624821291654921,
+                "RGA_RGR": 88.63409988500494,
+                "RGE_RGR": 2.7410788233401484
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.8538026932865925,
+              0.9112167667625787
+            ],
+            "width_independent_stream_bootstrap": 0.05741407347598615,
+            "sd_independent_stream_bootstrap": 0.014765347561342571,
+            "empirical_understatement_of_width_pct": 3.04055254457265
+          },
+          "redraw": {
+            "C_point": 0.8838911968623134,
+            "gradient_at_point": [
+              0.5,
+              0.2,
+              0.3
+            ],
+            "var_delta_measured_covariance": 0.00022771728754455284,
+            "var_delta_cross_terms_declared_zero": 0.00021013753625960708,
+            "cross_covariance_share_of_variance_pct": 7.719989762088786,
+            "ci95_delta_measured_covariance": [
+              0.8543147436797128,
+              0.913467650044914
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.855479320961145,
+              0.9123030727634819
+            ],
+            "width_delta_measured": 0.05915290636520121,
+            "width_delta_declared_zero": 0.0568237518023369,
+            "understatement_of_width_pct": 3.937515003040526,
+            "ci95_paired_bootstrap_percentile": [
+              0.8556093155898704,
+              0.913553379441663
+            ],
+            "width_paired_bootstrap": 0.057944063851792627,
+            "sd_paired_bootstrap": 0.015090304421864818,
+            "sd_delta_measured": 0.015090304421864816,
+            "mean_paired_bootstrap": 0.8867177251844067,
+            "plugin_minus_bootstrap_mean": -0.0028265283220932913,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 50.0,
+                "RGE": 20.0,
+                "RGR": 30.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.00019405758385458203,
+                "RGE": 3.724602179425195e-08,
+                "RGR": 1.604270638323078e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 85.2186436730741,
+                "RGE": 0.01635625568698414,
+                "RGR": 7.045010309150125
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.5711348607166944e-06,
+                "RGA_RGR": 1.550064479643174e-05,
+                "RGE_RGR": 5.079716277973347e-07
+              },
+              "cross_total": 1.757975128494577e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 8.937184805692437,
+                "RGA_RGR": 88.17328837698375,
+                "RGE_RGR": 2.889526817323808
+              }
+            }
+          }
+        },
+        "wsum_accuracy_light": {
+          "gradient_analytic": [
+            0.2,
+            0.4,
+            0.4
+          ],
+          "gradient_numerical_central_difference": [
+            0.20000000000575113,
+            0.40000000001150227,
+            0.40000000001150227
+          ],
+          "gradient_max_abs_difference": 1.150224360202401e-11,
+          "fixed_draw": {
+            "C_point": 0.9241835297442947,
+            "gradient_at_point": [
+              0.2,
+              0.4,
+              0.4
+            ],
+            "var_delta_measured_covariance": 6.790561904481735e-05,
+            "var_delta_cross_terms_declared_zero": 5.6705987863893314e-05,
+            "cross_covariance_share_of_variance_pct": 16.492937312790477,
+            "ci95_delta_measured_covariance": [
+              0.9080324728360175,
+              0.940334586652572
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.9094243388021758,
+              0.9389427206864137
+            ],
+            "width_delta_measured": 0.032302113816554456,
+            "width_delta_declared_zero": 0.029518381884237943,
+            "understatement_of_width_pct": 8.617801138728831,
+            "ci95_paired_bootstrap_percentile": [
+              0.9066647605740675,
+              0.9389366611724836
+            ],
+            "width_paired_bootstrap": 0.032271900598416114,
+            "sd_paired_bootstrap": 0.008240486578158922,
+            "sd_delta_measured": 0.008240486578158924,
+            "mean_paired_bootstrap": 0.92401043244018,
+            "plugin_minus_bootstrap_mean": 0.00017309730411474433,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 20.0,
+                "RGE": 40.0,
+                "RGR": 40.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 3.104921341673313e-05,
+                "RGE": 1.489840871770078e-07,
+                "RGR": 2.550779035998317e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 45.72407092885908,
+                "RGE": 0.21939876150555235,
+                "RGR": 37.56359299684487
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.2569078885733558e-06,
+                "RGA_RGR": 8.61118513453359e-06,
+                "RGE_RGR": 1.331538157817114e-06
+              },
+              "cross_total": 1.1199631180924059e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 11.222761430878215,
+                "RGA_RGR": 76.88811350502971,
+                "RGE_RGR": 11.88912506409208
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.9078024544769214,
+              0.9388941139885956
+            ],
+            "width_independent_stream_bootstrap": 0.03109165951167414,
+            "sd_independent_stream_bootstrap": 0.007751029045292457,
+            "empirical_understatement_of_width_pct": 3.657178737095823
+          },
+          "redraw": {
+            "C_point": 0.9241835297442947,
+            "gradient_at_point": [
+              0.2,
+              0.4,
+              0.4
+            ],
+            "var_delta_measured_covariance": 7.059707386156139e-05,
+            "var_delta_cross_terms_declared_zero": 5.971856440743154e-05,
+            "cross_covariance_share_of_variance_pct": 15.409292282371734,
+            "ci95_delta_measured_covariance": [
+              0.9077155076377791,
+              0.9406515518508104
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.9090373617139935,
+              0.939329697774596
+            ],
+            "width_delta_measured": 0.03293604421303131,
+            "width_delta_declared_zero": 0.030292336060602443,
+            "understatement_of_width_pct": 8.026793185390712,
+            "ci95_paired_bootstrap_percentile": [
+              0.910316210067504,
+              0.9431218421851084
+            ],
+            "width_paired_bootstrap": 0.032805632117604455,
+            "sd_paired_bootstrap": 0.008402206487676995,
+            "sd_delta_measured": 0.008402206487676995,
+            "mean_paired_bootstrap": 0.9281000569705133,
+            "plugin_minus_bootstrap_mean": -0.003916527226218602,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 20.0,
+                "RGE": 40.0,
+                "RGR": 40.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 3.104921341673313e-05,
+                "RGE": 1.489840871770078e-07,
+                "RGR": 2.8520366903521398e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 43.98087869423547,
+                "RGE": 0.21103436591318336,
+                "RGR": 40.39879465747961
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.2569078885733558e-06,
+                "RGA_RGR": 8.26701055809693e-06,
+                "RGE_RGR": 1.3545910074595594e-06
+              },
+              "cross_total": 1.0878509454129846e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 11.554045100325684,
+                "RGA_RGR": 75.99396399805947,
+                "RGE_RGR": 12.451990901614849
+              }
+            }
+          }
+        },
+        "geomean": {
+          "gradient_analytic": [
+            0.3649404106395632,
+            0.30564127290353144,
+            0.3320490788072204
+          ],
+          "gradient_numerical_central_difference": [
+            0.36494041066870153,
+            0.3056412729018909,
+            0.3320490788438768
+          ],
+          "gradient_max_abs_difference": 3.665640013750249e-11,
+          "fixed_draw": {
+            "C_point": 0.9056480394647118,
+            "gradient_at_point": [
+              0.3649404106395632,
+              0.30564127290353144,
+              0.3320490788072204
+            ],
+            "var_delta_measured_covariance": 0.00013668466255590582,
+            "var_delta_cross_terms_declared_zero": 0.00012104402041290207,
+            "cross_covariance_share_of_variance_pct": 11.442865534826574,
+            "ci95_delta_measured_covariance": [
+              0.8827336661887747,
+              0.928562412740649
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8840845142448546,
+              0.9272115646845691
+            ],
+            "width_delta_measured": 0.0458287465518743,
+            "width_delta_declared_zero": 0.04312705043971454,
+            "understatement_of_width_pct": 5.895199662730599,
+            "ci95_paired_bootstrap_percentile": [
+              0.8804515242033053,
+              0.9263154582397463
+            ],
+            "width_paired_bootstrap": 0.045863934036440956,
+            "sd_paired_bootstrap": 0.011724597031520153,
+            "sd_delta_measured": 0.011691221602377821,
+            "mean_paired_bootstrap": 0.9053163931559093,
+            "plugin_minus_bootstrap_mean": 0.00033164630880255785,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 36.39828582399455,
+                "RGE": 30.48393131156908,
+                "RGR": 33.11778286443637
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.0001033795229918721,
+                "RGE": 8.698490653741821e-08,
+                "RGR": 1.7577512514492557e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 75.63359418587916,
+                "RGE": 0.0636391127657357,
+                "RGR": 12.859901166528562
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.752457204084822e-06,
+                "RGA_RGR": 1.304359109171943e-05,
+                "RGE_RGR": 8.445938471994838e-07
+              },
+              "cross_total": 1.5640642143003734e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 11.204509303786605,
+                "RGA_RGR": 83.39549599345574,
+                "RGE_RGR": 5.3999947027576605
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.882129599197332,
+              0.9265998841396421
+            ],
+            "width_independent_stream_bootstrap": 0.04447028494231009,
+            "sd_independent_stream_bootstrap": 0.011322856701663346,
+            "empirical_understatement_of_width_pct": 3.0386601660109425
+          },
+          "redraw": {
+            "C_point": 0.9056480394647118,
+            "gradient_at_point": [
+              0.3649404106395632,
+              0.30564127290353144,
+              0.3320490788072204
+            ],
+            "var_delta_measured_covariance": 0.00013825393220096236,
+            "var_delta_cross_terms_declared_zero": 0.00012311999803180175,
+            "cross_covariance_share_of_variance_pct": 10.946476478630874,
+            "ci95_delta_measured_covariance": [
+              0.8826025022102013,
+              0.9286935767192224
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8839003866616365,
+              0.9273956922677872
+            ],
+            "width_delta_measured": 0.04609107450902106,
+            "width_delta_declared_zero": 0.04349530560615067,
+            "understatement_of_width_pct": 5.631825533514823,
+            "ci95_paired_bootstrap_percentile": [
+              0.883627304530491,
+              0.9297034874384458
+            ],
+            "width_paired_bootstrap": 0.04607618290795479,
+            "sd_paired_bootstrap": 0.011813075206204551,
+            "sd_delta_measured": 0.011758143229309735,
+            "mean_paired_bootstrap": 0.9086962952515489,
+            "plugin_minus_bootstrap_mean": -0.003048255786837095,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 36.39828582399455,
+                "RGE": 30.48393131156908,
+                "RGR": 33.11778286443637
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.0001033795229918721,
+                "RGE": 8.698490653741821e-08,
+                "RGR": 1.9653490133392233e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 74.77510501589371,
+                "RGE": 0.06291676855236145,
+                "RGR": 14.21550173692306
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.752457204084822e-06,
+                "RGA_RGR": 1.2522260709307595e-05,
+                "RGE_RGR": 8.5921625576819e-07
+              },
+              "cross_total": 1.5133934169160607e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 11.579653938603203,
+                "RGA_RGR": 82.74293101409819,
+                "RGE_RGR": 5.677415047298609
+              }
+            }
+          }
+        },
+        "topsis": {
+          "gradient_analytic": [
+            0.47605197206213934,
+            0.07055726129679664,
+            0.2690244926532231
+          ],
+          "gradient_numerical_central_difference": [
+            0.4760519720647949,
+            0.07055726131133255,
+            0.2690244926273344
+          ],
+          "gradient_max_abs_difference": 2.588868008857048e-11,
+          "fixed_draw": {
+            "C_point": 0.8896410082373409,
+            "gradient_at_point": [
+              0.47605197206213934,
+              0.07055726129679664,
+              0.2690244926532231
+            ],
+            "var_delta_measured_covariance": 0.00020192745330626955,
+            "var_delta_cross_terms_declared_zero": 0.00018745636645082573,
+            "cross_covariance_share_of_variance_pct": 7.166478167530332,
+            "ci95_delta_measured_covariance": [
+              0.861789688759735,
+              0.9174923277149468
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8628062190189066,
+              0.9164757974557752
+            ],
+            "width_delta_measured": 0.05570263895521177,
+            "width_delta_declared_zero": 0.05366957843686859,
+            "understatement_of_width_pct": 3.6498459614774825,
+            "ci95_paired_bootstrap_percentile": [
+              0.8591097946031249,
+              0.9148364021016616
+            ],
+            "width_paired_bootstrap": 0.05572660749853675,
+            "sd_paired_bootstrap": 0.014159667847838878,
+            "sd_delta_measured": 0.014210117990582258,
+            "mean_paired_bootstrap": 0.8891753441847589,
+            "plugin_minus_bootstrap_mean": 0.0004656640525820821,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 58.365900879268274,
+                "RGE": 8.65060615403547,
+                "RGR": 32.983492966696254
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.00017591357243566311,
+                "RGE": 4.6355720118479744e-09,
+                "RGR": 1.1538158443150764e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 87.11721440315972,
+                "RGE": 0.0022956620984156424,
+                "RGR": 5.714011767211507
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 5.277272846198476e-07,
+                "RGA_RGR": 1.3785392279962497e-05,
+                "RGE_RGR": 1.5796729086149796e-07
+              },
+              "cross_total": 1.4471086855443843e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 3.6467702107760007,
+                "RGA_RGR": 95.26162352329884,
+                "RGE_RGR": 1.0916062659251653
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.8606564745443137,
+              0.9150745227262784
+            ],
+            "width_independent_stream_bootstrap": 0.05441804818196472,
+            "sd_independent_stream_bootstrap": 0.013952041766112672,
+            "empirical_understatement_of_width_pct": 2.348176885891351
+          },
+          "redraw": {
+            "C_point": 0.8896410082373409,
+            "gradient_at_point": [
+              0.47605197206213934,
+              0.07055726129679664,
+              0.2690244926532231
+            ],
+            "var_delta_measured_covariance": 0.0002027419139453396,
+            "var_delta_cross_terms_declared_zero": 0.00018881907113793946,
+            "cross_covariance_share_of_variance_pct": 6.867274031532434,
+            "ci95_delta_measured_covariance": [
+              0.8617335770827231,
+              0.9175484393919587
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.8627088585582287,
+              0.9165731579164532
+            ],
+            "width_delta_measured": 0.0558148623092356,
+            "width_delta_declared_zero": 0.053864299358224565,
+            "understatement_of_width_pct": 3.4947017161919613,
+            "ci95_paired_bootstrap_percentile": [
+              0.862027093353593,
+              0.9173907980328079
+            ],
+            "width_paired_bootstrap": 0.05536370467921492,
+            "sd_paired_bootstrap": 0.014374002541745009,
+            "sd_delta_measured": 0.014238746923284352,
+            "mean_paired_bootstrap": 0.8918213119056932,
+            "plugin_minus_bootstrap_mean": -0.0021803036683523125,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 58.365900879268274,
+                "RGE": 8.65060615403547,
+                "RGR": 32.983492966696254
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.00017591357243566311,
+                "RGE": 4.6355720118479744e-09,
+                "RGR": 1.2900863130264497e-05
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 86.76724462761578,
+                "RGE": 0.0022864398987067626,
+                "RGR": 6.363194900953062
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 5.277272846198476e-07,
+                "RGA_RGR": 1.3234413352573978e-05,
+                "RGE_RGR": 1.607021702063186e-07
+              },
+              "cross_total": 1.3922842807400145e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 3.7903701989607663,
+                "RGA_RGR": 95.05539591052298,
+                "RGE_RGR": 1.1542338905162646
+              }
+            }
+          }
+        },
+        "shapley_min": {
+          "gradient_analytic": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "gradient_numerical_central_difference": [
+            1.0000000000287557,
+            0.0,
+            0.0
+          ],
+          "gradient_max_abs_difference": 2.8755664516211255e-11,
+          "fixed_draw": {
+            "C_point": 0.8272108843537413,
+            "gradient_at_point": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "var_delta_measured_covariance": 0.0007762303354183281,
+            "var_delta_cross_terms_declared_zero": 0.0007762303354183281,
+            "cross_covariance_share_of_variance_pct": 0.0,
+            "ci95_delta_measured_covariance": [
+              0.7726045031434552,
+              0.8818172655640275
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.7726045031434552,
+              0.8818172655640275
+            ],
+            "width_delta_measured": 0.10921276242057232,
+            "width_delta_declared_zero": 0.10921276242057232,
+            "understatement_of_width_pct": 0.0,
+            "ci95_paired_bootstrap_percentile": [
+              0.7696964108799587,
+              0.8786896398581461
+            ],
+            "width_paired_bootstrap": 0.10899322897818742,
+            "sd_paired_bootstrap": 0.02786091052744558,
+            "sd_delta_measured": 0.027860910527445583,
+            "mean_paired_bootstrap": 0.8269010279069996,
+            "plugin_minus_bootstrap_mean": 0.00030985644674175195,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 100.0,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.0007762303354183281,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 100.0,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 0.0,
+                "RGA_RGR": 0.0,
+                "RGE_RGR": 0.0
+              },
+              "cross_total": 0.0,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": null,
+                "RGA_RGR": null,
+                "RGE_RGR": null
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.770193764491055,
+              0.8787543484018474
+            ],
+            "width_independent_stream_bootstrap": 0.10856058391079237,
+            "sd_independent_stream_bootstrap": 0.028166077166409807,
+            "empirical_understatement_of_width_pct": 0.3969467382984204
+          },
+          "redraw": {
+            "C_point": 0.8272108843537413,
+            "gradient_at_point": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "var_delta_measured_covariance": 0.0007762303354183281,
+            "var_delta_cross_terms_declared_zero": 0.0007762303354183281,
+            "cross_covariance_share_of_variance_pct": 0.0,
+            "ci95_delta_measured_covariance": [
+              0.7726045031434552,
+              0.8818172655640275
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.7726045031434552,
+              0.8818172655640275
+            ],
+            "width_delta_measured": 0.10921276242057232,
+            "width_delta_declared_zero": 0.10921276242057232,
+            "understatement_of_width_pct": 0.0,
+            "ci95_paired_bootstrap_percentile": [
+              0.7696964108799587,
+              0.8786896398581462
+            ],
+            "width_paired_bootstrap": 0.10899322897818753,
+            "sd_paired_bootstrap": 0.027843001557010836,
+            "sd_delta_measured": 0.027860910527445583,
+            "mean_paired_bootstrap": 0.8268948749092663,
+            "plugin_minus_bootstrap_mean": 0.00031600944447507384,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 100.0,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.0007762303354183281,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 100.0,
+                "RGE": 0.0,
+                "RGR": 0.0
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 0.0,
+                "RGA_RGR": 0.0,
+                "RGE_RGR": 0.0
+              },
+              "cross_total": 0.0,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": null,
+                "RGA_RGR": null,
+                "RGE_RGR": null
+              }
+            }
+          }
+        },
+        "shapley_prod": {
+          "gradient_analytic": [
+            0.897970591378826,
+            0.7520594227917149,
+            0.8170383409739865
+          ],
+          "gradient_numerical_central_difference": [
+            0.8979705913292335,
+            0.7520594227927724,
+            0.8170383409833448
+          ],
+          "gradient_max_abs_difference": 4.9592441264678655e-11,
+          "fixed_draw": {
+            "C_point": 0.7428110470181308,
+            "gradient_at_point": [
+              0.897970591378826,
+              0.7520594227917149,
+              0.8170383409739865
+            ],
+            "var_delta_measured_covariance": 0.0008275611597833483,
+            "var_delta_cross_terms_declared_zero": 0.0007328644490508884,
+            "cross_covariance_share_of_variance_pct": 11.442865534826574,
+            "ci95_delta_measured_covariance": [
+              0.6864280520913482,
+              0.7991940419449135
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.6897519422181092,
+              0.7958701518181525
+            ],
+            "width_delta_measured": 0.11276598985356534,
+            "width_delta_declared_zero": 0.10611820960004326,
+            "understatement_of_width_pct": 5.895199662730488,
+            "ci95_paired_bootstrap_percentile": [
+              0.6825215261117583,
+              0.7948345461623952
+            ],
+            "width_paired_bootstrap": 0.11231302005063692,
+            "sd_paired_bootstrap": 0.028741003974190098,
+            "sd_delta_measured": 0.02876736275335903,
+            "mean_paired_bootstrap": 0.7423680413281818,
+            "plugin_minus_bootstrap_mean": 0.00044300568994903866,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 36.39828582399455,
+                "RGE": 30.483931311569084,
+                "RGR": 33.11778286443637
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.0006259142492304923,
+                "RGE": 5.266525796799551e-07,
+                "RGR": 0.00010642354724071606
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 75.63359418587915,
+                "RGE": 0.0636391127657357,
+                "RGR": 12.85990116652856
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.0610301764398337e-05,
+                "RGA_RGR": 7.89727916048228e-05,
+                "RGE_RGR": 5.11361736323857e-06
+              },
+              "cross_total": 9.469671073245972e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 11.204509303786605,
+                "RGA_RGR": 83.39549599345573,
+                "RGE_RGR": 5.399994702757661
+              }
+            },
+            "ci95_independent_stream_bootstrap": [
+              0.686431467579111,
+              0.7955669352429534
+            ],
+            "width_independent_stream_bootstrap": 0.10913546766384241,
+            "sd_independent_stream_bootstrap": 0.027774633028722826,
+            "empirical_understatement_of_width_pct": 2.8291932541408826
+          },
+          "redraw": {
+            "C_point": 0.7428110470181308,
+            "gradient_at_point": [
+              0.897970591378826,
+              0.7520594227917149,
+              0.8170383409739865
+            ],
+            "var_delta_measured_covariance": 0.0008370623472845035,
+            "var_delta_cross_terms_declared_zero": 0.0007454335143275299,
+            "cross_covariance_share_of_variance_pct": 10.946476478630874,
+            "ci95_delta_measured_covariance": [
+              0.6861053106465168,
+              0.7995167833897449
+            ],
+            "ci95_delta_cross_terms_declared_zero": [
+              0.6892988787864612,
+              0.7963232152498004
+            ],
+            "width_delta_measured": 0.11341147274322805,
+            "width_delta_declared_zero": 0.1070243364633392,
+            "understatement_of_width_pct": 5.631825533515289,
+            "ci95_paired_bootstrap_percentile": [
+              0.6899337371592094,
+              0.8035878841316492
+            ],
+            "width_paired_bootstrap": 0.1136541469724398,
+            "sd_paired_bootstrap": 0.02916022102604564,
+            "sd_delta_measured": 0.028932029781619257,
+            "mean_paired_bootstrap": 0.7507165851089556,
+            "plugin_minus_bootstrap_mean": -0.007905538090824726,
+            "cross_term_decomposition": {
+              "gradient_share_of_L1_pct": {
+                "RGA": 36.39828582399455,
+                "RGE": 30.483931311569084,
+                "RGR": 33.11778286443637
+              },
+              "diagonal_contributions_to_variance": {
+                "RGA": 0.0006259142492304923,
+                "RGE": 5.266525796799551e-07,
+                "RGR": 0.00011899261251735749
+              },
+              "diagonal_share_of_variance_pct": {
+                "RGA": 74.77510501589373,
+                "RGE": 0.06291676855236146,
+                "RGR": 14.215501736923057
+              },
+              "cross_contributions_to_variance": {
+                "RGA_RGE": 1.0610301764398337e-05,
+                "RGA_RGR": 7.581638204261188e-05,
+                "RGE_RGR": 5.202149149963325e-06
+              },
+              "cross_total": 9.162883295697355e-05,
+              "share_of_cross_total_pct": {
+                "RGA_RGE": 11.579653938603204,
+                "RGA_RGR": 82.74293101409818,
+                "RGE_RGR": 5.67741504729861
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "shapley_efficiency_check": {
+    "statement": "the Shapley values are efficient, so their sum equals the grand-coalition value v(N) by construction; with v(S) = min over S the composite therefore IS the minimum of the three metrics, and with v(S) = prod over S it IS the product. The Shapley step reallocates credit among the metrics without changing the total. We verify the identity numerically instead of asserting it.",
+    "per_model": {
+      "logit": {
+        "max_abs_sum_shapley_min_minus_min": 2.220446049250313e-16,
+        "max_abs_sum_shapley_prod_minus_prod": 2.220446049250313e-16,
+        "shapley_values_at_point_min_game": {
+          "RGA": 0.16317811638161997,
+          "RGE": 0.32984137010505665,
+          "RGR": 0.3121959330144571
+        },
+        "shapley_share_at_point_min_game_pct": {
+          "RGA": 20.265150471499414,
+          "RGE": 40.963121435181634,
+          "RGR": 38.77172809331895
+        }
+      },
+      "rf": {
+        "max_abs_sum_shapley_min_minus_min": 2.220446049250313e-16,
+        "max_abs_sum_shapley_prod_minus_prod": 2.220446049250313e-16,
+        "shapley_values_at_point_min_game": {
+          "RGA": 0.20801839316086554,
+          "RGE": 0.32923419989905706,
+          "RGR": 0.28995829129381884
+        },
+        "shapley_share_at_point_min_game_pct": {
+          "RGA": 25.14696035744016,
+          "RGE": 39.800515941744564,
+          "RGR": 35.05252370081527
+        }
+      }
+    }
+  },
+  "continuity_check": {
+    "note": "the deposited runs persist no replicate matrix, so this study regenerates the replicates from data + seeds; these residuals show the regeneration is exact and that the geometric-mean arm reproduces the deposited composite.",
+    "logit": {
+      "point_vector_max_abs_diff": 0.0,
+      "C_geomean_abs_diff": 0.0,
+      "Sigma_fixed_draw_max_abs_diff": 0.0,
+      "ci_paired_percentile_max_abs_diff": 0.0,
+      "ci_independent_percentile_max_abs_diff": 0.0,
+      "ci_delta_max_abs_diff": 0.0,
+      "sd_C_paired_abs_diff": 0.0,
+      "sd_C_independent_abs_diff": 0.0,
+      "Sigma_redraw_max_abs_diff": 0.0,
+      "ci_redraw_percentile_max_abs_diff": 0.0,
+      "deposited_cross_variance_share_pct_recomputed": 6.935724073734761
+    },
+    "rf": {
+      "point_vector_max_abs_diff": 0.0,
+      "C_geomean_abs_diff": 0.0,
+      "Sigma_fixed_draw_max_abs_diff": 0.0,
+      "ci_paired_percentile_max_abs_diff": 0.0,
+      "ci_independent_percentile_max_abs_diff": 0.0,
+      "ci_delta_max_abs_diff": 0.0,
+      "sd_C_paired_abs_diff": 0.0,
+      "sd_C_independent_abs_diff": 0.0,
+      "Sigma_redraw_max_abs_diff": 0.0,
+      "ci_redraw_percentile_max_abs_diff": 0.0,
+      "deposited_cross_variance_share_pct_recomputed": 11.442865534826574
+    }
+  },
+  "linear_exactness_check": {
+    "statement": "for a linear composite the delta-method variance grad' Sigma grad and the sample variance of the pushed-through replicates are the SAME number, since Sigma is the sample covariance of those replicates. Any residual is floating point. The percentile interval still differs from the symmetric delta interval by the skew of the replicate distribution, which is reported as the endpoint gap.",
+    "per_model": {
+      "logit": {
+        "wsum_equal/fixed_draw": {
+          "var_delta": 0.00010943665229629325,
+          "var_bootstrap_replicates": 0.00010943665229629323,
+          "relative_difference": 1.2383901436765577e-16,
+          "sd_delta": 0.010461197459960941,
+          "sd_bootstrap": 0.010461197459960941,
+          "ci95_delta": [
+            0.8958206850600728,
+            0.9368278255734436
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.8944720992376397,
+            0.9357279643726603
+          ],
+          "max_abs_endpoint_gap": 0.0013485858224331349
+        },
+        "wsum_equal/redraw": {
+          "var_delta": 0.00010982090921778883,
+          "var_bootstrap_replicates": 0.00010982090921778883,
+          "relative_difference": 0.0,
+          "sd_delta": 0.010479547185722712,
+          "sd_bootstrap": 0.010479547185722712,
+          "ci95_delta": [
+            0.8957847202584536,
+            0.9368637903750628
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.8957042540948341,
+            0.936258342361012
+          ],
+          "max_abs_endpoint_gap": 0.0006054480140508245
+        },
+        "wsum_accuracy_led/fixed_draw": {
+          "var_delta": 0.00023049627376359386,
+          "var_bootstrap_replicates": 0.0002304962737635939,
+          "relative_difference": 1.1759432753319747e-16,
+          "sd_delta": 0.015182103733132436,
+          "sd_bootstrap": 0.015182103733132437,
+          "ci95_delta": [
+            0.8570261261273014,
+            0.9165388791802828
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.854824639983945,
+            0.9149139690399978
+          ],
+          "max_abs_endpoint_gap": 0.002201486143356468
+        },
+        "wsum_accuracy_led/redraw": {
+          "var_delta": 0.00023050697619399942,
+          "var_bootstrap_replicates": 0.0002305069761939995,
+          "relative_difference": 3.5276660289871784e-16,
+          "sd_delta": 0.015182456197664443,
+          "sd_bootstrap": 0.015182456197664444,
+          "ci95_delta": [
+            0.8570254353095129,
+            0.9165395699980713
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.856379488820379,
+            0.915304451027975
+          ],
+          "max_abs_endpoint_gap": 0.001235118970096316
+        },
+        "wsum_accuracy_light/fixed_draw": {
+          "var_delta": 4.782504816974485e-05,
+          "var_bootstrap_replicates": 4.782504816974482e-05,
+          "relative_difference": 5.667543546623098e-16,
+          "sd_delta": 0.0069155656435135405,
+          "sd_bootstrap": 0.006915565643513539,
+          "ci95_delta": [
+            0.924991762885874,
+            0.9521002820738923
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.9241148689955682,
+            0.9511783757789336
+          ],
+          "max_abs_endpoint_gap": 0.0009219062949586965
+        },
+        "wsum_accuracy_light/redraw": {
+          "var_delta": 4.883115584394579e-05,
+          "var_bootstrap_replicates": 4.8831155843945774e-05,
+          "relative_difference": 2.775385288724245e-16,
+          "sd_delta": 0.006987929295860526,
+          "sd_bootstrap": 0.006987929295860525,
+          "ci95_delta": [
+            0.9248499327334841,
+            0.9522421122262822
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.9253735763288677,
+            0.952382284029992
+          ],
+          "max_abs_endpoint_gap": 0.0005236435953835938
+        }
+      },
+      "rf": {
+        "wsum_equal/fixed_draw": {
+          "var_delta": 0.00011869538355425253,
+          "var_bootstrap_replicates": 0.00011869538355425253,
+          "relative_difference": 0.0,
+          "sd_delta": 0.010894741096246965,
+          "sd_bootstrap": 0.010894741096246965,
+          "ci95_delta": [
+            0.8866681220096699,
+            0.929374722348735
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.8850228490519193,
+            0.9275663744713913
+          ],
+          "max_abs_endpoint_gap": 0.0018083478773436301
+        },
+        "wsum_equal/redraw": {
+          "var_delta": 0.0001203254392766882,
+          "var_bootstrap_replicates": 0.00012032543927668821,
+          "relative_difference": 1.126322682679328e-16,
+          "sd_delta": 0.010969295295354583,
+          "sd_bootstrap": 0.010969295295354583,
+          "ci95_delta": [
+            0.8865219984645228,
+            0.9295208458938821
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.8882607767558196,
+            0.9308138398028011
+          ],
+          "max_abs_endpoint_gap": 0.0017387782912967609
+        },
+        "wsum_accuracy_led/fixed_draw": {
+          "var_delta": 0.0002266593957510154,
+          "var_bootstrap_replicates": 0.00022665939575101539,
+          "relative_difference": 1.1958495796005927e-16,
+          "sd_delta": 0.015055211581077678,
+          "sd_bootstrap": 0.015055211581077676,
+          "ci95_delta": [
+            0.8543835243837709,
+            0.913398869340856
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.8518862938645553,
+            0.91110081600009
+          ],
+          "max_abs_endpoint_gap": 0.0024972305192155764
+        },
+        "wsum_accuracy_led/redraw": {
+          "var_delta": 0.00022771728754455284,
+          "var_bootstrap_replicates": 0.00022771728754455287,
+          "relative_difference": 1.1902940968781085e-16,
+          "sd_delta": 0.015090304421864816,
+          "sd_bootstrap": 0.015090304421864818,
+          "ci95_delta": [
+            0.8543147436797128,
+            0.913467650044914
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.8556093155898704,
+            0.913553379441663
+          ],
+          "max_abs_endpoint_gap": 0.0012945719101575826
+        },
+        "wsum_accuracy_light/fixed_draw": {
+          "var_delta": 6.790561904481735e-05,
+          "var_bootstrap_replicates": 6.790561904481734e-05,
+          "relative_difference": 1.9957887648626267e-16,
+          "sd_delta": 0.008240486578158924,
+          "sd_bootstrap": 0.008240486578158922,
+          "ci95_delta": [
+            0.9080324728360175,
+            0.940334586652572
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.9066647605740675,
+            0.9389366611724836
+          ],
+          "max_abs_endpoint_gap": 0.0013979254800883245
+        },
+        "wsum_accuracy_light/redraw": {
+          "var_delta": 7.059707386156139e-05,
+          "var_bootstrap_replicates": 7.059707386156137e-05,
+          "relative_difference": 1.9197009755170424e-16,
+          "sd_delta": 0.008402206487676995,
+          "sd_bootstrap": 0.008402206487676995,
+          "ci95_delta": [
+            0.9077155076377791,
+            0.9406515518508104
+          ],
+          "ci95_paired_bootstrap_percentile": [
+            0.910316210067504,
+            0.9431218421851084
+          ],
+          "max_abs_endpoint_gap": 0.002600702429724877
+        }
+      }
+    }
+  },
+  "weight_sensitivity": {
+    "statement": "the three declared weight profiles are hand-picked. Because a weighted sum is linear, the cross-term diagnostic over the WHOLE weight simplex is a closed-form scan on the same covariance matrix, so the range is reported instead of three points. The minimum over the closed simplex is attained at a vertex, where the composite is a single metric and there is no cross-term to drop; the interior scan floors every weight to keep the composite a genuine composition of all three metrics.",
+    "scheme": "redraw covariance (the primary scheme)",
+    "per_model": {
+      "logit": {
+        "grid_step": 0.02,
+        "n_weight_vectors": 1326,
+        "min_over_simplex": {
+          "weights": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "cross_covariance_share_of_variance_pct": 0.0,
+          "understatement_of_width_pct": 0.0
+        },
+        "max_over_simplex": {
+          "weights": [
+            0.02,
+            0.88,
+            0.09999999999999998
+          ],
+          "cross_covariance_share_of_variance_pct": 36.67138047003215,
+          "understatement_of_width_pct": 20.42071907213043
+        },
+        "interior_floor": 0.1,
+        "min_over_interior": {
+          "weights": [
+            0.8,
+            0.1,
+            0.09999999999999995
+          ],
+          "cross_covariance_share_of_variance_pct": 0.9829987162299769,
+          "understatement_of_width_pct": 0.49271318955077525
+        },
+        "max_over_interior": {
+          "weights": [
+            0.1,
+            0.66,
+            0.24
+          ],
+          "cross_covariance_share_of_variance_pct": 21.34704357294498,
+          "understatement_of_width_pct": 11.313497967810783
+        },
+        "at_declared_profiles": {
+          "wsum_equal": {
+            "weights": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "cross_covariance_share_of_variance_pct": 7.464990003820171,
+            "understatement_of_width_pct": 3.804880583171044
+          },
+          "wsum_accuracy_led": {
+            "weights": [
+              0.5,
+              0.2,
+              0.3
+            ],
+            "cross_covariance_share_of_variance_pct": 4.231124732679525,
+            "understatement_of_width_pct": 2.138426710316743
+          },
+          "wsum_accuracy_light": {
+            "weights": [
+              0.2,
+              0.4,
+              0.4
+            ],
+            "cross_covariance_share_of_variance_pct": 13.020516540770032,
+            "understatement_of_width_pct": 6.737208137848471
+          }
+        }
+      },
+      "rf": {
+        "grid_step": 0.02,
+        "n_weight_vectors": 1326,
+        "min_over_simplex": {
+          "weights": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "cross_covariance_share_of_variance_pct": 0.0,
+          "understatement_of_width_pct": 0.0
+        },
+        "max_over_simplex": {
+          "weights": [
+            0.02,
+            0.92,
+            0.05999999999999994
+          ],
+          "cross_covariance_share_of_variance_pct": 33.59444812875052,
+          "understatement_of_width_pct": 18.510398288340202
+        },
+        "interior_floor": 0.1,
+        "min_over_interior": {
+          "weights": [
+            0.8,
+            0.1,
+            0.09999999999999995
+          ],
+          "cross_covariance_share_of_variance_pct": 1.890753738493267,
+          "understatement_of_width_pct": 0.9498883082372678
+        },
+        "max_over_interior": {
+          "weights": [
+            0.1,
+            0.76,
+            0.14
+          ],
+          "cross_covariance_share_of_variance_pct": 23.094118530345142,
+          "understatement_of_width_pct": 12.304001533904152
+        },
+        "at_declared_profiles": {
+          "wsum_equal": {
+            "weights": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "cross_covariance_share_of_variance_pct": 11.775026789064002,
+            "understatement_of_width_pct": 6.071850220002739
+          },
+          "wsum_accuracy_led": {
+            "weights": [
+              0.5,
+              0.2,
+              0.3
+            ],
+            "cross_covariance_share_of_variance_pct": 7.719989762088786,
+            "understatement_of_width_pct": 3.937515003040226
+          },
+          "wsum_accuracy_light": {
+            "weights": [
+              0.2,
+              0.4,
+              0.4
+            ],
+            "cross_covariance_share_of_variance_pct": 15.409292282371734,
+            "understatement_of_width_pct": 8.026793185391067
+          }
+        }
+      }
+    }
+  },
+  "replicate_diagnostics": {
+    "logit/paired": {
+      "min_component_anywhere": 0.697347649655963,
+      "max_component_anywhere": 0.9925325507441289,
+      "min_distance_to_ideal_point": 0.11333922747887432,
+      "min_distance_to_anti_ideal_point": 1.5420763513349338,
+      "argmin_counts": {
+        "RGA": 2000,
+        "RGE": 0,
+        "RGR": 0
+      }
+    },
+    "logit/ind": {
+      "min_component_anywhere": 0.6413960705858215,
+      "max_component_anywhere": 0.9923651023334854,
+      "min_distance_to_ideal_point": 0.12355479366679588,
+      "min_distance_to_anti_ideal_point": 1.5162524357315663,
+      "argmin_counts": {
+        "RGA": 2000,
+        "RGE": 0,
+        "RGR": 0
+      }
+    },
+    "logit/redraw": {
+      "min_component_anywhere": 0.697347649655963,
+      "max_component_anywhere": 0.9925325507441289,
+      "min_distance_to_ideal_point": 0.11310995268009416,
+      "min_distance_to_anti_ideal_point": 1.5374298837725897,
+      "argmin_counts": {
+        "RGA": 2000,
+        "RGE": 0,
+        "RGR": 0
+      }
+    },
+    "rf/paired": {
+      "min_component_anywhere": 0.7288783309233631,
+      "max_component_anywhere": 0.9908585355214251,
+      "min_distance_to_ideal_point": 0.11173088834859106,
+      "min_distance_to_anti_ideal_point": 1.5087089981775188,
+      "argmin_counts": {
+        "RGA": 2000,
+        "RGE": 0,
+        "RGR": 0
+      }
+    },
+    "rf/ind": {
+      "min_component_anywhere": 0.7241145232602846,
+      "max_component_anywhere": 0.9905892176609047,
+      "min_distance_to_ideal_point": 0.12522628997949886,
+      "min_distance_to_anti_ideal_point": 1.5132682488199687,
+      "argmin_counts": {
+        "RGA": 1997,
+        "RGE": 0,
+        "RGR": 3
+      }
+    },
+    "rf/redraw": {
+      "min_component_anywhere": 0.7288783309233631,
+      "max_component_anywhere": 0.9908585355214251,
+      "min_distance_to_ideal_point": 0.11088318117259861,
+      "min_distance_to_anti_ideal_point": 1.5205086970965693,
+      "argmin_counts": {
+        "RGA": 1999,
+        "RGE": 0,
+        "RGR": 1
+      }
+    },
+    "min_component_over_all_matrices": 0.6413960705858215,
+    "max_component_over_all_matrices": 0.9925325507441289,
+    "min_distance_to_ideal_over_all_matrices": 0.11088318117259861,
+    "min_distance_to_anti_ideal_over_all_matrices": 1.5087089981775188,
+    "argmin_counts_over_all_matrices": {
+      "RGA": 11996,
+      "RGE": 0,
+      "RGR": 4
+    },
+    "n_matrices_with_argmin_RGA_in_every_replicate": 4
+  },
+  "nonsmoothness": {
+    "question": "where does the delta method break and the paired bootstrap not? The min-type Shapley composite has a kink where the argmin changes. At the deposited operating point the argmin is frozen, so we walk a one-parameter family of noise levels THROUGH that point until the argmin crosses.",
+    "caveat": "changing the noise level changes the estimand. These numbers are a methodological demonstration and are not a correction to any deposited figure. The family is exact at the deposited point: the perturbation is s * Z * per-feature-sd with Z the same standard normal matrix the deposited run drew, so s = 0.5 reproduces the deposited perturbation.",
+    "scheme": "fixed draw; the redraw scheme would cost about five minutes per noise level and would not change the geometry being demonstrated.",
+    "models": {
+      "logit": {
+        "coarse_sweep": [
+          {
+            "noise_sd": 0.5,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.9542332361339708
+            },
+            "argmin_at_point": "RGA",
+            "argmin_counts_over_replicates": {
+              "RGA": 2000,
+              "RGE": 0,
+              "RGR": 0
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 0.0,
+            "min_composite": {
+              "C_plugin": 0.8052154195011337,
+              "sd_delta": 0.02941990957161982,
+              "sd_bootstrap": 0.02941990957161982,
+              "sd_ratio_delta_over_bootstrap": 1.0,
+              "bootstrap_mean": 0.8053625619679696,
+              "plugin_minus_bootstrap_mean": -0.00014714246683589227,
+              "ci95_delta": [
+                0.7475534563123337,
+                0.8628773826899337
+              ],
+              "ci95_paired_bootstrap": [
+                0.7443038803389271,
+                0.860100370931519
+              ],
+              "width_delta": 0.11532392637760003,
+              "width_bootstrap": 0.1157964905925919,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.003249575973406582
+            },
+            "geomean_control": {
+              "C_plugin": 0.9127062002080241,
+              "sd_delta": 0.011704000841450079,
+              "sd_bootstrap": 0.011738308998637655,
+              "sd_ratio_delta_over_bootstrap": 0.9970772487594629,
+              "ci95_delta": [
+                0.8897667800837554,
+                0.9356456203322927
+              ],
+              "ci95_paired_bootstrap": [
+                0.8876996343085799,
+                0.9337505776594492
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0020671457751755273
+            }
+          },
+          {
+            "noise_sd": 0.75,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.9141103002731708
+            },
+            "argmin_at_point": "RGA",
+            "argmin_counts_over_replicates": {
+              "RGA": 2000,
+              "RGE": 0,
+              "RGR": 0
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 0.0,
+            "min_composite": {
+              "C_plugin": 0.8052154195011337,
+              "sd_delta": 0.02941990957161982,
+              "sd_bootstrap": 0.02941990957161982,
+              "sd_ratio_delta_over_bootstrap": 1.0,
+              "bootstrap_mean": 0.8053625619679696,
+              "plugin_minus_bootstrap_mean": -0.00014714246683589227,
+              "ci95_delta": [
+                0.7475534563123337,
+                0.8628773826899337
+              ],
+              "ci95_paired_bootstrap": [
+                0.7443038803389271,
+                0.860100370931519
+              ],
+              "width_delta": 0.11532392637760003,
+              "width_bootstrap": 0.1157964905925919,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.003249575973406582
+            },
+            "geomean_control": {
+              "C_plugin": 0.8997303185803385,
+              "sd_delta": 0.012044233875776252,
+              "sd_bootstrap": 0.012077049013754695,
+              "sd_ratio_delta_over_bootstrap": 0.9972828513040669,
+              "ci95_delta": [
+                0.8761240539624398,
+                0.9233365831982372
+              ],
+              "ci95_paired_bootstrap": [
+                0.873999394022107,
+                0.9213429730905479
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0021246599403327293
+            }
+          },
+          {
+            "noise_sd": 1.0,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.8792247455830497
+            },
+            "argmin_at_point": "RGA",
+            "argmin_counts_over_replicates": {
+              "RGA": 1989,
+              "RGE": 0,
+              "RGR": 11
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0055,
+            "fraction_RGR_below_RGA": 0.0055,
+            "min_composite": {
+              "C_plugin": 0.8052154195011337,
+              "sd_delta": 0.02941990957161982,
+              "sd_bootstrap": 0.02932083298317554,
+              "sd_ratio_delta_over_bootstrap": 1.0033790509465106,
+              "bootstrap_mean": 0.805312642819727,
+              "plugin_minus_bootstrap_mean": -9.722331859329802e-05,
+              "ci95_delta": [
+                0.7475534563123337,
+                0.8628773826899337
+              ],
+              "ci95_paired_bootstrap": [
+                0.7443038803389271,
+                0.8595340374928773
+              ],
+              "width_delta": 0.11532392637760003,
+              "width_bootstrap": 0.11523015715395013,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.003249575973406582
+            },
+            "geomean_control": {
+              "C_plugin": 0.8881359613350515,
+              "sd_delta": 0.012309042754989567,
+              "sd_bootstrap": 0.01234141670922794,
+              "sd_ratio_delta_over_bootstrap": 0.997376804057336,
+              "ci95_delta": [
+                0.8640106808511082,
+                0.9122612418189947
+              ],
+              "ci95_paired_bootstrap": [
+                0.861907922255506,
+                0.9100219666598015
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.002102758595602161
+            }
+          },
+          {
+            "noise_sd": 1.25,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.8473607682853588
+            },
+            "argmin_at_point": "RGA",
+            "argmin_counts_over_replicates": {
+              "RGA": 1796,
+              "RGE": 0,
+              "RGR": 204
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.102,
+            "fraction_RGR_below_RGA": 0.102,
+            "min_composite": {
+              "C_plugin": 0.8052154195011337,
+              "sd_delta": 0.02941990957161982,
+              "sd_bootstrap": 0.027757086360850922,
+              "sd_ratio_delta_over_bootstrap": 1.059906259221579,
+              "bootstrap_mean": 0.8041155497396674,
+              "plugin_minus_bootstrap_mean": 0.0010998697614663655,
+              "ci95_delta": [
+                0.7475534563123337,
+                0.8628773826899337
+              ],
+              "ci95_paired_bootstrap": [
+                0.7443038803389271,
+                0.850928836069802
+              ],
+              "width_delta": 0.11532392637760003,
+              "width_bootstrap": 0.10662495573087483,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.003249575973406582
+            },
+            "geomean_control": {
+              "C_plugin": 0.877274701236624,
+              "sd_delta": 0.012617324487376055,
+              "sd_bootstrap": 0.012649460665777181,
+              "sd_ratio_delta_over_bootstrap": 0.9974594823249604,
+              "ci95_delta": [
+                0.8525451996601117,
+                0.9020042028131363
+              ],
+              "ci95_paired_bootstrap": [
+                0.8510242706685591,
+                0.8995389338817884
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0015209289915525392
+            }
+          },
+          {
+            "noise_sd": 1.5,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.8191377471865077
+            },
+            "argmin_at_point": "RGA",
+            "argmin_counts_over_replicates": {
+              "RGA": 1301,
+              "RGE": 0,
+              "RGR": 699
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.3495,
+            "fraction_RGR_below_RGA": 0.3495,
+            "min_composite": {
+              "C_plugin": 0.8052154195011337,
+              "sd_delta": 0.02941990957161982,
+              "sd_bootstrap": 0.023425086831351378,
+              "sd_ratio_delta_over_bootstrap": 1.2559146432808592,
+              "bootstrap_mean": 0.7979804364993192,
+              "plugin_minus_bootstrap_mean": 0.007234983001814577,
+              "ci95_delta": [
+                0.7475534563123337,
+                0.8628773826899337
+              ],
+              "ci95_paired_bootstrap": [
+                0.7443038803389271,
+                0.8364030148895002
+              ],
+              "width_delta": 0.11532392637760003,
+              "width_bootstrap": 0.09209913455057306,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.003249575973406582
+            },
+            "geomean_control": {
+              "C_plugin": 0.867424732638635,
+              "sd_delta": 0.012870937912384998,
+              "sd_bootstrap": 0.01290336413485514,
+              "sd_ratio_delta_over_bootstrap": 0.997486994699115,
+              "ci95_delta": [
+                0.8421981578831093,
+                0.8926513073941607
+              ],
+              "ci95_paired_bootstrap": [
+                0.8410672949592509,
+                0.8903581814551187
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0011308629238583334
+            }
+          },
+          {
+            "noise_sd": 1.75,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.7943681551120461
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 724,
+              "RGE": 0,
+              "RGR": 1276
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.362,
+            "fraction_RGR_below_RGA": 0.638,
+            "min_composite": {
+              "C_plugin": 0.7943681551120461,
+              "sd_delta": 0.018943467666853262,
+              "sd_bootstrap": 0.02018227924965783,
+              "sd_ratio_delta_over_bootstrap": 0.9386188463909213,
+              "bootstrap_mean": 0.7853083950407912,
+              "plugin_minus_bootstrap_mean": 0.009059760071254863,
+              "ci95_delta": [
+                0.7572396407427147,
+                0.8314966694813775
+              ],
+              "ci95_paired_bootstrap": [
+                0.7424171988351046,
+                0.8208220262260069
+              ],
+              "width_delta": 0.0742570287386628,
+              "width_bootstrap": 0.07840482739090227,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.014822441907610062
+            },
+            "geomean_control": {
+              "C_plugin": 0.858591852562619,
+              "sd_delta": 0.013134193215266788,
+              "sd_bootstrap": 0.01316717549730354,
+              "sd_ratio_delta_over_bootstrap": 0.9974951133564289,
+              "ci95_delta": [
+                0.8328493068947058,
+                0.8843343982305323
+              ],
+              "ci95_paired_bootstrap": [
+                0.8313837594515181,
+                0.8820322473329101
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0014655474431877202
+            }
+          },
+          {
+            "noise_sd": 2.0,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.7731154397667477
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 327,
+              "RGE": 0,
+              "RGR": 1673
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.1635,
+            "fraction_RGR_below_RGA": 0.8365,
+            "min_composite": {
+              "C_plugin": 0.7731154397667477,
+              "sd_delta": 0.020128586199189277,
+              "sd_bootstrap": 0.019804437241565376,
+              "sd_ratio_delta_over_bootstrap": 1.0163674914702236,
+              "bootstrap_mean": 0.7693451413573443,
+              "plugin_minus_bootstrap_mean": 0.00377029840940335,
+              "ci95_delta": [
+                0.7336641357566267,
+                0.8125667437768687
+              ],
+              "ci95_paired_bootstrap": [
+                0.7295455832204026,
+                0.8069906448608767
+              ],
+              "width_delta": 0.07890260802024196,
+              "width_bootstrap": 0.07744506164047404,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.004118552536224063
+            },
+            "geomean_control": {
+              "C_plugin": 0.8508655429893321,
+              "sd_delta": 0.013392638108964365,
+              "sd_bootstrap": 0.013426249170822106,
+              "sd_ratio_delta_over_bootstrap": 0.9974966156645756,
+              "ci95_delta": [
+                0.8246164546377833,
+                0.877114631340881
+              ],
+              "ci95_paired_bootstrap": [
+                0.822948551449812,
+                0.875042181694028
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0016679031879712758
+            }
+          },
+          {
+            "noise_sd": 2.5,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.7396227941261782
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 69,
+              "RGE": 0,
+              "RGR": 1931
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0345,
+            "fraction_RGR_below_RGA": 0.9655,
+            "min_composite": {
+              "C_plugin": 0.7396227941261782,
+              "sd_delta": 0.021881284458252482,
+              "sd_bootstrap": 0.021560069947925246,
+              "sd_ratio_delta_over_bootstrap": 1.0148985838683768,
+              "bootstrap_mean": 0.7385146725845106,
+              "plugin_minus_bootstrap_mean": 0.001108121541667506,
+              "ci95_delta": [
+                0.6967362646525272,
+                0.782509323599829
+              ],
+              "ci95_paired_bootstrap": [
+                0.6953052357863166,
+                0.7786344618787135
+              ],
+              "width_delta": 0.0857730589473018,
+              "width_bootstrap": 0.0833292260923969,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.001431028866210604
+            },
+            "geomean_control": {
+              "C_plugin": 0.8383967448512744,
+              "sd_delta": 0.013730514628920994,
+              "sd_bootstrap": 0.013765350550843722,
+              "sd_ratio_delta_over_bootstrap": 0.9974693036843444,
+              "ci95_delta": [
+                0.8114854306893888,
+                0.8653080590131599
+              ],
+              "ci95_paired_bootstrap": [
+                0.80963745700807,
+                0.8632193122420406
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0018479736813188374
+            }
+          },
+          {
+            "noise_sd": 3.0,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.7142590396471831
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 13,
+              "RGE": 0,
+              "RGR": 1987
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0065,
+            "fraction_RGR_below_RGA": 0.9935,
+            "min_composite": {
+              "C_plugin": 0.7142590396471831,
+              "sd_delta": 0.02308835167901978,
+              "sd_bootstrap": 0.023020218380371008,
+              "sd_ratio_delta_over_bootstrap": 1.0029597155649432,
+              "bootstrap_mean": 0.7136152274347654,
+              "plugin_minus_bootstrap_mean": 0.0006438122124177159,
+              "ci95_delta": [
+                0.6690067018939094,
+                0.7595113774004567
+              ],
+              "ci95_paired_bootstrap": [
+                0.668917847169781,
+                0.7572757014134761
+              ],
+              "width_delta": 0.09050467550654728,
+              "width_bootstrap": 0.08835785424369513,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 8.885472412845097e-05
+            },
+            "geomean_control": {
+              "C_plugin": 0.8287013944255535,
+              "sd_delta": 0.01406447881700088,
+              "sd_bootstrap": 0.014100097108551856,
+              "sd_ratio_delta_over_bootstrap": 0.9974738974294459,
+              "ci95_delta": [
+                0.8011355224829052,
+                0.8562672663682017
+              ],
+              "ci95_paired_bootstrap": [
+                0.7994666168819687,
+                0.854682244264206
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0016689056009364656
+            }
+          },
+          {
+            "noise_sd": 4.0,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.6778837219625995
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 0,
+              "RGE": 0,
+              "RGR": 2000
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 1.0,
+            "min_composite": {
+              "C_plugin": 0.6778837219625995,
+              "sd_delta": 0.02491821883824727,
+              "sd_bootstrap": 0.024918218838247273,
+              "sd_ratio_delta_over_bootstrap": 0.9999999999999999,
+              "bootstrap_mean": 0.6773426536572003,
+              "plugin_minus_bootstrap_mean": 0.0005410683053992393,
+              "ci95_delta": [
+                0.6290449104807474,
+                0.7267225334444516
+              ],
+              "ci95_paired_bootstrap": [
+                0.6280038093453925,
+                0.724983223039097
+              ],
+              "width_delta": 0.09767762296370419,
+              "width_bootstrap": 0.09697941369370455,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.0010411011353549382
+            },
+            "geomean_control": {
+              "C_plugin": 0.8143877321617538,
+              "sd_delta": 0.01458402087457515,
+              "sd_bootstrap": 0.014619919195390263,
+              "sd_ratio_delta_over_bootstrap": 0.9975445609284603,
+              "ci95_delta": [
+                0.7858035764978061,
+                0.8429718878257014
+              ],
+              "ci95_paired_bootstrap": [
+                0.7835115118594762,
+                0.8410782367965822
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0022920646383298715
+            }
+          },
+          {
+            "noise_sd": 6.0,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.6370878490881772
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 0,
+              "RGE": 0,
+              "RGR": 2000
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 1.0,
+            "min_composite": {
+              "C_plugin": 0.6370878490881772,
+              "sd_delta": 0.02644650675078946,
+              "sd_bootstrap": 0.026446506750789463,
+              "sd_ratio_delta_over_bootstrap": 0.9999999999999999,
+              "bootstrap_mean": 0.6366228408163718,
+              "plugin_minus_bootstrap_mean": 0.0004650082718054005,
+              "ci95_delta": [
+                0.5852536483397344,
+                0.68892204983662
+              ],
+              "ci95_paired_bootstrap": [
+                0.5860725575941533,
+                0.6884312083054805
+              ],
+              "width_delta": 0.10366840149688561,
+              "width_bootstrap": 0.10235865071132721,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": -0.0008189092544189647
+            },
+            "geomean_control": {
+              "C_plugin": 0.7977116386232408,
+              "sd_delta": 0.01516081626536545,
+              "sd_bootstrap": 0.01519664153548485,
+              "sd_ratio_delta_over_bootstrap": 0.9976425534526333,
+              "ci95_delta": [
+                0.7679969847668955,
+                0.8274262924795861
+              ],
+              "ci95_paired_bootstrap": [
+                0.7658839089873483,
+                0.8251964641456522
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0021130757795472244
+            }
+          },
+          {
+            "noise_sd": 8.0,
+            "point": {
+              "RGA": 0.8052154195011337,
+              "RGE": 0.9895241103151701,
+              "RGR": 0.6148261909111901
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 0,
+              "RGE": 0,
+              "RGR": 2000
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 1.0,
+            "min_composite": {
+              "C_plugin": 0.6148261909111901,
+              "sd_delta": 0.027380493831846705,
+              "sd_bootstrap": 0.0273804938318467,
+              "sd_ratio_delta_over_bootstrap": 1.0000000000000002,
+              "bootstrap_mean": 0.6143829310179975,
+              "plugin_minus_bootstrap_mean": 0.0004432598931926046,
+              "ci95_delta": [
+                0.5611614091218494,
+                0.6684909727005307
+              ],
+              "ci95_paired_bootstrap": [
+                0.5624740051736385,
+                0.6688003035747196
+              ],
+              "width_delta": 0.10732956357868129,
+              "width_bootstrap": 0.1063262984010811,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": -0.0013125960517891277
+            },
+            "geomean_control": {
+              "C_plugin": 0.7883098279683646,
+              "sd_delta": 0.015546197894353391,
+              "sd_bootstrap": 0.01558305566676881,
+              "sd_ratio_delta_over_bootstrap": 0.9976347532086394,
+              "ci95_delta": [
+                0.7578398399988995,
+                0.8187798159378297
+              ],
+              "ci95_paired_bootstrap": [
+                0.7562295412656637,
+                0.8171817067336481
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0016102987332358154
+            }
+          }
+        ],
+        "bisection_trace": [
+          {
+            "noise_sd": 1.625,
+            "fraction_RGR_below_RGA": 0.5195
+          },
+          {
+            "noise_sd": 1.5625,
+            "fraction_RGR_below_RGA": 0.427
+          },
+          {
+            "noise_sd": 1.59375,
+            "fraction_RGR_below_RGA": 0.476
+          },
+          {
+            "noise_sd": 1.609375,
+            "fraction_RGR_below_RGA": 0.5
+          },
+          {
+            "noise_sd": 1.6015625,
+            "fraction_RGR_below_RGA": 0.4865
+          },
+          {
+            "noise_sd": 1.60546875,
+            "fraction_RGR_below_RGA": 0.4915
+          },
+          {
+            "noise_sd": 1.607421875,
+            "fraction_RGR_below_RGA": 0.497
+          },
+          {
+            "noise_sd": 1.6083984375,
+            "fraction_RGR_below_RGA": 0.4995
+          },
+          {
+            "noise_sd": 1.60888671875,
+            "fraction_RGR_below_RGA": 0.4995
+          },
+          {
+            "noise_sd": 1.609130859375,
+            "fraction_RGR_below_RGA": 0.5
+          }
+        ],
+        "chosen_level": {
+          "noise_sd": 1.609130859375,
+          "point": {
+            "RGA": 0.8052154195011337,
+            "RGE": 0.9895241103151701,
+            "RGR": 0.807260443502813
+          },
+          "argmin_at_point": "RGA",
+          "argmin_counts_over_replicates": {
+            "RGA": 1000,
+            "RGE": 0,
+            "RGR": 1000
+          },
+          "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.5,
+          "fraction_RGR_below_RGA": 0.5,
+          "min_composite": {
+            "C_plugin": 0.8052154195011337,
+            "sd_delta": 0.02941990957161982,
+            "sd_bootstrap": 0.02151749381752146,
+            "sd_ratio_delta_over_bootstrap": 1.3672553979155095,
+            "bootstrap_mean": 0.7928005352620119,
+            "plugin_minus_bootstrap_mean": 0.012414884239121848,
+            "ci95_delta": [
+              0.7475534563123337,
+              0.8628773826899337
+            ],
+            "ci95_paired_bootstrap": [
+              0.7443038803389271,
+              0.8285899336069046
+            ],
+            "width_delta": 0.11532392637760003,
+            "width_bootstrap": 0.08428605326797745,
+            "cross_covariance_share_of_variance_pct": 0.0,
+            "lower_bound_gap_delta_minus_bootstrap": 0.003249575973406582
+          },
+          "geomean_control": {
+            "C_plugin": 0.8632118199500566,
+            "sd_delta": 0.012998145111255584,
+            "sd_bootstrap": 0.013030907502234542,
+            "sd_ratio_delta_over_bootstrap": 0.9974857936046787,
+            "ci95_delta": [
+              0.8377359236661702,
+              0.8886877162339429
+            ],
+            "ci95_paired_bootstrap": [
+              0.8363882236123323,
+              0.886365228771124
+            ],
+            "lower_bound_gap_delta_minus_bootstrap": 0.0013477000538378858
+          }
+        },
+        "deposited_level": {
+          "noise_sd": 0.5,
+          "point": {
+            "RGA": 0.8052154195011337,
+            "RGE": 0.9895241103151701,
+            "RGR": 0.9542332361339708
+          },
+          "argmin_at_point": "RGA",
+          "argmin_counts_over_replicates": {
+            "RGA": 2000,
+            "RGE": 0,
+            "RGR": 0
+          },
+          "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+          "fraction_RGR_below_RGA": 0.0,
+          "min_composite": {
+            "C_plugin": 0.8052154195011337,
+            "sd_delta": 0.02941990957161982,
+            "sd_bootstrap": 0.02941990957161982,
+            "sd_ratio_delta_over_bootstrap": 1.0,
+            "bootstrap_mean": 0.8053625619679696,
+            "plugin_minus_bootstrap_mean": -0.00014714246683589227,
+            "ci95_delta": [
+              0.7475534563123337,
+              0.8628773826899337
+            ],
+            "ci95_paired_bootstrap": [
+              0.7443038803389271,
+              0.860100370931519
+            ],
+            "width_delta": 0.11532392637760003,
+            "width_bootstrap": 0.1157964905925919,
+            "cross_covariance_share_of_variance_pct": 0.0,
+            "lower_bound_gap_delta_minus_bootstrap": 0.003249575973406582
+          },
+          "geomean_control": {
+            "C_plugin": 0.9127062002080241,
+            "sd_delta": 0.011704000841450079,
+            "sd_bootstrap": 0.011738308998637655,
+            "sd_ratio_delta_over_bootstrap": 0.9970772487594629,
+            "ci95_delta": [
+              0.8897667800837554,
+              0.9356456203322927
+            ],
+            "ci95_paired_bootstrap": [
+              0.8876996343085799,
+              0.9337505776594492
+            ],
+            "lower_bound_gap_delta_minus_bootstrap": 0.0020671457751755273
+          }
+        },
+        "sweep_seconds": 2.1
+      },
+      "rf": {
+        "coarse_sweep": [
+          {
+            "noise_sd": 0.5,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.9091507824866948
+            },
+            "argmin_at_point": "RGA",
+            "argmin_counts_over_replicates": {
+              "RGA": 2000,
+              "RGE": 0,
+              "RGR": 0
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 0.0,
+            "min_composite": {
+              "C_plugin": 0.8272108843537415,
+              "sd_delta": 0.027860910527445583,
+              "sd_bootstrap": 0.027860910527445583,
+              "sd_ratio_delta_over_bootstrap": 1.0,
+              "bootstrap_mean": 0.8269010279069996,
+              "plugin_minus_bootstrap_mean": 0.00030985644674186297,
+              "ci95_delta": [
+                0.7726045031434553,
+                0.8818172655640276
+              ],
+              "ci95_paired_bootstrap": [
+                0.7696964108799587,
+                0.8786896398581462
+              ],
+              "width_delta": 0.10921276242057232,
+              "width_bootstrap": 0.10899322897818753,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.002908092263496642
+            },
+            "geomean_control": {
+              "C_plugin": 0.9056480394647118,
+              "sd_delta": 0.011691221602377821,
+              "sd_bootstrap": 0.011724597031520153,
+              "sd_ratio_delta_over_bootstrap": 0.9971533836896393,
+              "ci95_delta": [
+                0.8827336661887747,
+                0.928562412740649
+              ],
+              "ci95_paired_bootstrap": [
+                0.8804515242033053,
+                0.9263154582397463
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.002282141985469388
+            }
+          },
+          {
+            "noise_sd": 0.75,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.8600730194788504
+            },
+            "argmin_at_point": "RGA",
+            "argmin_counts_over_replicates": {
+              "RGA": 1715,
+              "RGE": 0,
+              "RGR": 285
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.1425,
+            "fraction_RGR_below_RGA": 0.1425,
+            "min_composite": {
+              "C_plugin": 0.8272108843537415,
+              "sd_delta": 0.027860910527445583,
+              "sd_bootstrap": 0.025359577731070098,
+              "sd_ratio_delta_over_bootstrap": 1.0986346390662056,
+              "bootstrap_mean": 0.8246496920824075,
+              "plugin_minus_bootstrap_mean": 0.0025611922713340007,
+              "ci95_delta": [
+                0.7726045031434553,
+                0.8818172655640276
+              ],
+              "ci95_paired_bootstrap": [
+                0.7696964108799587,
+                0.8680583758729463
+              ],
+              "width_delta": 0.10921276242057232,
+              "width_bootstrap": 0.09836196499298766,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.002908092263496642
+            },
+            "geomean_control": {
+              "C_plugin": 0.8890494556128729,
+              "sd_delta": 0.012270506877234152,
+              "sd_bootstrap": 0.012303917146987859,
+              "sd_ratio_delta_over_bootstrap": 0.9972845826776486,
+              "ci95_delta": [
+                0.8649997040614429,
+                0.9130992071643028
+              ],
+              "ci95_paired_bootstrap": [
+                0.8630174446132342,
+                0.910858813884
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.001982259448208734
+            }
+          },
+          {
+            "noise_sd": 1.0,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.8220793978422101
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 872,
+              "RGE": 0,
+              "RGR": 1128
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.436,
+            "fraction_RGR_below_RGA": 0.564,
+            "min_composite": {
+              "C_plugin": 0.8220793978422101,
+              "sd_delta": 0.02027006254509752,
+              "sd_bootstrap": 0.02110350735650261,
+              "sd_ratio_delta_over_bootstrap": 0.9605068106772177,
+              "bootstrap_mean": 0.8109893351111064,
+              "plugin_minus_bootstrap_mean": 0.01109006273110369,
+              "ci95_delta": [
+                0.7823508052894447,
+                0.8618079903949755
+              ],
+              "ci95_paired_bootstrap": [
+                0.7679988058694452,
+                0.8492764002658535
+              ],
+              "width_delta": 0.07945718510553079,
+              "width_bootstrap": 0.08127759439640825,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.014351999419999428
+            },
+            "geomean_control": {
+              "C_plugin": 0.8757605957415808,
+              "sd_delta": 0.012832373667214075,
+              "sd_bootstrap": 0.012867731339499068,
+              "sd_ratio_delta_over_bootstrap": 0.9972522217512843,
+              "ci95_delta": [
+                0.8506096055176811,
+                0.9009115859654806
+              ],
+              "ci95_paired_bootstrap": [
+                0.8490754249428152,
+                0.8999415190816328
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0015341805748658732
+            }
+          },
+          {
+            "noise_sd": 1.25,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.7735810341217375
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 134,
+              "RGE": 0,
+              "RGR": 1866
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.067,
+            "fraction_RGR_below_RGA": 0.933,
+            "min_composite": {
+              "C_plugin": 0.7735810341217375,
+              "sd_delta": 0.024360392612372248,
+              "sd_bootstrap": 0.02374114244639692,
+              "sd_ratio_delta_over_bootstrap": 1.0260834190003063,
+              "bootstrap_mean": 0.7730811149059864,
+              "plugin_minus_bootstrap_mean": 0.000499919215751099,
+              "ci95_delta": [
+                0.7258355419522323,
+                0.8213265262912427
+              ],
+              "ci95_paired_bootstrap": [
+                0.7240493212203006,
+                0.8161000411524806
+              ],
+              "width_delta": 0.09549098433901038,
+              "width_bootstrap": 0.09205071993217995,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.001786220731931687
+            },
+            "geomean_control": {
+              "C_plugin": 0.8581886179105866,
+              "sd_delta": 0.01394927235719767,
+              "sd_bootstrap": 0.013988311903603893,
+              "sd_ratio_delta_over_bootstrap": 0.9972091309748272,
+              "ci95_delta": [
+                0.8308485464799391,
+                0.8855286893412342
+              ],
+              "ci95_paired_bootstrap": [
+                0.8282834075683716,
+                0.8837138818317294
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0025651389115675105
+            }
+          },
+          {
+            "noise_sd": 1.5,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.7396814379786221
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 19,
+              "RGE": 0,
+              "RGR": 1981
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0095,
+            "fraction_RGR_below_RGA": 0.9905,
+            "min_composite": {
+              "C_plugin": 0.7396814379786221,
+              "sd_delta": 0.026400965960235476,
+              "sd_bootstrap": 0.02625693759636527,
+              "sd_ratio_delta_over_bootstrap": 1.0054853450956194,
+              "bootstrap_mean": 0.7398520661718968,
+              "plugin_minus_bootstrap_mean": -0.00017062819327473555,
+              "ci95_delta": [
+                0.6879364955394927,
+                0.7914263804177515
+              ],
+              "ci95_paired_bootstrap": [
+                0.6840799171540115,
+                0.7877199256775254
+              ],
+              "width_delta": 0.10348988487825883,
+              "width_bootstrap": 0.10364000852351385,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.0038565783854811464
+            },
+            "geomean_control": {
+              "C_plugin": 0.8454651663979631,
+              "sd_delta": 0.014380416559036692,
+              "sd_bootstrap": 0.014423156413458477,
+              "sd_ratio_delta_over_bootstrap": 0.9970367197583808,
+              "ci95_delta": [
+                0.8172800678595677,
+                0.8736502649363584
+              ],
+              "ci95_paired_bootstrap": [
+                0.8159615782787869,
+                0.8713387402577946
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.001318489580780846
+            }
+          },
+          {
+            "noise_sd": 1.75,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.7040719885966638
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 2,
+              "RGE": 0,
+              "RGR": 1998
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.001,
+            "fraction_RGR_below_RGA": 0.999,
+            "min_composite": {
+              "C_plugin": 0.7040719885966638,
+              "sd_delta": 0.027638130254570514,
+              "sd_bootstrap": 0.027617551709073374,
+              "sd_ratio_delta_over_bootstrap": 1.000745125625686,
+              "bootstrap_mean": 0.7045601733983828,
+              "plugin_minus_bootstrap_mean": -0.00048818480171908263,
+              "ci95_delta": [
+                0.6499022486976788,
+                0.7582417284956487
+              ],
+              "ci95_paired_bootstrap": [
+                0.6457576208376579,
+                0.7550255233726086
+              ],
+              "width_delta": 0.10833947979796998,
+              "width_bootstrap": 0.10926790253495078,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.0041446278600209
+            },
+            "geomean_control": {
+              "C_plugin": 0.8316740825673722,
+              "sd_delta": 0.014643665032241555,
+              "sd_bootstrap": 0.014694733468802344,
+              "sd_ratio_delta_over_bootstrap": 0.9965247116139119,
+              "ci95_delta": [
+                0.8029730265025101,
+                0.8603751386322342
+              ],
+              "ci95_paired_bootstrap": [
+                0.8016440586524022,
+                0.8579828404841525
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0013289678501079427
+            }
+          },
+          {
+            "noise_sd": 2.0,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.6740581164308018
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 0,
+              "RGE": 0,
+              "RGR": 2000
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 1.0,
+            "min_composite": {
+              "C_plugin": 0.6740581164308018,
+              "sd_delta": 0.028331079768373818,
+              "sd_bootstrap": 0.02833107976837382,
+              "sd_ratio_delta_over_bootstrap": 0.9999999999999999,
+              "bootstrap_mean": 0.6748249918478366,
+              "plugin_minus_bootstrap_mean": -0.0007668754170347958,
+              "ci95_delta": [
+                0.6185302204416577,
+                0.7295860124199459
+              ],
+              "ci95_paired_bootstrap": [
+                0.617695129141702,
+                0.7285364837364826
+              ],
+              "width_delta": 0.11105579197828819,
+              "width_bootstrap": 0.11084135459478062,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.0008350912999557369
+            },
+            "geomean_control": {
+              "C_plugin": 0.8196842553793742,
+              "sd_delta": 0.01495285588908068,
+              "sd_bootstrap": 0.014999269601918441,
+              "sd_ratio_delta_over_bootstrap": 0.9969056018013154,
+              "ci95_delta": [
+                0.7903771963707584,
+                0.8489913143879899
+              ],
+              "ci95_paired_bootstrap": [
+                0.7897512299753912,
+                0.8470314405569052
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0006259663953672723
+            }
+          },
+          {
+            "noise_sd": 2.5,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.6430728832837922
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 0,
+              "RGE": 0,
+              "RGR": 2000
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 1.0,
+            "min_composite": {
+              "C_plugin": 0.6430728832837922,
+              "sd_delta": 0.029509858119286064,
+              "sd_bootstrap": 0.029509858119286067,
+              "sd_ratio_delta_over_bootstrap": 0.9999999999999999,
+              "bootstrap_mean": 0.6431195065238487,
+              "plugin_minus_bootstrap_mean": -4.6623240056553605e-05,
+              "ci95_delta": [
+                0.5852346241811046,
+                0.7009111423864798
+              ],
+              "ci95_paired_bootstrap": [
+                0.5827359881205215,
+                0.6989616694605364
+              ],
+              "width_delta": 0.11567651820537517,
+              "width_bootstrap": 0.11622568134001487,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.0024986360605830926
+            },
+            "geomean_control": {
+              "C_plugin": 0.8069269330976683,
+              "sd_delta": 0.0158486379775207,
+              "sd_bootstrap": 0.015907000561799306,
+              "sd_ratio_delta_over_bootstrap": 0.9963310126222812,
+              "ci95_delta": [
+                0.775864173457714,
+                0.8379896927376226
+              ],
+              "ci95_paired_bootstrap": [
+                0.773900477149665,
+                0.8358780237741064
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0019636963080489345
+            }
+          },
+          {
+            "noise_sd": 3.0,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.6111627581276817
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 0,
+              "RGE": 0,
+              "RGR": 2000
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 1.0,
+            "min_composite": {
+              "C_plugin": 0.6111627581276817,
+              "sd_delta": 0.030259651477309055,
+              "sd_bootstrap": 0.030259651477309055,
+              "sd_ratio_delta_over_bootstrap": 1.0,
+              "bootstrap_mean": 0.6111488324251262,
+              "plugin_minus_bootstrap_mean": 1.3925702555539488e-05,
+              "ci95_delta": [
+                0.5518549310474218,
+                0.6704705852079417
+              ],
+              "ci95_paired_bootstrap": [
+                0.5489734523970001,
+                0.6699354774750599
+              ],
+              "width_delta": 0.11861565416051989,
+              "width_bootstrap": 0.12096202507805975,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.002881478650421654
+            },
+            "geomean_control": {
+              "C_plugin": 0.7933529477742451,
+              "sd_delta": 0.01631256497058676,
+              "sd_bootstrap": 0.016373369515200055,
+              "sd_ratio_delta_over_bootstrap": 0.9962863755956373,
+              "ci95_delta": [
+                0.7613809079364254,
+                0.8253249876120649
+              ],
+              "ci95_paired_bootstrap": [
+                0.759588822689964,
+                0.8230973023675943
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0017920852464614612
+            }
+          },
+          {
+            "noise_sd": 4.0,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.5859628807010677
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 0,
+              "RGE": 0,
+              "RGR": 2000
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 1.0,
+            "min_composite": {
+              "C_plugin": 0.5859628807010677,
+              "sd_delta": 0.03005528033581674,
+              "sd_bootstrap": 0.030055280335816743,
+              "sd_ratio_delta_over_bootstrap": 0.9999999999999999,
+              "bootstrap_mean": 0.5859033927450944,
+              "plugin_minus_bootstrap_mean": 5.9487955973325235e-05,
+              "ci95_delta": [
+                0.527055613697612,
+                0.6448701477045234
+              ],
+              "ci95_paired_bootstrap": [
+                0.5246101898558811,
+                0.6441287359098935
+              ],
+              "width_delta": 0.11781453400691144,
+              "width_bootstrap": 0.11951854605401235,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.002445423841730854
+            },
+            "geomean_control": {
+              "C_plugin": 0.7822955277866956,
+              "sd_delta": 0.016407173263008692,
+              "sd_bootstrap": 0.01646191696068026,
+              "sd_ratio_delta_over_bootstrap": 0.9966745247347362,
+              "ci95_delta": [
+                0.7501380591030901,
+                0.8144529964703012
+              ],
+              "ci95_paired_bootstrap": [
+                0.7475948353792645,
+                0.8116449873907369
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0025432237238255384
+            }
+          },
+          {
+            "noise_sd": 6.0,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.5662034725047504
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 0,
+              "RGE": 0,
+              "RGR": 2000
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 1.0,
+            "min_composite": {
+              "C_plugin": 0.5662034725047504,
+              "sd_delta": 0.030057561969565084,
+              "sd_bootstrap": 0.030057561969565084,
+              "sd_ratio_delta_over_bootstrap": 1.0,
+              "bootstrap_mean": 0.5663963551325536,
+              "plugin_minus_bootstrap_mean": -0.00019288262780314813,
+              "ci95_delta": [
+                0.5072917335813221,
+                0.6251152114281788
+              ],
+              "ci95_paired_bootstrap": [
+                0.5071202784812243,
+                0.6242857866723688
+              ],
+              "width_delta": 0.11782347784685676,
+              "width_bootstrap": 0.11716550819114446,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": 0.00017145510009775045
+            },
+            "geomean_control": {
+              "C_plugin": 0.7734014616906204,
+              "sd_delta": 0.016632852108925573,
+              "sd_bootstrap": 0.01667853639663797,
+              "sd_ratio_delta_over_bootstrap": 0.9972608934845383,
+              "ci95_delta": [
+                0.7408016705969452,
+                0.8060012527842956
+              ],
+              "ci95_paired_bootstrap": [
+                0.7389270017934465,
+                0.803903204398692
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0018746688034987358
+            }
+          },
+          {
+            "noise_sd": 8.0,
+            "point": {
+              "RGA": 0.8272108843537415,
+              "RGE": 0.9877025996971712,
+              "RGR": 0.55539993730284
+            },
+            "argmin_at_point": "RGR",
+            "argmin_counts_over_replicates": {
+              "RGA": 0,
+              "RGE": 0,
+              "RGR": 2000
+            },
+            "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+            "fraction_RGR_below_RGA": 1.0,
+            "min_composite": {
+              "C_plugin": 0.55539993730284,
+              "sd_delta": 0.029688067887965984,
+              "sd_bootstrap": 0.029688067887965987,
+              "sd_ratio_delta_over_bootstrap": 0.9999999999999999,
+              "bootstrap_mean": 0.5555263800115254,
+              "plugin_minus_bootstrap_mean": -0.00012644270868544805,
+              "ci95_delta": [
+                0.49721239347184654,
+                0.6135874811338334
+              ],
+              "ci95_paired_bootstrap": [
+                0.4976752277975221,
+                0.6126229183020527
+              ],
+              "width_delta": 0.1163750876619869,
+              "width_bootstrap": 0.11494769050453063,
+              "cross_covariance_share_of_variance_pct": 0.0,
+              "lower_bound_gap_delta_minus_bootstrap": -0.00046283432567556515
+            },
+            "geomean_control": {
+              "C_plugin": 0.7684508367256937,
+              "sd_delta": 0.01652898802978774,
+              "sd_bootstrap": 0.016575710852103947,
+              "sd_ratio_delta_over_bootstrap": 0.997181247746592,
+              "ci95_delta": [
+                0.736054615486416,
+                0.8008470579649714
+              ],
+              "ci95_paired_bootstrap": [
+                0.7348146421154574,
+                0.7989052660162287
+              ],
+              "lower_bound_gap_delta_minus_bootstrap": 0.0012399733709586025
+            }
+          }
+        ],
+        "bisection_trace": [
+          {
+            "noise_sd": 0.875,
+            "fraction_RGR_below_RGA": 0.2985
+          },
+          {
+            "noise_sd": 0.9375,
+            "fraction_RGR_below_RGA": 0.543
+          },
+          {
+            "noise_sd": 0.90625,
+            "fraction_RGR_below_RGA": 0.3585
+          },
+          {
+            "noise_sd": 0.921875,
+            "fraction_RGR_below_RGA": 0.454
+          },
+          {
+            "noise_sd": 0.9296875,
+            "fraction_RGR_below_RGA": 0.478
+          },
+          {
+            "noise_sd": 0.93359375,
+            "fraction_RGR_below_RGA": 0.53
+          },
+          {
+            "noise_sd": 0.931640625,
+            "fraction_RGR_below_RGA": 0.483
+          },
+          {
+            "noise_sd": 0.9326171875,
+            "fraction_RGR_below_RGA": 0.5235
+          },
+          {
+            "noise_sd": 0.93212890625,
+            "fraction_RGR_below_RGA": 0.499
+          },
+          {
+            "noise_sd": 0.932373046875,
+            "fraction_RGR_below_RGA": 0.4985
+          }
+        ],
+        "chosen_level": {
+          "noise_sd": 0.932373046875,
+          "point": {
+            "RGA": 0.8272108843537415,
+            "RGE": 0.9877025996971712,
+            "RGR": 0.8273257625783939
+          },
+          "argmin_at_point": "RGA",
+          "argmin_counts_over_replicates": {
+            "RGA": 1003,
+            "RGE": 0,
+            "RGR": 997
+          },
+          "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.4985,
+          "fraction_RGR_below_RGA": 0.4985,
+          "min_composite": {
+            "C_plugin": 0.8272108843537415,
+            "sd_delta": 0.027860910527445583,
+            "sd_bootstrap": 0.021481155501276245,
+            "sd_ratio_delta_over_bootstrap": 1.2969931028985058,
+            "bootstrap_mean": 0.8141857775280263,
+            "plugin_minus_bootstrap_mean": 0.013025106825715116,
+            "ci95_delta": [
+              0.7726045031434553,
+              0.8818172655640276
+            ],
+            "ci95_paired_bootstrap": [
+              0.7683294931141713,
+              0.8520445102655758
+            ],
+            "width_delta": 0.10921276242057232,
+            "width_bootstrap": 0.0837150171514045,
+            "cross_covariance_share_of_variance_pct": 0.0,
+            "lower_bound_gap_delta_minus_bootstrap": 0.004275010029283988
+          },
+          "geomean_control": {
+            "C_plugin": 0.8776196295272843,
+            "sd_delta": 0.012750704618726412,
+            "sd_bootstrap": 0.012785798360274011,
+            "sd_ratio_delta_over_bootstrap": 0.9972552561397623,
+            "ci95_delta": [
+              0.852628707697072,
+              0.9026105513574967
+            ],
+            "ci95_paired_bootstrap": [
+              0.8511199697031919,
+              0.9010222548160716
+            ],
+            "lower_bound_gap_delta_minus_bootstrap": 0.0015087379938800716
+          }
+        },
+        "deposited_level": {
+          "noise_sd": 0.5,
+          "point": {
+            "RGA": 0.8272108843537415,
+            "RGE": 0.9877025996971712,
+            "RGR": 0.9091507824866948
+          },
+          "argmin_at_point": "RGA",
+          "argmin_counts_over_replicates": {
+            "RGA": 2000,
+            "RGE": 0,
+            "RGR": 0
+          },
+          "fraction_of_replicates_whose_argmin_differs_from_the_point": 0.0,
+          "fraction_RGR_below_RGA": 0.0,
+          "min_composite": {
+            "C_plugin": 0.8272108843537415,
+            "sd_delta": 0.027860910527445583,
+            "sd_bootstrap": 0.027860910527445583,
+            "sd_ratio_delta_over_bootstrap": 1.0,
+            "bootstrap_mean": 0.8269010279069996,
+            "plugin_minus_bootstrap_mean": 0.00030985644674186297,
+            "ci95_delta": [
+              0.7726045031434553,
+              0.8818172655640276
+            ],
+            "ci95_paired_bootstrap": [
+              0.7696964108799587,
+              0.8786896398581462
+            ],
+            "width_delta": 0.10921276242057232,
+            "width_bootstrap": 0.10899322897818753,
+            "cross_covariance_share_of_variance_pct": 0.0,
+            "lower_bound_gap_delta_minus_bootstrap": 0.002908092263496642
+          },
+          "geomean_control": {
+            "C_plugin": 0.9056480394647118,
+            "sd_delta": 0.011691221602377821,
+            "sd_bootstrap": 0.011724597031520153,
+            "sd_ratio_delta_over_bootstrap": 0.9971533836896393,
+            "ci95_delta": [
+              0.8827336661887747,
+              0.928562412740649
+            ],
+            "ci95_paired_bootstrap": [
+              0.8804515242033053,
+              0.9263154582397463
+            ],
+            "lower_bound_gap_delta_minus_bootstrap": 0.002282141985469388
+          }
+        },
+        "sweep_seconds": 3.9
+      }
+    }
+  },
+  "replicates_loaded_from_cache": false,
+  "runtime_seconds": 228.7
+}

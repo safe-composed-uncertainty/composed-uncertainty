@@ -1,0 +1,114 @@
+==============================================================================
+Independent recomputation of the second-dataset run
+run of 2026-07-28T01:27:24+00:00
+==============================================================================
+[target] /srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/second-dataset-2026-07-27/results-second-dataset.json
+[target] primary run of 2026-07-28T00:18:18+00:00, B = 2000
+
+==============================================================================
+A. factorisation of the triple sum, re-verified by brute force
+==============================================================================
+  arithmetic closed form : max |brute - closed| = 4.885e-15  (factorises)
+  geometric  closed form : max |brute - closed| = 1.055e-15  (factorises)
+  rms: nearest natural candidate closed form is off by at least 2.083e-02
+  terminal RGA knot, logit: -1.110e-16 (negative -> the pinned ** form is nan; the real cube root is used here and agrees with the tensor)
+  terminal RGA knot, rf: -1.110e-16 (negative -> the pinned ** form is nan; the real cube root is used here and agrees with the tensor)
+
+[data] n_test = 9000, d = 23, L = 24 (stored: 9000, 23, 24)
+
+==============================================================================
+logit
+==============================================================================
+[point] max abs gap vs the primary curves: RGA 0.00e+00  RGE 0.00e+00  RGR 0.00e+00
+[point] greedy removal order identical to the primary run: True
+  [paired] 500/2000, 110 s
+  [paired] 1000/2000, 219 s
+  [paired] 1500/2000, 328 s
+  [paired] 2000/2000, 437 s
+[paired] regenerated B = 2000 replicates in 436.8 s
+[B] max |Sigma_recomputed - Sigma_stored| = 0.00e+00
+[B] corr(curve means): RGA-RGE +0.280462  RGA-RGR -0.254040  RGE-RGR -0.542339
+[B] primary          : RGA-RGE +0.280462  RGA-RGR -0.254040  RGE-RGR -0.542339
+[B] arithmetic by hand: under% = -9.8312 (primary -9.8312), cross share -20.6288 (primary -20.6288)
+[B] geometric  by hand: under% = -13.4041 (primary -13.4041)
+[B] rms        by hand: under% = -5.1659 (primary -5.1659); corr of projections RGA-RGE +0.2891 RGA-RGR -0.2335 RGE-RGR -0.4357
+[ind] regenerated independent streams in 193.2 s
+[ind] arithmetic empirical understatement -11.9591% (primary -11.9591%)
+[ind] geometric  empirical understatement -11.0486% (primary -11.0486%)
+[C] scalar metrics on the SAME index streams:
+    recomputed: RGA-RGE +0.2093  RGA-RGR +0.2224  RGE-RGR +0.5028
+    primary   : RGA-RGE +0.2093  RGA-RGR +0.2224  RGE-RGR +0.5028
+[D] RGE-RGR correlation, bridged one estimator change at a time:
+      +0.5028 (primary +0.5028)   scalar RGE (bare)      x scalar RGR (bare)      [deposit pair]
+      +0.4952 (primary +0.4952)   scalar RGE (class_ord) x scalar RGR (class_ord) [convention only]
+      +0.4490 (primary +0.4490)   curve-mean RGE         x scalar RGR (class_ord) [RGE estimator swapped]
+      -0.3789 (primary -0.3789)   scalar RGE (class_ord) x curve-mean RGR (swap)  [RGR estimator swapped]
+      +0.6062 (primary +0.6062)   curve-mean RGE         x noise-sweep RGR mean   [sweep, same family]
+      -0.5423 (primary -0.5423)   curve-mean RGE         x curve-mean RGR (swap)  [study pair]
+[D] RGA-RGE: scalars +0.2093 -> curve means +0.2805 (primary +0.2093 -> +0.2805)
+[D] RGA-RGR: scalars +0.2224 -> curve means -0.2540 (primary +0.2224 -> -0.2540)
+[E] max |corr(all 24 knots) - corr(deterministic knot deleted)| = 9.38e-15
+[E] arithmetic cross share, deterministic knots deleted: -20.6288% (all knots: -20.6288%)
+[E] replicate sd of the deterministic knots: RGA[-1] 1.32e-16, RGE[0] 0.00e+00, RGR[0] 0.00e+00
+[G] per-severity-index RGE-RGR, max abs gap vs the primary: 0.00e+00
+[G] recomputed: na -0.185 -0.083 -0.156 -0.093 -0.050 -0.088 -0.093 -0.167 -0.221 -0.240 -0.301 -0.258 -0.213 -0.281 -0.289 -0.296 -0.296 -0.364 -0.329 -0.401 -0.343 -0.475 +0.011
+[diag] arithmetic diagonal == product space at every replicate: max |diff| = 2.22e-16
+
+==============================================================================
+rf
+==============================================================================
+[point] max abs gap vs the primary curves: RGA 0.00e+00  RGE 6.29e-09  RGR 0.00e+00
+[point] greedy removal order identical to the primary run: True
+  [paired] 500/2000, 91 s
+  [paired] 1000/2000, 183 s
+  [paired] 1500/2000, 274 s
+  [paired] 2000/2000, 365 s
+[paired] regenerated B = 2000 replicates in 365.3 s
+[B] max |Sigma_recomputed - Sigma_stored| = 1.38e-12
+[B] corr(curve means): RGA-RGE +0.247704  RGA-RGR -0.107778  RGE-RGR -0.226573
+[B] primary          : RGA-RGE +0.247704  RGA-RGR -0.107778  RGE-RGR -0.226573
+[B] arithmetic by hand: under% = -4.1778 (primary -4.1778), cross share -8.5302 (primary -8.5302)
+[B] geometric  by hand: under% = -4.1247 (primary -4.1247)
+[B] rms        by hand: under% = -1.5204 (primary -1.5204); corr of projections RGA-RGE +0.2553 RGA-RGR -0.1113 RGE-RGR -0.1979
+[ind] regenerated independent streams in 162.3 s
+[ind] arithmetic empirical understatement -4.5987% (primary -4.5987%)
+[ind] geometric  empirical understatement -5.2676% (primary -5.2676%)
+[C] scalar metrics on the SAME index streams:
+    recomputed: RGA-RGE +0.2191  RGA-RGR +0.1315  RGE-RGR +0.4688
+    primary   : RGA-RGE +0.2191  RGA-RGR +0.1315  RGE-RGR +0.4688
+[D] RGE-RGR correlation, bridged one estimator change at a time:
+      +0.4688 (primary +0.4688)   scalar RGE (bare)      x scalar RGR (bare)      [deposit pair]
+      +0.4417 (primary +0.4417)   scalar RGE (class_ord) x scalar RGR (class_ord) [convention only]
+      +0.4930 (primary +0.4930)   curve-mean RGE         x scalar RGR (class_ord) [RGE estimator swapped]
+      -0.3174 (primary -0.3174)   scalar RGE (class_ord) x curve-mean RGR (swap)  [RGR estimator swapped]
+      +0.7530 (primary +0.7530)   curve-mean RGE         x noise-sweep RGR mean   [sweep, same family]
+      -0.2266 (primary -0.2266)   curve-mean RGE         x curve-mean RGR (swap)  [study pair]
+[D] RGA-RGE: scalars +0.2191 -> curve means +0.2477 (primary +0.2191 -> +0.2477)
+[D] RGA-RGR: scalars +0.1315 -> curve means -0.1078 (primary +0.1315 -> -0.1078)
+[E] max |corr(all 24 knots) - corr(deterministic knot deleted)| = 1.69e-15
+[E] arithmetic cross share, deterministic knots deleted: -8.5302% (all knots: -8.5302%)
+[E] replicate sd of the deterministic knots: RGA[-1] 1.29e-16, RGE[0] 0.00e+00, RGR[0] 0.00e+00
+[G] per-severity-index RGE-RGR, max abs gap vs the primary: 1.58e-05
+[G] recomputed: na +0.126 +0.113 +0.097 +0.017 +0.044 -0.057 -0.057 -0.146 -0.184 -0.144 -0.116 -0.151 -0.208 -0.173 -0.171 -0.220 -0.386 -0.212 -0.209 -0.161 -0.407 -0.230 -0.005
+[diag] arithmetic diagonal == product space at every replicate: max |diff| = 2.22e-16
+
+==============================================================================
+F. the two-link chain, shared index stream, both conditioning schemes
+==============================================================================
+[redraw] logit: 2000 fresh draws in 5.1 s cumulative
+[redraw] rf: 2000 fresh draws in 188.6 s cumulative
+[F] logit redraw scalar corr: RGA-RGE +0.2093  RGA-RGR +0.1909  RGE-RGR +0.4149 (primary +0.2093 +0.1909 +0.4149)
+[F] rf redraw scalar corr: RGA-RGE +0.2191  RGA-RGR +0.1495  RGE-RGR +0.4189 (primary +0.2191 +0.1495 +0.4189)
+  [chain] 500/2000, 216 s
+  [chain] 1000/2000, 240 s
+  [chain] 1500/2000, 263 s
+  [chain] 2000/2000, 286 s
+[F] fixed_draw rho +0.7836 (primary +0.7836)  h 0.769589 (primary 0.769589)  understatement +25.0802% (primary +25.0802%)
+[F] redraw     rho +0.7253 (primary +0.7253)  h 0.769589 (primary 0.769589)  understatement +23.7687% (primary +23.7687%)
+
+==============================================================================
+verification summary
+==============================================================================
+  48 of 48 recomputed quantities agree with the primary run inside tolerance
+  worst gap over all checks: 1.582e-05
+[done] 1489.1 s

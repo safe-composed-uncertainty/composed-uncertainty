@@ -1,0 +1,569 @@
+{
+  "design": "bounded Gaussian-copula means with analytic truth",
+  "master_seed": 20260727,
+  "alpha": 0.05,
+  "outer_replications_per_scenario": 1000,
+  "bootstrap_replications": 999,
+  "runtime_seconds": 114.70730376243591,
+  "numpy_version": "2.5.0",
+  "scenarios": [
+    {
+      "scenario": {
+        "name": "central-positive-n100",
+        "n": 100,
+        "mu": [
+          0.35,
+          0.15,
+          -0.05
+        ],
+        "latent_corr": [
+          [
+            1.0,
+            0.6,
+            0.6
+          ],
+          [
+            0.6,
+            1.0,
+            0.6
+          ],
+          [
+            0.6,
+            0.6,
+            1.0
+          ]
+        ],
+        "perturbation_tau": 0.0
+      },
+      "minimum_correlation_eigenvalue": 0.3999999999999999,
+      "true_theta": [
+        0.5977344689084383,
+        0.5422350133116141,
+        0.485898198347836
+      ],
+      "true_composite": 0.5400248135042142,
+      "outer_replications": 1000,
+      "bootstrap_replications": 999,
+      "coverage_monte_carlo_se_at_95pct": 0.006892024376045111,
+      "coverage": {
+        "joint_chi2": 0.947,
+        "joint_hotelling": 0.956,
+        "joint_bootstrap_radial": 0.945,
+        "joint_logit_chi2": 0.949,
+        "joint_logit_hotelling": 0.957,
+        "joint_logit_bootstrap_radial": 0.951,
+        "joint_independent_chi2": 0.933,
+        "composite_delta": 0.95,
+        "composite_logit_delta": 0.951,
+        "composite_percentile": 0.952,
+        "composite_bca": 0.951,
+        "composite_independent_percentile": 0.809
+      },
+      "mean_interval_width": {
+        "delta": 0.09473837335465457,
+        "logit_delta": 0.09445587213087171,
+        "percentile": 0.09430699136813978,
+        "bca": 0.09430596374309227,
+        "independent_percentile": 0.06466322593283765
+      },
+      "mean_cross_variance_share": 0.5294132461445137,
+      "independent_width_change_pct": -31.433263860135018
+    },
+    {
+      "scenario": {
+        "name": "central-positive-n300",
+        "n": 300,
+        "mu": [
+          0.35,
+          0.15,
+          -0.05
+        ],
+        "latent_corr": [
+          [
+            1.0,
+            0.6,
+            0.6
+          ],
+          [
+            0.6,
+            1.0,
+            0.6
+          ],
+          [
+            0.6,
+            0.6,
+            1.0
+          ]
+        ],
+        "perturbation_tau": 0.0
+      },
+      "minimum_correlation_eigenvalue": 0.3999999999999999,
+      "true_theta": [
+        0.5977344689084383,
+        0.5422350133116141,
+        0.485898198347836
+      ],
+      "true_composite": 0.5400248135042142,
+      "outer_replications": 1000,
+      "bootstrap_replications": 999,
+      "coverage_monte_carlo_se_at_95pct": 0.006892024376045111,
+      "coverage": {
+        "joint_chi2": 0.949,
+        "joint_hotelling": 0.954,
+        "joint_bootstrap_radial": 0.947,
+        "joint_logit_chi2": 0.952,
+        "joint_logit_hotelling": 0.956,
+        "joint_logit_bootstrap_radial": 0.95,
+        "joint_independent_chi2": 0.909,
+        "composite_delta": 0.941,
+        "composite_logit_delta": 0.941,
+        "composite_percentile": 0.942,
+        "composite_bca": 0.94,
+        "composite_independent_percentile": 0.802
+      },
+      "mean_interval_width": {
+        "delta": 0.055116640420241704,
+        "logit_delta": 0.05506105987549381,
+        "percentile": 0.05492070811897441,
+        "bca": 0.05486970339023611,
+        "independent_percentile": 0.0374711422745066
+      },
+      "mean_cross_variance_share": 0.5322670647684857,
+      "independent_width_change_pct": -31.772288526700933
+    },
+    {
+      "scenario": {
+        "name": "central-positive-n800",
+        "n": 800,
+        "mu": [
+          0.35,
+          0.15,
+          -0.05
+        ],
+        "latent_corr": [
+          [
+            1.0,
+            0.6,
+            0.6
+          ],
+          [
+            0.6,
+            1.0,
+            0.6
+          ],
+          [
+            0.6,
+            0.6,
+            1.0
+          ]
+        ],
+        "perturbation_tau": 0.0
+      },
+      "minimum_correlation_eigenvalue": 0.3999999999999999,
+      "true_theta": [
+        0.5977344689084383,
+        0.5422350133116141,
+        0.485898198347836
+      ],
+      "true_composite": 0.5400248135042142,
+      "outer_replications": 1000,
+      "bootstrap_replications": 999,
+      "coverage_monte_carlo_se_at_95pct": 0.006892024376045111,
+      "coverage": {
+        "joint_chi2": 0.95,
+        "joint_hotelling": 0.951,
+        "joint_bootstrap_radial": 0.95,
+        "joint_logit_chi2": 0.95,
+        "joint_logit_hotelling": 0.952,
+        "joint_logit_bootstrap_radial": 0.951,
+        "joint_independent_chi2": 0.918,
+        "composite_delta": 0.944,
+        "composite_logit_delta": 0.944,
+        "composite_percentile": 0.941,
+        "composite_bca": 0.938,
+        "composite_independent_percentile": 0.804
+      },
+      "mean_interval_width": {
+        "delta": 0.033730455999463956,
+        "logit_delta": 0.03371772683326456,
+        "percentile": 0.0335912549679058,
+        "bca": 0.03359016579806818,
+        "independent_percentile": 0.022955629905746438
+      },
+      "mean_cross_variance_share": 0.5330106598147456,
+      "independent_width_change_pct": -31.661886619958047
+    },
+    {
+      "scenario": {
+        "name": "upper-bound-positive-n300",
+        "n": 300,
+        "mu": [
+          2.2,
+          2.0,
+          1.8
+        ],
+        "latent_corr": [
+          [
+            1.0,
+            0.6,
+            0.6
+          ],
+          [
+            0.6,
+            1.0,
+            0.6
+          ],
+          [
+            0.6,
+            0.6,
+            1.0
+          ]
+        ],
+        "perturbation_tau": 0.0
+      },
+      "minimum_correlation_eigenvalue": 0.3999999999999999,
+      "true_theta": [
+        0.9401025347870409,
+        0.9213503964748574,
+        0.8984541062114161
+      ],
+      "true_composite": 0.9198111070656797,
+      "outer_replications": 1000,
+      "bootstrap_replications": 999,
+      "coverage_monte_carlo_se_at_95pct": 0.006892024376045111,
+      "coverage": {
+        "joint_chi2": 0.927,
+        "joint_hotelling": 0.93,
+        "joint_bootstrap_radial": 0.926,
+        "joint_logit_chi2": 0.943,
+        "joint_logit_hotelling": 0.945,
+        "joint_logit_bootstrap_radial": 0.944,
+        "joint_independent_chi2": 0.93,
+        "composite_delta": 0.957,
+        "composite_logit_delta": 0.959,
+        "composite_percentile": 0.958,
+        "composite_bca": 0.958,
+        "composite_independent_percentile": 0.84
+      },
+      "mean_interval_width": {
+        "delta": 0.024109845854152056,
+        "logit_delta": 0.024169957372464898,
+        "percentile": 0.023982708734750037,
+        "bca": 0.02419835288539052,
+        "independent_percentile": 0.017144444354814194
+      },
+      "mean_cross_variance_share": 0.488798449571897,
+      "independent_width_change_pct": -28.513311217541737
+    },
+    {
+      "scenario": {
+        "name": "central-zero-n300",
+        "n": 300,
+        "mu": [
+          0.35,
+          0.15,
+          -0.05
+        ],
+        "latent_corr": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "perturbation_tau": 0.0
+      },
+      "minimum_correlation_eigenvalue": 1.0,
+      "true_theta": [
+        0.5977344689084383,
+        0.5422350133116141,
+        0.485898198347836
+      ],
+      "true_composite": 0.5400248135042142,
+      "outer_replications": 1000,
+      "bootstrap_replications": 999,
+      "coverage_monte_carlo_se_at_95pct": 0.006892024376045111,
+      "coverage": {
+        "joint_chi2": 0.947,
+        "joint_hotelling": 0.951,
+        "joint_bootstrap_radial": 0.948,
+        "joint_logit_chi2": 0.947,
+        "joint_logit_hotelling": 0.952,
+        "joint_logit_bootstrap_radial": 0.95,
+        "joint_independent_chi2": 0.944,
+        "composite_delta": 0.954,
+        "composite_logit_delta": 0.954,
+        "composite_percentile": 0.954,
+        "composite_bca": 0.956,
+        "composite_independent_percentile": 0.954
+      },
+      "mean_interval_width": {
+        "delta": 0.03760958699090878,
+        "logit_delta": 0.03759188599804803,
+        "percentile": 0.037467509822646676,
+        "bca": 0.037488158599769006,
+        "independent_percentile": 0.0374988390398196
+      },
+      "mean_cross_variance_share": -0.0072886160026857764,
+      "independent_width_change_pct": 0.08361702531398674
+    },
+    {
+      "scenario": {
+        "name": "central-negative-n300",
+        "n": 300,
+        "mu": [
+          0.35,
+          0.15,
+          -0.05
+        ],
+        "latent_corr": [
+          [
+            1.0,
+            -0.35,
+            -0.35
+          ],
+          [
+            -0.35,
+            1.0,
+            -0.35
+          ],
+          [
+            -0.35,
+            -0.35,
+            1.0
+          ]
+        ],
+        "perturbation_tau": 0.0
+      },
+      "minimum_correlation_eigenvalue": 0.29999999999999993,
+      "true_theta": [
+        0.5977344689084383,
+        0.5422350133116141,
+        0.485898198347836
+      ],
+      "true_composite": 0.5400248135042142,
+      "outer_replications": 1000,
+      "bootstrap_replications": 999,
+      "coverage_monte_carlo_se_at_95pct": 0.006892024376045111,
+      "coverage": {
+        "joint_chi2": 0.949,
+        "joint_hotelling": 0.95,
+        "joint_bootstrap_radial": 0.946,
+        "joint_logit_chi2": 0.95,
+        "joint_logit_hotelling": 0.951,
+        "joint_logit_bootstrap_radial": 0.947,
+        "joint_independent_chi2": 0.945,
+        "composite_delta": 0.95,
+        "composite_logit_delta": 0.95,
+        "composite_percentile": 0.947,
+        "composite_bca": 0.95,
+        "composite_independent_percentile": 0.998
+      },
+      "mean_interval_width": {
+        "delta": 0.021945497602620014,
+        "logit_delta": 0.021941977983031637,
+        "percentile": 0.021881907806949607,
+        "bca": 0.021885396705029505,
+        "independent_percentile": 0.03748869028722671
+      },
+      "mean_cross_variance_share": -1.9580445925285932,
+      "independent_width_change_pct": 71.32276864506511
+    },
+    {
+      "scenario": {
+        "name": "mixed-sign-n300",
+        "n": 300,
+        "mu": [
+          0.35,
+          0.15,
+          -0.05
+        ],
+        "latent_corr": [
+          [
+            1.0,
+            0.55,
+            -0.3
+          ],
+          [
+            0.55,
+            1.0,
+            -0.2
+          ],
+          [
+            -0.3,
+            -0.2,
+            1.0
+          ]
+        ],
+        "perturbation_tau": 0.0
+      },
+      "minimum_correlation_eigenvalue": 0.43885540519953287,
+      "true_theta": [
+        0.5977344689084383,
+        0.5422350133116141,
+        0.485898198347836
+      ],
+      "true_composite": 0.5400248135042142,
+      "outer_replications": 1000,
+      "bootstrap_replications": 999,
+      "coverage_monte_carlo_se_at_95pct": 0.006892024376045111,
+      "coverage": {
+        "joint_chi2": 0.952,
+        "joint_hotelling": 0.955,
+        "joint_bootstrap_radial": 0.95,
+        "joint_logit_chi2": 0.95,
+        "joint_logit_hotelling": 0.958,
+        "joint_logit_bootstrap_radial": 0.953,
+        "joint_independent_chi2": 0.938,
+        "composite_delta": 0.956,
+        "composite_logit_delta": 0.956,
+        "composite_percentile": 0.952,
+        "composite_bca": 0.953,
+        "composite_independent_percentile": 0.958
+      },
+      "mean_interval_width": {
+        "delta": 0.037158923670182385,
+        "logit_delta": 0.037141857563135317,
+        "percentile": 0.037054853855741206,
+        "bca": 0.03703349959882582,
+        "independent_percentile": 0.03739099508576948
+      },
+      "mean_cross_variance_share": -0.027445506263363225,
+      "independent_width_change_pct": 0.9071449352813676
+    },
+    {
+      "scenario": {
+        "name": "central-positive-noise-n300",
+        "n": 300,
+        "mu": [
+          0.35,
+          0.15,
+          -0.05
+        ],
+        "latent_corr": [
+          [
+            1.0,
+            0.6,
+            0.6
+          ],
+          [
+            0.6,
+            1.0,
+            0.6
+          ],
+          [
+            0.6,
+            0.6,
+            1.0
+          ]
+        ],
+        "perturbation_tau": 0.8
+      },
+      "minimum_correlation_eigenvalue": 0.3999999999999999,
+      "true_theta": [
+        0.5977344689084383,
+        0.5422350133116141,
+        0.48772533729217893
+      ],
+      "true_composite": 0.5407008578377405,
+      "outer_replications": 1000,
+      "bootstrap_replications": 999,
+      "coverage_monte_carlo_se_at_95pct": 0.006892024376045111,
+      "coverage": {
+        "joint_chi2": 0.946,
+        "joint_hotelling": 0.949,
+        "joint_bootstrap_radial": 0.971,
+        "joint_logit_chi2": 0.949,
+        "joint_logit_hotelling": 0.949,
+        "joint_logit_bootstrap_radial": 0.973,
+        "joint_independent_chi2": 0.92,
+        "composite_delta": 0.953,
+        "composite_logit_delta": 0.953,
+        "composite_percentile": 0.956,
+        "composite_bca": 0.915,
+        "composite_independent_percentile": 0.856
+      },
+      "mean_interval_width": {
+        "delta": 0.0551469667987808,
+        "logit_delta": 0.055091324270184885,
+        "percentile": 0.05492027634549852,
+        "bca": 0.054411370885449645,
+        "independent_percentile": 0.03960845315083701
+      },
+      "mean_cross_variance_share": 0.4800810858588937,
+      "independent_width_change_pct": -27.8800913133361
+    },
+    {
+      "scenario": {
+        "name": "upper-bound-positive-noise-n300",
+        "n": 300,
+        "mu": [
+          2.2,
+          2.0,
+          1.8
+        ],
+        "latent_corr": [
+          [
+            1.0,
+            0.6,
+            0.6
+          ],
+          [
+            0.6,
+            1.0,
+            0.6
+          ],
+          [
+            0.6,
+            0.6,
+            1.0
+          ]
+        ],
+        "perturbation_tau": 0.8
+      },
+      "minimum_correlation_eigenvalue": 0.3999999999999999,
+      "true_theta": [
+        0.9401025347870409,
+        0.9213503964748574,
+        0.8660309579829102
+      ],
+      "true_composite": 0.9086106492093624,
+      "outer_replications": 1000,
+      "bootstrap_replications": 999,
+      "coverage_monte_carlo_se_at_95pct": 0.006892024376045111,
+      "coverage": {
+        "joint_chi2": 0.937,
+        "joint_hotelling": 0.943,
+        "joint_bootstrap_radial": 0.972,
+        "joint_logit_chi2": 0.938,
+        "joint_logit_hotelling": 0.939,
+        "joint_logit_bootstrap_radial": 0.974,
+        "joint_independent_chi2": 0.934,
+        "composite_delta": 0.947,
+        "composite_logit_delta": 0.952,
+        "composite_percentile": 0.971,
+        "composite_bca": 0.893,
+        "composite_independent_percentile": 0.908
+      },
+      "mean_interval_width": {
+        "delta": 0.026638369765909248,
+        "logit_delta": 0.026695924848832663,
+        "percentile": 0.026514328520222123,
+        "bca": 0.02606784165675181,
+        "independent_percentile": 0.020384041150748076
+      },
+      "mean_cross_variance_share": 0.4066374434448462,
+      "independent_width_change_pct": -23.12065857069908
+    }
+  ]
+}

@@ -1,0 +1,2557 @@
+{
+ "as_of": "2026-08-27T12:00:00+00:00",
+ "certificate": "real-chain.json",
+ "scenarios": {
+  "expired": {
+   "detail": "same certificate evaluated 2026-10-26, after recalibrate_by_utc",
+   "label": "Past recalibrate_by",
+   "rows": [
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.6,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.605,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.61,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.615,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.62,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.625,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.63,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.635,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.64,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.645,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.65,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.655,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.66,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.665,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.67,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.675,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.68,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.685,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.69,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.695,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.7,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.705,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.71,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.715,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.72,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.725,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.73,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.735,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.74,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.745,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.75,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.755,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.76,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.765,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.77,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.775,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.78,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.785,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.79,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.795,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.8,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.805,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.81,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.815,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.82,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.825,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.83,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.835,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.84,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.845,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.85,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.855,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.86,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.865,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.87,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.875,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.88,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.885,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.89,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.895,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate is past recalibrate_by_utc",
+     "tau": 0.9,
+     "verdict": "DENY"
+    }
+   ]
+  },
+  "tamper_payload": {
+   "detail": "composed score edited to 1.0 after signing",
+   "label": "Payload tamper",
+   "rows": [
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.6,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.605,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.61,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.615,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.62,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.625,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.63,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.635,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.64,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.645,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.65,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.655,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.66,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.665,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.67,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.675,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.68,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.685,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.69,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.695,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.7,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.705,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.71,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.715,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.72,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.725,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.73,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.735,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.74,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.745,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.75,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.755,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.76,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.765,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.77,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.775,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.78,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.785,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.79,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.795,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.8,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.805,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.81,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.815,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.82,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.825,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.83,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.835,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.84,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.845,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.85,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.855,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.86,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.865,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.87,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.875,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.88,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.885,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.89,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.895,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "payload digest mismatch",
+     "tau": 0.9,
+     "verdict": "DENY"
+    }
+   ]
+  },
+  "tamper_signature": {
+   "detail": "one signature byte flipped",
+   "label": "Signature tamper",
+   "rows": [
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.6,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.605,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.61,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.615,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.62,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.625,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.63,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.635,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.64,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.645,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.65,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.655,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.66,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.665,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.67,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.675,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.68,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.685,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.69,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.695,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.7,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.705,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.71,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.715,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.72,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.725,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.73,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.735,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.74,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.745,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.75,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.755,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.76,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.765,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.77,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.775,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.78,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.785,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.79,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.795,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.8,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.805,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.81,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.815,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.82,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.825,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.83,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.835,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.84,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.845,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.85,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.855,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.86,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.865,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.87,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.875,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.88,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.885,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.89,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.895,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate signature is invalid",
+     "tau": 0.9,
+     "verdict": "DENY"
+    }
+   ]
+  },
+  "untrusted_key": {
+   "detail": "publication example key without explicit opt-in",
+   "label": "Untrusted signer",
+   "rows": [
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.6,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.605,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.61,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.615,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.62,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.625,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.63,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.635,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.64,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.645,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.65,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.655,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.66,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.665,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.67,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.675,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.68,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.685,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.69,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.695,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.7,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.705,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.71,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.715,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.72,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.725,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.73,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.735,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.74,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.745,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.75,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.755,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.76,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.765,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.77,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.775,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.78,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.785,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.79,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.795,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.8,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.805,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.81,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.815,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.82,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.825,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.83,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.835,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.84,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.845,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.85,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.855,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.86,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.865,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.87,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.875,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.88,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.885,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.89,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.895,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "publication example key is not operationally trusted",
+     "tau": 0.9,
+     "verdict": "DENY"
+    }
+   ]
+  },
+  "valid": {
+   "detail": "recorded real-chain certificate, evaluated 2026-08-27",
+   "label": "Valid certificate",
+   "rows": [
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.6,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.605,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.61,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.615,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.62,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.625,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.63,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.635,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.64,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.645,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.65,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.655,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.66,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.665,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.67,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.675,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.68,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.685,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.69,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.695,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.7,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.705,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.71,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.715,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.72,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.725,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.73,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.735,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.74,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.745,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.75,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.755,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.76,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "certificate lower confidence bound satisfies policy",
+     "tau": 0.765,
+     "verdict": "ALLOW"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.77,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.775,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.78,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.785,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.79,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.795,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.8,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.805,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.81,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.815,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.82,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.825,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.83,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.835,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.84,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "confidence interval crosses the policy threshold",
+     "tau": 0.845,
+     "verdict": "ESCALATE"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.85,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.855,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.86,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.865,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.87,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.875,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.88,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.885,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.89,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.895,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate upper confidence bound is below policy",
+     "tau": 0.9,
+     "verdict": "DENY"
+    }
+   ]
+  },
+  "wrong_mandate": {
+   "detail": "mandate binds a different certificate payload digest",
+   "label": "Wrong mandate binding",
+   "rows": [
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.6,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.605,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.61,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.615,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.62,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.625,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.63,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.635,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.64,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.645,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.65,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.655,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.66,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.665,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.67,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.675,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.68,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.685,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.69,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.695,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.7,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.705,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.71,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.715,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.72,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.725,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.73,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.735,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.74,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.745,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.75,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.755,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.76,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.765,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.77,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.775,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.78,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.785,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.79,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.795,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.8,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.805,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.81,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.815,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.82,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.825,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.83,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.835,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.84,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.845,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.85,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.855,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.86,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.865,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.87,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.875,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.88,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.885,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.89,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.895,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "mandate binds a different certificate payload",
+     "tau": 0.9,
+     "verdict": "DENY"
+    }
+   ]
+  },
+  "wrong_scope": {
+   "detail": "policy accepts only training_procedure certificates",
+   "label": "Wrong uncertainty scope",
+   "rows": [
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.6,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.605,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.61,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.615,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.62,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.625,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.63,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.635,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.64,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.645,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.65,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.655,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.66,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.665,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.67,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.675,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.68,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.685,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.69,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.695,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.7,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.705,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.71,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.715,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.72,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.725,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.73,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.735,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.74,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.745,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.75,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.755,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.76,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.765,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.77,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.775,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.78,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.785,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.79,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.795,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.8,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.805,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.81,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.815,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.82,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.825,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.83,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.835,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.84,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.845,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.85,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.855,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.86,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.865,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.87,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.875,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.88,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.885,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.89,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.895,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "uncertainty scope is not accepted by policy",
+     "tau": 0.9,
+     "verdict": "DENY"
+    }
+   ]
+  },
+  "wrong_subject": {
+   "detail": "policy expects a different system_id",
+   "label": "Wrong subject",
+   "rows": [
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.6,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.605,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.61,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.615,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.62,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.625,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.63,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.635,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.64,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.645,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.65,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.655,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.66,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.665,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.67,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.675,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.68,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.685,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.69,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.695,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.7,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.705,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.71,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.715,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.72,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.725,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.73,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.735,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.74,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.745,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.75,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.755,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.76,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.765,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.77,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.775,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.78,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.785,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.79,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.795,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.8,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.805,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.81,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.815,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.82,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.825,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.83,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.835,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.84,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.845,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.85,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.855,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.86,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.865,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.87,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.875,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.88,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.885,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.89,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.895,
+     "verdict": "DENY"
+    },
+    {
+     "reason": "certificate subject does not match the system",
+     "tau": 0.9,
+     "verdict": "DENY"
+    }
+   ]
+  }
+ },
+ "thresholds": [
+  0.6,
+  0.605,
+  0.61,
+  0.615,
+  0.62,
+  0.625,
+  0.63,
+  0.635,
+  0.64,
+  0.645,
+  0.65,
+  0.655,
+  0.66,
+  0.665,
+  0.67,
+  0.675,
+  0.68,
+  0.685,
+  0.69,
+  0.695,
+  0.7,
+  0.705,
+  0.71,
+  0.715,
+  0.72,
+  0.725,
+  0.73,
+  0.735,
+  0.74,
+  0.745,
+  0.75,
+  0.755,
+  0.76,
+  0.765,
+  0.77,
+  0.775,
+  0.78,
+  0.785,
+  0.79,
+  0.795,
+  0.8,
+  0.805,
+  0.81,
+  0.815,
+  0.82,
+  0.825,
+  0.83,
+  0.835,
+  0.84,
+  0.845,
+  0.85,
+  0.855,
+  0.86,
+  0.865,
+  0.87,
+  0.875,
+  0.88,
+  0.885,
+  0.89,
+  0.895,
+  0.9
+ ]
+}

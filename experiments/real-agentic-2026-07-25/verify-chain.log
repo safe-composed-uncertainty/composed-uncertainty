@@ -1,0 +1,34 @@
+[verify] 1000 episodes read back; split reconstruction matches the CSV (700/300)
+[verify] scorer AUCs refit from the CSV feature columns:
+  AUC A/logit                                                got +0.8201114923  stored +0.8201114923  gap 0.00e+00  ok
+  AUC A/rf                                                   got +0.8507450686  stored +0.8507450686  gap 0.00e+00  ok
+  AUC B/logit                                                got +0.6656570915  stored +0.6656570915  gap 0.00e+00  ok
+  AUC B/rf                                                   got +0.7354834130  stored +0.7354834130  gap 0.00e+00  ok
+[verify] per-stage point metric vectors:
+  point RGA A/logit                                          got +0.9225206612  stored +0.9225206612  gap 0.00e+00  ok
+  point RGE A/logit                                          got +0.9532142344  stored +0.9532142344  gap 0.00e+00  ok
+  point RGR A/logit                                          got +0.9352254919  stored +0.9352254919  gap 0.00e+00  ok
+  point RGA A/rf                                             got +0.9336674528  stored +0.9336674528  gap 0.00e+00  ok
+  point RGE A/rf                                             got +0.9666250631  stored +0.9666250631  gap 0.00e+00  ok
+  point RGR A/rf                                             got +0.9247337645  stored +0.9247337645  gap 0.00e+00  ok
+  point RGA B/logit                                          got +0.7514870364  stored +0.7514870364  gap 0.00e+00  ok
+  point RGE B/logit                                          got +0.9589111071  stored +0.9589111071  gap 0.00e+00  ok
+  point RGR B/logit                                          got +0.8887220177  stored +0.8887220177  gap 0.00e+00  ok
+  point RGA B/rf                                             got +0.7901836961  stored +0.7901836961  gap 0.00e+00  ok
+  point RGE B/rf                                             got +0.9432622745  stored +0.9432622745  gap 0.00e+00  ok
+  point RGR B/rf                                             got +0.8384141074  stored +0.8384141074  gap 0.00e+00  ok
+[verify] chain, redraw scheme, own replicate loop and own arithmetic:
+  chain logit cross-link correlation                         got +0.3136550195  stored +0.3136550195  gap 1.11e-16  ok
+  chain logit h point                                        got +0.8075750871  stored +0.8075750871  gap 0.00e+00  ok
+  chain logit width measured                                 got +0.0786415913  stored +0.0786415913  gap 5.55e-17  ok
+  chain logit width declared-zero                            got +0.0699693171  stored +0.0699693171  gap 2.78e-17  ok
+  chain logit understatement pct                             got +11.0275924421  stored +11.0275924421  gap 9.95e-14  ok
+  (joint Sigma6 logit: leading diag [0.0004306, 8.85e-06, 0.00018473, 0.00122436, 1.008e-05, 0.00033893])
+  chain rf cross-link correlation                            got +0.2397635670  stored +0.2397635670  gap 8.33e-17  ok
+  chain rf h point                                           got +0.8049372603  stored +0.8049372603  gap 0.00e+00  ok
+  chain rf width measured                                    got +0.0805192071  stored +0.0805192071  gap 9.71e-17  ok
+  chain rf width declared-zero                               got +0.0737099106  stored +0.0737099106  gap 9.71e-17  ok
+  chain rf understatement pct                                got +8.4567357430  stored +8.4567357430  gap 1.07e-14  ok
+  (joint Sigma6 rf: leading diag [0.00037052, 6.86e-06, 0.0002987, 0.00092649, 1.992e-05, 0.00071758])
+
+VERIFY PASS: every checked quantity reproduces from the frozen CSV through an independent loop and independent arithmetic.

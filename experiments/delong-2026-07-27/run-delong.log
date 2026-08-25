@@ -1,0 +1,11 @@
+RGA = AUROC identity, max |gap| = 1.35e-02
+  logit RGA 0.805215  AUROC 0.791746
+  rf    RGA 0.827211  AUROC 0.815026
+
+paired bootstrap  sd 0.030651 / 0.028532  corr +0.7326
+DeLong analytic   sd 0.027998 / 0.026197  corr +0.7717
+
+sd ratio bootstrap/DeLong: 1.0948, 1.0891
+covariance ratio: 1.1318
+correlation difference: -0.0392
+wrote /srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/delong-2026-07-27/results-delong.json

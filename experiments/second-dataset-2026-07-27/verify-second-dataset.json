@@ -1,0 +1,393 @@
+{
+ "generated_utc": "2026-07-28T01:52:13+00:00",
+ "primary_run": "2026-07-28T00:18:18+00:00",
+ "B": 2000,
+ "checks": [
+  {
+   "label": "A logit arithmetic tensor",
+   "recomputed": 0.5419855081016317,
+   "stored": 0.5419855081016299,
+   "abs_gap": 1.7763568394002505e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "A logit geometric tensor",
+   "recomputed": 0.39466620868459,
+   "stored": 0.39466620868458935,
+   "abs_gap": 6.661338147750939e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "A logit rms tensor",
+   "recomputed": 0.650804618784845,
+   "stored": 0.6508046187848435,
+   "abs_gap": 1.4432899320127035e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "A rf arithmetic tensor",
+   "recomputed": 0.6146165983082983,
+   "stored": 0.6146165983083032,
+   "abs_gap": 4.884981308350689e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "A rf geometric tensor",
+   "recomputed": 0.5307033106459876,
+   "stored": 0.5307033106459876,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "A rf rms tensor",
+   "recomputed": 0.6742297547944041,
+   "stored": 0.6742297547944086,
+   "abs_gap": 4.551914400963142e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "point curves logit",
+   "recomputed": 0.0,
+   "stored": 0.0,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "Sigma logit",
+   "recomputed": 0.0,
+   "stored": 0.0,
+   "abs_gap": 0.0,
+   "tol": 1e-14,
+   "ok": true
+  },
+  {
+   "label": "P1 corr RGE-RGR logit",
+   "recomputed": -0.542338660821023,
+   "stored": -0.542338660821023,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "P2 corr RGA-RGR logit",
+   "recomputed": -0.2540400984263465,
+   "stored": -0.2540400984263465,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "corr RGA-RGE logit",
+   "recomputed": 0.2804617910719206,
+   "stored": 0.2804617910719206,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "P3 arithmetic logit",
+   "recomputed": -9.831160627901747,
+   "stored": -9.831160627901747,
+   "abs_gap": 0.0,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "label": "P3 geometric logit",
+   "recomputed": -13.404074300088297,
+   "stored": -13.40407430008832,
+   "abs_gap": 2.3092638912203256e-14,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "label": "P3 rms logit",
+   "recomputed": -5.165923359564228,
+   "stored": -5.165923359564228,
+   "abs_gap": 0.0,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "label": "P4 arithmetic logit",
+   "recomputed": -11.959093601004378,
+   "stored": -11.959093601004378,
+   "abs_gap": 0.0,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "label": "P4 geometric logit",
+   "recomputed": -11.048577793364412,
+   "stored": -11.048577793364412,
+   "abs_gap": 0.0,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "label": "scalar corr RGE-RGR logit",
+   "recomputed": 0.5028405643287931,
+   "stored": 0.5028405643287931,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 1 logit",
+   "recomputed": 0.502840564328793,
+   "stored": 0.502840564328793,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 2 logit",
+   "recomputed": 0.4951993805226484,
+   "stored": 0.4951993805226484,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 3 logit",
+   "recomputed": 0.44902291663840616,
+   "stored": 0.44902291663840616,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 4 logit",
+   "recomputed": -0.3789431439035956,
+   "stored": -0.3789431439035956,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 5 logit",
+   "recomputed": 0.6061913537083787,
+   "stored": 0.6061913537083778,
+   "abs_gap": 8.881784197001252e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 6 logit",
+   "recomputed": -0.5423386608210231,
+   "stored": -0.5423386608210231,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "per-index RGE-RGR logit",
+   "recomputed": 0.0,
+   "stored": 0.0,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "point curves rf",
+   "recomputed": 6.290949761122988e-09,
+   "stored": 0.0,
+   "abs_gap": 6.290949761122988e-09,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "label": "Sigma rf",
+   "recomputed": 1.3810772079334254e-12,
+   "stored": 0.0,
+   "abs_gap": 1.3810772079334254e-12,
+   "tol": 1e-08,
+   "ok": true
+  },
+  {
+   "label": "P1 corr RGE-RGR rf",
+   "recomputed": -0.22657325550065577,
+   "stored": -0.22657292097816986,
+   "abs_gap": 3.3452248590637446e-07,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P2 corr RGA-RGR rf",
+   "recomputed": -0.10777762131692922,
+   "stored": -0.10777762131692929,
+   "abs_gap": 6.938893903907228e-17,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "corr RGA-RGE rf",
+   "recomputed": 0.24770387063536425,
+   "stored": 0.24770362792835066,
+   "abs_gap": 2.4270701359796476e-07,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P3 arithmetic rf",
+   "recomputed": -4.177821590733921,
+   "stored": -4.177821650850011,
+   "abs_gap": 6.011608988387707e-08,
+   "tol": 0.01,
+   "ok": true
+  },
+  {
+   "label": "P3 geometric rf",
+   "recomputed": -4.124664240708276,
+   "stored": -4.124664496616548,
+   "abs_gap": 2.5590827235077995e-07,
+   "tol": 0.01,
+   "ok": true
+  },
+  {
+   "label": "P3 rms rf",
+   "recomputed": -1.5203781136351457,
+   "stored": -1.5203786996477842,
+   "abs_gap": 5.860126384149567e-07,
+   "tol": 0.01,
+   "ok": true
+  },
+  {
+   "label": "P4 arithmetic rf",
+   "recomputed": -4.59872616317567,
+   "stored": -4.598719487837077,
+   "abs_gap": 6.675338592998514e-06,
+   "tol": 0.01,
+   "ok": true
+  },
+  {
+   "label": "P4 geometric rf",
+   "recomputed": -5.26763238881236,
+   "stored": -5.267648209826481,
+   "abs_gap": 1.5821014121009114e-05,
+   "tol": 0.01,
+   "ok": true
+  },
+  {
+   "label": "scalar corr RGE-RGR rf",
+   "recomputed": 0.46875644443635733,
+   "stored": 0.4687556766231866,
+   "abs_gap": 7.678131707100633e-07,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 1 rf",
+   "recomputed": 0.46875644443635694,
+   "stored": 0.46875567662318657,
+   "abs_gap": 7.678131703769964e-07,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 2 rf",
+   "recomputed": 0.4416531769878682,
+   "stored": 0.44165196798369544,
+   "abs_gap": 1.209004172775252e-06,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 3 rf",
+   "recomputed": 0.49298943855453614,
+   "stored": 0.4929893543694537,
+   "abs_gap": 8.418508246066381e-08,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 4 rf",
+   "recomputed": -0.31743663256966964,
+   "stored": -0.3174358937127401,
+   "abs_gap": 7.38856929527465e-07,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 5 rf",
+   "recomputed": 0.7530055168595567,
+   "stored": 0.7530052145974007,
+   "abs_gap": 3.022621560822003e-07,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P6 rung 6 rf",
+   "recomputed": -0.22657325550065582,
+   "stored": -0.2265729209781699,
+   "abs_gap": 3.3452248593413003e-07,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "per-index RGE-RGR rf",
+   "recomputed": 1.576456717715391e-05,
+   "stored": 0.0,
+   "abs_gap": 1.576456717715391e-05,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "redraw scalar corr RGE-RGR logit",
+   "recomputed": 0.4149224372948916,
+   "stored": 0.4149224372948916,
+   "abs_gap": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "label": "redraw scalar corr RGE-RGR rf",
+   "recomputed": 0.4189254075048016,
+   "stored": 0.4189298361223298,
+   "abs_gap": 4.4286175281960105e-06,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P5 rho fixed_draw",
+   "recomputed": 0.7836361931069429,
+   "stored": 0.7836363203621649,
+   "abs_gap": 1.272552220266121e-07,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P5 understatement fixed_draw",
+   "recomputed": 25.080197218156396,
+   "stored": 25.080200070587544,
+   "abs_gap": 2.8524311481703535e-06,
+   "tol": 0.01,
+   "ok": true
+  },
+  {
+   "label": "P5 rho redraw",
+   "recomputed": 0.7252901080401394,
+   "stored": 0.7252908265539981,
+   "abs_gap": 7.185138587439965e-07,
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "label": "P5 understatement redraw",
+   "recomputed": 23.7686697927614,
+   "stored": 23.768684588165545,
+   "abs_gap": 1.4795404144507529e-05,
+   "tol": 0.01,
+   "ok": true
+  }
+ ],
+ "all_agree": true,
+ "worst_abs_gap": 1.5821014121009114e-05
+}

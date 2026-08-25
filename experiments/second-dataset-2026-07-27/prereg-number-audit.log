@@ -1,0 +1,77 @@
+P1/P2 curve-mean correlations (pavia results)
+  P1 logit corr(RGE_mean, RGR_mean)                          quoted -0.1372    actual -0.137157    OK
+  P2 logit corr(RGA_mean, RGR_mean)                          quoted -0.0583    actual -0.058285    OK
+  sec6 logit corr(RGA_mean, RGE_mean)                        quoted 0.1996     actual 0.19957      OK
+  P1 rf corr(RGE_mean, RGR_mean)                             quoted -0.3102    actual -0.310159    OK
+  P2 rf corr(RGA_mean, RGR_mean)                             quoted -0.08      actual -0.080042    OK
+  sec6 rf corr(RGA_mean, RGE_mean)                           quoted 0.1574     actual 0.157373     OK
+P3 delta-method width understatement (pct)
+  P3 logit arithmetic                                        quoted -0.91      actual -0.913796    OK
+  P3 logit geometric                                         quoted -1.86      actual -1.862246    OK
+  P3 logit rms                                               quoted 1.26       actual 1.264318     OK
+  P3 logit topsis                                            quoted -1.5       actual -1.497746    OK
+  P3 rf arithmetic                                           quoted -3.08      actual -3.075572    OK
+  P3 rf geometric                                            quoted -3.09      actual -3.085608    OK
+  P3 rf rms                                                  quoted -1.5       actual -1.498441    OK
+  P3 rf topsis                                               quoted -3.11      actual -3.111146    OK
+P4 empirical (independent-stream) understatement (pct)
+  P4 logit arithmetic                                        quoted 0.89       actual 0.890416     OK
+  P4 logit geometric                                         quoted 1.45       actual 1.448129     OK
+  P4 logit rms                                               quoted -1.41      actual -1.405423    OK
+  P4 logit topsis                                            quoted -3.1       actual -3.099523    OK
+  P4 rf arithmetic                                           quoted -6.49      actual -6.486134    OK
+  P4 rf geometric                                            quoted -5.21      actual -5.205246    OK
+  P4 rf rms                                                  quoted -4.86      actual -4.858109    OK
+  P4 rf topsis                                               quoted -7.56      actual -7.555417    OK
+P5 chain (redraw results)
+  P5 fixed_draw rho                                          quoted 0.7222     actual 0.722175     OK
+  P5 fixed_draw understatement                               quoted 23.79      actual 23.79266     OK
+  P5 redraw rho                                              quoted 0.712      actual 0.712009     OK
+  P5 redraw understatement                                   quoted 23.57      actual 23.571134    OK
+Secondary: scalar correlations on the same streams (redraw fixed_draw)
+  scalar logit corr_RGA_RGE                                  quoted 0.2858     actual 0.285814     OK
+  scalar logit corr_RGA_RGR                                  quoted 0.1596     actual 0.159639     OK
+  scalar logit corr_RGE_RGR                                  quoted 0.5967     actual 0.596732     OK
+  scalar rf corr_RGA_RGE                                     quoted 0.2922     actual 0.292199     OK
+  scalar rf corr_RGA_RGR                                     quoted 0.153      actual 0.152993     OK
+  scalar rf corr_RGE_RGR                                     quoted 0.3415     actual 0.341521     OK
+P6 bridge rungs (verify-cross-terms.log, the independent verification run)
+  logit bridge parsed: [0.5967, 0.6144, 0.4249, -0.2083, 0.5354, -0.1372]
+  P6 logit rung 1                                            quoted 0.5967     actual 0.5967       OK
+  P6 logit rung 2                                            quoted 0.6144     actual 0.6144       OK
+  P6 logit rung 3                                            quoted 0.4249     actual 0.4249       OK
+  P6 logit rung 4                                            quoted -0.2083    actual -0.2083      OK
+  P6 logit rung 5                                            quoted 0.5354     actual 0.5354       OK
+  P6 logit rung 6                                            quoted -0.1372    actual -0.1372      OK
+  rf bridge parsed: [0.3415, 0.3437, 0.2879, -0.1529, 0.4711, -0.3102]
+  P6 rf rung 1                                               quoted 0.3415     actual 0.3415       OK
+  P6 rf rung 2                                               quoted 0.3437     actual 0.3437       OK
+  P6 rf rung 3                                               quoted 0.2879     actual 0.2879       OK
+  P6 rf rung 4                                               quoted -0.1529    actual -0.1529      OK
+  P6 rf rung 5                                               quoted 0.4711     actual 0.4711       OK
+  P6 rf rung 6                                               quoted -0.3102    actual -0.3102      OK
+
+Structural facts
+  German L                                                   quoted 21         actual 21           OK
+  German n_test                                              quoted 300        actual 300          OK
+  German B                                                   quoted 2000       actual 2000         OK
+  German B_full logit                                        quoted 300        actual 300          OK
+  German B_full rf                                           quoted 30         actual 30           OK
+  German cond s/rep logit                                    quoted 0.09       actual 0.088687     OK
+  German cond s/rep rf                                       quoted 26.2       actual 26.237974    OK
+  safeai commit match                                        quoted 1.0        actual 1.0          OK
+
+Probe-3 constants quoted in section 5
+  logit metric vector s                                      quoted 1.08       actual 1.084205     OK
+  rf metric vector s                                         quoted 27.36      actual 27.355348    OK
+  logit paired replicate s                                   quoted 0.0983     actual 0.098258     OK
+  rf paired replicate s                                      quoted 0.0842     actual 0.084205     OK
+  total projection s                                         quoted 3348       actual 3347.789578  OK
+  total projection min                                       quoted 55.8       actual 55.796493    OK
+  index streams MB                                           quoted 576        actual 576.0        OK
+  saving from B=1000 (min)                                   quoted 18.7       actual 18.67948     OK
+  saving from B_full=10 (min)                                quoted 8.3        actual 8.298413     OK
+  logit cond s/rep taiwan                                    quoted 1.1        actual 1.080706     OK
+  rf cond s/rep taiwan                                       quoted 24.9       actual 24.895238    OK
+
+ALL QUOTED NUMBERS VERIFIED

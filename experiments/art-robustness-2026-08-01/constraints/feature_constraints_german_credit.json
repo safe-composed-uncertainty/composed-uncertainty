@@ -1,0 +1,86 @@
+{
+ "_status": "DRAFT \u2014 mutability guesses pending confirmation (ART shortlist Q2). kind is 'continuous' unless the name matches an immutable-attribute hint; bounds fitted from training data at run time via FeatureConstraints.fit_bounds().",
+ "dataset": "statlog-german-credit (OpenML credit-g v1)",
+ "features": [
+  {
+   "name": "checking_status",
+   "kind": "continuous"
+  },
+  {
+   "name": "duration",
+   "kind": "continuous"
+  },
+  {
+   "name": "credit_history",
+   "kind": "continuous"
+  },
+  {
+   "name": "purpose",
+   "kind": "continuous"
+  },
+  {
+   "name": "credit_amount",
+   "kind": "continuous"
+  },
+  {
+   "name": "savings_status",
+   "kind": "continuous"
+  },
+  {
+   "name": "employment",
+   "kind": "continuous"
+  },
+  {
+   "name": "installment_commitment",
+   "kind": "continuous"
+  },
+  {
+   "name": "personal_status",
+   "kind": "immutable"
+  },
+  {
+   "name": "other_parties",
+   "kind": "continuous"
+  },
+  {
+   "name": "residence_since",
+   "kind": "continuous"
+  },
+  {
+   "name": "property_magnitude",
+   "kind": "continuous"
+  },
+  {
+   "name": "age",
+   "kind": "immutable"
+  },
+  {
+   "name": "other_payment_plans",
+   "kind": "continuous"
+  },
+  {
+   "name": "housing",
+   "kind": "continuous"
+  },
+  {
+   "name": "existing_credits",
+   "kind": "continuous"
+  },
+  {
+   "name": "job",
+   "kind": "continuous"
+  },
+  {
+   "name": "num_dependents",
+   "kind": "continuous"
+  },
+  {
+   "name": "own_telephone",
+   "kind": "continuous"
+  },
+  {
+   "name": "foreign_worker",
+   "kind": "immutable"
+  }
+ ]
+}

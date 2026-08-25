@@ -1,0 +1,106 @@
+{
+ "B": 2000,
+ "design_note": "small-N selected by a deterministic recorded scan over N_CANDIDATES (single fixed subsample seed): smallest candidate whose interval straddles the fixed policy bound; a designed illustration of interval narrowing under the deposited estimator, not a discovered phenomenon",
+ "policy_minimum_lower_bound": 0.75,
+ "runs": {
+  "full": {
+   "certificate_payload_sha256": "3bf673afcfeaca1e5e90011c7077eae3b9dab04ca7a5cfa03cce3a5a5ffb9b3c",
+   "h_point": 0.8112058551797875,
+   "interval95": [
+    0.7718346703890082,
+    0.8505770399705668
+   ],
+   "n_eval_rows": 300,
+   "reason": "certificate lower confidence bound satisfies policy",
+   "verdict": "ALLOW",
+   "width": 0.07874236958155863
+  },
+  "small": {
+   "certificate_payload_sha256": "b9cb7d282f53b7484ad84ca1bacfde00ddd06bce638758ddf5e22ea1984903b1",
+   "h_point": 0.7894183872339916,
+   "interval95": [
+    0.6064360979396234,
+    0.9724006765283598
+   ],
+   "n_eval_rows": 30,
+   "reason": "confidence interval crosses the policy threshold",
+   "verdict": "ESCALATE",
+   "width": 0.36596457858873643
+  }
+ },
+ "scan": [
+  {
+   "h": 0.7955453935082248,
+   "interval95": [
+    null,
+    null
+   ],
+   "n": 12,
+   "note": "interval undefined: bootstrap resamples at this n can draw a single-class sample where RGA is undefined",
+   "straddles_policy": false
+  },
+  {
+   "h": 0.7338700579841566,
+   "interval95": [
+    null,
+    null
+   ],
+   "n": 16,
+   "note": "interval undefined: bootstrap resamples at this n can draw a single-class sample where RGA is undefined",
+   "straddles_policy": false
+  },
+  {
+   "h": 0.9447319211671961,
+   "interval95": [
+    null,
+    null
+   ],
+   "n": 20,
+   "note": "interval undefined: bootstrap resamples at this n can draw a single-class sample where RGA is undefined",
+   "straddles_policy": false
+  },
+  {
+   "h": 0.8716271743761651,
+   "interval95": [
+    0.7592222081397466,
+    0.9840321406125836
+   ],
+   "n": 24,
+   "note": null,
+   "straddles_policy": false
+  },
+  {
+   "h": 0.7894183872339916,
+   "interval95": [
+    0.6064360979396234,
+    0.9724006765283598
+   ],
+   "n": 30,
+   "note": null,
+   "straddles_policy": true
+  },
+  {
+   "h": 0.778126750151836,
+   "interval95": [
+    0.6604069687461355,
+    0.8958465315575365
+   ],
+   "n": 40,
+   "note": null,
+   "straddles_policy": true
+  },
+  {
+   "h": 0.8844970373931432,
+   "interval95": [
+    0.8217236368101339,
+    0.9472704379761525
+   ],
+   "n": 60,
+   "note": null,
+   "straddles_policy": false
+  }
+ ],
+ "seed": 20260727,
+ "subsample_seed": 20261504,
+ "width_ratio_small_over_full": 4.647619579312799
+}

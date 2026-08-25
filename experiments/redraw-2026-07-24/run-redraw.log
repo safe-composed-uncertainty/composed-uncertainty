@@ -1,0 +1,14 @@
+[data] statlog-german-credit (OpenML credit-g v1): train=700, test=300, d=20, B=2000
+[precompute] done in 1.1s
+[redraw] logit: 2000 fresh perturbation draws + predictions in 0.4s cumulative
+[redraw] rf: 2000 fresh perturbation draws + predictions in 208.5s cumulative
+[logit] fixed-draw corr: RGA-RGE=+0.286 RGA-RGR=+0.160 RGE-RGR=+0.597
+[logit] redraw     corr: RGA-RGE=+0.286 RGA-RGR=+0.127 RGE-RGR=+0.430
+[logit] paired pass in 1.9s
+[rf] fixed-draw corr: RGA-RGE=+0.292 RGA-RGR=+0.153 RGE-RGR=+0.342
+[rf] redraw     corr: RGA-RGE=+0.292 RGA-RGR=+0.139 RGE-RGR=+0.329
+[rf] paired pass in 1.9s
+[chain/fixed_draw] rho=+0.7222 h=0.8266 understatement=23.8%
+[chain/redraw] rho=+0.7120 h=0.8266 understatement=23.6%
+[chain] pass in 3.8s
+[done] /srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/redraw-2026-07-24/results-redraw.json  total 217.2s

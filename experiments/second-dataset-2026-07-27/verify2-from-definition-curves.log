@@ -1,0 +1,48 @@
+[    0.4] model fitted, n=9000 d=23
+[    0.9] greedy order: [10, 14, 8, 22, 21, 9]
+PASS logit point curve RGA max abs gap                              mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-12)
+PASS logit point curve RGE max abs gap                              mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-12)
+PASS logit point curve RGR max abs gap                              mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-12)
+PASS logit terminal RGA knot (structural zero)                      mine=-0.0000000000  run=-0.0000000000  gap=0.00e+00 (tol 1e-20)
+[    1.1] point curves verified
+[    1.4] fast-path matrices built
+[   25.4]   paired 250/2000
+[   49.3]   paired 500/2000
+[   73.3]   paired 750/2000
+[   97.2]   paired 1000/2000
+[  121.1]   paired 1250/2000
+[  145.0]   paired 1500/2000
+[  169.0]   paired 1750/2000
+[  192.9]   paired 2000/2000
+[  192.9] paired pass done
+PASS logit replicate matrix Ab max abs gap                          mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-12)
+PASS logit replicate matrix Eb max abs gap                          mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-12)
+PASS logit replicate matrix Rb max abs gap                          mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-12)
+PASS logit replicate matrix Rb_noise max abs gap                    mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-12)
+PASS logit replicate matrix SC max abs gap                          mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-12)
+PASS logit replicate matrix SC_co max abs gap                       mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-12)
+PASS logit curve-summary corr RGA-RGE                               mine=+0.2804617911  run=+0.2804617911  gap=0.00e+00 (tol 1e-12)
+PASS logit curve-summary corr RGA-RGR                               mine=-0.2540400984  run=-0.2540400984  gap=0.00e+00 (tol 1e-12)
+PASS logit curve-summary corr RGE-RGR = rung 6                      mine=-0.5423386608  run=-0.5423386608  gap=0.00e+00 (tol 1e-12)
+PASS logit curve-summary Sigma max abs gap                          mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-18)
+PASS logit bridge rung 1                                            mine=+0.5028405643  run=+0.5028405643  gap=0.00e+00 (tol 1e-12)
+PASS logit bridge rung 2                                            mine=+0.4951993805  run=+0.4951993805  gap=0.00e+00 (tol 1e-12)
+PASS logit bridge rung 3                                            mine=+0.4490229166  run=+0.4490229166  gap=0.00e+00 (tol 1e-12)
+PASS logit bridge rung 4                                            mine=-0.3789431439  run=-0.3789431439  gap=0.00e+00 (tol 1e-12)
+PASS logit bridge rung 5                                            mine=+0.6061913537  run=+0.6061913537  gap=0.00e+00 (tol 1e-12)
+PASS logit bridge rung 6                                            mine=-0.5423386608  run=-0.5423386608  gap=0.00e+00 (tol 1e-12)
+PASS logit RGA-RGE scalars                                          mine=+0.2093322028  run=+0.2093322028  gap=0.00e+00 (tol 1e-12)
+PASS logit RGA-RGR scalars                                          mine=+0.2223677568  run=+0.2223677568  gap=0.00e+00 (tol 1e-12)
+PASS logit RGA-RGE curve means                                      mine=+0.2804617911  run=+0.2804617911  gap=0.00e+00 (tol 1e-12)
+PASS logit RGA-RGR curve means                                      mine=-0.2540400984  run=-0.2540400984  gap=0.00e+00 (tol 1e-12)
+PASS logit delta understatement % arithmetic                        mine=-9.8311606279  run=-9.8311606279  gap=0.00e+00 (tol 1e-09)
+PASS logit cross share of variance % arithmetic                     mine=-20.6288384487  run=-20.6288384487  gap=0.00e+00 (tol 1e-09)
+PASS logit delta understatement % geometric                         mine=-13.4040743001  run=-13.4040743001  gap=2.31e-14 (tol 1e-09)
+PASS logit cross share of variance % geometric                      mine=-28.6048406786  run=-28.6048406786  gap=0.00e+00 (tol 1e-09)
+PASS logit delta understatement % rms                               mine=-5.1659233596  run=-5.1659233596  gap=0.00e+00 (tol 1e-09)
+PASS logit cross share of variance % rms                            mine=-10.5987143607  run=-10.5987143607  gap=0.00e+00 (tol 1e-09)
+PASS logit delta understatement % topsis                            mine=-8.0036511390  run=-8.0036511390  gap=0.00e+00 (tol 1e-09)
+PASS logit cross share of variance % topsis                         mine=-16.6478865936  run=-16.6478865936  gap=0.00e+00 (tol 1e-09)
+PASS logit per-severity-index RGE-RGR max abs gap                   mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 1e-12)
+PASS logit per-index None positions agree                           mine=+0.0000000000  run=+0.0000000000  gap=0.00e+00 (tol 0e+00)
+[  192.9] DONE: 34 checks, 0 failures

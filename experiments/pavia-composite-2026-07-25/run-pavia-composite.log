@@ -1,0 +1,155 @@
+==============================================================================
+An interval for the Pavia Compliance Score, on the curve construction
+Anton Sokolov, Tyche Institute, Tallinn -- run of 2026-07-25T18:44:45+00:00
+==============================================================================
+[data]  statlog-german-credit (OpenML credit-g v1): train=700, test=300, d=20
+[grid]  severity grid s_t = t/20, t = 0..20  ->  curve length L = 21
+[boot]  B = 2000 paired replicates, 2000 independent-stream replicates, B_full = 300 (logit) / 30 (rf) for the conditioning check
+[subst] safeai @ 39768fcd5264 (vendored, read-only)
+[topsis] reference check: Ci(best case) = 1.000000, Ci(worst case) = 0.000000 (thesis: 1.0 and 0.0)
+
+##############################################################################
+### logit
+##############################################################################
+[curves] point estimate in 0.1 s
+  RGA  len=21  [0.8052 0.7974 0.7974 0.7896 ... 0.1335 0.0000]
+  RGE  len=21  [1.0000 0.9999 0.9998 0.9996 ... 0.8367 0.5083]
+  RGR  len=21  [1.0000 0.8654 0.7600 0.6762 ... 0.1588 0.1597]
+[continuity] RGA anchor 0.8052154195011337 vs deposited point RGA 0.8052154195011337 -> |gap| 0.00e+00
+[composite] point estimate, three ways
+  arithmetic brute=0.631002815389  tensor=0.631002815389  closed=0.631002815389  |tensor-brute|=4.77e-15  |closed-brute|=4.77e-15
+  geometric  brute=0.534706260611  tensor=0.534706260611  closed=0.534706260611  |tensor-brute|=2.78e-15  |closed-brute|=2.89e-15
+  rms        brute=0.698847909330  tensor=0.698847909330  closed=none          |tensor-brute|=4.44e-15  |closed-brute|=n/a
+  rms gradient check (Euler): ga.a + ge.e + gr.r = 0.698847909330 vs V = 0.698847909330, |gap| = 1.11e-16
+[precompute] 21 nested masked + 21 tail-swapped + 21 scaled-noise prediction vectors in 0.0 s
+[fastpath] max abs gap vs the package curves at the point estimate: RGA 0.00e+00  RGE 0.00e+00  RGR 0.00e+00
+[convention] RGE fast path vs the package curve: with class_order 0.00e+00, without 1.87e-02
+[convention] RGR at p = 0.5, probability-matrix convention 0.1597 vs bare 1D vector 0.1267 (max gap over the curve 0.0336)
+[bootstrap] paired pass, B = 2000, 15.5 s (7.75 ms a replicate)
+[bootstrap] independent-stream pass, B = 2000, 11.1 s
+[summaries] corr of the three curve means: RGA-RGE +0.1996  RGA-RGR -0.0583  RGE-RGR -0.1372
+[summaries] mean correlation at matched severity index: RGA-RGE +0.1145  RGA-RGR -0.0265  RGE-RGR -0.1082
+
+[arms] point value, paired bootstrap interval, and the cross-term cost
+  arithmetic                       V = 0.631003  boot95 = [0.603426, 0.660975]  w = 0.057550  delta w = 0.056386, declared-zero w = 0.056901, understated by -0.91% (mc se 0.73)
+                                     empirical (independent streams) width = 0.057037, understated by +0.89% (mc se 3.01)
+                                     corr(summaries) RGA-RGE +0.1996  RGA-RGR -0.0583  RGE-RGR -0.1372 | 2 g g Sigma: +5.037e-06 -7.625e-06 -1.211e-06 | cross share of variance -1.84% (mc se 1.48)
+  geometric                        V = 0.534706  boot95 = [0.492475, 0.566995]  w = 0.074519  delta w = 0.072239, declared-zero w = 0.073585, understated by -1.86% (mc se 0.98)
+                                     empirical (independent streams) width = 0.073440, understated by +1.45% (mc se 3.58)
+                                     corr(summaries) RGA-RGE +0.1632  RGA-RGR -0.0480  RGE-RGR -0.2038 | 2 g g Sigma: +2.908e-06 -1.379e-05 -1.882e-06 | cross share of variance -3.76% (mc se 2.00)
+  rms                              V = 0.698848  boot95 = [0.678367, 0.724800]  w = 0.046433  delta w = 0.046652, declared-zero w = 0.046063, understated by +1.26% (mc se 0.54)
+                                     empirical (independent streams) width = 0.047086, understated by -1.41% (mc se 2.55)
+                                     corr(summaries) RGA-RGE +0.2099  RGA-RGR -0.0387  RGE-RGR -0.0252 | 2 g g Sigma: +6.005e-06 -2.282e-06 -1.639e-07 | cross share of variance +2.51% (mc se 1.07)
+  topsis                           V = 0.380251  boot95 = [0.357490, 0.405914]  w = 0.048425  delta w = 0.049103, declared-zero w = 0.049839, understated by -1.50% (mc se 0.63)
+                                     empirical (independent streams) width = 0.049925, understated by -3.10% (mc se 2.83)
+                                     corr(summaries) RGA-RGE -0.2082  RGA-RGR -0.0533  RGE-RGR +0.1062 | 2 g g Sigma: -1.855e-07 -4.577e-06 +2.721e-08 | cross share of variance -3.02% (mc se 1.29)
+  arithmetic_weighted_SENSITIVITY  V = 0.585749  boot95 = [0.546889, 0.628633]  w = 0.081744  delta w = 0.081580, declared-zero w = 0.082181, understated by -0.74% (mc se 0.46)
+                                     empirical (independent streams) width = 0.083379, understated by -2.00% (mc se 2.97)
+                                     corr(summaries) RGA-RGE +0.1996  RGA-RGR -0.0583  RGE-RGR -0.1372 | 2 g g Sigma: +4.534e-06 -1.029e-05 -6.540e-07 | cross share of variance -1.48% (mc se 0.94)
+  arithmetic_diagonal              V = 0.631003  boot95 = [0.603426, 0.660975]  w = 0.057550
+                                     empirical (independent streams) width = 0.057037, understated by +0.89% (mc se 3.01)
+  geometric_diagonal               V = 0.559463  boot95 = [0.522189, 0.590419]  w = 0.068230
+                                     empirical (independent streams) width = 0.066482, understated by +2.56% (mc se 3.73)
+  rms_diagonal                     V = 0.690461  boot95 = [0.670748, 0.716142]  w = 0.045394
+                                     empirical (independent streams) width = 0.046376, understated by -2.16% (mc se 2.60)
+
+[diagonal] product space against the matched-severity diagonal
+  arithmetic product = 0.631003  diagonal = 0.631003  diff = +0.000000  boot95 of diff = [-0.000000, +0.000000]  excludes zero: False
+  geometric  product = 0.534706  diagonal = 0.559463  diff = +0.024757  boot95 of diff = [+0.021897, +0.032753]  excludes zero: True
+  rms        product = 0.698848  diagonal = 0.690461  diff = -0.008387  boot95 of diff = [-0.009287, -0.007652]  excludes zero: True
+
+[ordering] geometric 0.534706 <= arithmetic 0.631003 <= rms 0.698848 : True (replicates satisfying: 2000/2000 and 2000/2000)
+
+[sens] anchor dropped, L = 20: arithmetic -0.015203, geometric -0.017120, rms -0.013059 against the primary
+[sens] scaled Gaussian noise RGR: arithmetic +0.187706, geometric +0.221494, rms +0.150596 against the primary
+[sens] terminal knot dropped, L = 20: arithmetic +0.020416, geometric +0.038128, rms +0.015774 against the primary
+[sens] length-20 ambiguity, arithmetic anchor-dropped 0.615799 vs terminal-dropped 0.651419, spread +0.035620 = 0.62 of the primary interval width, opposite signs: True
+[sens] length-20 ambiguity, geometric  anchor-dropped 0.517586 vs terminal-dropped 0.572834, spread +0.055248 = 0.74 of the primary interval width, opposite signs: True
+[sens] length-20 ambiguity, rms        anchor-dropped 0.685789 vs terminal-dropped 0.714621, spread +0.028833 = 0.62 of the primary interval width, opposite signs: True
+[sens] TOPSIS at the literal thesis length L = 20: Ci = 0.388709 (+0.008458); anchor-dropped instead 0.369254 (-0.010997); spread 0.019455 = 0.40 of the interval width
+
+[conditioning] reduced-B check, B_full = 300 (logit), on the same index streams
+  arithmetic sd frozen 0.014618  sd full-recompute 0.014689  ratio 1.005  mc band [0.958, 1.054]  mean |paired diff| 0.005072
+  geometric  sd frozen 0.018397  sd full-recompute 0.018696  ratio 1.016  mc band [0.954, 1.084]  mean |paired diff| 0.009249
+  rms        sd frozen 0.012055  sd full-recompute 0.012019  ratio 0.997  mc band [0.966, 1.030]  mean |paired diff| 0.002653
+  cost: 26.6 s for 300 replicates (0.09 s a replicate)
+
+##############################################################################
+### rf
+##############################################################################
+[curves] point estimate in 20.5 s
+  RGA  len=21  [0.8272 0.8272 0.8272 0.8028 ... 0.1216 0.0000]
+  RGE  len=21  [1.0000 0.9999 0.9988 0.9975 ... 0.7938 0.5058]
+  RGR  len=21  [1.0000 0.9161 0.8359 0.7636 ... 0.2719 0.2723]
+[continuity] RGA anchor 0.8272108843537415 vs deposited point RGA 0.8272108843537415 -> |gap| 0.00e+00
+[composite] point estimate, three ways
+  arithmetic brute=0.672086493118  tensor=0.672086493118  closed=0.672086493118  |tensor-brute|=7.77e-16  |closed-brute|=7.77e-16
+  geometric  brute=0.600733353066  tensor=0.600733353066  closed=0.600733353066  |tensor-brute|=8.88e-16  |closed-brute|=9.99e-16
+  rms        brute=0.721070073530  tensor=0.721070073530  closed=none          |tensor-brute|=1.11e-15  |closed-brute|=n/a
+  rms gradient check (Euler): ga.a + ge.e + gr.r = 0.721070073530 vs V = 0.721070073530, |gap| = 0.00e+00
+[precompute] 21 nested masked + 21 tail-swapped + 21 scaled-noise prediction vectors in 7.7 s
+[fastpath] max abs gap vs the package curves at the point estimate: RGA 0.00e+00  RGE 2.22e-16  RGR 0.00e+00
+[convention] RGE fast path vs the package curve: with class_order 2.22e-16, without 1.16e-02
+[convention] RGR at p = 0.5, probability-matrix convention 0.2723 vs bare 1D vector 0.2701 (max gap over the curve 0.0233)
+[bootstrap] paired pass, B = 2000, 15.7 s (7.86 ms a replicate)
+[bootstrap] independent-stream pass, B = 2000, 11.0 s
+[summaries] corr of the three curve means: RGA-RGE +0.1574  RGA-RGR -0.0800  RGE-RGR -0.3102
+[summaries] mean correlation at matched severity index: RGA-RGE +0.0572  RGA-RGR -0.0350  RGE-RGR -0.1524
+
+[arms] point value, paired bootstrap interval, and the cross-term cost
+  arithmetic                       V = 0.672086  boot95 = [0.646314, 0.700129]  w = 0.053815  delta w = 0.054505, declared-zero w = 0.056181, understated by -3.08% (mc se 0.89)
+                                     empirical (independent streams) width = 0.057306, understated by -6.49% (mc se 3.47)
+                                     corr(summaries) RGA-RGE +0.1574  RGA-RGR -0.0800  RGE-RGR -0.3102 | 2 g g Sigma: +4.176e-06 -1.245e-05 -3.800e-06 | cross share of variance -6.25% (mc se 1.84)
+  geometric                        V = 0.600733  boot95 = [0.566609, 0.632483]  w = 0.065875  delta w = 0.066264, declared-zero w = 0.068309, understated by -3.09% (mc se 1.02)
+                                     empirical (independent streams) width = 0.069303, understated by -5.21% (mc se 3.07)
+                                     corr(summaries) RGA-RGE +0.1314  RGA-RGR -0.0607  RGE-RGR -0.3491 | 2 g g Sigma: +2.653e-06 -1.630e-05 -4.260e-06 | cross share of variance -6.27% (mc se 2.10)
+  rms                              V = 0.721070  boot95 = [0.700822, 0.746152]  w = 0.045331  delta w = 0.045782, declared-zero w = 0.046468, understated by -1.50% (mc se 0.69)
+                                     empirical (independent streams) width = 0.047533, understated by -4.86% (mc se 3.03)
+                                     corr(summaries) RGA-RGE +0.1683  RGA-RGR -0.0838  RGE-RGR -0.2429 | 2 g g Sigma: +4.993e-06 -6.789e-06 -2.322e-06 | cross share of variance -3.02% (mc se 1.39)
+  topsis                           V = 0.415326  boot95 = [0.393898, 0.438069]  w = 0.044170  delta w = 0.045388, declared-zero w = 0.046800, understated by -3.11% (mc se 0.84)
+                                     empirical (independent streams) width = 0.047508, understated by -7.56% (mc se 3.19)
+                                     corr(summaries) RGA-RGE -0.1617  RGA-RGR -0.0833  RGE-RGR +0.2629 | 2 g g Sigma: -6.433e-07 -8.251e-06 +4.229e-07 | cross share of variance -6.32% (mc se 1.73)
+  arithmetic_weighted_SENSITIVITY  V = 0.630053  boot95 = [0.593316, 0.669822]  w = 0.076506  delta w = 0.077748, declared-zero w = 0.079226, understated by -1.90% (mc se 0.58)
+                                     empirical (independent streams) width = 0.081718, understated by -6.81% (mc se 2.78)
+                                     corr(summaries) RGA-RGE +0.1574  RGA-RGR -0.0800  RGE-RGR -0.3102 | 2 g g Sigma: +3.759e-06 -1.681e-05 -2.052e-06 | cross share of variance -3.84% (mc se 1.19)
+  arithmetic_diagonal              V = 0.672086  boot95 = [0.646314, 0.700129]  w = 0.053815
+                                     empirical (independent streams) width = 0.057306, understated by -6.49% (mc se 3.47)
+  geometric_diagonal               V = 0.622694  boot95 = [0.590608, 0.652864]  w = 0.062256
+                                     empirical (independent streams) width = 0.065818, understated by -5.72% (mc se 2.66)
+  rms_diagonal                     V = 0.711908  boot95 = [0.691812, 0.736760]  w = 0.044948
+                                     empirical (independent streams) width = 0.047282, understated by -5.19% (mc se 2.98)
+
+[diagonal] product space against the matched-severity diagonal
+  arithmetic product = 0.672086  diagonal = 0.672086  diff = +0.000000  boot95 of diff = [-0.000000, +0.000000]  excludes zero: False
+  geometric  product = 0.600733  diagonal = 0.622694  diff = +0.021961  boot95 of diff = [+0.019490, +0.025896]  excludes zero: True
+  rms        product = 0.721070  diagonal = 0.711908  diff = -0.009162  boot95 of diff = [-0.010078, -0.008340]  excludes zero: True
+
+[ordering] geometric 0.600733 <= arithmetic 0.672086 <= rms 0.721070 : True (replicates satisfying: 2000/2000 and 2000/2000)
+
+[sens] anchor dropped, L = 20: arithmetic -0.013516, geometric -0.014860, rms -0.012187 against the primary
+[sens] scaled Gaussian noise RGR: arithmetic +0.143348, geometric +0.157582, rms +0.121269 against the primary
+[sens] terminal knot dropped, L = 20: arithmetic +0.020635, geometric +0.040838, rms +0.015731 against the primary
+[sens] length-20 ambiguity, arithmetic anchor-dropped 0.658571 vs terminal-dropped 0.692722, spread +0.034151 = 0.63 of the primary interval width, opposite signs: True
+[sens] length-20 ambiguity, geometric  anchor-dropped 0.585873 vs terminal-dropped 0.641572, spread +0.055698 = 0.85 of the primary interval width, opposite signs: True
+[sens] length-20 ambiguity, rms        anchor-dropped 0.708883 vs terminal-dropped 0.736801, spread +0.027918 = 0.62 of the primary interval width, opposite signs: True
+[sens] TOPSIS at the literal thesis length L = 20: Ci = 0.423561 (+0.008235); anchor-dropped instead 0.405763 (-0.009563); spread 0.017798 = 0.40 of the interval width
+
+[conditioning] reduced-B check, B_full = 30 (rf), on the same index streams
+  arithmetic sd frozen 0.012776  sd full-recompute 0.013081  ratio 1.024  mc band [0.810, 1.235]  mean |paired diff| 0.004944
+  geometric  sd frozen 0.015381  sd full-recompute 0.014929  ratio 0.971  mc band [0.733, 1.266]  mean |paired diff| 0.007419
+  rms        sd frozen 0.010766  sd full-recompute 0.011195  ratio 1.040  mc band [0.888, 1.159]  mean |paired diff| 0.002898
+  cost: 787.1 s for 30 replicates (26.24 s a replicate)
+
+[topsis-norm] thesis step 2 (column normalisation), measured
+  models_and_references              alternatives=4  min column norm 8.74e-01  logit 0.361947 (-0.018303)  rf 0.405506 (-0.009820)
+  models_only                        alternatives=2  min column norm 2.22e-16  logit 0.000000 (-0.380251)  rf 0.000000 (-0.415326)
+  one_model_logit_and_references     alternatives=3  min column norm 7.13e-01  logit 0.365994 (-0.014256)  rf 0.405227 (-0.010099)
+  one_model_rf_and_references        alternatives=3  min column norm 7.11e-01  logit 0.363332 (-0.016919)  rf 0.401182 (-0.014144)
+  the last RGA knot is structurally zero for every model by eq. (6) -- what the run stores is floating-point residue of the order of 1e-16 -- so on a decision matrix of models alone that column has no meaningful norm and step 2 is not defined; the models_only row above is what that degeneracy does.
+
+[table5] the published table obeys geometric <= arithmetic <= rms in every row: True
+[table5] arithmetic spread over RF/XGB/SEM/VEM/NN = 0.00579; our indexing shift is 0.00 of it (logit) and 0.00 (rf)
+[table5] geometric  spread over RF/XGB/SEM/VEM/NN = 0.00477; our indexing shift is 5.19 of it (logit) and 4.60 (rf)
+[table5] rms        spread over RF/XGB/SEM/VEM/NN = 0.00855; our indexing shift is 0.98 of it (logit) and 1.07 (rf)
+
+[done] total runtime 898.8 s

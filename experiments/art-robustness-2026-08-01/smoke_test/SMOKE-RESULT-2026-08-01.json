@@ -1,0 +1,59 @@
+{
+ "grid": [
+  0.0,
+  0.5,
+  1.0
+ ],
+ "models": {
+  "logit": {
+   "attack_gen_seconds": 0.26,
+   "curve": [
+    {
+     "flip_rate": 0.0,
+     "l2_median": 0.0,
+     "s": 0.0,
+     "validity": 0.0
+    },
+    {
+     "flip_rate": 0.0,
+     "l2_median": 0.2571,
+     "s": 0.5,
+     "validity": 0.25
+    },
+    {
+     "flip_rate": 0.25,
+     "l2_median": 0.5142,
+     "s": 1.0,
+     "validity": 0.25
+    }
+   ],
+   "seconds_per_row": 0.022
+  },
+  "rf": {
+   "attack_gen_seconds": 122.48,
+   "curve": [
+    {
+     "flip_rate": 0.0,
+     "l2_median": 0.0,
+     "s": 0.0,
+     "validity": 0.0
+    },
+    {
+     "flip_rate": 0.0,
+     "l2_median": 0.3064,
+     "s": 0.5,
+     "validity": 0.417
+    },
+    {
+     "flip_rate": 0.417,
+     "l2_median": 0.6129,
+     "s": 1.0,
+     "validity": 0.417
+    }
+   ],
+   "seconds_per_row": 10.206
+  }
+ },
+ "n_rows": 12,
+ "seed": 20260723
+}

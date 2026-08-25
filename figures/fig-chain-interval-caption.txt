@@ -1,0 +1,31 @@
+The composed compliance figure of a two-link agent chain, h = C_A * C_B with a
+logistic-regression link followed by a random-forest link, measured on German
+credit (OpenML credit-g, 700/300 split, n_test = 300) with B = 2000 paired
+bootstrap replicates and the perturbations redrawn on every replicate, so the
+cross-link correlation reported here (0.712) is unconditional rather than
+conditional on one perturbation draw. The 95 per cent interval is computed twice
+from the same replicates: (a) carrying the measured cross-link covariance, and
+(b) with the cross-term declared zero, the naive independence assumption. Both
+carry the plug-in point estimate 0.827; declaring the cross-term zero narrows the
+interval from [0.787, 0.867] to [0.796, 0.857], understating its width by 23.6
+per cent. The hatched band runs between the two lower endpoints: any threshold
+in it is passed by the naive interval and left undecided by the honest one. It
+is not the whole range over which (a) fails to decide, which is the whole of
+(a), and it is not the whole set of thresholds the two readings judge
+differently: a mirror band of the same width, not drawn, sits between the two
+upper endpoints, where the naive interval fails and the honest one is again
+undecided. Every number above is read from the run output; the one chosen number is
+the decision threshold 0.791, which is illustrative -- a risk appetite is set by
+the operator, not by the data -- and is placed inside that band, so the naive
+interval sits clear of it and reads as passing while the interval that carries
+the covariance straddles it and does not decide at this sample size.
+
+--
+Notes for the build. Numbers come from
+papers/safe-composed-uncertainty/experiment/redraw-2026-07-24/results-redraw.json,
+"chain" -> "redraw", produced against safeai pinned at 39768fcd5264c881f7174268
+bbffda52b298ae89. Interval endpoints are stored in that file and are used as
+given; nothing was derived from widths. The threshold is not in the file: the
+script sets it to the midpoint of the two lower endpoints rounded to three
+decimals (0.791) and asserts that it lies strictly between them, which is what
+makes the two readings differ.

@@ -1,0 +1,64 @@
+==============================================================================
+Probe 3: the unmeasured costs, a re-measurement, and the projection
+run of 2026-07-27T23:57:53+00:00
+==============================================================================
+[offline] fetch_openml succeeded with the socket layer disabled in 0.15 s -> the local scikit-learn OpenML cache serves data id 42477; the full study needs no network
+[data]  n_test = 9000, d = 23, GRID = 23, L = 24
+
+[bite] share of test rows whose value actually changes under the tail swap
+  taiwan_n9000     p=0.125 -> 0.250  p=0.250 -> 0.500  p=0.500 -> 0.881
+  german_n300      p=0.125 -> 0.234  p=0.250 -> 0.441  p=0.500 -> 0.702
+
+##############################################################################
+### logit   (fit 0.24 s)
+##############################################################################
+[remeasure] ONE FULL METRIC VECTOR = 1.08 s (RGA 0.00 + RGE greedy 0.83 + RGR sweep 0.25)
+[precompute] curve path 0.28 s, deposited-scalar path 0.02 s
+[remeasure] ONE PAIRED CURVE REPLICATE (fast path) = 0.0983 s
+[cost] Gaussian-sweep add-on 0.0499 s ; deposited scalar triple 0.0250 s
+[NEW ] scheme-B redraw, one fresh perturbation + full-block predict = 0.0026 s
+[remeasure] ONE FULL-RECOMPUTE REPLICATE (conditioning check) = 1.1 s
+[scaling] paired replicate cost by n: n=300 0.0059 s  n=1000 0.0123 s  n=3000 0.0327 s  n=9000 0.0992 s  -> empirical exponent 0.95
+
+##############################################################################
+### rf   (fit 0.68 s)
+##############################################################################
+[remeasure] ONE FULL METRIC VECTOR = 27.36 s (RGA 0.00 + RGE greedy 25.67 + RGR sweep 1.68)
+[precompute] curve path 5.34 s, deposited-scalar path 1.10 s
+[remeasure] ONE PAIRED CURVE REPLICATE (fast path) = 0.0842 s
+[cost] Gaussian-sweep add-on 0.0416 s ; deposited scalar triple 0.0210 s
+[NEW ] scheme-B redraw, one fresh perturbation + full-block predict = 0.0676 s
+[remeasure] ONE FULL-RECOMPUTE REPLICATE (conditioning check) = 24.9 s
+[scaling] paired replicate cost by n: n=300 0.0063 s  n=1000 0.0120 s  n=3000 0.0304 s  n=9000 0.0827 s  -> empirical exponent 0.88
+
+[memory] one B x n index stream at B = 2000, n = 9000: 144 MB as int64, 72 MB as int32
+         the pinned curve driver holds one paired stream plus three independent streams = 576 MB int64
+
+##############################################################################
+### projection of the full study, from the constants measured above
+##############################################################################
+  D1 logit deposited-scalar precompute                            0.0 s  (  0.0 min)
+  D1 logit scheme-B redraw, B fresh perturbations                 5.3 s  (  0.1 min)
+  D1 logit paired pass, both schemes                             49.9 s  (  0.8 min)
+  D1 rf deposited-scalar precompute                               1.1 s  (  0.0 min)
+  D1 rf scheme-B redraw, B fresh perturbations                  135.3 s  (  2.3 min)
+  D1 rf paired pass, both schemes                                41.9 s  (  0.7 min)
+  D1 chain, shared stream, both models, both schemes             91.8 s  (  1.5 min)
+  D2 logit point curves                                           1.1 s  (  0.0 min)
+  D2 logit curve precompute                                       0.3 s  (  0.0 min)
+  D2 logit paired pass + Gaussian-sweep arm                     296.3 s  (  4.9 min)
+  D2 logit independent-stream pass                              196.5 s  (  3.3 min)
+  D2 logit conditioning check, B_full = 300                     324.2 s  (  5.4 min)
+  D2 rf point curves                                             27.4 s  (  0.5 min)
+  D2 rf curve precompute                                          5.3 s  (  0.1 min)
+  D2 rf paired pass + Gaussian-sweep arm                        251.6 s  (  4.2 min)
+  D2 rf independent-stream pass                                 168.4 s  (  2.8 min)
+  D2 rf conditioning check, B_full = 30                         746.9 s  ( 12.4 min)
+  D3 logit bridge: paired curve + independent + scalar + sweep    542.7 s  (  9.0 min)
+  D3 rf bridge: paired curve + independent + scalar + sweep     461.9 s  (  7.7 min)
+  TOTAL, serial, one core-set                                  3347.8 s  ( 55.8 min)
+
+[reduce] B = 1000 everywhere except the fixed costs: 37.1 min
+[reduce] rf conditioning check at B_full = 10 instead of 30: 47.5 min
+
+[done] probe total 66.4 s

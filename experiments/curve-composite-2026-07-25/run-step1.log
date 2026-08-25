@@ -1,0 +1,37 @@
+[data] statlog-german-credit (OpenML credit-g v1): train=700, test=300, d=20
+[grid] severity grid s_t = t/20, t = 0..20 -> vector length L = 21
+
+=== logit ===
+  RGA (partial)          len=21  first4=[0.8052 0.7974 0.7974 0.7896]  last=0.0000
+  RGE (greedy, mean)     len=21  first4=[1.0000 0.9999 0.9998 0.9996]  last=0.5083
+  RGE (greedy, zero)     len=21  first4=[1.0000 0.9999 0.9998 0.9996]  last=0.5083
+  RGR (pkg noise, raw)   len=21  first4=[1.0000 0.9988 0.9956 0.9894]  last=0.7872
+  RGR (noise x col sd)   len=21  first4=[1.0000 0.9994 0.9984 0.9952]  last=0.8805
+  RGR (tail swap)        len=21  first4=[1.0000 0.8692 0.7719 0.6951]  last=0.1267
+  greedy removal order (mean baseline), first 5: ['job', 'purpose', 'residence_since', 'personal_status', 'housing']
+  V[arithmetic] tensor=0.627662  closed=0.627662  |gap|=0.00e+00  diag=0.627662  diag-V=+0.000000
+  V[geometric ] tensor=0.524449  closed=0.524449  |gap|=0.00e+00  diag=0.551954  diag-V=+0.027506
+  V[rms       ] tensor=0.698632  closed=  none    |gap|=   n/a    diag=0.689946  diag-V=-0.008686
+  timings (s): RGA 0.006 | RGE mean 0.073, zero 0.063 | RGR pkg 0.008, scaled 0.006, swap 0.014 | one triple 0.092
+
+=== rf ===
+  RGA (partial)          len=21  first4=[0.8272 0.8272 0.8272 0.8028]  last=0.0000
+  RGE (greedy, mean)     len=21  first4=[1.0000 0.9999 0.9988 0.9975]  last=0.5058
+  RGE (greedy, zero)     len=21  first4=[1.0000 0.9999 0.9987 0.9972]  last=0.5058
+  RGR (pkg noise, raw)   len=21  first4=[1.0000 0.9996 0.9995 0.9996]  last=0.8620
+  RGR (noise x col sd)   len=21  first4=[1.0000 0.9975 0.9920 0.9899]  last=0.8191
+  RGR (tail swap)        len=21  first4=[1.0000 0.9223 0.8522 0.7869]  last=0.2701
+  greedy removal order (mean baseline), first 5: ['foreign_worker', 'housing', 'own_telephone', 'num_dependents', 'job']
+  V[arithmetic] tensor=0.673478  closed=0.673478  |gap|=0.00e+00  diag=0.673478  diag-V=+0.000000
+  V[geometric ] tensor=0.601683  closed=0.601683  |gap|=0.00e+00  diag=0.624176  diag-V=+0.022492
+  V[rms       ] tensor=0.722594  closed=  none    |gap|=   n/a    diag=0.713229  diag-V=-0.009365
+  timings (s): RGA 0.015 | RGE mean 26.662, zero 29.494 | RGR pkg 1.973, scaled 2.044, swap 0.892 | one triple 27.569
+
+=== per-evaluation cost ===
+  logit  one full triple (RGA + greedy RGE + tail-swap RGR) = 0.092 s
+        B=200   naive re-evaluation: 0.3 min
+        B=2000  naive re-evaluation: 3.1 min
+  rf     one full triple (RGA + greedy RGE + tail-swap RGR) = 27.569 s
+        B=200   naive re-evaluation: 91.9 min
+        B=2000  naive re-evaluation: 919.0 min
+[done] 62.3 s

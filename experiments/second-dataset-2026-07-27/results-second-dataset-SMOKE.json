@@ -1,0 +1,4544 @@
+{
+ "study": "The second dataset for the composed-uncertainty article: UCI Default of Credit Card Clients (Taiwan)",
+ "plan_item": "A11 of UPGRADE-PLAN-2026-07-27.md",
+ "pre_registration": "/srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/second-dataset-2026-07-27/PRE-REGISTRATION.md",
+ "author": "Anton Sokolov, Tyche Institute, Tallinn",
+ "generated_utc": "2026-07-28T00:14:16+00:00",
+ "safeai_commit": "39768fcd5264c881f7174268bbffda52b298ae89",
+ "numpy": "2.5.1",
+ "python": "3.12.3",
+ "seed": 20260723,
+ "alpha": 0.05,
+ "z": 1.959963984540054,
+ "B": 6,
+ "B_conditioning_check": {
+  "logit": 3,
+  "rf": 2
+ },
+ "design_departures_from_the_german_credit_study": [
+  "L = d + 1 = 24 and GRID = d = 23 (German credit: 21 and 20). The RULE is unchanged; the number follows from d because the greedy removal curve has one knot per feature plus the zero-removal anchor. Consequences: the composite averages 13,824 tensor cells instead of 9,261, and the tail-swap severity spacing is 0.5/23 = 0.021739 instead of 0.5/20 = 0.025.",
+  "n_test = 9,000 instead of 300. The split rule is unchanged (stratified, test_size = 0.3); only the sample it is applied to is larger.",
+  "The positive class is a minority (y = 1 = default, 22.1 per cent) where German credit's y = 1 = good is the majority (70.0 per cent). Declared in advance, with an unconditional coding sensitivity under y' = 1 - y.",
+  "ADDED and declared: a Monte Carlo standard error for the correlations and for the chain understatement, by the same second-level resampling block (MC_R = 400 resamples of the B replicate rows) that the pinned driver already applies to the width shares, seeded at MC_SEED + 3 and MC_SEED + 4. The pre-registered verdict rule calls a sign only against twice its Monte Carlo standard error, and the pinned drivers do not carry that block for the correlations. It qualifies estimates; it changes none.",
+  "The estimator bridge is computed inside the same paired loop as the composite rather than in a second script. The index stream is identical (default_rng(SEED + 1)), so the numbers are the ones the separate script would produce; the separate independent recomputation is verify_second_dataset.py, run afterwards.",
+  "The two length-d truncation readings are at L = 23, not L = 20."
+ ],
+ "unchanged_from_the_german_credit_study": [
+  "safeai pinned at 39768fcd5264c881f7174268bbffda52b298ae89, vendored read-only, with the inert torch/art import stubs.",
+  "SEED = 20260723 and every derived stream: paired default_rng(SEED+1); independent default_rng(SEED+10+k), k = 0,1,2; chain shared default_rng(SEED+99); Gaussian sweep default_rng(SEED) per model; scheme-B redraw bases SEED+100000 (logit) and SEED+200000 (rf) consumed as base+b; Monte Carlo seeds SEED+777 and SEED+779.",
+  "B = 2000 paired and 2000 independent-stream replicates; alpha = 0.05; z = 1.959963984540054; percentile endpoints 2.5 and 97.5.",
+  "Untuned models: StandardScaler + LogisticRegression(max_iter=2000) and RandomForestClassifier(n_estimators=300).",
+  "The tail swap verbatim, on the same p-range [0, 0.5].",
+  "The fixed Gaussian draw at 0.5 column sd and the Gaussian sweep at sigma_t = t/GRID column sd.",
+  "Three volume variants as the mean of the L x L x L tensor, the matched-severity diagonal readings, TOPSIS with the thesis ideal and anti-ideal vectors read at the run's L, the weighted sensitivity arm at w = (0.50, 0.20, 0.30) still declared a departure from the source authors.",
+  "The chain h = C_A * C_B with C the geometric mean of the three SCALAR metrics, link A = logit, link B = rf.",
+  "Both conditioning senses: the scalar driver's fixed draw against the per-replicate redraw, and the curve driver's frozen fast path against a full re-search of the greedy order on the resampled rows, at B_full = 300 (logit) and 30 (rf).",
+  "class_order = [0, 1] wherever the pinned drivers pass it."
+ ],
+ "german_credit_anchors": {
+  "source_files": [
+   "/srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/pavia-composite-2026-07-25/results-pavia-composite.json",
+   "/srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/redraw-2026-07-24/results-redraw.json",
+   "/srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/pavia-composite-2026-07-25/verify-cross-terms.log"
+  ],
+  "n_test": 300,
+  "d": 20,
+  "curve_length_L": 21,
+  "B": 2000,
+  "B_conditioning_check": {
+   "logit": 300,
+   "rf": 30
+  },
+  "models": {
+   "logit": {
+    "corr_curve_means": {
+     "RGA_RGE": 0.19956952835714417,
+     "RGA_RGR": -0.058284801297709764,
+     "RGE_RGR": -0.13715699226009975
+    },
+    "per_severity_index_correlation": {
+     "RGA_RGE": [
+      null,
+      0.11224324983344139,
+      0.10694078316422038,
+      0.07600208706537696,
+      0.10391738097850346,
+      0.11436066151395373,
+      0.11913899647951577,
+      0.15134620456136133,
+      0.13238197824924988,
+      0.15162599250595718,
+      0.12275306130212849,
+      0.10939811020869454,
+      0.1494801600264819,
+      0.13567579000418603,
+      0.1615788211474495,
+      0.12138433210093885,
+      0.13838110897774675,
+      0.08619693547374337,
+      0.08738946139599613,
+      -0.004760577071534728,
+      null
+     ],
+     "RGA_RGR": [
+      null,
+      -0.028520378903418336,
+      -0.024310251665273598,
+      -0.030741282614679625,
+      -0.010852716835669546,
+      0.008460477349742855,
+      0.0013461077753358182,
+      0.011619549944936637,
+      -0.04098131632452263,
+      -0.05312903886736827,
+      -0.051225953170577716,
+      -0.04502087387692456,
+      -0.0891368882261247,
+      -0.06344781720170635,
+      -0.07282871936462952,
+      -0.015691543992357712,
+      -0.027245268727461854,
+      0.017175562475968825,
+      -0.03730219309318136,
+      0.047865403052950145,
+      null
+     ],
+     "RGE_RGR": [
+      null,
+      0.14176629059432402,
+      0.11224041001998296,
+      0.1003730347477507,
+      -0.009689733753159678,
+      -0.02719024764797512,
+      -0.076904233168102,
+      -0.10389059731058126,
+      -0.1258571723422667,
+      -0.17105075812159004,
+      -0.14361947926054722,
+      -0.13375598269301067,
+      -0.16155349372348843,
+      -0.1407517744923824,
+      -0.18353136504802312,
+      -0.1863264502783244,
+      -0.2221333694210068,
+      -0.25061590919471394,
+      -0.2248303116729109,
+      -0.3132020765563956,
+      -0.043170758213595645
+     ]
+    },
+    "mean_per_index_correlation": {
+     "RGA_RGE": 0.11449655462723214,
+     "RGA_RGR": -0.02652458643499797,
+     "RGE_RGR": -0.10818469887680082
+    },
+    "delta_understatement_pct": {
+     "arithmetic": -0.9137964325266701,
+     "geometric": -1.862246121142297,
+     "rms": 1.2643176830683167,
+     "topsis": -1.4977460781607554
+    },
+    "delta_understatement_mc_se_pct": {
+     "arithmetic": 0.7324295296111716,
+     "geometric": 0.9822573036371024,
+     "rms": 0.5419125865596724,
+     "topsis": 0.634505845921075
+    },
+    "empirical_understatement_pct": {
+     "arithmetic": 0.8904163353612882,
+     "geometric": 1.4481287884946958,
+     "rms": -1.405422909441345,
+     "topsis": -3.0995225053450426
+    },
+    "V_point": {
+     "arithmetic": 0.6310028153894086,
+     "geometric": 0.5347062606113694,
+     "rms": 0.6988479093303007,
+     "topsis": 0.38025052230318834
+    },
+    "paired_ci_width": {
+     "arithmetic": 0.057549659492734606,
+     "geometric": 0.07451938982811473,
+     "rms": 0.04643304807791104,
+     "topsis": 0.04842450478254684
+    },
+    "scalar_corr_fixed_draw": {
+     "matrix": [
+      [
+       0.9999999999999999,
+       0.2858139179651909,
+       0.15963929901596527
+      ],
+      [
+       0.28581391796519084,
+       1.0,
+       0.5967316024170706
+      ],
+      [
+       0.15963929901596527,
+       0.5967316024170706,
+       0.9999999999999999
+      ]
+     ],
+     "corr_RGA_RGE": 0.2858139179651909,
+     "corr_RGA_RGR": 0.15963929901596527,
+     "corr_RGE_RGR": 0.5967316024170706
+    },
+    "conditioning_sd_ratio": {
+     "arithmetic": 1.0048065451332138,
+     "geometric": 1.016239353290198,
+     "rms": 0.9970290850133886
+    }
+   },
+   "rf": {
+    "corr_curve_means": {
+     "RGA_RGE": 0.15737253188805297,
+     "RGA_RGR": -0.08004214446987298,
+     "RGE_RGR": -0.3101587442491882
+    },
+    "per_severity_index_correlation": {
+     "RGA_RGE": [
+      null,
+      -0.07622035178879118,
+      0.024830717833698432,
+      0.05212545206803367,
+      0.034529533700500305,
+      0.09634333234635017,
+      0.07470536791551861,
+      0.09214605674049674,
+      0.12943684107544293,
+      0.1493495608950151,
+      0.13020665083423277,
+      0.11125758237278123,
+      0.07488946622198428,
+      0.06018458675136062,
+      0.010728414937154072,
+      0.09954575840888862,
+      0.12350296853913419,
+      0.012648594079378078,
+      -0.05630514865232757,
+      -0.05759524135147801,
+      null
+     ],
+     "RGA_RGR": [
+      null,
+      -0.01257775333585495,
+      -0.01863770081021865,
+      -0.029389820368466237,
+      -0.03155637990179682,
+      -0.03703680845183836,
+      -0.05850206747722017,
+      -0.0580386331898938,
+      -0.042338032774949116,
+      -0.06455157786775435,
+      -0.08194880635398218,
+      -0.08226236553818654,
+      -0.10450355197772772,
+      -0.12439935421241259,
+      -0.046115854418953134,
+      -0.035486507227846326,
+      0.008451113379557437,
+      0.0586204878745517,
+      0.0425077226293515,
+      0.05271919657740781,
+      null
+     ],
+     "RGE_RGR": [
+      null,
+      0.028031632505031174,
+      0.04338712478926495,
+      -0.007417681597296186,
+      0.004402353270967017,
+      -0.03365641149230411,
+      -0.024064542375642903,
+      -0.09477025102873299,
+      -0.14321806940511775,
+      -0.19263819939959553,
+      -0.1592345646878431,
+      -0.11469182142267968,
+      -0.1733236566868172,
+      -0.20282714430120038,
+      -0.21265085989743748,
+      -0.29709324253188785,
+      -0.304130468658663,
+      -0.25357083302266165,
+      -0.5088458989024064,
+      -0.36669209159539895,
+      -0.034740893694655724
+     ]
+    },
+    "mean_per_index_correlation": {
+     "RGA_RGE": 0.0571742180488091,
+     "RGA_RGR": -0.03500245754980171,
+     "RGE_RGR": -0.1523872760067539
+    },
+    "delta_understatement_pct": {
+     "arithmetic": -3.075571966983648,
+     "geometric": -3.0856082470078094,
+     "rms": -1.4984412650611345,
+     "topsis": -3.1111455917332664
+    },
+    "delta_understatement_mc_se_pct": {
+     "arithmetic": 0.8945738566549315,
+     "geometric": 1.0157763665475874,
+     "rms": 0.6857034285424426,
+     "topsis": 0.8365579392481453
+    },
+    "empirical_understatement_pct": {
+     "arithmetic": -6.48613431865972,
+     "geometric": -5.205245912061129,
+     "rms": -4.858109094746843,
+     "topsis": -7.555416930205738
+    },
+    "V_point": {
+     "arithmetic": 0.672086493118253,
+     "geometric": 0.6007333530656127,
+     "rms": 0.7210700735299823,
+     "topsis": 0.41532617132801286
+    },
+    "paired_ci_width": {
+     "arithmetic": 0.05381503448992864,
+     "geometric": 0.0658745417376495,
+     "rms": 0.04533061146643502,
+     "topsis": 0.044170472768919
+    },
+    "scalar_corr_fixed_draw": {
+     "matrix": [
+      [
+       1.0,
+       0.2921986552172537,
+       0.15299287644635887
+      ],
+      [
+       0.2921986552172537,
+       0.9999999999999999,
+       0.3415208786622705
+      ],
+      [
+       0.15299287644635884,
+       0.34152087866227054,
+       1.0
+      ]
+     ],
+     "corr_RGA_RGE": 0.2921986552172537,
+     "corr_RGA_RGR": 0.15299287644635887,
+     "corr_RGE_RGR": 0.3415208786622705
+    },
+    "conditioning_sd_ratio": {
+     "arithmetic": 1.0238803220445938,
+     "geometric": 0.9705881685625083,
+     "rms": 1.0397863879308458
+    }
+   }
+  },
+  "chain": {
+   "fixed_draw": {
+    "rho": 0.7221747816730605,
+    "understatement_pct": 23.79266021704757,
+    "width_measured": 0.0798043234036192,
+    "width_declared_zero": 0.06081675189768232,
+    "h_point": 0.8265905808256838
+   },
+   "redraw": {
+    "rho": 0.7120093529730841,
+    "understatement_pct": 23.571134411426385,
+    "width_measured": 0.07995382991830224,
+    "width_declared_zero": 0.06110780520117598,
+    "h_point": 0.8265905808256838
+   }
+  },
+  "bridge_RGE_RGR": {
+   "logit": [
+    0.5967,
+    0.6144,
+    0.4249,
+    -0.2083,
+    0.5354,
+    -0.1372
+   ],
+   "rf": [
+    0.3415,
+    0.3437,
+    0.2879,
+    -0.1529,
+    0.4711,
+    -0.3102
+   ]
+  },
+  "frozen_value_checks": [
+   {
+    "label": "P1 logit",
+    "read_back": -0.13715699226009975,
+    "frozen": -0.1372,
+    "ok": true
+   },
+   {
+    "label": "P2 logit",
+    "read_back": -0.058284801297709764,
+    "frozen": -0.0583,
+    "ok": true
+   },
+   {
+    "label": "P3 logit arithmetic",
+    "read_back": -0.9137964325266701,
+    "frozen": -0.91,
+    "ok": true
+   },
+   {
+    "label": "P4 logit arithmetic",
+    "read_back": 0.8904163353612882,
+    "frozen": 0.89,
+    "ok": true
+   },
+   {
+    "label": "P3 logit geometric",
+    "read_back": -1.862246121142297,
+    "frozen": -1.86,
+    "ok": true
+   },
+   {
+    "label": "P4 logit geometric",
+    "read_back": 1.4481287884946958,
+    "frozen": 1.45,
+    "ok": true
+   },
+   {
+    "label": "P3 logit rms",
+    "read_back": 1.2643176830683167,
+    "frozen": 1.26,
+    "ok": true
+   },
+   {
+    "label": "P4 logit rms",
+    "read_back": -1.405422909441345,
+    "frozen": -1.41,
+    "ok": true
+   },
+   {
+    "label": "P3 logit topsis",
+    "read_back": -1.4977460781607554,
+    "frozen": -1.5,
+    "ok": true
+   },
+   {
+    "label": "P4 logit topsis",
+    "read_back": -3.0995225053450426,
+    "frozen": -3.1,
+    "ok": true
+   },
+   {
+    "label": "P6 logit rung 1",
+    "read_back": 0.5967,
+    "frozen": 0.5967,
+    "ok": true
+   },
+   {
+    "label": "P6 logit rung 2",
+    "read_back": 0.6144,
+    "frozen": 0.6144,
+    "ok": true
+   },
+   {
+    "label": "P6 logit rung 3",
+    "read_back": 0.4249,
+    "frozen": 0.4249,
+    "ok": true
+   },
+   {
+    "label": "P6 logit rung 4",
+    "read_back": -0.2083,
+    "frozen": -0.2083,
+    "ok": true
+   },
+   {
+    "label": "P6 logit rung 5",
+    "read_back": 0.5354,
+    "frozen": 0.5354,
+    "ok": true
+   },
+   {
+    "label": "P6 logit rung 6",
+    "read_back": -0.1372,
+    "frozen": -0.1372,
+    "ok": true
+   },
+   {
+    "label": "scalar logit RGA_RGE",
+    "read_back": 0.2858139179651909,
+    "frozen": 0.2858,
+    "ok": true
+   },
+   {
+    "label": "scalar logit RGA_RGR",
+    "read_back": 0.15963929901596527,
+    "frozen": 0.1596,
+    "ok": true
+   },
+   {
+    "label": "scalar logit RGE_RGR",
+    "read_back": 0.5967316024170706,
+    "frozen": 0.5967,
+    "ok": true
+   },
+   {
+    "label": "P1 rf",
+    "read_back": -0.3101587442491882,
+    "frozen": -0.3102,
+    "ok": true
+   },
+   {
+    "label": "P2 rf",
+    "read_back": -0.08004214446987298,
+    "frozen": -0.08,
+    "ok": true
+   },
+   {
+    "label": "P3 rf arithmetic",
+    "read_back": -3.075571966983648,
+    "frozen": -3.08,
+    "ok": true
+   },
+   {
+    "label": "P4 rf arithmetic",
+    "read_back": -6.48613431865972,
+    "frozen": -6.49,
+    "ok": true
+   },
+   {
+    "label": "P3 rf geometric",
+    "read_back": -3.0856082470078094,
+    "frozen": -3.09,
+    "ok": true
+   },
+   {
+    "label": "P4 rf geometric",
+    "read_back": -5.205245912061129,
+    "frozen": -5.21,
+    "ok": true
+   },
+   {
+    "label": "P3 rf rms",
+    "read_back": -1.4984412650611345,
+    "frozen": -1.5,
+    "ok": true
+   },
+   {
+    "label": "P4 rf rms",
+    "read_back": -4.858109094746843,
+    "frozen": -4.86,
+    "ok": true
+   },
+   {
+    "label": "P3 rf topsis",
+    "read_back": -3.1111455917332664,
+    "frozen": -3.11,
+    "ok": true
+   },
+   {
+    "label": "P4 rf topsis",
+    "read_back": -7.555416930205738,
+    "frozen": -7.56,
+    "ok": true
+   },
+   {
+    "label": "P6 rf rung 1",
+    "read_back": 0.3415,
+    "frozen": 0.3415,
+    "ok": true
+   },
+   {
+    "label": "P6 rf rung 2",
+    "read_back": 0.3437,
+    "frozen": 0.3437,
+    "ok": true
+   },
+   {
+    "label": "P6 rf rung 3",
+    "read_back": 0.2879,
+    "frozen": 0.2879,
+    "ok": true
+   },
+   {
+    "label": "P6 rf rung 4",
+    "read_back": -0.1529,
+    "frozen": -0.1529,
+    "ok": true
+   },
+   {
+    "label": "P6 rf rung 5",
+    "read_back": 0.4711,
+    "frozen": 0.4711,
+    "ok": true
+   },
+   {
+    "label": "P6 rf rung 6",
+    "read_back": -0.3102,
+    "frozen": -0.3102,
+    "ok": true
+   },
+   {
+    "label": "scalar rf RGA_RGE",
+    "read_back": 0.2921986552172537,
+    "frozen": 0.2922,
+    "ok": true
+   },
+   {
+    "label": "scalar rf RGA_RGR",
+    "read_back": 0.15299287644635887,
+    "frozen": 0.153,
+    "ok": true
+   },
+   {
+    "label": "scalar rf RGE_RGR",
+    "read_back": 0.3415208786622705,
+    "frozen": 0.3415,
+    "ok": true
+   },
+   {
+    "label": "P5 fixed_draw rho",
+    "read_back": 0.7221747816730605,
+    "frozen": 0.7222,
+    "ok": true
+   },
+   {
+    "label": "P5 fixed_draw understatement",
+    "read_back": 23.79266021704757,
+    "frozen": 23.79,
+    "ok": true
+   },
+   {
+    "label": "P5 redraw rho",
+    "read_back": 0.7120093529730841,
+    "frozen": 0.712,
+    "ok": true
+   },
+   {
+    "label": "P5 redraw understatement",
+    "read_back": 23.571134411426385,
+    "frozen": 23.57,
+    "ok": true
+   }
+  ],
+  "all_frozen_values_reproduced": true
+ },
+ "dataset": "uci-default-of-credit-card-clients-taiwan (OpenML id 42477 v1)",
+ "n_train": 21000,
+ "n_test": 9000,
+ "d": 23,
+ "grid": 23,
+ "curve_length_L": 24,
+ "positive_share_test": 0.2212222222222222,
+ "positives_in_test": 1991,
+ "target_coding": "y = 1 is default (the UCI dictionary's own target), a MINORITY class",
+ "topsis_reference": {
+  "L": 24,
+  "Ci_of_best_case": 1.0,
+  "Ci_of_worst_case": 0.0
+ },
+ "models": {
+  "logit": {
+   "anchor_consistency": {
+    "rga_anchor_curve": 0.7511335896905168,
+    "rga_score_scalar": 0.7511335896905168,
+    "abs_gap_anchor_vs_scalar": 0.0
+   },
+   "factorisation_check": {
+    "arithmetic": {
+     "V_brute_force_triple_sum": 0.5419855081016317,
+     "V_vectorised_tensor": 0.5419855081016299,
+     "V_closed_form": 0.5419855081016299,
+     "abs_residual_tensor_vs_brute_force": 1.7763568394002505e-15,
+     "abs_residual_closed_form_vs_brute_force": 1.7763568394002505e-15,
+     "brute_force_seconds": 0.0024309158325195312
+    },
+    "geometric": {
+     "V_brute_force_triple_sum": NaN,
+     "V_vectorised_tensor": 0.39466620868458935,
+     "V_closed_form": 0.3946662086845893,
+     "abs_residual_tensor_vs_brute_force": NaN,
+     "abs_residual_closed_form_vs_brute_force": NaN,
+     "brute_force_seconds": 0.0030684471130371094
+    },
+    "rms": {
+     "V_brute_force_triple_sum": 0.650804618784845,
+     "V_vectorised_tensor": 0.6508046187848435,
+     "V_closed_form": null,
+     "abs_residual_tensor_vs_brute_force": 1.4432899320127035e-15,
+     "abs_residual_closed_form_vs_brute_force": null,
+     "brute_force_seconds": 0.0036809444427490234
+    }
+   },
+   "rms_gradient_euler_identity": {
+    "sum_of_projections": 0.6508046187848434,
+    "V_rms": 0.6508046187848435,
+    "abs_gap": 1.1102230246251565e-16
+   },
+   "fast_path_vs_package_max_abs_gap": {
+    "RGA": 0.0,
+    "RGE": 0.0,
+    "RGR": 0.0
+   },
+   "scoring_convention": {
+    "rge_max_abs_gap_vs_package_curve_with_class_order": 0.0,
+    "rge_max_abs_gap_vs_package_curve_without_class_order": 0.01096311620254875,
+    "rgr_tail_swap_matrix_convention_last": 0.09116177327298275,
+    "rgr_tail_swap_vector_convention_last": 0.1338896182659064,
+    "rgr_tail_swap_max_abs_gap_between_conventions": 0.042802986324799897,
+    "V_under_vector_convention": {
+     "arithmetic": 0.5526415443882362,
+     "geometric": 0.4218047067460453,
+     "rms": 0.6535863061876377
+    }
+   },
+   "curve_summaries": {
+    "mean_of_curve": {
+     "point": [
+      0.40969986925969565,
+      0.9678558880249444,
+      0.24840076702024974
+     ],
+     "bootstrap_sd": [
+      0.0045449645794290285,
+      0.000312060893239682,
+      0.002865812531746108
+     ],
+     "ci95_percentile": [
+      [
+       0.40102517464202647,
+       0.4120115270585952
+      ],
+      [
+       0.9672452711692143,
+       0.968082561364467
+      ],
+      [
+       0.24447423822035932,
+       0.25204191854078994
+      ]
+     ],
+     "Corr": [
+      [
+       0.9999999999999998,
+       0.7827504279873655,
+       -0.6688537147344705
+      ],
+      [
+       0.7827504279873654,
+       1.0,
+       -0.935903503879262
+      ],
+      [
+       -0.6688537147344705,
+       -0.9359035038792621,
+       1.0
+      ]
+     ],
+     "Corr_mc_se": {
+      "RGA_RGE": 0.1804229397020985,
+      "RGA_RGR": 0.2203287278170216,
+      "RGE_RGR": 0.15742137685403954
+     }
+    },
+    "mean_of_cube_root_of_curve": {
+     "point": [
+      0.6903970463132785,
+      0.9875927431135252,
+      0.5788327949136567
+     ],
+     "bootstrap_sd": [
+      0.003331078654059411,
+      0.00011185045565387856,
+      0.0028776722185100316
+     ],
+     "ci95_percentile": [
+      [
+       0.6850292702314448,
+       0.6929839768671402
+      ],
+      [
+       0.9873722988272853,
+       0.9876742075069685
+      ],
+      [
+       0.5746791158014488,
+       0.5823099936371615
+      ]
+     ],
+     "Corr": [
+      [
+       1.0,
+       0.6603690651308535,
+       -0.46550322129695737
+      ],
+      [
+       0.6603690651308534,
+       1.0,
+       -0.8747378340969169
+      ],
+      [
+       -0.46550322129695737,
+       -0.8747378340969169,
+       1.0
+      ]
+     ]
+    },
+    "per_severity_index_correlation": {
+     "RGA_RGE": [
+      null,
+      0.6787984384316799,
+      0.034840694903715046,
+      0.7437637755007619,
+      -0.5069838768987912,
+      0.7129009183861234,
+      0.9127073400790378,
+      0.3301147544561568,
+      -0.019835012792845552,
+      0.4836831667971449,
+      0.40161661814839955,
+      0.6202119397852667,
+      0.4693508146655641,
+      0.5783828260277262,
+      0.03329884249130686,
+      0.2578641999892361,
+      0.3772731552829428,
+      0.42381471747434707,
+      0.44050060251231554,
+      0.6879127256527722,
+      0.40401410182804515,
+      -0.045899689518766794,
+      0.1753696738804557,
+      null
+     ],
+     "RGA_RGR": [
+      null,
+      -0.4354977359052304,
+      -0.2806546511644592,
+      -0.5851106465326327,
+      -0.9878814710728016,
+      -0.8742768486505875,
+      -0.9291635870565323,
+      -0.5284127147970066,
+      -0.6514444189115065,
+      -0.7385641183560335,
+      -0.6730442511764383,
+      -0.7111009433732014,
+      -0.6328144564487401,
+      -0.3115353046803742,
+      0.21280278821589266,
+      0.1223936572692042,
+      -0.0323722822369422,
+      -0.16606630790649782,
+      -0.26829091738314387,
+      -0.10974771157727022,
+      0.16659028571367843,
+      0.17716990513989034,
+      -0.3481290804082094,
+      null
+     ],
+     "RGE_RGR": [
+      null,
+      0.24555905043064027,
+      0.11843084961045082,
+      -0.6132459919515352,
+      0.5852444988323063,
+      -0.7698658300521174,
+      -0.8410350688207097,
+      -0.2971527408067118,
+      -0.43969179235049805,
+      -0.25022969196727357,
+      -0.2389977159210027,
+      -0.4693515074091633,
+      -0.16778707657431577,
+      -0.22144201644350148,
+      -0.6312109737609841,
+      -0.469721765545941,
+      -0.583136451460301,
+      -0.784514812712283,
+      -0.3235754540053323,
+      -0.7761363176169224,
+      -0.652808268952304,
+      -0.7298902394606113,
+      -0.808143383351531,
+      -0.6490714229075442
+     ]
+    },
+    "mean_per_index_correlation": {
+     "RGA_RGE": 0.37244094214011797,
+     "RGA_RGR": -0.3902341277863156,
+     "RGE_RGR": -0.424685831443356
+    },
+    "half_grid_means": {
+     "RGA_RGE": {
+      "mean_first_half": 0.3992562506178772,
+      "mean_second_half": 0.3456256336623586
+     },
+     "RGA_RGR": {
+      "mean_first_half": -0.6722864897269482,
+      "mean_second_half": -0.10818176584568291
+     },
+     "RGE_RGR": {
+      "mean_first_half": -0.27003054003687404,
+      "mean_second_half": -0.5664531818992976
+     }
+    }
+   },
+   "last_rga_knot": {
+    "point_value": -1.1102230246251565e-16,
+    "max_abs_over_replicates": 3.3306690738754696e-16,
+    "note": "the accumulated partial RGA curve ends at zero by construction"
+   },
+   "arms": {
+    "arithmetic": {
+     "description": "Compliance Score, arithmetic mean variant; closed form (mean RGA + mean RGE + mean RGR)/3",
+     "V_point": 0.5419855081016299,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5389300294418176,
+       0.5420953555925745
+      ],
+      "width": 0.003165326150756931,
+      "sd": 0.0011590078135189268,
+      "mean": 0.5403288654887154
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5394547761509055,
+       0.5431211447720272
+      ],
+      "width": 0.003666368621121685,
+      "sd": 0.0016426672210453361,
+      "mean": 0.5415924394955103
+     },
+     "empirical_understatement_of_width_pct": -15.82909458619104,
+     "empirical_understatement_mc_se_pct": 258.6820136423372,
+     "plugin_minus_bootstrap_mean": 0.0016566426129145384,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.40969986925969565,
+       0.9678558880249444,
+       0.24840076702024974
+      ],
+      "gradient_at_point": [
+       0.3333333333333333,
+       0.3333333333333333,
+       0.3333333333333333
+      ],
+      "Sigma_of_summaries": [
+       [
+        2.0656703028264483e-05,
+        1.1101793987010047e-06,
+        -8.711830635769126e-06
+       ],
+       [
+        1.1101793987010047e-06,
+        9.738200108954821e-08,
+        -8.369860080747272e-07
+       ],
+       [
+        -8.711830635769126e-06,
+        -8.369860080747272e-07,
+        8.212881467113041e-06
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999998,
+        0.7827504279873655,
+        -0.6688537147344705
+       ],
+       [
+        0.7827504279873654,
+        1.0,
+        -0.935903503879262
+       ],
+       [
+        -0.6688537147344705,
+        -0.9359035038792621,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 1.3432991117979308e-06,
+      "var_cross_terms_declared_zero": 3.2185518329407857e-06,
+      "cross_covariance_share_of_variance_pct": -139.6005330959338,
+      "ci95_delta_measured_covariance": [
+       0.5397138945293323,
+       0.5442571216739276
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.5384692694395776,
+       0.5455017467636822
+      ],
+      "width_delta_measured": 0.004543227144595236,
+      "width_delta_declared_zero": 0.007032477324104679,
+      "understatement_of_width_pct": -54.790352766551244,
+      "understatement_factor": 0.6460350933550496,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.33333333333333,
+        "RGE": 33.33333333333333,
+        "RGR": 33.33333333333333
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 2.29518922536272e-06,
+        "RGE": 1.0820222343283134e-08,
+        "RGR": 9.125423852347824e-07
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 170.86211143925632,
+        "RGE": 0.805496128766204,
+        "RGR": 67.93292552791132
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 2.467065330446677e-07,
+        "RGA_RGR": -1.9359623635042503e-06,
+        "RGE_RGR": -1.859968906832727e-07
+       },
+       "cross_total": -1.8752527211428553e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -13.155908548385664,
+        "RGA_RGR": 103.23741123939797,
+        "RGE_RGR": 9.918497308987698
+       }
+      },
+      "cross_share_mc_se_pct": 2661.560574251224,
+      "understatement_mc_se_pct": 152.96093128336344
+     }
+    },
+    "geometric": {
+     "description": "Compliance Score, geometric mean variant; closed form mean(RGA^1/3) * mean(RGE^1/3) * mean(RGR^1/3)",
+     "V_point": 0.3946662086845893,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.3903309890186349,
+       0.3955716583057549
+      ],
+      "width": 0.0052406692871200256,
+      "sd": 0.0019828655862271834,
+      "mean": 0.39291857007746983
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.39174911353152925,
+       0.39590226339870854
+      ],
+      "width": 0.0041531498671792955,
+      "sd": 0.001679034340897911,
+      "mean": 0.3940568611320689
+     },
+     "empirical_understatement_of_width_pct": 20.751536881243826,
+     "empirical_understatement_mc_se_pct": 42.51955399163481,
+     "plugin_minus_bootstrap_mean": 0.0017476386071194616,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.6903970463132785,
+       0.9875927431135252,
+       0.5788327949136567
+      ],
+      "gradient_at_point": [
+       0.5716510677328468,
+       0.3996244519176483,
+       0.6818311128060062
+      ],
+      "Sigma_of_summaries": [
+       [
+        1.1096084999530259e-05,
+        2.46042066351913e-07,
+        -4.462198667518822e-06
+       ],
+       [
+        2.46042066351913e-07,
+        1.2510524429980254e-08,
+        -2.815509471913447e-07
+       ],
+       [
+        -4.462198667518822e-06,
+        -2.815509471913447e-07,
+        8.280997397184448e-06
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.6603690651308535,
+        -0.46550322129695737
+       ],
+       [
+        0.6603690651308534,
+        1.0,
+        -0.8747378340969169
+       ],
+       [
+        -0.46550322129695737,
+        -0.8747378340969169,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 3.958339491664555e-06,
+      "var_cross_terms_declared_zero": 7.4778146751347475e-06,
+      "cross_covariance_share_of_variance_pct": -88.91291893687946,
+      "ci95_delta_measured_covariance": [
+       0.39076674741980455,
+       0.39856566994937404
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.38930657090360893,
+       0.40002584646556966
+      ],
+      "width_delta_measured": 0.007798922529569506,
+      "width_delta_declared_zero": 0.010719275561960772,
+      "understatement_of_width_pct": -37.445596123295076,
+      "understatement_factor": 0.7275605972147362,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 34.58041099764863,
+        "RGE": 24.174148483320163,
+        "RGR": 41.24544051903121
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 3.626033506758863e-06,
+        "RGE": 1.99792703046858e-09,
+        "RGR": 3.849783241345416e-06
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 91.60491449494263,
+        "RGE": 0.050473867506205604,
+        "RGR": 97.2575305744306
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 1.1241452611656499e-07,
+        "RGA_RGR": -3.4784577411563887e-06,
+        "RGE_RGR": -1.5343196843036887e-07
+       },
+       "cross_total": -3.5194751834701924e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -3.1940707138535522,
+        "RGA_RGR": 98.83455799016714,
+        "RGE_RGR": 4.359512723686416
+       }
+      },
+      "cross_share_mc_se_pct": 146.83136360327626,
+      "understatement_mc_se_pct": 42.09916714108706
+     }
+    },
+    "rms": {
+     "description": "Compliance Score, root mean square variant; no closed form, the full L^3 tensor",
+     "V_point": 0.6508046187848435,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6488336139630119,
+       0.6507626700584275
+      ],
+      "width": 0.0019290560954156044,
+      "sd": 0.000861766241158037,
+      "mean": 0.6496161784081046
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.648619877149465,
+       0.6519061428954029
+      ],
+      "width": 0.003286265745937933,
+      "sd": 0.0014716796308226836,
+      "mean": 0.6505314639704546
+     },
+     "empirical_understatement_of_width_pct": -70.35615261514339,
+     "empirical_understatement_mc_se_pct": 354.7384754533687,
+     "plugin_minus_bootstrap_mean": 0.0011884403767389307,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.10940129270391596,
+       0.4863410532479117,
+       0.05506227283301577
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        1.0700104147680975e-06,
+        1.3570352292359114e-07,
+        -3.4293997061098103e-07
+       ],
+       [
+        1.3570352292359114e-07,
+        2.3760469475937744e-08,
+        -6.505507321720168e-08
+       ],
+       [
+        -3.4293997061098103e-07,
+        -6.505507321720168e-08,
+        2.0222112029449602e-07
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.8510784836197287,
+        -0.7372433228369965
+       ],
+       [
+        0.8510784836197286,
+        0.9999999999999998,
+        -0.9385132431444381
+       ],
+       [
+        -0.7372433228369963,
+        -0.9385132431444381,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 7.51408962729348e-07,
+      "var_cross_terms_declared_zero": 1.2959920045385314e-06,
+      "cross_covariance_share_of_variance_pct": -72.47491962713495,
+      "ci95_delta_measured_covariance": [
+       0.6491056465697013,
+       0.6525035909999858
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6485733635512623,
+       0.6530358740184248
+      ],
+      "width_delta_measured": 0.0033979444302844487,
+      "width_delta_declared_zero": 0.004462510467162448,
+      "understatement_of_width_pct": -31.329707083787774,
+      "understatement_factor": 0.7614423440098015,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 1.0700104147680975e-06,
+        "RGE": 2.3760469475937744e-08,
+        "RGR": 2.0222112029449602e-07
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 142.40053923252273,
+        "RGE": 3.1621221803946042,
+        "RGR": 26.91225821421757
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 2.714070458471823e-07,
+        "RGA_RGR": -6.858799412219621e-07,
+        "RGE_RGR": -1.3011014643440335e-07
+       },
+       "cross_total": -5.445830418091831e-07,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -49.837586742607535,
+        "RGA_RGR": 125.94588677300167,
+        "RGE_RGR": 23.891699969605874
+       }
+      },
+      "cross_share_mc_se_pct": 1375.4271000547653,
+      "understatement_mc_se_pct": 115.81419486187204
+     }
+    },
+    "topsis": {
+     "description": "TOPSIS closeness coefficient with the hand-built ideal and anti-ideal vectors of the Kolesnikov MSc thesis sec. 3.2.3, equal weights",
+     "V_point": 0.3046679110927183,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.30193859478598,
+       0.30461169733747073
+      ],
+      "width": 0.0026731025514907247,
+      "sd": 0.0010665860445025356,
+      "mean": 0.3030985324978974
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.3018611354740073,
+       0.30601727619861646
+      ],
+      "width": 0.004156140724609181,
+      "sd": 0.0018678810029360794,
+      "mean": 0.3042825307155429
+     },
+     "empirical_understatement_of_width_pct": -55.480032828946335,
+     "empirical_understatement_mc_se_pct": 94.66509615586904,
+     "plugin_minus_bootstrap_mean": 0.0015693785948208694,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.1481745873198034,
+       0.022781478728056026,
+       0.060052760069363255
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        2.1212320531654194e-06,
+        3.4487368852742076e-08,
+        -7.688977366686489e-07
+       ],
+       [
+        3.4487368852742076e-08,
+        8.669411138993577e-10,
+        -2.0295984854800253e-08
+       ],
+       [
+        -7.688977366686489e-07,
+        -2.0295984854800253e-08,
+        5.202943955504543e-07
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999999,
+        0.8042131529948074,
+        -0.7318969175900066
+       ],
+       [
+        0.8042131529948074,
+        0.9999999999999999,
+        -0.9556321595598315
+       ],
+       [
+        -0.7318969175900065,
+        -0.9556321595598315,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 1.1329806844883592e-06,
+      "var_cross_terms_declared_zero": 2.642393389829773e-06,
+      "cross_covariance_share_of_variance_pct": -133.2249283687521,
+      "ci95_delta_measured_covariance": [
+       0.30258169474629015,
+       0.30675412743914643
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.3014819033408279,
+       0.30785391884460866
+      ],
+      "width_delta_measured": 0.004172432692856231,
+      "width_delta_declared_zero": 0.006372015503780709,
+      "understatement_of_width_pct": -52.71703518885904,
+      "understatement_factor": 0.6548057973777058,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 2.1212320531654194e-06,
+        "RGE": 8.669411138993577e-10,
+        "RGR": 5.202943955504543e-07
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 187.22579141967836,
+        "RGE": 0.07651861375649649,
+        "RGR": 45.92261833531727
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 6.897473770548415e-08,
+        "RGA_RGR": -1.5377954733372977e-06,
+        "RGE_RGR": -4.0591969709600505e-08
+       },
+       "cross_total": -1.5094127053414141e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -4.569640725919474,
+        "RGA_RGR": 101.88038486064443,
+        "RGE_RGR": 2.6892558652750314
+       }
+      },
+      "cross_share_mc_se_pct": 175.3637617598176,
+      "understatement_mc_se_pct": 42.67452246280204
+     }
+    },
+    "arithmetic_weighted_SENSITIVITY": {
+     "description": "SENSITIVITY CHECK ONLY and a declared departure from the authors' stated position that they do not assign weights: w = (0.50, 0.20, 0.30)",
+     "V_point": 0.47294134234091156,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.4687222796990136,
+       0.4734812192386875
+      ],
+      "width": 0.004758939539673934,
+      "sd": 0.0018480472767736088,
+      "mean": 0.47058197605500696
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.46942302242684647,
+       0.47488260422456624
+      ],
+      "width": 0.00545958179771977,
+      "sd": 0.002335830757147196,
+      "mean": 0.4725232061389449
+     },
+     "empirical_understatement_of_width_pct": -14.722655167286325,
+     "empirical_understatement_mc_se_pct": 96.8338085663219,
+     "plugin_minus_bootstrap_mean": 0.002359366285904607,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.40969986925969565,
+       0.9678558880249444,
+       0.24840076702024974
+      ],
+      "gradient_at_point": [
+       0.5,
+       0.2,
+       0.3
+      ],
+      "Sigma_of_summaries": [
+       [
+        2.0656703028264483e-05,
+        1.1101793987010047e-06,
+        -8.711830635769126e-06
+       ],
+       [
+        1.1101793987010047e-06,
+        9.738200108954821e-08,
+        -8.369860080747272e-07
+       ],
+       [
+        -8.711830635769126e-06,
+        -8.369860080747272e-07,
+        8.212881467113041e-06
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999998,
+        0.7827504279873655,
+        -0.6688537147344705
+       ],
+       [
+        0.7827504279873654,
+        1.0,
+        -0.935903503879262
+       ],
+       [
+        -0.6688537147344705,
+        -0.9359035038792621,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 3.415278737190372e-06,
+      "var_cross_terms_declared_zero": 5.907230369149877e-06,
+      "cross_covariance_share_of_variance_pct": -72.96480971885606,
+      "ci95_delta_measured_covariance": [
+       0.46931923623670796,
+       0.47656344844511517
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.46817769014879645,
+       0.4777049945330267
+      ],
+      "width_delta_measured": 0.0072442122084072184,
+      "width_delta_declared_zero": 0.009527304384230202,
+      "understatement_of_width_pct": -31.516086361652373,
+      "understatement_factor": 0.760363258719643,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 50.0,
+        "RGE": 20.0,
+        "RGR": 30.0
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 5.164175757066121e-06,
+        "RGE": 3.895280043581929e-09,
+        "RGR": 7.391593320401736e-07
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 151.2080317436844,
+        "RGE": 0.11405452799985623,
+        "RGR": 21.6427234471718
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 2.2203587974020094e-07,
+        "RGA_RGR": -2.613549190730738e-06,
+        "RGE_RGR": -1.0043832096896726e-07
+       },
+       "cross_total": -2.491951631959504e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -8.910119959495635,
+        "RGA_RGR": 104.87961151459498,
+        "RGE_RGR": 4.0305084449006445
+       }
+      },
+      "cross_share_mc_se_pct": 226.22937129959575,
+      "understatement_mc_se_pct": 43.47308556936125
+     }
+    },
+    "arithmetic_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.5419855081016299,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5389300294418176,
+       0.5420953555925745
+      ],
+      "width": 0.003165326150756931,
+      "sd": 0.0011590078135189268,
+      "mean": 0.5403288654887154
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5394547761509056,
+       0.5431211447720272
+      ],
+      "width": 0.003666368621121574,
+      "sd": 0.0016426672210452682,
+      "mean": 0.5415924394955102
+     },
+     "empirical_understatement_of_width_pct": -15.82909458618753,
+     "empirical_understatement_mc_se_pct": 258.68201364232914,
+     "plugin_minus_bootstrap_mean": 0.0016566426129145384,
+     "delta_method": null
+    },
+    "geometric_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.4223870587783316,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.41835914969696636,
+       0.42301979959863634
+      ],
+      "width": 0.004660649901669978,
+      "sd": 0.0018062942946674287,
+      "mean": 0.4207257576325636
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.4198267978415323,
+       0.42351789234100146
+      ],
+      "width": 0.0036910944994691386,
+      "sd": 0.0016054234131378413,
+      "mean": 0.4217454287878039
+     },
+     "empirical_understatement_of_width_pct": 20.803008650219223,
+     "empirical_understatement_mc_se_pct": 42.21413207701734,
+     "plugin_minus_bootstrap_mean": 0.0016613011457680127,
+     "delta_method": null
+    },
+    "rms_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.6454769110974939,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6435526467489443,
+       0.6454349673656685
+      ],
+      "width": 0.0018823206167242201,
+      "sd": 0.0008490636169140257,
+      "mean": 0.644302828250875
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6433670314617137,
+       0.6465117432042877
+      ],
+      "width": 0.0031447117425740245,
+      "sd": 0.0014092938431289307,
+      "mean": 0.645210999075585
+     },
+     "empirical_understatement_of_width_pct": -67.06568023712818,
+     "empirical_understatement_mc_se_pct": 2168.623193836627,
+     "plugin_minus_bootstrap_mean": 0.0011740828466189068,
+     "delta_method": null
+    }
+   },
+   "product_space_vs_diagonal": {
+    "arithmetic": {
+     "V_product_space": 0.5419855081016299,
+     "V_diagonal": 0.5419855081016299,
+     "diagonal_minus_product_space": 0.0,
+     "ci95_of_difference_paired_bootstrap": [
+      0.0,
+      0.0
+     ],
+     "difference_excludes_zero": false,
+     "sd_of_difference": 0.0,
+     "ratio_of_difference_to_composite_ci_width": 0.0
+    },
+    "geometric": {
+     "V_product_space": 0.3946662086845893,
+     "V_diagonal": 0.4223870587783316,
+     "diagonal_minus_product_space": 0.02772085009374231,
+     "ci95_of_difference_paired_bootstrap": [
+      0.027438096968339244,
+      0.02804519699671451
+     ],
+     "difference_excludes_zero": true,
+     "sd_of_difference": 0.0002285075547673235,
+     "ratio_of_difference_to_composite_ci_width": 5.2895629498834715
+    },
+    "rms": {
+     "V_product_space": 0.6508046187848435,
+     "V_diagonal": 0.6454769110974939,
+     "diagonal_minus_product_space": -0.005327707687349581,
+     "ci95_of_difference_paired_bootstrap": [
+      -0.005355176994565239,
+      -0.005270445860363959
+     ],
+     "difference_excludes_zero": true,
+     "sd_of_difference": 3.298963994739378e-05,
+     "ratio_of_difference_to_composite_ci_width": 2.7618210273982498
+    }
+   },
+   "ordering_check": {
+    "point": {
+     "geometric": 0.3946662086845893,
+     "arithmetic": 0.5419855081016299,
+     "rms": 0.6508046187848435
+    },
+    "replicates_satisfying_geometric_le_arithmetic": 6,
+    "replicates_satisfying_arithmetic_le_rms": 6,
+    "replicates_total": 6,
+    "point_ordering_holds": true
+   },
+   "sensitivities": {
+    "anchor_dropped_L23": {
+     "arithmetic": {
+      "V_point": 0.5256785941105337,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.5225820136966566,
+        0.5257239398473288
+       ],
+       "width": 0.003141926150672214,
+       "sd": 0.0011487441199023829,
+       "mean": 0.5239700938996511
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.5231375820320658,
+        0.5267896851884456
+       ],
+       "width": 0.00365210315637976,
+       "sd": 0.0016460760071556777,
+       "mean": 0.5252712257222605
+      },
+      "empirical_understatement_of_width_pct": -16.237714740634313,
+      "shift_from_primary": -0.016306913991096184
+     },
+     "geometric": {
+      "V_point": 0.37671310640495426,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.37235750711479143,
+        0.37758061925636915
+       ],
+       "width": 0.005223112141577724,
+       "sd": 0.002006461903958563,
+       "mean": 0.3749585875958558
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.37371464007138483,
+        0.3779739698817577
+       ],
+       "width": 0.004259329810372858,
+       "sd": 0.0016985224336206277,
+       "mean": 0.37608797801111055
+      },
+      "empirical_understatement_of_width_pct": 18.452261890623312,
+      "shift_from_primary": -0.017953102279635036
+     },
+     "rms": {
+      "V_point": 0.6377860680502715,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.6357490960362377,
+        0.6376525043591882
+       ],
+       "width": 0.0019034083229504395,
+       "sd": 0.0008308304700722479,
+       "mean": 0.6365525213125065
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.6355852887901472,
+        0.6388648659661993
+       ],
+       "width": 0.0032795771760520953,
+       "sd": 0.0014711827345443571,
+       "mean": 0.6375010777279911
+      },
+      "empirical_understatement_of_width_pct": -72.30024354251434,
+      "shift_from_primary": -0.013018550734572032
+     }
+    },
+    "terminal_knot_dropped_L23": {
+     "arithmetic": {
+      "V_point": 0.556973228574021,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.5538094188888023,
+        0.5571016983876945
+       ],
+       "width": 0.0032922794988922144,
+       "sd": 0.0012089511892587879,
+       "mean": 0.5552503816387989
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.5543408421900966,
+        0.5581767835504081
+       ],
+       "width": 0.0038359413603115122,
+       "sd": 0.0017188011324558866,
+       "mean": 0.5565798220305741
+      },
+      "empirical_understatement_of_width_pct": -16.513235331393616,
+      "shift_from_primary": 0.014987720472391053
+     },
+     "geometric": {
+      "V_point": 0.4193522697291409,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.41476751989298943,
+        0.42032389679772947
+       ],
+       "width": 0.005556376904740035,
+       "sd": 0.0021037233728945677,
+       "mean": 0.41749349823829074
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.4163483288884766,
+        0.42064166664347724
+       ],
+       "width": 0.004293337755000626,
+       "sd": 0.0017452782114390152,
+       "mean": 0.41872075290333877
+      },
+      "empirical_understatement_of_width_pct": 22.73134402855097,
+      "shift_from_primary": 0.02468606104455162
+     },
+     "rms": {
+      "V_point": 0.6639539240491986,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.661953430324052,
+        0.6639228462761761
+       ],
+       "width": 0.001969415952124187,
+       "sd": 0.0008758378117530368,
+       "mean": 0.6627469730982612
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.661721691063943,
+        0.6650995789231022
+       ],
+       "width": 0.0033778878591592676,
+       "sd": 0.0015167520534857767,
+       "mean": 0.6636843777110074
+      },
+      "empirical_understatement_of_width_pct": -71.51723867758461,
+      "shift_from_primary": 0.013149305264355093
+     }
+    },
+    "length_d_truncation_ambiguity": {
+     "arithmetic": {
+      "V_anchor_dropped": 0.5256785941105337,
+      "V_terminal_knot_dropped": 0.556973228574021,
+      "spread_between_the_two_readings": 0.031294634463487236,
+      "spread_as_fraction_of_primary_ci_width": 9.886701392841836,
+      "shifts_have_opposite_signs": true
+     },
+     "geometric": {
+      "V_anchor_dropped": 0.37671310640495426,
+      "V_terminal_knot_dropped": 0.4193522697291409,
+      "spread_between_the_two_readings": 0.04263916332418666,
+      "spread_as_fraction_of_primary_ci_width": 8.136205699714878,
+      "shifts_have_opposite_signs": true
+     },
+     "rms": {
+      "V_anchor_dropped": 0.6377860680502715,
+      "V_terminal_knot_dropped": 0.6639539240491986,
+      "spread_between_the_two_readings": 0.026167855998927125,
+      "spread_as_fraction_of_primary_ci_width": 13.565108895026407,
+      "shifts_have_opposite_signs": true
+     }
+    },
+    "rgr_scaled_gaussian_noise": {
+     "note": "RGR rebuilt as a sweep of Gaussian noise at sigma_t = (t/d) column standard deviations; the fixed draw of the scalar study sits at sigma = 0.5 column sd",
+     "curve_point": [
+      1.0,
+      0.999444418594176,
+      0.9976865243873374,
+      0.9950896688993737,
+      0.992005718675673,
+      0.9878780961299192,
+      0.9831909249910595,
+      0.9779660617111181,
+      0.9720275176706246,
+      0.9654935507119622,
+      0.9593427026370074,
+      0.9523341527133178,
+      0.9448851071352158,
+      0.9357812640708789,
+      0.9302080329658245,
+      0.9234877586455758,
+      0.9138870068689403,
+      0.9083735639013555,
+      0.898441821902281,
+      0.8915315731915605,
+      0.8786404071483591,
+      0.8787196498120451,
+      0.868664376210912,
+      0.861871453972859
+     ],
+     "arms": {
+      "arithmetic": {
+       "V_point": 0.7733095767747047,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.7694394504426381,
+         0.7743294617393532
+        ],
+        "width": 0.00489001129671518,
+        "sd": 0.0019101746332771204,
+        "mean": 0.7717209389088979
+       },
+       "shift_from_primary": 0.23132406867307476
+      },
+      "geometric": {
+       "V_point": 0.6683023563104215,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.6627047795258771,
+         0.6709850975327267
+        ],
+        "width": 0.008280318006849585,
+        "sd": 0.0034559511621389282,
+        "mean": 0.6656042112302989
+       },
+       "shift_from_primary": 0.27363614762583216
+      },
+      "rms": {
+       "V_point": 0.8271193922858797,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.8243710260623656,
+         0.8277083328547518
+        ],
+        "width": 0.0033373067923861965,
+        "sd": 0.0013131287919319467,
+        "mean": 0.8261895680435579
+       },
+       "shift_from_primary": 0.1763147735010362
+      }
+     }
+    },
+    "topsis_length_d_readings": {
+     "note": "the thesis reference vectors keep the anchor, so the reading that matches them drops the LAST knot; the anchor-dropped reading is printed next to it. At d = 23 these are length-23 readings, the same rule the German-credit run applied at length 20.",
+     "Ci_point_terminal_dropped": 0.3112994759865112,
+     "paired_bootstrap_terminal_dropped": {
+      "ci95_percentile": [
+       0.3085507024819214,
+       0.31125001854116846
+      ],
+      "width": 0.002699316059247059,
+      "sd": 0.0010776846988059148,
+      "mean": 0.3097179064223185
+     },
+     "Ci_point_anchor_dropped": 0.291584179574048,
+     "paired_bootstrap_anchor_dropped": {
+      "ci95_percentile": [
+       0.28887276948941515,
+       0.2915849130981746
+      ],
+      "width": 0.002712143608759432,
+      "sd": 0.0010936172929988273,
+      "mean": 0.2899299526148139
+     },
+     "spread_between_the_two_readings": 0.019715296412463224,
+     "spread_as_fraction_of_primary_ci_width": 7.375435858780831
+    }
+   },
+   "estimator_bridge_RGE_RGR": {
+    "note": "the same six rungs, in the same order, as verify_cross_terms.py on German credit",
+    "rungs": [
+     {
+      "rung": 1,
+      "construction": "scalar RGE (bare)      x scalar RGR (bare)      [deposit pair]",
+      "correlation": 0.8388582151319955,
+      "mc_se": 0.2019888076106229,
+      "sign_resolved_at_2_mc_se": true
+     },
+     {
+      "rung": 2,
+      "construction": "scalar RGE (class_ord) x scalar RGR (class_ord) [convention only]",
+      "correlation": 0.8018712385617092,
+      "mc_se": 0.2402875763548102,
+      "sign_resolved_at_2_mc_se": true
+     },
+     {
+      "rung": 3,
+      "construction": "curve-mean RGE         x scalar RGR (class_ord) [RGE estimator swapped]",
+      "correlation": 0.7717522777768389,
+      "mc_se": 0.4572364757845662,
+      "sign_resolved_at_2_mc_se": false
+     },
+     {
+      "rung": 4,
+      "construction": "scalar RGE (class_ord) x curve-mean RGR (swap)  [RGR estimator swapped]",
+      "correlation": -0.6108854284331959,
+      "mc_se": 0.48278721827366533,
+      "sign_resolved_at_2_mc_se": false
+     },
+     {
+      "rung": 5,
+      "construction": "curve-mean RGE         x noise-sweep RGR mean   [sweep, same family]",
+      "correlation": 0.9408394940341032,
+      "mc_se": 0.11097182769993436,
+      "sign_resolved_at_2_mc_se": true
+     },
+     {
+      "rung": 6,
+      "construction": "curve-mean RGE         x curve-mean RGR (swap)  [study pair]",
+      "correlation": -0.935903503879262,
+      "mc_se": 0.15742137685403954,
+      "sign_resolved_at_2_mc_se": true
+     }
+    ]
+   },
+   "estimator_bridge_RGA_endpoints": {
+    "RGA_RGE_scalars": 0.4999321559955333,
+    "RGA_RGE_curve_means": 0.7827504279873655,
+    "RGA_RGR_scalars": 0.415702510473475,
+    "RGA_RGR_curve_means": -0.6688537147344705
+   },
+   "deterministic_knot_invariance": {
+    "max_abs_corr_difference": 6.750155989720952e-14,
+    "replicate_sd_of_deterministic_knots": {
+     "RGA_last": 1.896066778761455e-16,
+     "RGE_first": 0.0,
+     "RGR_first": 0.0
+    }
+   },
+   "conditioning_check_curve_recompute": {
+    "B_full": 3,
+    "gross_check_only": true,
+    "seconds": 3.206014394760132,
+    "seconds_per_replicate": 1.068671464920044,
+    "arms": {
+     "arithmetic": {
+      "mean_frozen": 0.5407254478200386,
+      "mean_full": 0.5411015953344794,
+      "sd_frozen": 0.0013991558978079374,
+      "sd_full": 0.0021343283928395903,
+      "max_abs_paired_difference": 0.0012471635980314533,
+      "mean_abs_paired_difference": 0.0006070305958475833,
+      "sd_ratio_full_over_frozen": 1.525440014356835,
+      "sd_ratio_mc_band_95": [
+       0.22363973423836325,
+       1.7395722278589456
+      ]
+     },
+     "geometric": {
+      "mean_frozen": 0.3943667686996369,
+      "mean_full": 0.3955240783311808,
+      "sd_frozen": 0.0013353782269969851,
+      "sd_full": 0.0023928468759137535,
+      "max_abs_paired_difference": 0.002482172235917457,
+      "mean_abs_paired_difference": 0.001157309631543942,
+      "sd_ratio_full_over_frozen": 1.7918869931665853,
+      "sd_ratio_mc_band_95": [
+       0.7369285422707438,
+       2.4007037184100453
+      ]
+     },
+     "rms": {
+      "mean_frozen": 0.6495363668709294,
+      "mean_full": 0.6496328202291344,
+      "sd_frozen": 0.0011061804732127938,
+      "sd_full": 0.0015651020415406714,
+      "max_abs_paired_difference": 0.0006090015525661574,
+      "mean_abs_paired_difference": 0.0004042800243614734,
+      "sd_ratio_full_over_frozen": 1.4148704297726251,
+      "sd_ratio_mc_band_95": [
+       1.2355475928709212,
+       3.307478737894859
+      ]
+     }
+    }
+   },
+   "curves_point": {
+    "RGA_partial": [
+     0.7511335896905168,
+     0.7401541119898781,
+     0.7250831532409904,
+     0.7060070674256606,
+     0.6797720262199402,
+     0.6461217366935748,
+     0.6139984955147211,
+     0.5813787733753478,
+     0.5480249012965426,
+     0.5125458264730509,
+     0.4734962000518174,
+     0.43956122505027295,
+     0.4008738930619412,
+     0.36434436261688685,
+     0.32874801327887454,
+     0.29143425855674043,
+     0.2550431648126691,
+     0.2189372192848772,
+     0.18293473999306264,
+     0.14780609368155018,
+     0.11029456088003653,
+     0.07617187589401486,
+     0.038931573149728504,
+     -1.1102230246251565e-16
+    ],
+    "RGE_greedy_mean_baseline": [
+     1.0,
+     0.9999706468371538,
+     0.9999246863216955,
+     0.9998564088422075,
+     0.9996858252678749,
+     0.999225822920548,
+     0.9986508671982424,
+     0.9977593393245187,
+     0.9968334398317631,
+     0.9960826262024639,
+     0.9950055741097024,
+     0.9960709404894019,
+     0.9955618726586735,
+     0.994134876525339,
+     0.9925098379966171,
+     0.9903611563593253,
+     0.9863265981802505,
+     0.9831204838298008,
+     0.9756286716848313,
+     0.9695883590162984,
+     0.9737898476154407,
+     0.9595028643409719,
+     0.9283085286086221,
+     0.5006420384369193
+    ],
+    "RGE_greedy_removal_order": [
+     "x11",
+     "x15",
+     "x9",
+     "x23",
+     "x22",
+     "x10",
+     "x20",
+     "x5",
+     "x3",
+     "x16",
+     "x17",
+     "x13",
+     "x7",
+     "x21",
+     "x2",
+     "x1",
+     "x4",
+     "x19",
+     "x14",
+     "x12",
+     "x8",
+     "x18",
+     "x6"
+    ],
+    "RGR_tail_swap": [
+     1.0,
+     0.7917899239303534,
+     0.664836526638138,
+     0.536620911933233,
+     0.4057079626449584,
+     0.32057910385024446,
+     0.27087879849154944,
+     0.224155838856134,
+     0.18523773449732256,
+     0.1573459908356859,
+     0.13689983112484744,
+     0.12390098197691879,
+     0.1142986091997808,
+     0.10389613411711562,
+     0.09845959811364219,
+     0.09388199315652207,
+     0.0927145458231099,
+     0.09246959754559503,
+     0.09193535877944503,
+     0.0912416047299231,
+     0.0912101575386976,
+     0.09118425580717154,
+     0.09121117562262221,
+     0.09116177327298275
+    ],
+    "RGR_tail_swap_p_grid": [
+     0.0,
+     0.021739130434782608,
+     0.043478260869565216,
+     0.06521739130434782,
+     0.08695652173913043,
+     0.10869565217391304,
+     0.13043478260869565,
+     0.15217391304347827,
+     0.17391304347826086,
+     0.1956521739130435,
+     0.21739130434782608,
+     0.2391304347826087,
+     0.2608695652173913,
+     0.2826086956521739,
+     0.30434782608695654,
+     0.32608695652173914,
+     0.34782608695652173,
+     0.3695652173913043,
+     0.391304347826087,
+     0.41304347826086957,
+     0.43478260869565216,
+     0.45652173913043476,
+     0.4782608695652174,
+     0.5
+    ],
+    "RGR_scaled_gaussian_noise": [
+     1.0,
+     0.999444418594176,
+     0.9976865243873374,
+     0.9950896688993737,
+     0.992005718675673,
+     0.9878780961299192,
+     0.9831909249910595,
+     0.9779660617111181,
+     0.9720275176706246,
+     0.9654935507119622,
+     0.9593427026370074,
+     0.9523341527133178,
+     0.9448851071352158,
+     0.9357812640708789,
+     0.9302080329658245,
+     0.9234877586455758,
+     0.9138870068689403,
+     0.9083735639013555,
+     0.898441821902281,
+     0.8915315731915605,
+     0.8786404071483591,
+     0.8787196498120451,
+     0.868664376210912,
+     0.861871453972859
+    ]
+   },
+   "timings_s": {
+    "point_curves": 1.0708591938018799,
+    "precompute_curve": 0.2829151153564453,
+    "precompute_scalar": 0.021053075790405273,
+    "paired_pass": 1.331711769104004,
+    "independent_stream_pass": 0.5901610851287842,
+    "conditioning_check": 3.206014394760132
+   }
+  },
+  "rf": {
+   "anchor_consistency": {
+    "rga_anchor_curve": 0.7653610059144612,
+    "rga_score_scalar": 0.7653610059144612,
+    "abs_gap_anchor_vs_scalar": 0.0
+   },
+   "factorisation_check": {
+    "arithmetic": {
+     "V_brute_force_triple_sum": 0.6146167542157329,
+     "V_vectorised_tensor": 0.6146167542157334,
+     "V_closed_form": 0.6146167542157334,
+     "abs_residual_tensor_vs_brute_force": 4.440892098500626e-16,
+     "abs_residual_closed_form_vs_brute_force": 4.440892098500626e-16,
+     "brute_force_seconds": 0.003327608108520508
+    },
+    "geometric": {
+     "V_brute_force_triple_sum": NaN,
+     "V_vectorised_tensor": 0.5307034694281305,
+     "V_closed_form": 0.5307034694281306,
+     "abs_residual_tensor_vs_brute_force": NaN,
+     "abs_residual_closed_form_vs_brute_force": NaN,
+     "brute_force_seconds": 0.003175020217895508
+    },
+    "rms": {
+     "V_brute_force_triple_sum": 0.674229876060566,
+     "V_vectorised_tensor": 0.6742298760605686,
+     "V_closed_form": null,
+     "abs_residual_tensor_vs_brute_force": 2.6645352591003757e-15,
+     "abs_residual_closed_form_vs_brute_force": null,
+     "brute_force_seconds": 0.00414276123046875
+    }
+   },
+   "rms_gradient_euler_identity": {
+    "sum_of_projections": 0.6742298760605686,
+    "V_rms": 0.6742298760605686,
+    "abs_gap": 0.0
+   },
+   "fast_path_vs_package_max_abs_gap": {
+    "RGA": 0.0,
+    "RGE": 1.4783088675418554e-07,
+    "RGR": 5.67996744638144e-08
+   },
+   "scoring_convention": {
+    "rge_max_abs_gap_vs_package_curve_with_class_order": 1.4783088675418554e-07,
+    "rge_max_abs_gap_vs_package_curve_without_class_order": 0.026480260527200206,
+    "rgr_tail_swap_matrix_convention_last": 0.36449284016684064,
+    "rgr_tail_swap_vector_convention_last": 0.38339096444781684,
+    "rgr_tail_swap_max_abs_gap_between_conventions": 0.0344587208986995,
+    "V_under_vector_convention": {
+     "arithmetic": 0.6168223616561408,
+     "geometric": 0.5337772267871704,
+     "rms": 0.6755091979271677
+    }
+   },
+   "curve_summaries": {
+    "mean_of_curve": {
+     "point": [
+      0.42638944060088146,
+      0.9259730493967101,
+      0.4914877726496083
+     ],
+     "bootstrap_sd": [
+      0.004693280870971678,
+      0.0012898489828374595,
+      0.003226219811977489
+     ],
+     "ci95_percentile": [
+      [
+       0.42226680982728115,
+       0.4333214223889108
+      ],
+      [
+       0.9243404054847894,
+       0.9277913678351072
+      ],
+      [
+       0.4870779332880063,
+       0.49490100019147076
+      ]
+     ],
+     "Corr": [
+      [
+       1.0,
+       0.7163887721453787,
+       -0.18127925392404798
+      ],
+      [
+       0.7163887721453787,
+       1.0,
+       -0.23517619162148856
+      ],
+      [
+       -0.18127925392404798,
+       -0.23517619162148856,
+       1.0
+      ]
+     ],
+     "Corr_mc_se": {
+      "RGA_RGE": 0.18668709160896763,
+      "RGA_RGR": 0.43972719144051353,
+      "RGE_RGR": 0.47773981432886065
+     }
+    },
+    "mean_of_cube_root_of_curve": {
+     "point": [
+      0.7009947526996365,
+      0.9731193375426667,
+      0.7779847013758913
+     ],
+     "bootstrap_sd": [
+      0.003131104975948909,
+      0.00046542510724940364,
+      0.0019043964451390444
+     ],
+     "ci95_percentile": [
+      [
+       0.6996473793920237,
+       0.7073592528764764
+      ],
+      [
+       0.9725249325596013,
+       0.9737707334834014
+      ],
+      [
+       0.7755186954525293,
+       0.7801581910365749
+      ]
+     ],
+     "Corr": [
+      [
+       0.9999999999999999,
+       0.5739602154087664,
+       -0.14507069407616993
+      ],
+      [
+       0.5739602154087663,
+       0.9999999999999999,
+       -0.2947440602281001
+      ],
+      [
+       -0.1450706940761699,
+       -0.29474406022810007,
+       0.9999999999999999
+      ]
+     ]
+    },
+    "per_severity_index_correlation": {
+     "RGA_RGE": [
+      null,
+      0.7146272929099048,
+      0.6801206064473999,
+      0.783614906775362,
+      0.8281540806670062,
+      0.7431408703252628,
+      0.7912632072078858,
+      0.5812337009929193,
+      0.5629569696184364,
+      0.5729259757082227,
+      0.7336309364731876,
+      0.6833398636106588,
+      0.46424672074107975,
+      0.5207643132145836,
+      0.49627787594822015,
+      0.25042729903313227,
+      0.21741484602843913,
+      0.3274288226335962,
+      0.2061333997092586,
+      0.37091242792779106,
+      0.006379345296697061,
+      -0.27490287297791555,
+      0.2979611153886743,
+      null
+     ],
+     "RGA_RGR": [
+      null,
+      0.7230256056466592,
+      0.7048248273172305,
+      0.5108391260950751,
+      0.29433855603553494,
+      -0.269096550683552,
+      -0.23909151649683325,
+      -0.3012775836465365,
+      -0.4691041780410992,
+      -0.2677754512268847,
+      -0.1949612432210711,
+      0.01072659833091894,
+      0.0717651525150244,
+      -0.2012901187832046,
+      -0.3029260380821755,
+      0.21636795422063643,
+      0.1806385905683867,
+      0.0026805440452700594,
+      -0.04013948950686987,
+      -0.3974713769642758,
+      -0.04889946400594443,
+      -0.13354135609571946,
+      0.0919216916954257,
+      null
+     ],
+     "RGE_RGR": [
+      null,
+      0.4196242896135451,
+      0.6835554505253161,
+      0.48005769966478484,
+      0.14231298731623587,
+      0.20852347106815716,
+      -0.335575619504378,
+      -0.1518692837066163,
+      -0.44682104825774527,
+      -0.6375941511140981,
+      -0.6304889984313959,
+      -0.41054149952664504,
+      -0.46094608088014466,
+      -0.42117958651401327,
+      -0.5868429151964911,
+      -0.07057176827352982,
+      -0.6382690378011151,
+      -0.6056028698576014,
+      -0.2829805308581633,
+      -0.34861877711081724,
+      -0.3953947472620124,
+      -0.49473830674009456,
+      -0.12242722792375442,
+      -0.338869915993591
+     ]
+    },
+    "mean_per_index_correlation": {
+     "RGA_RGE": 0.4799114410763547,
+     "RGA_RGR": -0.002656623649272927,
+     "RGE_RGR": -0.23675036812018124
+    },
+    "half_grid_means": {
+     "RGA_RGE": {
+      "mean_first_half": 0.6977280373396588,
+      "mean_second_half": 0.26209484481305056
+     },
+     "RGA_RGR": {
+      "mean_first_half": 0.04567710819176745,
+      "mean_second_half": -0.050990355490313305
+     },
+     "RGE_RGR": {
+      "mean_first_half": -0.06171060930480359,
+      "mean_second_half": -0.3972034803676108
+     }
+    }
+   },
+   "last_rga_knot": {
+    "point_value": -2.220446049250313e-16,
+    "max_abs_over_replicates": 3.3306690738754696e-16,
+    "note": "the accumulated partial RGA curve ends at zero by construction"
+   },
+   "arms": {
+    "arithmetic": {
+     "description": "Compliance Score, arithmetic mean variant; closed form (mean RGA + mean RGE + mean RGR)/3",
+     "V_point": 0.6146167542157334,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6132900410634186,
+       0.6181346787029797
+      ],
+      "width": 0.004844637639561111,
+      "sd": 0.001981177864707555,
+      "mean": 0.6153736286977446
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6130673609214767,
+       0.6152351372297648
+      ],
+      "width": 0.0021677763082880164,
+      "sd": 0.0008529559725588712,
+      "mean": 0.6141380108125788
+     },
+     "empirical_understatement_of_width_pct": 55.254108365380226,
+     "empirical_understatement_mc_se_pct": 32.18973069245297,
+     "plugin_minus_bootstrap_mean": -0.0007568744820112272,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.42638944060088146,
+       0.9259730493967101,
+       0.4914877726496083
+      ],
+      "gradient_at_point": [
+       0.3333333333333333,
+       0.3333333333333333,
+       0.3333333333333333
+      ],
+      "Sigma_of_summaries": [
+       [
+        2.202688533382867e-05,
+        4.336747947454621e-06,
+        -2.74484992582133e-06
+       ],
+       [
+        4.336747947454621e-06,
+        1.663710398526829e-06,
+        -9.786472331767806e-07
+       ],
+       [
+        -2.74484992582133e-06,
+        -9.786472331767806e-07,
+        1.0408494275196065e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.7163887721453787,
+        -0.18127925392404798
+       ],
+       [
+        0.7163887721453787,
+        1.0,
+        -0.23517619162148856
+       ],
+       [
+        -0.18127925392404798,
+        -0.23517619162148856,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 3.9250657316071755e-06,
+      "var_cross_terms_declared_zero": 3.7887877786168403e-06,
+      "cross_covariance_share_of_variance_pct": 3.4719916125973804,
+      "ci95_delta_measured_covariance": [
+       0.6107337169539386,
+       0.6184997914775281
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6108017218132621,
+       0.6184317866182046
+      ],
+      "width_delta_measured": 0.007766074523589539,
+      "width_delta_declared_zero": 0.007630064804942553,
+      "understatement_of_width_pct": 1.7513316184882721,
+      "understatement_factor": 1.0178254997990164,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.33333333333333,
+        "RGE": 33.33333333333333,
+        "RGR": 33.33333333333333
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 2.447431703758741e-06,
+        "RGE": 1.8485671094742544e-07,
+        "RGR": 1.156499363910674e-06
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 62.353903631484,
+        "RGE": 4.709646247675275,
+        "RGR": 29.46445850824333
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 9.637217661010268e-07,
+        "RGA_RGR": -6.099666501825177e-07,
+        "RGE_RGR": -2.1747716292817345e-07
+       },
+       "cross_total": 1.3627795299033566e-07,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 707.1736439784728,
+        "RGA_RGR": -447.59011769554127,
+        "RGE_RGR": -159.5835262829316
+       }
+      },
+      "cross_share_mc_se_pct": 183.31629484172564,
+      "understatement_mc_se_pct": 39.859696482722896
+     }
+    },
+    "geometric": {
+     "description": "Compliance Score, geometric mean variant; closed form mean(RGA^1/3) * mean(RGE^1/3) * mean(RGR^1/3)",
+     "V_point": 0.5307034694281306,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5303434655902048,
+       0.5368289210607308
+      ],
+      "width": 0.006485455470525925,
+      "sd": 0.0026473851271717978,
+      "mean": 0.5325579034985919
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.528955748199908,
+       0.5331010691058372
+      ],
+      "width": 0.004145320905929228,
+      "sd": 0.0015504653174607148,
+      "mean": 0.5310647372234432
+     },
+     "empirical_understatement_of_width_pct": 36.082809838596084,
+     "empirical_understatement_mc_se_pct": 94.09201504568246,
+     "plugin_minus_bootstrap_mean": -0.0018544340704612639,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.7009947526996365,
+       0.9731193375426667,
+       0.7779847013758913
+      ],
+      "gradient_at_point": [
+       0.7570719572212367,
+       0.5453631933450934,
+       0.6821515493679557
+      ],
+      "Sigma_of_summaries": [
+       [
+        9.80381837041202e-06,
+        8.364292770631737e-07,
+        -8.650369911509886e-07
+       ],
+       [
+        8.364292770631737e-07,
+        2.1662053045811886e-07,
+        -2.6124755309860893e-07
+       ],
+       [
+        -8.650369911509886e-07,
+        -2.6124755309860893e-07,
+        3.62672582025823e-06
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999999,
+        0.5739602154087664,
+        -0.14507069407616993
+       ],
+       [
+        0.5739602154087663,
+        0.9999999999999999,
+        -0.2947440602281001
+       ],
+       [
+        -0.1450706940761699,
+        -0.29474406022810007,
+        0.9999999999999999
+       ]
+      ],
+      "var_measured_covariance": 6.974024959001151e-06,
+      "var_cross_terms_declared_zero": 7.3711909176257335e-06,
+      "cross_covariance_share_of_variance_pct": -5.694931706717976,
+      "ci95_delta_measured_covariance": [
+       0.5255275222013425,
+       0.5358794166549188
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.525382179512186,
+       0.5360247593440752
+      ],
+      "width_delta_measured": 0.010351894453576302,
+      "width_delta_declared_zero": 0.010642579831889222,
+      "understatement_of_width_pct": -2.808040398948375,
+      "understatement_factor": 0.9726865682095317,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 38.14758797115314,
+        "RGE": 27.47993793181984,
+        "RGR": 34.372474097027016
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 5.619136423777407e-06,
+        "RGE": 6.44274975308378e-08,
+        "RGR": 1.6876269963174892e-06
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 80.57235895786359,
+        "RGE": 0.9238208625520228,
+        "RGR": 24.198751886302368
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 6.906884683884561e-07,
+        "RGA_RGR": -8.934756161384988e-07,
+        "RGE_RGR": -1.9437881087453883e-07
+       },
+       "cross_total": -3.971659586245816e-07,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -173.90424667319604,
+        "RGA_RGR": 224.9627886621196,
+        "RGE_RGR": 48.941458011076435
+       }
+      },
+      "cross_share_mc_se_pct": 399.82254100070713,
+      "understatement_mc_se_pct": 76.68940986275251
+     }
+    },
+    "rms": {
+     "description": "Compliance Score, root mean square variant; no closed form, the full L^3 tensor",
+     "V_point": 0.6742298760605686,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6727962951421996,
+       0.6765179995614543
+      ],
+      "width": 0.003721704419254679,
+      "sd": 0.0017102577003284404,
+      "mean": 0.6745895675417626
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6720514099593479,
+       0.6744223612227603
+      ],
+      "width": 0.0023709512634124685,
+      "sd": 0.0009152454985974281,
+      "mean": 0.673526279823066
+     },
+     "empirical_understatement_of_width_pct": 36.29393964910079,
+     "empirical_understatement_mc_se_pct": 237.24579212074633,
+     "plugin_minus_bootstrap_mean": -0.0003596914811939689,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.11314480804054562,
+       0.4301246066038894,
+       0.13096046141613357
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        1.3088860661399471e-06,
+        5.444744264274172e-07,
+        -1.2344934791824152e-07
+       ],
+       [
+        5.444744264274172e-07,
+        3.4845855710334844e-07,
+        -5.923818091699205e-08
+       ],
+       [
+        -1.2344934791824152e-07,
+        -5.923818091699205e-08,
+        5.415237357706979e-07
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999998,
+        0.8062152278569046,
+        -0.14663212535241546
+       ],
+       [
+        0.8062152278569045,
+        0.9999999999999998,
+        -0.1363695471168779
+       ],
+       [
+        -0.14663212535241543,
+        -0.1363695471168779,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 2.9224421541983607e-06,
+      "var_cross_terms_declared_zero": 2.1988683590139933e-06,
+      "cross_covariance_share_of_variance_pct": 24.759217018030142,
+      "ci95_delta_measured_covariance": [
+       0.6708792878747103,
+       0.6775804642464269
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6713235274487742,
+       0.677136224672363
+      ],
+      "width_delta_measured": 0.006701176371716726,
+      "width_delta_declared_zero": 0.005812697223588898,
+      "understatement_of_width_pct": 13.25855489907386,
+      "understatement_factor": 1.1528514412418096,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 1.3088860661399471e-06,
+        "RGE": 3.4845855710334844e-07,
+        "RGR": 5.415237357706979e-07
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 44.78740714370036,
+        "RGE": 11.92353992713783,
+        "RGR": 18.52983591113167
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 1.0889488528548344e-06,
+        "RGA_RGR": -2.4689869583648304e-07,
+        "RGE_RGR": -1.184763618339841e-07
+       },
+       "cross_total": 7.235737951843673e-07,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 150.4958941440616,
+        "RGA_RGR": -34.1221168427711,
+        "RGE_RGR": -16.373777301290495
+       }
+      },
+      "cross_share_mc_se_pct": 3530.170929846557,
+      "understatement_mc_se_pct": 130.9678329002852
+     }
+    },
+    "topsis": {
+     "description": "TOPSIS closeness coefficient with the hand-built ideal and anti-ideal vectors of the Kolesnikov MSc thesis sec. 3.2.3, equal weights",
+     "V_point": 0.3700524906199548,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.36865814528930024,
+       0.3725461502739188
+      ],
+      "width": 0.003888004984618554,
+      "sd": 0.0015476910877649712,
+      "mean": 0.37043704928465004
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.3687535921455553,
+       0.37070828051354704
+      ],
+      "width": 0.0019546883679917304,
+      "sd": 0.0007173803101526181,
+      "mean": 0.3696223912980329
+     },
+     "empirical_understatement_of_width_pct": 49.72515787081734,
+     "empirical_understatement_mc_se_pct": 31.02205115126454,
+     "plugin_minus_bootstrap_mean": -0.0003845586646952226,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.13614821086530948,
+       -0.05480983952001285,
+       0.13930180801502082
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        2.0258157613148757e-06,
+        -4.27256357034758e-08,
+        -2.1190968432530477e-07
+       ],
+       [
+        -4.27256357034758e-08,
+        1.2455100847660543e-09,
+        9.797522041944578e-09
+       ],
+       [
+        -2.1190968432530477e-07,
+        9.797522041944578e-09,
+        8.563840192429862e-07
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        -0.8505795483597521,
+        -0.16088537030453742
+       ],
+       [
+        -0.8505795483597521,
+        1.0,
+        0.29999108436231164
+       ],
+       [
+        -0.16088537030453742,
+        0.29999108436231164,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 2.3937696946689564e-06,
+      "var_cross_terms_declared_zero": 2.883445290642628e-06,
+      "cross_covariance_share_of_variance_pct": -20.456253459311636,
+      "ci95_delta_measured_covariance": [
+       0.3670200711720063,
+       0.37308491006790334
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.3667243325188833,
+       0.37338064872102633
+      ],
+      "width_delta_measured": 0.006064838895897019,
+      "width_delta_declared_zero": 0.006656316202143062,
+      "understatement_of_width_pct": -9.752564188410485,
+      "understatement_factor": 0.9111404434098832,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 2.0258157613148757e-06,
+        "RGE": 1.2455100847660543e-09,
+        "RGR": 8.563840192429862e-07
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 84.62868277706364,
+        "RGE": 0.05203132479870003,
+        "RGR": 35.7755393574493
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": -8.54512714069516e-08,
+        "RGA_RGR": -4.2381936865060953e-07,
+        "RGE_RGR": 1.9595044083889156e-08
+       },
+       "cross_total": -4.896755959736719e-07,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 17.450588126010267,
+        "RGA_RGR": 86.55104974302145,
+        "RGE_RGR": -4.001637869031707
+       }
+      },
+      "cross_share_mc_se_pct": 100.80557811077001,
+      "understatement_mc_se_pct": 31.229873072479656
+     }
+    },
+    "arithmetic_weighted_SENSITIVITY": {
+     "description": "SENSITIVITY CHECK ONLY and a declared departure from the authors' stated position that they do not assign weights: w = (0.50, 0.20, 0.30)",
+     "V_point": 0.5458356619746652,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5445666916091497,
+       0.5502970355499305
+      ],
+      "width": 0.005730343940780758,
+      "sd": 0.002537024079099212,
+      "mean": 0.5466941641753508
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.544079122165861,
+       0.5468794356299218
+      ],
+      "width": 0.002800313464060844,
+      "sd": 0.0011080647874554305,
+      "mean": 0.5451851841907376
+     },
+     "empirical_understatement_of_width_pct": 51.13184316682915,
+     "empirical_understatement_mc_se_pct": 181.15628385975594,
+     "plugin_minus_bootstrap_mean": -0.000858502200685618,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.42638944060088146,
+       0.9259730493967101,
+       0.4914877726496083
+      ],
+      "gradient_at_point": [
+       0.5,
+       0.2,
+       0.3
+      ],
+      "Sigma_of_summaries": [
+       [
+        2.202688533382867e-05,
+        4.336747947454621e-06,
+        -2.74484992582133e-06
+       ],
+       [
+        4.336747947454621e-06,
+        1.663710398526829e-06,
+        -9.786472331767806e-07
+       ],
+       [
+        -2.74484992582133e-06,
+        -9.786472331767806e-07,
+        1.0408494275196065e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.7163887721453787,
+        -0.18127925392404798
+       ],
+       [
+        0.7163887721453787,
+        1.0,
+        -0.23517619162148856
+       ],
+       [
+        -0.18127925392404798,
+        -0.23517619162148856,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 6.436491177929199e-06,
+      "var_cross_terms_declared_zero": 6.510034234165887e-06,
+      "cross_covariance_share_of_variance_pct": -1.1425954639519675,
+      "ci95_delta_measured_covariance": [
+       0.5408631861517198,
+       0.5508081377976105
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.5408348591959248,
+       0.5508364647534055
+      ],
+      "width_delta_measured": 0.0099449516458907,
+      "width_delta_declared_zero": 0.010001605557480715,
+      "understatement_of_width_pct": -0.5696750834723652,
+      "understatement_factor": 0.9943355183060945,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 50.0,
+        "RGE": 20.0,
+        "RGR": 30.0
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 5.506721333457168e-06,
+        "RGE": 6.654841594107317e-08,
+        "RGR": 9.367644847676458e-07
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 85.55470956504652,
+        "RGE": 1.0339238274615903,
+        "RGR": 14.553962071443863
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 8.673495894909242e-07,
+        "RGA_RGR": -8.23454977746399e-07,
+        "RGE_RGR": -1.1743766798121367e-07
+       },
+       "cross_total": -7.354305623668838e-08,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -1179.376590904078,
+        "RGA_RGR": 1119.6909944784188,
+        "RGE_RGR": 159.685596425659
+       }
+      },
+      "cross_share_mc_se_pct": 6698.361091129191,
+      "understatement_mc_se_pct": 269.4176706881824
+     }
+    },
+    "arithmetic_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.6146167542157334,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6132900410634187,
+       0.6181346787029797
+      ],
+      "width": 0.004844637639561,
+      "sd": 0.0019811778647075306,
+      "mean": 0.6153736286977446
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6130673609214767,
+       0.6152351372297648
+      ],
+      "width": 0.0021677763082880164,
+      "sd": 0.0008529559725588684,
+      "mean": 0.6141380108125788
+     },
+     "empirical_understatement_of_width_pct": 55.254108365379196,
+     "empirical_understatement_mc_se_pct": 32.18973069245625,
+     "plugin_minus_bootstrap_mean": -0.0007568744820112272,
+     "delta_method": null
+    },
+    "geometric_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.5490984318683823,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5485243835194932,
+       0.554884359969965
+      ],
+      "width": 0.006359976450471816,
+      "sd": 0.002598171297453058,
+      "mean": 0.5507596967945746
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5474044428127995,
+       0.5513370331878792
+      ],
+      "width": 0.003932590375079648,
+      "sd": 0.0014420570802034086,
+      "mean": 0.5493001960500133
+     },
+     "empirical_understatement_of_width_pct": 38.1665890478587,
+     "empirical_understatement_mc_se_pct": 81.40929473676383,
+     "plugin_minus_bootstrap_mean": -0.0016612649261923407,
+     "delta_method": null
+    },
+    "rms_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.6673707411790422,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6659875859081676,
+       0.6696317250082423
+      ],
+      "width": 0.0036441391000746615,
+      "sd": 0.0016783828805338006,
+      "mean": 0.6677534777146567
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6652293104059968,
+       0.6675365842583635
+      ],
+      "width": 0.0023072738523667313,
+      "sd": 0.0008993274005069862,
+      "mean": 0.6666733711222569
+     },
+     "empirical_understatement_of_width_pct": 36.685351766087635,
+     "empirical_understatement_mc_se_pct": 329.0677230581283,
+     "plugin_minus_bootstrap_mean": -0.00038273653561449184,
+     "delta_method": null
+    }
+   },
+   "product_space_vs_diagonal": {
+    "arithmetic": {
+     "V_product_space": 0.6146167542157334,
+     "V_diagonal": 0.6146167542157334,
+     "diagonal_minus_product_space": 0.0,
+     "ci95_of_difference_paired_bootstrap": [
+      0.0,
+      9.71445146547012e-17
+     ],
+     "difference_excludes_zero": false,
+     "sd_of_difference": 4.5324665183683945e-17,
+     "ratio_of_difference_to_composite_ci_width": 0.0
+    },
+    "geometric": {
+     "V_product_space": 0.5307034694281306,
+     "V_diagonal": 0.5490984318683823,
+     "diagonal_minus_product_space": 0.018394962440251628,
+     "ci95_of_difference_paired_bootstrap": [
+      0.018027530293268285,
+      0.01840073895747245
+     ],
+     "difference_excludes_zero": true,
+     "sd_of_difference": 0.00014605135622677279,
+     "ratio_of_difference_to_composite_ci_width": 2.8363408744150895
+    },
+    "rms": {
+     "V_product_space": 0.6742298760605686,
+     "V_diagonal": 0.6673707411790422,
+     "diagonal_minus_product_space": -0.006859134881526452,
+     "ci95_of_difference_paired_bootstrap": [
+      -0.006891058504561398,
+      -0.00677847144964501
+     ],
+     "difference_excludes_zero": true,
+     "sd_of_difference": 4.4301023094800135e-05,
+     "ratio_of_difference_to_composite_ci_width": 1.8430090380202966
+    }
+   },
+   "ordering_check": {
+    "point": {
+     "geometric": 0.5307034694281306,
+     "arithmetic": 0.6146167542157334,
+     "rms": 0.6742298760605686
+    },
+    "replicates_satisfying_geometric_le_arithmetic": 6,
+    "replicates_satisfying_arithmetic_le_rms": 6,
+    "replicates_total": 6,
+    "point_ordering_holds": true
+   },
+   "sensitivities": {
+    "anchor_dropped_L23": {
+     "arithmetic": {
+      "V_point": 0.6012615260524398,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.5998926351974517,
+        0.6048516154444494
+       ],
+       "width": 0.004958980246997702,
+       "sd": 0.0019977247506749733,
+       "mean": 0.6020313045907314
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.5997321262008163,
+        0.6018927534556172
+       ],
+       "width": 0.0021606272548009287,
+       "sd": 0.0008749246452370419,
+       "mean": 0.6007757383214413
+      },
+      "empirical_understatement_of_width_pct": 56.43000884891547,
+      "shift_from_primary": -0.013355228163293598
+     },
+     "geometric": {
+      "V_point": 0.5165498722716996,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.5161883322791917,
+        0.5227802508454779
+       ],
+       "width": 0.006591918566286159,
+       "sd": 0.002672453135063055,
+       "mean": 0.5184398935316034
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.5147043506069411,
+        0.5190135198931085
+       ],
+       "width": 0.004309169286167425,
+       "sd": 0.0016114236795071884,
+       "mean": 0.5169351876120097
+      },
+      "empirical_understatement_of_width_pct": 34.629512746011045,
+      "shift_from_primary": -0.014153597156431053
+     },
+     "rms": {
+      "V_point": 0.6620441223173522,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.6606201923336119,
+        0.6643072870176454
+       ],
+       "width": 0.0036870946840334984,
+       "sd": 0.001720069428671487,
+       "mean": 0.6624028546258942
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.6598350523123451,
+        0.6622624940224656
+       ],
+       "width": 0.002427441710120548,
+       "sd": 0.0009309650640835021,
+       "mean": 0.6613152612525262
+      },
+      "empirical_understatement_of_width_pct": 34.1638358073016,
+      "shift_from_primary": -0.012185753743216399
+     }
+    },
+    "terminal_knot_dropped_L23": {
+     "arithmetic": {
+      "V_point": 0.628801227951372,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.6274665815856388,
+        0.6324306813910822
+       ],
+       "width": 0.004964099805443323,
+       "sd": 0.0020478829198320495,
+       "mean": 0.6295715188462778
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.6271824866989691,
+        0.6294160157254836
+       ],
+       "width": 0.0022335290265144137,
+       "sd": 0.0008772285958470965,
+       "mean": 0.6282883911751858
+      },
+      "empirical_understatement_of_width_pct": 55.00636340822026,
+      "shift_from_primary": 0.014184473735638692
+     },
+     "geometric": {
+      "V_point": 0.5601946517727642,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.5598188132293307,
+        0.5666537975251273
+       ],
+       "width": 0.006834984295796653,
+       "sd": 0.002794826054379268,
+       "mean": 0.562139305760434
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.5583356046911608,
+        0.5627017143864712
+       ],
+       "width": 0.004366109695310372,
+       "sd": 0.0016269847496164236,
+       "mean": 0.5605590992114734
+      },
+      "empirical_understatement_of_width_pct": 36.12114517958115,
+      "shift_from_primary": 0.02949118234463355
+     },
+     "rms": {
+      "V_point": 0.6860638046249794,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.6845670584596962,
+        0.6884014783432322
+       ],
+       "width": 0.0038344198835359444,
+       "sd": 0.0017475431820680387,
+       "mean": 0.6864252131867837
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.6838192991886667,
+        0.6862712178650664
+       ],
+       "width": 0.0024519186763997114,
+       "sd": 0.0009402995944501571,
+       "mean": 0.6853337009519417
+      },
+      "empirical_understatement_of_width_pct": 36.0550291602741,
+      "shift_from_primary": 0.01183392856441079
+     }
+    },
+    "length_d_truncation_ambiguity": {
+     "arithmetic": {
+      "V_anchor_dropped": 0.6012615260524398,
+      "V_terminal_knot_dropped": 0.628801227951372,
+      "spread_between_the_two_readings": 0.02753970189893229,
+      "spread_as_fraction_of_primary_ci_width": 5.684574151437915,
+      "shifts_have_opposite_signs": true
+     },
+     "geometric": {
+      "V_anchor_dropped": 0.5165498722716996,
+      "V_terminal_knot_dropped": 0.5601946517727642,
+      "spread_between_the_two_readings": 0.0436447795010646,
+      "spread_as_fraction_of_primary_ci_width": 6.729639837851715,
+      "shifts_have_opposite_signs": true
+     },
+     "rms": {
+      "V_anchor_dropped": 0.6620441223173522,
+      "V_terminal_knot_dropped": 0.6860638046249794,
+      "spread_between_the_two_readings": 0.024019682307627188,
+      "spread_as_fraction_of_primary_ci_width": 6.453946794742354,
+      "shifts_have_opposite_signs": true
+     }
+    },
+    "rgr_scaled_gaussian_noise": {
+     "note": "RGR rebuilt as a sweep of Gaussian noise at sigma_t = (t/d) column standard deviations; the fixed draw of the scalar study sits at sigma = 0.5 column sd",
+     "curve_point": [
+      1.0,
+      0.9539823085755192,
+      0.9372173348881714,
+      0.9223992937568376,
+      0.9119405648580856,
+      0.9024096951723519,
+      0.8934531812429998,
+      0.8828684927850512,
+      0.8737162664470466,
+      0.8703371217779328,
+      0.8588452261494244,
+      0.8517229008839868,
+      0.8447964961670416,
+      0.835259930406969,
+      0.8249503645963868,
+      0.8139248318610348,
+      0.7985933672471393,
+      0.7938987407685154,
+      0.7830310670412857,
+      0.7718157106318665,
+      0.7590598556343877,
+      0.7560368149515218,
+      0.7491706181911837,
+      0.7371311868576973
+     ],
+     "arms": {
+      "arithmetic": {
+       "V_point": 0.7331008490393699,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.7303780318140041,
+         0.7369434264865025
+        ],
+        "width": 0.0065653946724983925,
+        "sd": 0.0025440592271310453,
+        "mean": 0.7338841232757144
+       },
+       "shift_from_primary": 0.11848409482363653
+      },
+      "geometric": {
+       "V_point": 0.6449273308405555,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.6429701578679939,
+         0.6514318436400044
+        ],
+        "width": 0.008461685772010452,
+        "sd": 0.003450898284862097,
+        "mean": 0.6469740613238574
+       },
+       "shift_from_primary": 0.11422386141242491
+      },
+      "rms": {
+       "V_point": 0.7784523193295817,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.775763125896609,
+         0.7817447630479957
+        ],
+        "width": 0.005981637151386665,
+        "sd": 0.0022241853046288053,
+        "mean": 0.7789507312492794
+       },
+       "shift_from_primary": 0.10422244326901309
+      }
+     }
+    },
+    "topsis_length_d_readings": {
+     "note": "the thesis reference vectors keep the anchor, so the reading that matches them drops the LAST knot; the anchor-dropped reading is printed next to it. At d = 23 these are length-23 readings, the same rule the German-credit run applied at length 20.",
+     "Ci_point_terminal_dropped": 0.37546135435848027,
+     "paired_bootstrap_terminal_dropped": {
+      "ci95_percentile": [
+       0.3740751438437835,
+       0.3779792375759011
+      ],
+      "width": 0.003904093732117586,
+      "sd": 0.0015678523913781675,
+      "mean": 0.37583763639798723
+     },
+     "Ci_point_anchor_dropped": 0.35832226483421104,
+     "paired_bootstrap_anchor_dropped": {
+      "ci95_percentile": [
+       0.35685363056153446,
+       0.36091049431194155
+      ],
+      "width": 0.0040568637504070915,
+      "sd": 0.0015860389923666996,
+      "mean": 0.3587091608550481
+     },
+     "spread_between_the_two_readings": 0.017139089524269235,
+     "spread_as_fraction_of_primary_ci_width": 4.408196386597669
+    }
+   },
+   "estimator_bridge_RGE_RGR": {
+    "note": "the same six rungs, in the same order, as verify_cross_terms.py on German credit",
+    "rungs": [
+     {
+      "rung": 1,
+      "construction": "scalar RGE (bare)      x scalar RGR (bare)      [deposit pair]",
+      "correlation": 0.8190391888174845,
+      "mc_se": 0.2448145830702964,
+      "sign_resolved_at_2_mc_se": true
+     },
+     {
+      "rung": 2,
+      "construction": "scalar RGE (class_ord) x scalar RGR (class_ord) [convention only]",
+      "correlation": 0.899200120847996,
+      "mc_se": 0.11195611820255158,
+      "sign_resolved_at_2_mc_se": true
+     },
+     {
+      "rung": 3,
+      "construction": "curve-mean RGE         x scalar RGR (class_ord) [RGE estimator swapped]",
+      "correlation": 0.8347001059146689,
+      "mc_se": 0.12692544329113387,
+      "sign_resolved_at_2_mc_se": true
+     },
+     {
+      "rung": 4,
+      "construction": "scalar RGE (class_ord) x curve-mean RGR (swap)  [RGR estimator swapped]",
+      "correlation": -0.21799602484027691,
+      "mc_se": 0.5039869905086899,
+      "sign_resolved_at_2_mc_se": false
+     },
+     {
+      "rung": 5,
+      "construction": "curve-mean RGE         x noise-sweep RGR mean   [sweep, same family]",
+      "correlation": 0.9600920445373132,
+      "mc_se": 0.2760460885715791,
+      "sign_resolved_at_2_mc_se": true
+     },
+     {
+      "rung": 6,
+      "construction": "curve-mean RGE         x curve-mean RGR (swap)  [study pair]",
+      "correlation": -0.23517619162148856,
+      "mc_se": 0.47773981432886065,
+      "sign_resolved_at_2_mc_se": false
+     }
+    ]
+   },
+   "estimator_bridge_RGA_endpoints": {
+    "RGA_RGE_scalars": 0.8750775429045013,
+    "RGA_RGE_curve_means": 0.7163887721453787,
+    "RGA_RGR_scalars": 0.8365730406128129,
+    "RGA_RGR_curve_means": -0.18127925392404798
+   },
+   "deterministic_knot_invariance": {
+    "max_abs_corr_difference": 1.8984813721090177e-14,
+    "replicate_sd_of_deterministic_knots": {
+     "RGA_last": 1.537034178252068e-16,
+     "RGE_first": 0.0,
+     "RGR_first": 0.0
+    }
+   },
+   "conditioning_check_curve_recompute": {
+    "B_full": 2,
+    "gross_check_only": true,
+    "seconds": 59.68192934989929,
+    "seconds_per_replicate": 29.840964674949646,
+    "arms": {
+     "arithmetic": {
+      "mean_frozen": 0.6160656231145938,
+      "mean_full": 0.6161653819582613,
+      "sd_frozen": 0.0031382670641004473,
+      "sd_full": 0.004516831517250512,
+      "max_abs_paired_difference": 0.0010745511167926658,
+      "mean_abs_paired_difference": 0.0009747922731251357,
+      "sd_ratio_full_over_frozen": 1.4392756973808463,
+      "sd_ratio_mc_band_95": [
+       1.4392756973808463,
+       1.4392756973808463
+      ]
+     },
+     "geometric": {
+      "mean_frozen": 0.5341787723876951,
+      "mean_full": 0.5339642705019825,
+      "sd_frozen": 0.004283375549376437,
+      "sd_full": 0.005742530775357279,
+      "max_abs_paired_difference": 0.0012462804408074346,
+      "mean_abs_paired_difference": 0.0010317785550948422,
+      "sd_ratio_full_over_frozen": 1.3406554501608579,
+      "sd_ratio_mc_band_95": [
+       1.3406554501608579,
+       1.3406554501608579
+      ]
+     },
+     "rms": {
+      "mean_frozen": 0.6746034992658487,
+      "mean_full": 0.6750334778838053,
+      "sd_frozen": 0.0025710979642164676,
+      "sd_full": 0.0037471555550428652,
+      "max_abs_paired_difference": 0.0012615769154958878,
+      "mean_abs_paired_difference": 0.00083159829753926,
+      "sd_ratio_full_over_frozen": 1.4574145393113391,
+      "sd_ratio_mc_band_95": [
+       1.4574145393113391,
+       1.4574145393113391
+      ]
+     }
+    }
+   },
+   "curves_point": {
+    "RGA_partial": [
+     0.7653610059144612,
+     0.7538608523562565,
+     0.7400339244635405,
+     0.7200000926965973,
+     0.6936377296045348,
+     0.6655518872280597,
+     0.6310851895703466,
+     0.596653835814192,
+     0.5675815884304909,
+     0.5323218830662151,
+     0.498799766212413,
+     0.46462105457076586,
+     0.43382529054527824,
+     0.39168794689843034,
+     0.35354919054290107,
+     0.3161431740334866,
+     0.2786009724541252,
+     0.23804702683439238,
+     0.19649081336699092,
+     0.15769021335144207,
+     0.11934609392110396,
+     0.07808511769545501,
+     0.04037192484967722,
+     -2.220446049250313e-16
+    ],
+    "RGE_greedy_mean_baseline": [
+     1.0,
+     0.9969835709933188,
+     0.9938212364692447,
+     0.9910717528854883,
+     0.9888350194066483,
+     0.9841019245940806,
+     0.9779429564518438,
+     0.971843164331179,
+     0.9643702794053886,
+     0.956932208963646,
+     0.9504809693344096,
+     0.9433623107328046,
+     0.9371561785947788,
+     0.9325114129598397,
+     0.9306774371098352,
+     0.929256453356912,
+     0.9308592319288143,
+     0.9234054358464867,
+     0.9169725795135648,
+     0.9141706379271348,
+     0.8966232918373043,
+     0.8670559226921312,
+     0.8242904754648984,
+     0.5006287347212905
+    ],
+    "RGE_greedy_removal_order": [
+     "x10",
+     "x2",
+     "x4",
+     "x3",
+     "x11",
+     "x5",
+     "x8",
+     "x12",
+     "x22",
+     "x7",
+     "x20",
+     "x16",
+     "x23",
+     "x13",
+     "x21",
+     "x17",
+     "x15",
+     "x19",
+     "x14",
+     "x9",
+     "x18",
+     "x1",
+     "x6"
+    ],
+    "RGR_tail_swap": [
+     1.0,
+     0.9403361054916881,
+     0.8605612364737742,
+     0.7653262638484369,
+     0.6620369888876745,
+     0.5633286016429762,
+     0.49917711333806947,
+     0.4552897132905221,
+     0.4318189152177822,
+     0.4176846317106415,
+     0.4012388181981982,
+     0.3918750660460676,
+     0.3791563810507451,
+     0.37444203633959044,
+     0.3704081765279448,
+     0.36689882372917887,
+     0.3647915460093207,
+     0.36468224573212243,
+     0.36493691773313613,
+     0.3638886377755403,
+     0.36454490546062,
+     0.364256933915831,
+     0.3645336450038977,
+     0.36449284016684064
+    ],
+    "RGR_tail_swap_p_grid": [
+     0.0,
+     0.021739130434782608,
+     0.043478260869565216,
+     0.06521739130434782,
+     0.08695652173913043,
+     0.10869565217391304,
+     0.13043478260869565,
+     0.15217391304347827,
+     0.17391304347826086,
+     0.1956521739130435,
+     0.21739130434782608,
+     0.2391304347826087,
+     0.2608695652173913,
+     0.2826086956521739,
+     0.30434782608695654,
+     0.32608695652173914,
+     0.34782608695652173,
+     0.3695652173913043,
+     0.391304347826087,
+     0.41304347826086957,
+     0.43478260869565216,
+     0.45652173913043476,
+     0.4782608695652174,
+     0.5
+    ],
+    "RGR_scaled_gaussian_noise": [
+     1.0,
+     0.9539823085755192,
+     0.9372173348881714,
+     0.9223992937568376,
+     0.9119405648580856,
+     0.9024096951723519,
+     0.8934531812429998,
+     0.8828684927850512,
+     0.8737162664470466,
+     0.8703371217779328,
+     0.8588452261494244,
+     0.8517229008839868,
+     0.8447964961670416,
+     0.835259930406969,
+     0.8249503645963868,
+     0.8139248318610348,
+     0.7985933672471393,
+     0.7938987407685154,
+     0.7830310670412857,
+     0.7718157106318665,
+     0.7590598556343877,
+     0.7560368149515218,
+     0.7491706181911837,
+     0.7371311868576973
+    ]
+   },
+   "timings_s": {
+    "point_curves": 27.113413333892822,
+    "precompute_curve": 7.067424297332764,
+    "precompute_scalar": 2.5403149127960205,
+    "paired_pass": 1.1274614334106445,
+    "independent_stream_pass": 0.5175704956054688,
+    "conditioning_check": 59.68192934989929
+   }
+  }
+ },
+ "topsis_column_normalisation_sensitivity": {
+  "note": "column norms are held fixed at the point-estimate decision matrix",
+  "alternative_sets": {
+   "models_and_references": {
+    "n_alternatives": 4,
+    "min_column_norm": 0.8667592403193138,
+    "n_columns_with_norm_below_1e-12": 0,
+    "models": {
+     "logit": {
+      "Ci_normalised": 0.28640000723711945,
+      "Ci_unnormalised": 0.3046679110927183,
+      "shift": -0.018267903855598844,
+      "shift_as_fraction_of_ci_width": 6.833970453326333
+     },
+     "rf": {
+      "Ci_normalised": 0.36822532935510566,
+      "Ci_unnormalised": 0.3700524906199548,
+      "shift": -0.0018271612648491642,
+      "shift_as_fraction_of_ci_width": 0.46994828249388787
+     }
+    }
+   },
+   "models_only": {
+    "n_alternatives": 2,
+    "min_column_norm": 2.482534153247273e-16,
+    "n_columns_with_norm_below_1e-12": 1,
+    "models": {
+     "logit": {
+      "Ci_normalised": 9.718860001715199e-16,
+      "Ci_unnormalised": 0.3046679110927183,
+      "shift": -0.3046679110927173,
+      "shift_as_fraction_of_ci_width": 113.97539197394853
+     },
+     "rf": {
+      "Ci_normalised": 1.4291770439551666e-15,
+      "Ci_unnormalised": 0.3700524906199548,
+      "shift": -0.3700524906199534,
+      "shift_as_fraction_of_ci_width": 95.17798770421552
+     }
+    }
+   },
+   "one_model_logit_and_references": {
+    "n_alternatives": 3,
+    "min_column_norm": 0.7075609165649794,
+    "n_columns_with_norm_below_1e-12": 0,
+    "models": {
+     "logit": {
+      "Ci_normalised": 0.2931680997030868,
+      "Ci_unnormalised": 0.3046679110927183,
+      "shift": -0.011499811389631465,
+      "shift_as_fraction_of_ci_width": 4.3020464677714285
+     },
+     "rf": {
+      "Ci_normalised": 0.3690746684505307,
+      "Ci_unnormalised": 0.3700524906199548,
+      "shift": -0.000977822169424103,
+      "shift_as_fraction_of_ci_width": 0.2514971491272498
+     }
+    }
+   },
+   "one_model_rf_and_references": {
+    "n_alternatives": 3,
+    "min_column_norm": 0.7075515034459614,
+    "n_columns_with_norm_below_1e-12": 0,
+    "models": {
+     "logit": {
+      "Ci_normalised": 0.29277125912448343,
+      "Ci_unnormalised": 0.3046679110927183,
+      "shift": -0.011896651968234861,
+      "shift_as_fraction_of_ci_width": 4.450503390376993
+     },
+     "rf": {
+      "Ci_normalised": 0.3609026642144431,
+      "Ci_unnormalised": 0.3700524906199548,
+      "shift": -0.009149826405511707,
+      "shift_as_fraction_of_ci_width": 2.35334739582629
+     }
+    }
+   }
+  }
+ },
+ "scalar_construction": {
+  "redraw_seed_rule": "per-replicate seed = REDRAW_BASE[model] + b; REDRAW_BASE = {'logit': 20360723, 'rf': 20460723}",
+  "models": {
+   "logit": {
+    "point_fixed_draw": {
+     "RGA": 0.7511335896905168,
+     "RGE": 0.9924954545880232,
+     "RGR": 0.9490714252797621,
+     "C_geomean": 0.8910762515504053
+    },
+    "fixed_draw": {
+     "Corr": {
+      "matrix": [
+       [
+        1.0,
+        0.4999321559955333,
+        0.415702510473475
+       ],
+       [
+        0.4999321559955333,
+        1.0,
+        0.8388582151319955
+       ],
+       [
+        0.415702510473475,
+        0.8388582151319955,
+        0.9999999999999999
+       ]
+      ],
+      "corr_RGA_RGE": 0.4999321559955333,
+      "corr_RGA_RGR": 0.415702510473475,
+      "corr_RGE_RGR": 0.8388582151319955
+     },
+     "sd": {
+      "RGA": 0.0061448617694498985,
+      "RGE": 0.00010278321122066307,
+      "RGR": 0.0015184892847722518
+     },
+     "ci_C_paired_percentile": [
+      0.8874604252201375,
+      0.8940024844404589
+     ],
+     "sd_C_paired": 0.0026819770739286877
+    },
+    "redraw": {
+     "Corr": {
+      "matrix": [
+       [
+        1.0,
+        0.4999321559955333,
+        0.7413861283987092
+       ],
+       [
+        0.4999321559955333,
+        1.0,
+        0.9074960964828964
+       ],
+       [
+        0.7413861283987092,
+        0.9074960964828964,
+        0.9999999999999999
+       ]
+      ],
+      "corr_RGA_RGE": 0.4999321559955333,
+      "corr_RGA_RGR": 0.7413861283987092,
+      "corr_RGE_RGR": 0.9074960964828964
+     },
+     "sd": {
+      "RGA": 0.0061448617694498985,
+      "RGE": 0.00010278321122066307,
+      "RGR": 0.0013474044892230806
+     },
+     "ci_C_paired_percentile": [
+      0.8873476903524226,
+      0.8937810892039582
+     ],
+     "sd_C_paired": 0.0027748476084523336,
+     "mean_RGR": 0.9480897476389001
+    }
+   },
+   "rf": {
+    "point_fixed_draw": {
+     "RGA": 0.7653610059144612,
+     "RGE": 0.9860630142035134,
+     "RGR": 0.8536128208368724,
+     "C_geomean": 0.8636623285022845
+    },
+    "fixed_draw": {
+     "Corr": {
+      "matrix": [
+       [
+        1.0,
+        0.8750775429045013,
+        0.8365730406128129
+       ],
+       [
+        0.8750775429045013,
+        0.9999999999999999,
+        0.8190391888174845
+       ],
+       [
+        0.836573040612813,
+        0.8190391888174844,
+        0.9999999999999998
+       ]
+      ],
+      "corr_RGA_RGE": 0.8750775429045013,
+      "corr_RGA_RGR": 0.8365730406128129,
+      "corr_RGE_RGR": 0.8190391888174845
+     },
+     "sd": {
+      "RGA": 0.006374769625774382,
+      "RGE": 0.0003952112311268631,
+      "RGR": 0.00480609691128667
+     },
+     "ci_C_paired_percentile": [
+      0.8597912886069169,
+      0.8697040882197475
+     ],
+     "sd_C_paired": 0.003957693596325752
+    },
+    "redraw": {
+     "Corr": {
+      "matrix": [
+       [
+        1.0,
+        0.8750775429045013,
+        0.5342856072296471
+       ],
+       [
+        0.8750775429045013,
+        0.9999999999999999,
+        0.6809647778585012
+       ],
+       [
+        0.5342856072296471,
+        0.6809647778585011,
+        1.0
+       ]
+      ],
+      "corr_RGA_RGE": 0.8750775429045013,
+      "corr_RGA_RGR": 0.5342856072296471,
+      "corr_RGE_RGR": 0.6809647778585012
+     },
+     "sd": {
+      "RGA": 0.006374769625774382,
+      "RGE": 0.0003952112311268631,
+      "RGR": 0.005051757218666061
+     },
+     "ci_C_paired_percentile": [
+      0.8587958307313714,
+      0.869166283125579
+     ],
+     "sd_C_paired": 0.0037103589977575207,
+     "mean_RGR": 0.8530792616614794
+    }
+   }
+  }
+ },
+ "chain": {
+  "links": {
+   "A": "logit",
+   "B": "rf"
+  },
+  "chain_functional": "h = C_A * C_B (both-must-hold), C the geometric mean of the three SCALAR metrics",
+  "fixed_draw": {
+   "estimator": "plug-in product of the two full-sample link scores",
+   "link_point_values": {
+    "A": 0.8910762515504053,
+    "B": 0.8636623285022845
+   },
+   "cross_link_correlation": 0.8612661491577255,
+   "cross_link_correlation_mc_se": 0.2526696921852877,
+   "link_covariance": [
+    [
+     5.2486519325794586e-06,
+     3.6263477918089907e-06
+    ],
+    [
+     3.6263477918089907e-06,
+     3.377663474732072e-06
+    ]
+   ],
+   "h_point": 0.7695889902871105,
+   "bootstrap_link_means": {
+    "A": 0.8927422735351803,
+    "B": 0.8644163260078869
+   },
+   "ci95_measured_covariance": [
+    0.7627491506104938,
+    0.7764288299637272
+   ],
+   "ci95_cross_term_declared_zero": [
+    0.7645549123458037,
+    0.7746230682284172
+   ],
+   "width_measured": 0.013679679353233443,
+   "width_declared_zero": 0.01006815588261345,
+   "understatement_of_width_pct": 26.40064417713375,
+   "understatement_mc_se_pct": 26.667010923626513
+  },
+  "redraw": {
+   "estimator": "plug-in product of the two full-sample link scores",
+   "link_point_values": {
+    "A": 0.8910762515504053,
+    "B": 0.8636623285022845
+   },
+   "cross_link_correlation": 0.823378915692809,
+   "cross_link_correlation_mc_se": 0.28174001267534654,
+   "link_covariance": [
+    [
+     4.984115934247851e-06,
+     5.076132052631131e-06
+    ],
+    [
+     5.076132052631131e-06,
+     7.6256734466294074e-06
+    ]
+   ],
+   "h_point": 0.7695889902871105,
+   "bootstrap_link_means": {
+    "A": 0.8927583615050274,
+    "B": 0.8635230178687497
+   },
+   "ci95_measured_covariance": [
+    0.7613698212877998,
+    0.7778081592864211
+   ],
+   "ci95_cross_term_declared_zero": [
+    0.7634619069882195,
+    0.7757160735860015
+   ],
+   "width_measured": 0.016438337998621266,
+   "width_declared_zero": 0.012254166597782001,
+   "understatement_of_width_pct": 25.45373748362033,
+   "understatement_mc_se_pct": 10.08275761183941
+  }
+ },
+ "coding_sensitivity": {
+  "note": "models refitted on y' = 1 - y; the same index stream default_rng(SEED + 1) and the same B",
+  "models": {
+   "logit": {
+    "corr_curve_means": {
+     "RGA_RGE": 0.47989443162861095,
+     "RGA_RGR": -0.5458898338097824,
+     "RGE_RGR": -0.9359035038792979
+    },
+    "corr_curve_means_mc_se": {
+     "RGE_RGR": 0.1574213768538402,
+     "RGA_RGR": 0.45620589012852036
+    },
+    "bridge_rung4_scalarRGE_x_curvemeanRGR": -0.6108854284338164,
+    "bridge_rung4_mc_se": 0.4827872182736843,
+    "bridge_rung6_curvemeans": -0.9359035038792979,
+    "per_severity_index_correlation_RGE_RGR": [
+     null,
+     0.24555905037663667,
+     0.11843084962298978,
+     -0.6132459919502402,
+     0.5852444988302574,
+     -0.7698658300527506,
+     -0.8410350688200746,
+     -0.2971527408060681,
+     -0.4396917923499591,
+     -0.25022969196854433,
+     -0.2389977159227863,
+     -0.46935150741017023,
+     -0.16778707657706265,
+     -0.22144201644409608,
+     -0.6312109737607972,
+     -0.46972176554738754,
+     -0.5831364514605989,
+     -0.7845148127126149,
+     -0.3235754540051867,
+     -0.7761363176172148,
+     -0.6528082689525728,
+     -0.7298902394610265,
+     -0.8081433833516226,
+     -0.6490714229069672
+    ],
+    "curves_point": {
+     "RGA": [
+      0.7118203747975315,
+      0.7017214603726121,
+      0.686583700006733,
+      0.6709844316985819,
+      0.6500823934924898,
+      0.6354558437597218,
+      0.6155627234708109,
+      0.5969232916061118,
+      0.5750705807198426,
+      0.5542341153108648,
+      0.543251489295672,
+      0.5270780691470175,
+      0.5094068555797909,
+      0.49001384190292696,
+      0.472778218373057,
+      0.45097161024581933,
+      0.42645798660749273,
+      0.40212646825529824,
+      0.3711313662222447,
+      0.3296570187348694,
+      0.27297231619782547,
+      0.20178352696365687,
+      0.10846473490913477,
+      0.0
+     ],
+     "RGE": [
+      1.0,
+      0.9999706468371539,
+      0.9999246863216953,
+      0.9998564088422074,
+      0.9996858252678744,
+      0.999225822920548,
+      0.9986508671982423,
+      0.9977593393245188,
+      0.9968334398317625,
+      0.996082626202464,
+      0.9950055741097023,
+      0.996070940489402,
+      0.9955618726586729,
+      0.9941348765253384,
+      0.9925098379966169,
+      0.9903611563593246,
+      0.9863265981802501,
+      0.9831204838298007,
+      0.9756286716848315,
+      0.9695883590162983,
+      0.9737898476154407,
+      0.9595028643409715,
+      0.9283085286086226,
+      0.5006420384369187
+     ],
+     "RGR_tail_swap": [
+      1.0,
+      0.7917899239303536,
+      0.6648365266381381,
+      0.5366209119332328,
+      0.4057079626449576,
+      0.3205791038502436,
+      0.27087879849154906,
+      0.22415583885613438,
+      0.18523773449732306,
+      0.15734599083568684,
+      0.13689983112484855,
+      0.12390098197691962,
+      0.11429860919978108,
+      0.10389613411711551,
+      0.09845959811364169,
+      0.09388199315652179,
+      0.09271454582310962,
+      0.09246959754559442,
+      0.09193535877944431,
+      0.09124160472992265,
+      0.09121015753869749,
+      0.09118425580717104,
+      0.09121117562262149,
+      0.09116177327298225
+     ]
+    },
+    "V_point": {
+     "arithmetic": 0.5652040574827049,
+     "geometric": 0.4282585881403928,
+     "rms": 0.661781445415847
+    }
+   },
+   "rf": {
+    "corr_curve_means": {
+     "RGA_RGE": 0.3230743314148393,
+     "RGA_RGR": -0.40627794322774735,
+     "RGE_RGR": -0.23517007081394656
+    },
+    "corr_curve_means_mc_se": {
+     "RGE_RGR": 0.47774179480055456,
+     "RGA_RGR": 0.4244571222720535
+    },
+    "bridge_rung4_scalarRGE_x_curvemeanRGR": -0.21794506944898315,
+    "bridge_rung4_mc_se": 0.5040004783710241,
+    "bridge_rung6_curvemeans": -0.23517007081394656,
+    "per_severity_index_correlation_RGE_RGR": [
+     null,
+     0.4196153685356544,
+     0.6835566802474055,
+     0.48005769966478495,
+     0.14245494449748267,
+     0.20874059998353783,
+     -0.33557643524895986,
+     -0.15186928370661767,
+     -0.4468210482577526,
+     -0.6375941511140899,
+     -0.6304935180398568,
+     -0.4105414995266366,
+     -0.4609460808801446,
+     -0.42117958651398,
+     -0.5868429151964866,
+     -0.07057176827359155,
+     -0.6382690378011082,
+     -0.6056028698575937,
+     -0.2829805308581501,
+     -0.3486182716844357,
+     -0.3953942662388908,
+     -0.49473637071805215,
+     -0.12242600583047844,
+     -0.338868855817792
+    ],
+    "curves_point": {
+     "RGA": [
+      0.7706197756408149,
+      0.7633269368761344,
+      0.749818577499163,
+      0.7440081147864592,
+      0.7285178541552084,
+      0.7121343044005504,
+      0.6975465554842087,
+      0.6846962146378487,
+      0.660863233612556,
+      0.6429981280387216,
+      0.618826583197397,
+      0.5981994275801805,
+      0.5785382228531647,
+      0.5626974682547828,
+      0.5388541292568745,
+      0.5074215962780042,
+      0.4831608561794031,
+      0.4516335309167234,
+      0.4114647137087491,
+      0.3601562628290177,
+      0.29739172382950957,
+      0.22164434019852253,
+      0.11315793208109881,
+      -1.1102230246251565e-16
+     ],
+     "RGE": [
+      1.0,
+      0.9969835709933188,
+      0.9938212364692447,
+      0.9910717528854883,
+      0.9888350194066483,
+      0.9841019245940806,
+      0.9779429564518438,
+      0.971843164331179,
+      0.9643702794053886,
+      0.956932208963646,
+      0.9504809693344096,
+      0.9433623107328046,
+      0.9371561785947788,
+      0.9325114129598397,
+      0.9306774371098352,
+      0.929256453356912,
+      0.9308592319288143,
+      0.9234054358464867,
+      0.9169725795135648,
+      0.9141706379271348,
+      0.8966232918373043,
+      0.8670559226921312,
+      0.8242904754648984,
+      0.5006287347212905
+     ],
+     "RGR_tail_swap": [
+      1.0,
+      0.9403361098604242,
+      0.8605612364737742,
+      0.765326263848437,
+      0.6620364402052952,
+      0.5633286016429764,
+      0.49917706819634344,
+      0.45528971329052204,
+      0.4318189152177822,
+      0.4176846317106416,
+      0.4012388181981982,
+      0.3918750660460676,
+      0.3791563810507451,
+      0.37444203633959044,
+      0.3704081765279448,
+      0.36689882372917887,
+      0.3647915460093207,
+      0.3646822457321225,
+      0.36493691773313613,
+      0.36388865012187566,
+      0.36454491780695547,
+      0.3642569339158311,
+      0.3645336450038977,
+      0.36449285251317604
+     ]
+    },
+    "V_point": {
+     "arithmetic": 0.6516213285970885,
+     "geometric": 0.5889083009269522,
+     "rms": 0.6971389906296147
+    }
+   }
+  },
+  "seconds": 40.03299379348755
+ },
+ "verdict": {
+  "verdict": "INCONCLUSIVE",
+  "rule_source": "PRE-REGISTRATION.md section 7, applied without modification",
+  "generalises_conditions": {
+   "(a) rung 4 negative on both models": true,
+   "(b) rung 5 positive on both models": true,
+   "(c) rung 6 negative on both models": true,
+   "(d) delta understatement of the three volume variants within 6 pp of zero on both models": false,
+   "(e) chain understatement >= 10 pp and rho > 0 under both schemes": true
+  },
+  "failure_conditions": {
+   "(a') rung 4 positive on both models": false,
+   "(b') rung 6 positive on both models": false,
+   "(c') volume delta understatement exceeds +15 pp on both models (read as: the largest of the three variants exceeds +15 on each model)": false,
+   "(d') chain understatement below 5 pp under both schemes": false
+  },
+  "inconclusive_triggers": {
+   "quantities_inside_two_mc_standard_errors_of_zero": [
+    "bridge rung 4 on logit (-0.6109, mc se 0.4828)",
+    "bridge rung 4 on rf (-0.2180, mc se 0.5040)",
+    "bridge rung 6 on rf (-0.2352, mc se 0.4777)",
+    "chain understatement under fixed_draw (26.40, mc se 26.67)"
+   ],
+   "models_disagree_in_sign_on_rung_4": false,
+   "models_disagree_in_sign_on_rung_6": false,
+   "coding_sensitivity_flips_rung_6": false,
+   "coding_sensitivity_flips_rung_4": false
+  },
+  "quantities": {
+   "bridge": {
+    "logit": [
+     0.8388582151319955,
+     0.8018712385617092,
+     0.7717522777768389,
+     -0.6108854284331959,
+     0.9408394940341032,
+     -0.935903503879262
+    ],
+    "rf": [
+     0.8190391888174845,
+     0.899200120847996,
+     0.8347001059146689,
+     -0.21799602484027691,
+     0.9600920445373132,
+     -0.23517619162148856
+    ]
+   },
+   "bridge_mc_se": {
+    "logit": [
+     0.2019888076106229,
+     0.2402875763548102,
+     0.4572364757845662,
+     0.48278721827366533,
+     0.11097182769993436,
+     0.15742137685403954
+    ],
+    "rf": [
+     0.2448145830702964,
+     0.11195611820255158,
+     0.12692544329113387,
+     0.5039869905086899,
+     0.2760460885715791,
+     0.47773981432886065
+    ]
+   },
+   "delta_understatement_pct": {
+    "logit": {
+     "arithmetic": -54.790352766551244,
+     "geometric": -37.445596123295076,
+     "rms": -31.329707083787774,
+     "topsis": -52.71703518885904
+    },
+    "rf": {
+     "arithmetic": 1.7513316184882721,
+     "geometric": -2.808040398948375,
+     "rms": 13.25855489907386,
+     "topsis": -9.752564188410485
+    }
+   },
+   "delta_understatement_mc_se_pct": {
+    "logit": {
+     "arithmetic": 152.96093128336344,
+     "geometric": 42.09916714108706,
+     "rms": 115.81419486187204,
+     "topsis": 42.67452246280204
+    },
+    "rf": {
+     "arithmetic": 39.859696482722896,
+     "geometric": 76.68940986275251,
+     "rms": 130.9678329002852,
+     "topsis": 31.229873072479656
+    }
+   },
+   "chain": {
+    "fixed_draw": {
+     "rho": 0.8612661491577255,
+     "understatement_pct": 26.40064417713375
+    },
+    "redraw": {
+     "rho": 0.823378915692809,
+     "understatement_pct": 25.45373748362033
+    }
+   }
+  }
+ },
+ "comparison": {
+  "note": "German credit beside Taiwan, quantity by quantity, on the pre-registered list only",
+  "rows": [
+   {
+    "quantity": "P1 corr(curve-mean RGE, curve-mean RGR), logit",
+    "german": -0.13715699226009975,
+    "taiwan": -0.935903503879262,
+    "taiwan_mc_se": 0.15742137685403954
+   },
+   {
+    "quantity": "P2 corr(curve-mean RGA, curve-mean RGR), logit",
+    "german": -0.058284801297709764,
+    "taiwan": -0.6688537147344705,
+    "taiwan_mc_se": 0.2203287278170216
+   },
+   {
+    "quantity": "P3 delta understatement % arithmetic, logit",
+    "german": -0.9137964325266701,
+    "taiwan": -54.790352766551244,
+    "taiwan_mc_se": 152.96093128336344
+   },
+   {
+    "quantity": "P4 empirical understatement % arithmetic, logit",
+    "german": 0.8904163353612882,
+    "taiwan": -15.82909458619104,
+    "taiwan_mc_se": 258.6820136423372
+   },
+   {
+    "quantity": "P3 delta understatement % geometric, logit",
+    "german": -1.862246121142297,
+    "taiwan": -37.445596123295076,
+    "taiwan_mc_se": 42.09916714108706
+   },
+   {
+    "quantity": "P4 empirical understatement % geometric, logit",
+    "german": 1.4481287884946958,
+    "taiwan": 20.751536881243826,
+    "taiwan_mc_se": 42.51955399163481
+   },
+   {
+    "quantity": "P3 delta understatement % rms, logit",
+    "german": 1.2643176830683167,
+    "taiwan": -31.329707083787774,
+    "taiwan_mc_se": 115.81419486187204
+   },
+   {
+    "quantity": "P4 empirical understatement % rms, logit",
+    "german": -1.405422909441345,
+    "taiwan": -70.35615261514339,
+    "taiwan_mc_se": 354.7384754533687
+   },
+   {
+    "quantity": "P3 delta understatement % topsis, logit",
+    "german": -1.4977460781607554,
+    "taiwan": -52.71703518885904,
+    "taiwan_mc_se": 42.67452246280204
+   },
+   {
+    "quantity": "P4 empirical understatement % topsis, logit",
+    "german": -3.0995225053450426,
+    "taiwan": -55.480032828946335,
+    "taiwan_mc_se": 94.66509615586904
+   },
+   {
+    "quantity": "P6 bridge rung 1, logit",
+    "german": 0.5967,
+    "taiwan": 0.8388582151319955,
+    "taiwan_mc_se": 0.2019888076106229
+   },
+   {
+    "quantity": "P6 bridge rung 2, logit",
+    "german": 0.6144,
+    "taiwan": 0.8018712385617092,
+    "taiwan_mc_se": 0.2402875763548102
+   },
+   {
+    "quantity": "P6 bridge rung 3, logit",
+    "german": 0.4249,
+    "taiwan": 0.7717522777768389,
+    "taiwan_mc_se": 0.4572364757845662
+   },
+   {
+    "quantity": "P6 bridge rung 4, logit",
+    "german": -0.2083,
+    "taiwan": -0.6108854284331959,
+    "taiwan_mc_se": 0.48278721827366533
+   },
+   {
+    "quantity": "P6 bridge rung 5, logit",
+    "german": 0.5354,
+    "taiwan": 0.9408394940341032,
+    "taiwan_mc_se": 0.11097182769993436
+   },
+   {
+    "quantity": "P6 bridge rung 6, logit",
+    "german": -0.1372,
+    "taiwan": -0.935903503879262,
+    "taiwan_mc_se": 0.15742137685403954
+   },
+   {
+    "quantity": "P1 corr(curve-mean RGE, curve-mean RGR), rf",
+    "german": -0.3101587442491882,
+    "taiwan": -0.23517619162148856,
+    "taiwan_mc_se": 0.47773981432886065
+   },
+   {
+    "quantity": "P2 corr(curve-mean RGA, curve-mean RGR), rf",
+    "german": -0.08004214446987298,
+    "taiwan": -0.18127925392404798,
+    "taiwan_mc_se": 0.43972719144051353
+   },
+   {
+    "quantity": "P3 delta understatement % arithmetic, rf",
+    "german": -3.075571966983648,
+    "taiwan": 1.7513316184882721,
+    "taiwan_mc_se": 39.859696482722896
+   },
+   {
+    "quantity": "P4 empirical understatement % arithmetic, rf",
+    "german": -6.48613431865972,
+    "taiwan": 55.254108365380226,
+    "taiwan_mc_se": 32.18973069245297
+   },
+   {
+    "quantity": "P3 delta understatement % geometric, rf",
+    "german": -3.0856082470078094,
+    "taiwan": -2.808040398948375,
+    "taiwan_mc_se": 76.68940986275251
+   },
+   {
+    "quantity": "P4 empirical understatement % geometric, rf",
+    "german": -5.205245912061129,
+    "taiwan": 36.082809838596084,
+    "taiwan_mc_se": 94.09201504568246
+   },
+   {
+    "quantity": "P3 delta understatement % rms, rf",
+    "german": -1.4984412650611345,
+    "taiwan": 13.25855489907386,
+    "taiwan_mc_se": 130.9678329002852
+   },
+   {
+    "quantity": "P4 empirical understatement % rms, rf",
+    "german": -4.858109094746843,
+    "taiwan": 36.29393964910079,
+    "taiwan_mc_se": 237.24579212074633
+   },
+   {
+    "quantity": "P3 delta understatement % topsis, rf",
+    "german": -3.1111455917332664,
+    "taiwan": -9.752564188410485,
+    "taiwan_mc_se": 31.229873072479656
+   },
+   {
+    "quantity": "P4 empirical understatement % topsis, rf",
+    "german": -7.555416930205738,
+    "taiwan": 49.72515787081734,
+    "taiwan_mc_se": 31.02205115126454
+   },
+   {
+    "quantity": "P6 bridge rung 1, rf",
+    "german": 0.3415,
+    "taiwan": 0.8190391888174845,
+    "taiwan_mc_se": 0.2448145830702964
+   },
+   {
+    "quantity": "P6 bridge rung 2, rf",
+    "german": 0.3437,
+    "taiwan": 0.899200120847996,
+    "taiwan_mc_se": 0.11195611820255158
+   },
+   {
+    "quantity": "P6 bridge rung 3, rf",
+    "german": 0.2879,
+    "taiwan": 0.8347001059146689,
+    "taiwan_mc_se": 0.12692544329113387
+   },
+   {
+    "quantity": "P6 bridge rung 4, rf",
+    "german": -0.1529,
+    "taiwan": -0.21799602484027691,
+    "taiwan_mc_se": 0.5039869905086899
+   },
+   {
+    "quantity": "P6 bridge rung 5, rf",
+    "german": 0.4711,
+    "taiwan": 0.9600920445373132,
+    "taiwan_mc_se": 0.2760460885715791
+   },
+   {
+    "quantity": "P6 bridge rung 6, rf",
+    "german": -0.3102,
+    "taiwan": -0.23517619162148856,
+    "taiwan_mc_se": 0.47773981432886065
+   },
+   {
+    "quantity": "P5 chain rho, fixed_draw",
+    "german": 0.7221747816730605,
+    "taiwan": 0.8612661491577255,
+    "taiwan_mc_se": 0.2526696921852877
+   },
+   {
+    "quantity": "P5 chain understatement %, fixed_draw",
+    "german": 23.79266021704757,
+    "taiwan": 26.40064417713375,
+    "taiwan_mc_se": 26.667010923626513
+   },
+   {
+    "quantity": "P5 chain rho, redraw",
+    "german": 0.7120093529730841,
+    "taiwan": 0.823378915692809,
+    "taiwan_mc_se": 0.28174001267534654
+   },
+   {
+    "quantity": "P5 chain understatement %, redraw",
+    "german": 23.571134411426385,
+    "taiwan": 25.45373748362033,
+    "taiwan_mc_se": 10.08275761183941
+   }
+  ]
+ },
+ "total_runtime_s": 148.1491584777832
+}

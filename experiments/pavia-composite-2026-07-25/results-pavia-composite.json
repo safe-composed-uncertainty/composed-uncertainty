@@ -1,0 +1,3320 @@
+{
+ "study": "An interval for the Pavia Compliance Score, on the curve construction",
+ "author": "Anton Sokolov, Tyche Institute, Tallinn",
+ "generated_utc": "2026-07-25T18:44:45+00:00",
+ "safeai_commit": "39768fcd5264c881f7174268bbffda52b298ae89",
+ "numpy": "2.5.1",
+ "python": "3.12.3",
+ "seed": 20260723,
+ "alpha": 0.05,
+ "z": 1.959963984540054,
+ "B": 2000,
+ "B_conditioning_check": {
+  "logit": 300,
+  "rf": 30
+ },
+ "deposited_scalar_contrast": {
+  "source": "results.json of the deposited experiment, opened read-only",
+  "point": {
+   "logit": {
+    "RGA": 0.8052154195011337,
+    "RGE": 0.9895241103151701,
+    "RGR": 0.9542332361339708,
+    "C_geomean": 0.9127062002080241
+   },
+   "rf": {
+    "RGA": 0.8272108843537415,
+    "RGE": 0.9877025996971712,
+    "RGR": 0.9091507824866948,
+    "C_geomean": 0.9056480394647118
+   }
+  },
+  "Corr_paired_of_the_three_scalar_metrics": {
+   "logit": [
+    [
+     0.9999999999999999,
+     0.2858139179651909,
+     0.15963929901596527
+    ],
+    [
+     0.28581391796519084,
+     1.0,
+     0.5967316024170706
+    ],
+    [
+     0.15963929901596527,
+     0.5967316024170706,
+     0.9999999999999999
+    ]
+   ],
+   "rf": [
+    [
+     1.0,
+     0.2921986552172537,
+     0.15299287644635887
+    ],
+    [
+     0.2921986552172537,
+     0.9999999999999999,
+     0.3415208786622705
+    ],
+    [
+     0.15299287644635884,
+     0.34152087866227054,
+     1.0
+    ]
+   ]
+  }
+ },
+ "dataset": "statlog-german-credit (OpenML credit-g v1)",
+ "n_train": 700,
+ "n_test": 300,
+ "d": 20,
+ "grid": 20,
+ "curve_length_L": 21,
+ "topsis_reference": {
+  "source": "Kolesnikov MSc thesis sec. 3.2.3, not present in the published article",
+  "pis_RGA": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "pis_RGE": [
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "pis_RGR": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "nis_RGA": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "nis_RGE": [
+   1.0,
+   0.975,
+   0.95,
+   0.925,
+   0.9,
+   0.875,
+   0.85,
+   0.825,
+   0.8,
+   0.775,
+   0.75,
+   0.725,
+   0.7,
+   0.675,
+   0.6499999999999999,
+   0.625,
+   0.6,
+   0.575,
+   0.55,
+   0.5249999999999999,
+   0.5
+  ],
+  "nis_RGR": [
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "weights_per_dimension": [
+   0.3333333333333333,
+   0.3333333333333333,
+   0.3333333333333333
+  ],
+  "Ci_of_best_case": 1.0,
+  "Ci_of_worst_case": 0.0,
+  "thesis_printed_worst_RGE_head": [
+   1.0,
+   0.9737,
+   0.9474
+  ],
+  "linspace_1_to_0p5_over_20_head": [
+   1.0,
+   0.9736842105263158,
+   0.9473684210526316
+  ]
+ },
+ "models": {
+  "logit": {
+   "continuity_with_deposit": {
+    "rga_anchor_curve": 0.8052154195011337,
+    "rga_score_scalar": 0.8052154195011337,
+    "deposited_point_RGA": 0.8052154195011337,
+    "abs_gap_anchor_vs_scalar": 0.0,
+    "abs_gap_anchor_vs_deposited": 0.0
+   },
+   "factorisation_check": {
+    "arithmetic": {
+     "V_brute_force_triple_sum": 0.6310028153894134,
+     "V_vectorised_tensor": 0.6310028153894086,
+     "V_closed_form": 0.6310028153894086,
+     "abs_residual_tensor_vs_brute_force": 4.773959005888173e-15,
+     "abs_residual_closed_form_vs_brute_force": 4.773959005888173e-15,
+     "abs_residual_closed_form_vs_tensor": 0.0,
+     "brute_force_seconds": 0.0016582012176513672
+    },
+    "geometric": {
+     "V_brute_force_triple_sum": 0.5347062606113723,
+     "V_vectorised_tensor": 0.5347062606113695,
+     "V_closed_form": 0.5347062606113694,
+     "abs_residual_tensor_vs_brute_force": 2.7755575615628914e-15,
+     "abs_residual_closed_form_vs_brute_force": 2.886579864025407e-15,
+     "abs_residual_closed_form_vs_tensor": 1.1102230246251565e-16,
+     "brute_force_seconds": 0.0017077922821044922
+    },
+    "rms": {
+     "V_brute_force_triple_sum": 0.6988479093303052,
+     "V_vectorised_tensor": 0.6988479093303007,
+     "V_closed_form": null,
+     "abs_residual_tensor_vs_brute_force": 4.440892098500626e-15,
+     "abs_residual_closed_form_vs_brute_force": null,
+     "abs_residual_closed_form_vs_tensor": null,
+     "brute_force_seconds": 0.002431154251098633
+    }
+   },
+   "rms_gradient_euler_identity": {
+    "sum_of_projections": 0.6988479093303008,
+    "V_rms": 0.6988479093303007,
+    "abs_gap": 1.1102230246251565e-16
+   },
+   "fast_path_vs_package_max_abs_gap": {
+    "RGA": 0.0,
+    "RGE": 0.0,
+    "RGR": 0.0
+   },
+   "scoring_convention": {
+    "rge_max_abs_gap_vs_package_curve_with_class_order": 0.0,
+    "rge_max_abs_gap_vs_package_curve_without_class_order": 0.01874548764909678,
+    "rgr_tail_swap_matrix_convention_last": 0.15972073579421459,
+    "rgr_tail_swap_vector_convention_last": 0.12670691359393937,
+    "rgr_tail_swap_max_abs_gap_between_conventions": 0.033589455612445696,
+    "V_under_vector_convention": {
+     "arithmetic": 0.6285378908644694,
+     "geometric": 0.5250180995442394,
+     "rms": 0.6997373579398076
+    },
+    "RGE_bare_vector_curve": [
+     1.0,
+     0.9999462324873434,
+     0.9998171478420691,
+     0.9996501790867757,
+     0.9994617438211333,
+     0.9984011482947366,
+     0.9967614675220999,
+     0.9947629129229493,
+     0.9935151124969803,
+     0.990874558483055,
+     0.9894436967074514,
+     0.9864132313855652,
+     0.9818353444662721,
+     0.9765273672885386,
+     0.9661825960926712,
+     0.9557038440599492,
+     0.9432650330384942,
+     0.9188264831402808,
+     0.9051657399933877,
+     0.8554574592867866,
+     0.5244089076809164
+    ],
+    "RGR_tail_swap_bare_vector_curve": [
+     1.0,
+     0.8691721815527493,
+     0.7718863233728205,
+     0.695112587941469,
+     0.6103691479783491,
+     0.5454728838002069,
+     0.4722164316035671,
+     0.4083814470101098,
+     0.32988860792902674,
+     0.26522723631335554,
+     0.23694356547646211,
+     0.21258922198738972,
+     0.1999784159341299,
+     0.18719426574482267,
+     0.17329939945343897,
+     0.149777361827382,
+     0.143047760761703,
+     0.1335338523957751,
+     0.13037402901616713,
+     0.1258273325682001,
+     0.12670691359393937
+    ]
+   },
+   "curve_summaries": {
+    "mean_of_curve": {
+     "point": [
+      0.5635460929572883,
+      0.9486293273515194,
+      0.38083302585941825
+     ],
+     "bootstrap_sd": [
+      0.04102152567749424,
+      0.0027688546088273087,
+      0.014350898424561076
+     ],
+     "ci95_percentile": [
+      [
+       0.4871217877057918,
+       0.6493349723441592
+      ],
+      [
+       0.9424621688371941,
+       0.9532445955710857
+      ],
+      [
+       0.3532769345479349,
+       0.40882125549890763
+      ]
+     ],
+     "Corr": [
+      [
+       0.9999999999999998,
+       0.19956952835714417,
+       -0.058284801297709764
+      ],
+      [
+       0.1995695283571442,
+       1.0,
+       -0.13715699226009975
+      ],
+      [
+       -0.058284801297709764,
+       -0.13715699226009975,
+       1.0
+      ]
+     ]
+    },
+    "mean_of_cube_root_of_curve": {
+     "point": [
+      0.7862321552384828,
+      0.9807698192879377,
+      0.6934216138521775
+     ],
+     "bootstrap_sd": [
+      0.02450043613443807,
+      0.0009811189727974236,
+      0.011190507925971555
+     ],
+     "ci95_percentile": [
+      [
+       0.7291408211243673,
+       0.8275053674988231
+      ],
+      [
+       0.9785242512811173,
+       0.9823504472125156
+      ],
+      [
+       0.6705420727383583,
+       0.7145958408885162
+      ]
+     ],
+     "Corr": [
+      [
+       0.9999999999999999,
+       0.16316168539033477,
+       -0.04796634442202299
+      ],
+      [
+       0.16316168539033474,
+       1.0,
+       -0.20384726307508585
+      ],
+      [
+       -0.04796634442202299,
+       -0.20384726307508583,
+       0.9999999999999999
+      ]
+     ]
+    },
+    "per_severity_index_correlation": {
+     "RGA_RGE": [
+      null,
+      0.11224324983344139,
+      0.10694078316422038,
+      0.07600208706537696,
+      0.10391738097850346,
+      0.11436066151395373,
+      0.11913899647951577,
+      0.15134620456136133,
+      0.13238197824924988,
+      0.15162599250595718,
+      0.12275306130212849,
+      0.10939811020869454,
+      0.1494801600264819,
+      0.13567579000418603,
+      0.1615788211474495,
+      0.12138433210093885,
+      0.13838110897774675,
+      0.08619693547374337,
+      0.08738946139599613,
+      -0.004760577071534728,
+      null
+     ],
+     "RGA_RGR": [
+      null,
+      -0.028520378903418336,
+      -0.024310251665273598,
+      -0.030741282614679625,
+      -0.010852716835669546,
+      0.008460477349742855,
+      0.0013461077753358182,
+      0.011619549944936637,
+      -0.04098131632452263,
+      -0.05312903886736827,
+      -0.051225953170577716,
+      -0.04502087387692456,
+      -0.0891368882261247,
+      -0.06344781720170635,
+      -0.07282871936462952,
+      -0.015691543992357712,
+      -0.027245268727461854,
+      0.017175562475968825,
+      -0.03730219309318136,
+      0.047865403052950145,
+      null
+     ],
+     "RGE_RGR": [
+      null,
+      0.14176629059432402,
+      0.11224041001998296,
+      0.1003730347477507,
+      -0.009689733753159678,
+      -0.02719024764797512,
+      -0.076904233168102,
+      -0.10389059731058126,
+      -0.1258571723422667,
+      -0.17105075812159004,
+      -0.14361947926054722,
+      -0.13375598269301067,
+      -0.16155349372348843,
+      -0.1407517744923824,
+      -0.18353136504802312,
+      -0.1863264502783244,
+      -0.2221333694210068,
+      -0.25061590919471394,
+      -0.2248303116729109,
+      -0.3132020765563956,
+      -0.043170758213595645
+     ]
+    },
+    "mean_per_index_correlation": {
+     "RGA_RGE": 0.11449655462723214,
+     "RGA_RGR": -0.02652458643499797,
+     "RGE_RGR": -0.10818469887680082
+    }
+   },
+   "last_rga_knot": {
+    "point_value": 2.220446049250313e-16,
+    "max_abs_over_replicates": 4.440892098500626e-16,
+    "note": "the accumulated partial RGA curve ends at zero by construction, so this coordinate carries no sampling variation"
+   },
+   "arms": {
+    "arithmetic": {
+     "description": "Compliance Score, arithmetic mean variant (article eq. 13 and 17); closed form (mean RGA + mean RGE + mean RGR)/3",
+     "V_point": 0.6310028153894086,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.603425634684606,
+       0.6609752941773406
+      ],
+      "width": 0.057549659492734606,
+      "sd": 0.014384372814889908,
+      "mean": 0.6324868339897255
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6039910191607515,
+       0.661028247084418
+      ],
+      "width": 0.0570372279236665,
+      "sd": 0.014694398296998026,
+      "mean": 0.6331117039605074
+     },
+     "empirical_understatement_of_width_pct": 0.8904163353612882,
+     "empirical_understatement_mc_se_pct": 3.0082458424165677,
+     "plugin_minus_bootstrap_mean": -0.0014840186003168832,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.5635460929572883,
+       0.9486293273515194,
+       0.38083302585941825
+      ],
+      "gradient_at_point": [
+       0.3333333333333333,
+       0.3333333333333333,
+       0.3333333333333333
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0016827655689093206,
+        2.2667633980824366e-05,
+        -3.431201470970693e-05
+       ],
+       [
+        2.2667633980824366e-05,
+        7.666555844824242e-06,
+        -5.450008694377269e-06
+       ],
+       [
+        -3.431201470970693e-05,
+        -5.450008694377269e-06,
+        0.00020594828559206954
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999998,
+        0.19956952835714417,
+        -0.058284801297709764
+       ],
+       [
+        0.1995695283571442,
+        1.0,
+        -0.13715699226009975
+       ],
+       [
+        -0.058284801297709764,
+        -0.13715699226009975,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00020691018127774386,
+      "var_cross_terms_declared_zero": 0.0002107089344829127,
+      "cross_covariance_share_of_variance_pct": -1.8359431042543228,
+      "ci95_delta_measured_covariance": [
+       0.6028099627320274,
+       0.6591956680467899
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6025523374502167,
+       0.6594532933286005
+      ],
+      "width_delta_measured": 0.05638570531476252,
+      "width_delta_declared_zero": 0.05690095587838382,
+      "understatement_of_width_pct": -0.9137964325266701,
+      "understatement_factor": 0.9909447819343745,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.33333333333333,
+        "RGE": 33.33333333333333,
+        "RGR": 33.33333333333333
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.00018697395210103563,
+        "RGE": 8.518395383138046e-07,
+        "RGR": 2.288314284356328e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 90.3647906286704,
+        "RGE": 0.4116953226049066,
+        "RGR": 11.05945715297901
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 5.037251995738748e-06,
+        "RGA_RGR": -7.62489215771265e-06,
+        "RGE_RGR": -1.2111130431949486e-06
+       },
+       "cross_total": -3.798753205168851e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -132.60277053230803,
+        "RGA_RGR": 200.72091409722762,
+        "RGE_RGR": 31.881856435080408
+       }
+      },
+      "cross_share_mc_se_pct": 1.479553213065314,
+      "understatement_mc_se_pct": 0.7324295296111716
+     }
+    },
+    "geometric": {
+     "description": "Compliance Score, geometric mean variant (article eq. 14 and 17); closed form mean(RGA^1/3) * mean(RGE^1/3) * mean(RGR^1/3)",
+     "V_point": 0.5347062606113694,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.49247543817508616,
+       0.5669948280032009
+      ],
+      "width": 0.07451938982811473,
+      "sd": 0.01840872981854586,
+      "mean": 0.5332458154964408
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.4936789499485911,
+       0.5671192030395943
+      ],
+      "width": 0.07344025309100322,
+      "sd": 0.018817730352313867,
+      "mean": 0.5340461086072325
+     },
+     "empirical_understatement_of_width_pct": 1.4481287884946958,
+     "empirical_understatement_mc_se_pct": 3.5825740542225075,
+     "plugin_minus_bootstrap_mean": 0.001460445114928599,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.7862321552384828,
+       0.9807698192879377,
+       0.6934216138521775
+      ],
+      "gradient_at_point": [
+       0.6800869909081503,
+       0.5451903699479445,
+       0.7711127688116125
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0006002713707776772,
+        3.922054933514464e-06,
+        -1.3151044160050218e-05
+       ],
+       [
+        3.922054933514464e-06,
+        9.62594438783072e-07,
+        -2.2380838746017834e-06
+       ],
+       [
+        -1.3151044160050218e-05,
+        -2.2380838746017834e-06,
+        0.00012522746764123203
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999999,
+        0.16316168539033477,
+        -0.04796634442202299
+       ],
+       [
+        0.16316168539033474,
+        1.0,
+        -0.20384726307508585
+       ],
+       [
+        -0.04796634442202299,
+        -0.20384726307508583,
+        0.9999999999999999
+       ]
+      ],
+      "var_measured_covariance": 0.0003396179148460523,
+      "var_cross_terms_declared_zero": 0.00035238473589320983,
+      "cross_covariance_share_of_variance_pct": -3.7591718484417225,
+      "ci95_delta_measured_covariance": [
+       0.49858662281347454,
+       0.5708258984092642
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.4979139862596126,
+       0.5714985349631262
+      ],
+      "width_delta_measured": 0.07223927559578969,
+      "width_delta_declared_zero": 0.07358454870351358,
+      "understatement_of_width_pct": -1.862246121142297,
+      "understatement_factor": 0.9817179947227201,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 34.065836171076874,
+        "RGE": 27.308809127336733,
+        "RGR": 38.625354701586396
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.00027763650307638794,
+        "RGE": 2.861143895326457e-07,
+        "RGR": 7.446211842728929e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 81.74966364840903,
+        "RGE": 0.08424596495810312,
+        "RGR": 21.92526223507459
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 2.9084145685194704e-06,
+        "RGA_RGR": -1.3793440120852633e-05,
+        "RGE_RGR": -1.8817954948244613e-06
+       },
+       "cross_total": -1.2766821047157624e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -22.781039679153277,
+        "RGA_RGR": 108.04130542680062,
+        "RGE_RGR": 14.739734252352664
+       }
+      },
+      "cross_share_mc_se_pct": 2.0024610257266158,
+      "understatement_mc_se_pct": 0.9822573036371024
+     }
+    },
+    "rms": {
+     "description": "Compliance Score, root mean square variant (article eq. 15 and 17); no closed form, evaluated as the full L^3 tensor",
+     "V_point": 0.6988479093303007,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6783674395820715,
+       0.7248004876599825
+      ],
+      "width": 0.04643304807791104,
+      "sd": 0.011929776113643077,
+      "mean": 0.7011317680178288
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.678274299531184,
+       0.7253599283043339
+      ],
+      "width": 0.04708562877314992,
+      "sd": 0.012012430091959082,
+      "mean": 0.7015530739399336
+     },
+     "empirical_understatement_of_width_pct": -1.405422909441345,
+     "empirical_understatement_mc_se_pct": 2.551794165167675,
+     "plugin_minus_bootstrap_mean": -0.0022838586875281175,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.1712923549188197,
+       0.43610804557093424,
+       0.09144750884054685
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.00012980259787366812,
+        3.002263035684572e-06,
+        -1.1408253997703365e-06
+       ],
+       [
+        3.002263035684572e-06,
+        1.5762220883649068e-06,
+        -8.195350929685908e-08
+       ],
+       [
+        -1.1408253997703365e-06,
+        -8.195350929685908e-08,
+        6.704212196758858e-06
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.2098931872107293,
+        -0.03867262160342823
+       ],
+       [
+        0.20989318721072933,
+        0.9999999999999998,
+        -0.02521070406858875
+       ],
+       [
+        -0.03867262160342822,
+        -0.025210704068588753,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00014164200041202662,
+      "var_cross_terms_declared_zero": 0.0001380830321587919,
+      "cross_covariance_share_of_variance_pct": 2.5126503740994455,
+      "ci95_delta_measured_covariance": [
+       0.6755217027835101,
+       0.7221741158770913
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6758166201376702,
+       0.7218791985229313
+      ],
+      "width_delta_measured": 0.04665241309358137,
+      "width_delta_declared_zero": 0.04606257838526114,
+      "understatement_of_width_pct": 1.2643176830683167,
+      "understatement_factor": 1.012805073641057,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.00012980259787366812,
+        "RGE": 1.5762220883649068e-06,
+        "RGR": 6.704212196758858e-06
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 91.64131930930196,
+        "RGE": 1.1128211150504708,
+        "RGR": 4.733209201548111
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 6.004526071369144e-06,
+        "RGA_RGR": -2.281650799540673e-06,
+        "RGE_RGR": -1.6390701859371816e-07
+       },
+       "cross_total": 3.5589682532347527e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 168.7153591749974,
+        "RGA_RGR": -64.109894699591,
+        "RGE_RGR": -4.605464475406398
+       }
+      },
+      "cross_share_mc_se_pct": 1.0712271636331803,
+      "understatement_mc_se_pct": 0.5419125865596724
+     }
+    },
+    "topsis": {
+     "description": "TOPSIS closeness coefficient with the hand-built ideal and anti-ideal vectors of the Kolesnikov MSc thesis sec. 3.2.3, equal weights; brought forward from unpublished work, absent from the article",
+     "V_point": 0.38025052230318834,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.3574898254898079,
+       0.40591433027235474
+      ],
+      "width": 0.04842450478254684,
+      "sd": 0.012423883879279085,
+      "mean": 0.38200115463715845
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.3569714009135472,
+       0.40689683411993094
+      ],
+      "width": 0.04992543320638376,
+      "sd": 0.01278571689602777,
+      "mean": 0.38258674750246313
+     },
+     "empirical_understatement_of_width_pct": -3.0995225053450426,
+     "empirical_understatement_mc_se_pct": 2.827407764953841,
+     "plugin_minus_bootstrap_mean": -0.0017506323339701035,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.1783910436799781,
+       -0.054585528099839235,
+       0.09112742440444477
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.00014930325560887322,
+        -9.274780604402218e-08,
+        -2.2886347239418387e-06
+       ],
+       [
+        -9.274780604402218e-08,
+        1.3293307088763192e-09,
+        1.3604160014382749e-08
+       ],
+       [
+        -2.2886347239418387e-06,
+        1.3604160014382749e-08,
+        1.234532136592565e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999999,
+        -0.20818646335114946,
+        -0.053307785824434344
+       ],
+       [
+        -0.20818646335114946,
+        1.0,
+        0.10619498622688664
+       ],
+       [
+        -0.05330778582443435,
+        0.10619498622688664,
+        0.9999999999999999
+       ]
+      ],
+      "var_measured_covariance": 0.0001569143495655648,
+      "var_cross_terms_declared_zero": 0.00016164990630550776,
+      "cross_covariance_share_of_variance_pct": -3.0179245894679907,
+      "ci95_delta_measured_covariance": [
+       0.3556989436934101,
+       0.4048021009129666
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.3553312233876556,
+       0.4051698212187211
+      ],
+      "width_delta_measured": 0.04910315721955648,
+      "width_delta_declared_zero": 0.0498385978310655,
+      "understatement_of_width_pct": -1.4977460781607554,
+      "understatement_factor": 0.9852435533198206,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.00014930325560887322,
+        "RGE": 1.3293307088763192e-09,
+        "RGR": 1.234532136592565e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 95.1495233050618,
+        "RGE": 0.0008471696263322776,
+        "RGR": 7.867554114779863
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": -1.8549561208804437e-07,
+        "RGA_RGR": -4.577269447883677e-06,
+        "RGE_RGR": 2.7208320028765498e-08
+       },
+       "cross_total": -4.735556739942956e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 3.917081396648598,
+        "RGA_RGR": 96.65747237860812,
+        "RGE_RGR": -0.5745537752567028
+       }
+      },
+      "cross_share_mc_se_pct": 1.2889563717491648,
+      "understatement_mc_se_pct": 0.634505845921075
+     }
+    },
+    "arithmetic_weighted_SENSITIVITY": {
+     "description": "SENSITIVITY CHECK ONLY, and a declared departure from the authors' stated position that they do not assign weights: arithmetic variant with w = (0.50, 0.20, 0.30)",
+     "V_point": 0.5857488197067735,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5468891461197265,
+       0.6286328958748227
+      ],
+      "width": 0.08174374975509624,
+      "sd": 0.0208115189619676,
+      "mean": 0.5881052728920391
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5465909553094678,
+       0.6299704005353414
+      ],
+      "width": 0.0833794452258736,
+      "sd": 0.0212244452516982,
+      "mean": 0.5889782356231492
+     },
+     "empirical_understatement_of_width_pct": -2.001003716709704,
+     "empirical_understatement_mc_se_pct": 2.9703729692938645,
+     "plugin_minus_bootstrap_mean": -0.0023564531852655612,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.5635460929572883,
+       0.9486293273515194,
+       0.38083302585941825
+      ],
+      "gradient_at_point": [
+       0.5,
+       0.2,
+       0.3
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0016827655689093206,
+        2.2667633980824366e-05,
+        -3.431201470970693e-05
+       ],
+       [
+        2.2667633980824366e-05,
+        7.666555844824242e-06,
+        -5.450008694377269e-06
+       ],
+       [
+        -3.431201470970693e-05,
+        -5.450008694377269e-06,
+        0.00020594828559206954
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999998,
+        0.19956952835714417,
+        -0.058284801297709764
+       ],
+       [
+        0.1995695283571442,
+        1.0,
+        -0.13715699226009975
+       ],
+       [
+        -0.058284801297709764,
+        -0.13715699226009975,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.0004331193215043369,
+      "var_cross_terms_declared_zero": 0.0004395334001644094,
+      "cross_covariance_share_of_variance_pct": -1.4809033773406144,
+      "ci95_delta_measured_covariance": [
+       0.5449589920777446,
+       0.6265386473358024
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.5446580730957511,
+       0.6268395663177959
+      ],
+      "width_delta_measured": 0.08157965525805781,
+      "width_delta_declared_zero": 0.08218149322204485,
+      "understatement_of_width_pct": -0.73773045753045,
+      "understatement_factor": 0.9926767214808212,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 50.0,
+        "RGE": 20.0,
+        "RGR": 30.0
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.00042069139222733015,
+        "RGE": 3.066622337929697e-07,
+        "RGR": 1.8535345703286257e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 97.13059919981374,
+        "RGE": 0.07080317560709401,
+        "RGR": 4.2795010019197814
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 4.533526796164873e-06,
+        "RGA_RGR": -1.0293604412912079e-05,
+        "RGE_RGR": -6.540010433252723e-07
+       },
+       "cross_total": -6.4140786600724774e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -70.68087306733537,
+        "RGA_RGR": 160.4845365709276,
+        "RGE_RGR": 10.196336496407767
+       }
+      },
+      "cross_share_mc_se_pct": 0.9366385917900786,
+      "understatement_mc_se_pct": 0.46468278660921963
+     }
+    },
+    "arithmetic_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.6310028153894086,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.603425634684606,
+       0.6609752941773406
+      ],
+      "width": 0.057549659492734606,
+      "sd": 0.01438437281488991,
+      "mean": 0.6324868339897255
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6039910191607515,
+       0.661028247084418
+      ],
+      "width": 0.0570372279236665,
+      "sd": 0.014694398296998024,
+      "mean": 0.6331117039605073
+     },
+     "empirical_understatement_of_width_pct": 0.8904163353612882,
+     "empirical_understatement_mc_se_pct": 3.0082458424165726,
+     "plugin_minus_bootstrap_mean": -0.0014840186003168832,
+     "delta_method": null
+    },
+    "geometric_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.559463346692276,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5221894467169065,
+       0.5904194014228412
+      ],
+      "width": 0.06822995470593474,
+      "sd": 0.01680247287776623,
+      "mean": 0.5586761644692028
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5239408651349855,
+       0.5904230012047809
+      ],
+      "width": 0.06648213606979536,
+      "sd": 0.017220664946729854,
+      "mean": 0.5594653147250861
+     },
+     "empirical_understatement_of_width_pct": 2.5616587958651404,
+     "empirical_understatement_mc_se_pct": 3.727285090615799,
+     "plugin_minus_bootstrap_mean": 0.0007871822230732795,
+     "delta_method": null
+    },
+    "rms_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.6904606970126167,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.67074816707185,
+       0.7161424792159864
+      ],
+      "width": 0.04539431214413636,
+      "sd": 0.011764161805862641,
+      "mean": 0.6926922273438936
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6702599096984974,
+       0.7166362511939708
+      ],
+      "width": 0.04637634149547343,
+      "sd": 0.011814788865543362,
+      "mean": 0.6930934263656434
+     },
+     "empirical_understatement_of_width_pct": -2.163331274233027,
+     "empirical_understatement_mc_se_pct": 2.5974470872672484,
+     "plugin_minus_bootstrap_mean": -0.0022315303312768764,
+     "delta_method": null
+    }
+   },
+   "product_space_vs_diagonal": {
+    "arithmetic": {
+     "V_product_space": 0.6310028153894086,
+     "V_diagonal": 0.6310028153894086,
+     "diagonal_minus_product_space": 0.0,
+     "ci95_of_difference_paired_bootstrap": [
+      -2.220446049250313e-16,
+      2.220446049250313e-16
+     ],
+     "difference_excludes_zero": false,
+     "sd_of_difference": 1.0089005673401012e-16,
+     "ratio_of_difference_to_composite_ci_width": 0.0
+    },
+    "geometric": {
+     "V_product_space": 0.5347062606113694,
+     "V_diagonal": 0.559463346692276,
+     "diagonal_minus_product_space": 0.024757086080906654,
+     "ci95_of_difference_paired_bootstrap": [
+      0.02189706763987405,
+      0.03275318725717048
+     ],
+     "difference_excludes_zero": true,
+     "sd_of_difference": 0.002682121588245199,
+     "ratio_of_difference_to_composite_ci_width": 0.33222341377205267
+    },
+    "rms": {
+     "V_product_space": 0.6988479093303007,
+     "V_diagonal": 0.6904606970126167,
+     "diagonal_minus_product_space": -0.008387212317684023,
+     "ci95_of_difference_paired_bootstrap": [
+      -0.009287235413311635,
+      -0.007652154842592557
+     ],
+     "difference_excludes_zero": true,
+     "sd_of_difference": 0.0004241254907146216,
+     "ratio_of_difference_to_composite_ci_width": 0.18063023352701146
+    }
+   },
+   "ordering_check": {
+    "point": {
+     "geometric": 0.5347062606113694,
+     "arithmetic": 0.6310028153894086,
+     "rms": 0.6988479093303007
+    },
+    "point_ordering_holds": true,
+    "replicates_satisfying_geometric_le_arithmetic": 2000,
+    "replicates_satisfying_arithmetic_le_rms": 2000,
+    "replicates_total": 2000
+   },
+   "sensitivities": {
+    "anchor_dropped_L20": {
+     "arithmetic": {
+      "V_point": 0.6157993658338601,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.5875122560644389,
+        0.6464944501101716
+       ],
+       "width": 0.05898219404573268,
+       "sd": 0.014732735925890904,
+       "mean": 0.6173551329897455
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.5883199215593911,
+        0.6466992477313744
+       ],
+       "width": 0.05837932617198338,
+       "sd": 0.015042589244683342,
+       "mean": 0.6179981944740951
+      },
+      "empirical_understatement_of_width_pct": 1.0221184265913563,
+      "shift_from_primary": -0.015203449555548532
+     },
+     "geometric": {
+      "V_point": 0.5175863574919498,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.4743836512495704,
+        0.5502225548553189
+       ],
+       "width": 0.07583890360574852,
+       "sd": 0.01874008456218958,
+       "mean": 0.516084700698739
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.47584842087336643,
+        0.5505886939530046
+       ],
+       "width": 0.07474027307963815,
+       "sd": 0.019140128425537712,
+       "mean": 0.5169025105927606
+      },
+      "empirical_understatement_of_width_pct": 1.4486371425167732,
+      "shift_from_primary": -0.017119903119419577
+     },
+     "rms": {
+      "V_point": 0.6857887540685856,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.6648509399559837,
+        0.7124466622785852
+       ],
+       "width": 0.047595722322601564,
+       "sd": 0.012223906733981833,
+       "mean": 0.6882012376325806
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.6649076228105423,
+        0.7130321397792592
+       ],
+       "width": 0.04812451696871689,
+       "sd": 0.0123011619187977,
+       "mean": 0.6886337625422524
+      },
+      "empirical_understatement_of_width_pct": -1.1110129656845658,
+      "shift_from_primary": -0.013059155261715083
+     }
+    },
+    "terminal_knot_dropped_L20": {
+     "arithmetic": {
+      "V_point": 0.6514189139644148,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.622827920313969,
+        0.683015433889334
+       ],
+       "width": 0.06018751357536489,
+       "sd": 0.015080159016950917,
+       "mean": 0.6530967456225945
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.6232061534944983,
+        0.6829290692723693
+       ],
+       "width": 0.05972291577787103,
+       "sd": 0.015380856648907879,
+       "mean": 0.6537414224989435
+      },
+      "empirical_understatement_of_width_pct": 0.7719172464436541,
+      "shift_from_primary": 0.020416098575006147
+     },
+     "geometric": {
+      "V_point": 0.5728343815317649,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.5278359680784902,
+        0.6071846647634785
+       ],
+       "width": 0.07934869668498834,
+       "sd": 0.019691520583173736,
+       "mean": 0.5713884271759553
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.528989013972591,
+        0.6074971305314879
+       ],
+       "width": 0.07850811655889689,
+       "sd": 0.02009983358071325,
+       "mean": 0.572232371206127
+      },
+      "empirical_understatement_of_width_pct": 1.059349631700346,
+      "shift_from_primary": 0.038128120920395525
+     },
+     "rms": {
+      "V_point": 0.7146214467034392,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.6935536243083363,
+        0.7415090319109757
+       ],
+       "width": 0.04795540760263939,
+       "sd": 0.012281480830505023,
+       "mean": 0.7170957241804229
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.6935327326750076,
+        0.7419260144399236
+       ],
+       "width": 0.048393281764915974,
+       "sd": 0.012355960793221514,
+       "mean": 0.7175239308298994
+      },
+      "empirical_understatement_of_width_pct": -0.9130861026243942,
+      "shift_from_primary": 0.01577353737313847
+     }
+    },
+    "length20_truncation_ambiguity": {
+     "arithmetic": {
+      "V_anchor_dropped": 0.6157993658338601,
+      "V_terminal_knot_dropped": 0.6514189139644148,
+      "spread_between_the_two_readings": 0.03561954813055468,
+      "spread_as_fraction_of_primary_ci_width": 0.6189358624276742,
+      "shifts_have_opposite_signs": true
+     },
+     "geometric": {
+      "V_anchor_dropped": 0.5175863574919498,
+      "V_terminal_knot_dropped": 0.5728343815317649,
+      "spread_between_the_two_readings": 0.0552480240398151,
+      "spread_as_fraction_of_primary_ci_width": 0.7413912562522229,
+      "shifts_have_opposite_signs": true
+     },
+     "rms": {
+      "V_anchor_dropped": 0.6857887540685856,
+      "V_terminal_knot_dropped": 0.7146214467034392,
+      "spread_between_the_two_readings": 0.02883269263485355,
+      "spread_as_fraction_of_primary_ci_width": 0.620951969090518,
+      "shifts_have_opposite_signs": true
+     }
+    },
+    "rgr_scaled_gaussian_noise": {
+     "note": "RGR rebuilt as a sweep of Gaussian noise at sigma_t = (t/d) column standard deviations, scored with the package rgr_score; the deposited fixed draw sits at t = 10, sigma = 0.5 column sd",
+     "curve_point": [
+      1.0,
+      0.9994549244054691,
+      0.998180969297088,
+      0.9950283186187214,
+      0.9923073272082901,
+      0.9887428912170229,
+      0.9819571745995809,
+      0.9767349701522877,
+      0.9672989518349326,
+      0.9591602398753927,
+      0.9592483292967109,
+      0.9464651933675001,
+      0.9350362376307833,
+      0.9214386995093986,
+      0.9055389751652236,
+      0.9163448603933757,
+      0.8757577886585968,
+      0.923267613691644,
+      0.8738887926348072,
+      0.831893408143585,
+      0.8752453545228525
+     ],
+     "arms": {
+      "arithmetic": {
+       "V_point": 0.8187091245509243,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.7922086446295581,
+         0.8481118203471768
+        ],
+        "width": 0.055903175717618714,
+        "sd": 0.014213175439452112,
+        "mean": 0.8202812756420632
+       },
+       "shift_from_primary": 0.18770630916151565
+      },
+      "geometric": {
+       "V_point": 0.7562004211123445,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.70035726993223,
+         0.7962703818275642
+        ],
+        "width": 0.09591311189533414,
+        "sd": 0.023876954727328897,
+        "mean": 0.7548225929131652
+       },
+       "shift_from_primary": 0.22149416050097515
+      },
+      "rms": {
+       "V_point": 0.8494436541631156,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.8318108096539254,
+         0.8715564039834973
+        ],
+        "width": 0.03974559432957192,
+        "sd": 0.010064171278754338,
+        "mean": 0.8513270813345176
+       },
+       "shift_from_primary": 0.1505957448328149
+      }
+     }
+    },
+    "topsis_literal_thesis_length_L20": {
+     "note": "the thesis reference vectors are length 20 on a 20-predictor dataset and they keep the anchor, so the literal reading drops the last knot of each curve; the worst-case RGE is then exactly the printed [1.0, 0.9737, 0.9474, ..., 0.5]",
+     "Ci_point": 0.38870892389478995,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.3654464684488667,
+       0.4146522413052466
+      ],
+      "width": 0.04920577285637989,
+      "sd": 0.012599440496422847,
+      "mean": 0.3904332126348996
+     },
+     "shift_from_primary": 0.008458401591601605,
+     "Ci_point_anchor_dropped_instead": 0.3692537706676829,
+     "paired_bootstrap_anchor_dropped_instead": {
+      "ci95_percentile": [
+       0.34484777180904896,
+       0.396435245601781
+      ],
+      "width": 0.05158747379273204,
+      "sd": 0.013162806573485123,
+      "mean": 0.3712188667783247
+     },
+     "shift_from_primary_anchor_dropped_instead": -0.010996751635505453,
+     "spread_between_the_two_length20_readings": 0.019455153227107058,
+     "spread_as_fraction_of_primary_ci_width": 0.40176256452123976
+    }
+   },
+   "conditioning_check": {
+    "B_full": 300,
+    "gross_check_only": false,
+    "seconds": 26.605992555618286,
+    "seconds_per_replicate": 0.08868664185206096,
+    "arms": {
+     "arithmetic": {
+      "mean_frozen": 0.6320927802024331,
+      "mean_full": 0.6350433779134577,
+      "sd_frozen": 0.014618268693282772,
+      "sd_full": 0.014688532061526482,
+      "max_abs_paired_difference": 0.02228180867222318,
+      "mean_abs_paired_difference": 0.005071829102685441,
+      "sd_ratio_full_over_frozen": 1.0048065451332138,
+      "sd_ratio_mc_band_95": [
+       0.957826887122926,
+       1.053533998319275
+      ]
+     },
+     "geometric": {
+      "mean_frozen": 0.5333829861686635,
+      "mean_full": 0.5394588484247336,
+      "sd_frozen": 0.018396854596074614,
+      "sd_full": 0.018695607617288675,
+      "max_abs_paired_difference": 0.036204166764052914,
+      "mean_abs_paired_difference": 0.009248784903422085,
+      "sd_ratio_full_over_frozen": 1.016239353290198,
+      "sd_ratio_mc_band_95": [
+       0.954119367984353,
+       1.0843931273457676
+      ]
+     },
+     "rms": {
+      "mean_frozen": 0.7006420470096749,
+      "mean_full": 0.7018954533307923,
+      "sd_frozen": 0.01205510027300256,
+      "sd_full": 0.012019285594936395,
+      "max_abs_paired_difference": 0.012833248150471932,
+      "mean_abs_paired_difference": 0.002652978181038767,
+      "sd_ratio_full_over_frozen": 0.9970290850133886,
+      "sd_ratio_mc_band_95": [
+       0.9656512595832398,
+       1.0297825513981922
+      ]
+     }
+    }
+   },
+   "curves_point": {
+    "RGA_partial": [
+     0.8052154195011337,
+     0.7974102984355927,
+     0.7974102984355927,
+     0.7896051773700518,
+     0.7751730667205609,
+     0.7578374545202848,
+     0.7405018423200088,
+     0.6952971321038348,
+     0.6830740179823273,
+     0.6503011000491083,
+     0.6355683204277531,
+     0.592152714837549,
+     0.5719477599282619,
+     0.5500014098496971,
+     0.5088431683678156,
+     0.4198942415076881,
+     0.35200986919341615,
+     0.326887306210969,
+     0.25184033083361634,
+     0.13349702350779102,
+     2.220446049250313e-16
+    ],
+    "RGE_greedy_mean_baseline": [
+     1.0,
+     0.9999437648408108,
+     0.999806877691618,
+     0.9996330667144945,
+     0.9994335253568332,
+     0.9982098247899509,
+     0.9964558900105793,
+     0.9946277709987832,
+     0.9929813838818934,
+     0.9900368752442317,
+     0.9885944714344974,
+     0.9856202883619378,
+     0.9808310837421274,
+     0.9751915351998127,
+     0.9647395634173364,
+     0.9522939813993082,
+     0.9394364870549317,
+     0.9185047834923388,
+     0.899840933239086,
+     0.8367119716376898,
+     0.5083217958736446
+    ],
+    "RGE_greedy_removal_order": [
+     "job",
+     "purpose",
+     "residence_since",
+     "personal_status",
+     "housing",
+     "other_payment_plans",
+     "num_dependents",
+     "age",
+     "own_telephone",
+     "property_magnitude",
+     "existing_credits",
+     "foreign_worker",
+     "employment",
+     "duration",
+     "other_parties",
+     "installment_commitment",
+     "savings_status",
+     "credit_history",
+     "credit_amount",
+     "checking_status"
+    ],
+    "RGR_tail_swap": [
+     1.0,
+     0.8654215107558714,
+     0.7599889520392363,
+     0.6762021451229043,
+     0.5962994084846225,
+     0.5367765397725648,
+     0.46126282962078446,
+     0.4043489023126045,
+     0.3303003473939883,
+     0.2726718428312855,
+     0.24758385328048926,
+     0.22710673433990175,
+     0.21699096482406266,
+     0.20570654640669878,
+     0.1955267644694168,
+     0.17827302838319453,
+     0.1740123698596553,
+     0.16712330800822078,
+     0.16334695562812612,
+     0.15882980371993993,
+     0.15972073579421459
+    ],
+    "RGR_tail_swap_p_grid": [
+     0.0,
+     0.025,
+     0.05,
+     0.075,
+     0.1,
+     0.125,
+     0.15,
+     0.175,
+     0.2,
+     0.225,
+     0.25,
+     0.275,
+     0.3,
+     0.325,
+     0.35,
+     0.375,
+     0.4,
+     0.425,
+     0.45,
+     0.475,
+     0.5
+    ],
+    "RGR_scaled_gaussian_noise": [
+     1.0,
+     0.9994549244054691,
+     0.998180969297088,
+     0.9950283186187214,
+     0.9923073272082901,
+     0.9887428912170229,
+     0.9819571745995809,
+     0.9767349701522877,
+     0.9672989518349326,
+     0.9591602398753927,
+     0.9592483292967109,
+     0.9464651933675001,
+     0.9350362376307833,
+     0.9214386995093986,
+     0.9055389751652236,
+     0.9163448603933757,
+     0.8757577886585968,
+     0.923267613691644,
+     0.8738887926348072,
+     0.831893408143585,
+     0.8752453545228525
+    ]
+   },
+   "timings_s": {
+    "point_curves": 0.09072446823120117,
+    "precompute": 0.022211790084838867,
+    "paired_bootstrap": 15.49555253982544,
+    "independent_stream_bootstrap": 11.122408866882324,
+    "conditioning_check": 26.605992555618286
+   }
+  },
+  "rf": {
+   "continuity_with_deposit": {
+    "rga_anchor_curve": 0.8272108843537415,
+    "rga_score_scalar": 0.8272108843537415,
+    "deposited_point_RGA": 0.8272108843537415,
+    "abs_gap_anchor_vs_scalar": 0.0,
+    "abs_gap_anchor_vs_deposited": 0.0
+   },
+   "factorisation_check": {
+    "arithmetic": {
+     "V_brute_force_triple_sum": 0.6720864931182537,
+     "V_vectorised_tensor": 0.672086493118253,
+     "V_closed_form": 0.672086493118253,
+     "abs_residual_tensor_vs_brute_force": 7.771561172376096e-16,
+     "abs_residual_closed_form_vs_brute_force": 7.771561172376096e-16,
+     "abs_residual_closed_form_vs_tensor": 0.0,
+     "brute_force_seconds": 0.005294084548950195
+    },
+    "geometric": {
+     "V_brute_force_triple_sum": 0.6007333530656137,
+     "V_vectorised_tensor": 0.6007333530656128,
+     "V_closed_form": 0.6007333530656127,
+     "abs_residual_tensor_vs_brute_force": 8.881784197001252e-16,
+     "abs_residual_closed_form_vs_brute_force": 9.992007221626409e-16,
+     "abs_residual_closed_form_vs_tensor": 1.1102230246251565e-16,
+     "brute_force_seconds": 0.006825685501098633
+    },
+    "rms": {
+     "V_brute_force_triple_sum": 0.7210700735299812,
+     "V_vectorised_tensor": 0.7210700735299823,
+     "V_closed_form": null,
+     "abs_residual_tensor_vs_brute_force": 1.1102230246251565e-15,
+     "abs_residual_closed_form_vs_brute_force": null,
+     "abs_residual_closed_form_vs_tensor": null,
+     "brute_force_seconds": 0.005343437194824219
+    }
+   },
+   "rms_gradient_euler_identity": {
+    "sum_of_projections": 0.7210700735299823,
+    "V_rms": 0.7210700735299823,
+    "abs_gap": 0.0
+   },
+   "fast_path_vs_package_max_abs_gap": {
+    "RGA": 0.0,
+    "RGE": 2.220446049250313e-16,
+    "RGR": 0.0
+   },
+   "scoring_convention": {
+    "rge_max_abs_gap_vs_package_curve_with_class_order": 2.220446049250313e-16,
+    "rge_max_abs_gap_vs_package_curve_without_class_order": 0.011555958842178637,
+    "rgr_tail_swap_matrix_convention_last": 0.2723442909655204,
+    "rgr_tail_swap_vector_convention_last": 0.27005253918926075,
+    "rgr_tail_swap_max_abs_gap_between_conventions": 0.02334149391362439,
+    "V_under_vector_convention": {
+     "arithmetic": 0.6735376787342922,
+     "geometric": 0.6017361289442779,
+     "rms": 0.7226558433209842
+    },
+    "RGE_bare_vector_curve": [
+     1.0,
+     0.9999439054535124,
+     0.9987419540596112,
+     0.997284042777292,
+     0.9957231594290341,
+     0.9938194619803097,
+     0.9915400821338131,
+     0.9898777406513135,
+     0.9864006629165123,
+     0.982858038034484,
+     0.9791053324781496,
+     0.9707235196496424,
+     0.9623628310280501,
+     0.953723972695252,
+     0.9432853279797421,
+     0.9267899103963139,
+     0.9145272349751448,
+     0.8988793703895113,
+     0.8734799455630975,
+     0.8053485762351285,
+     0.5060620465641461
+    ],
+    "RGR_tail_swap_bare_vector_curve": [
+     1.0,
+     0.9222697353694954,
+     0.8522055661800018,
+     0.7869328046595694,
+     0.7091347771711373,
+     0.6430233040799189,
+     0.585646762207952,
+     0.5409454643841223,
+     0.470433072570138,
+     0.4134222399267413,
+     0.37451220858166456,
+     0.3532939171555812,
+     0.33802227365723414,
+     0.32671008046821526,
+     0.30478880746089754,
+     0.2880721021549194,
+     0.284916019124142,
+     0.2773230273098942,
+     0.27469816792061796,
+     0.2692078410811647,
+     0.27005253918926075
+    ]
+   },
+   "curve_summaries": {
+    "mean_of_curve": {
+     "point": [
+      0.594132663534175,
+      0.9365096884284537,
+      0.48561712739213
+     ],
+     "bootstrap_sd": [
+      0.038937148249104804,
+      0.0030669249000602225,
+      0.01797811343356513
+     ],
+     "ci95_percentile": [
+      [
+       0.5210992541509876,
+       0.6727044010703161
+      ],
+      [
+       0.9302661666356806,
+       0.9422396686194527
+      ],
+      [
+       0.4505291137902659,
+       0.5219888580584665
+      ]
+     ],
+     "Corr": [
+      [
+       1.0,
+       0.15737253188805297,
+       -0.08004214446987298
+      ],
+      [
+       0.15737253188805297,
+       1.0,
+       -0.3101587442491882
+      ],
+      [
+       -0.08004214446987298,
+       -0.3101587442491882,
+       1.0
+      ]
+     ]
+    },
+    "mean_of_cube_root_of_curve": {
+     "point": [
+      0.8000982297037441,
+      0.9764877235328814,
+      0.7689031635035357
+     ],
+     "bootstrap_sd": [
+      0.01985000215686838,
+      0.0011012043994489298,
+      0.0115251432272823
+     ],
+     "ci95_percentile": [
+      [
+       0.758189418833966,
+       0.8357199815139386
+      ],
+      [
+       0.9742082244814226,
+       0.9784950494491393
+      ],
+      [
+       0.7455989780375893,
+       0.7915018576101912
+      ]
+     ],
+     "Corr": [
+      [
+       0.9999999999999998,
+       0.13138951406175806,
+       -0.06073126106552522
+      ],
+      [
+       0.13138951406175806,
+       1.0,
+       -0.34914045069755884
+      ],
+      [
+       -0.06073126106552522,
+       -0.3491404506975589,
+       1.0
+      ]
+     ]
+    },
+    "per_severity_index_correlation": {
+     "RGA_RGE": [
+      null,
+      -0.07622035178879118,
+      0.024830717833698432,
+      0.05212545206803367,
+      0.034529533700500305,
+      0.09634333234635017,
+      0.07470536791551861,
+      0.09214605674049674,
+      0.12943684107544293,
+      0.1493495608950151,
+      0.13020665083423277,
+      0.11125758237278123,
+      0.07488946622198428,
+      0.06018458675136062,
+      0.010728414937154072,
+      0.09954575840888862,
+      0.12350296853913419,
+      0.012648594079378078,
+      -0.05630514865232757,
+      -0.05759524135147801,
+      null
+     ],
+     "RGA_RGR": [
+      null,
+      -0.01257775333585495,
+      -0.01863770081021865,
+      -0.029389820368466237,
+      -0.03155637990179682,
+      -0.03703680845183836,
+      -0.05850206747722017,
+      -0.0580386331898938,
+      -0.042338032774949116,
+      -0.06455157786775435,
+      -0.08194880635398218,
+      -0.08226236553818654,
+      -0.10450355197772772,
+      -0.12439935421241259,
+      -0.046115854418953134,
+      -0.035486507227846326,
+      0.008451113379557437,
+      0.0586204878745517,
+      0.0425077226293515,
+      0.05271919657740781,
+      null
+     ],
+     "RGE_RGR": [
+      null,
+      0.028031632505031174,
+      0.04338712478926495,
+      -0.007417681597296186,
+      0.004402353270967017,
+      -0.03365641149230411,
+      -0.024064542375642903,
+      -0.09477025102873299,
+      -0.14321806940511775,
+      -0.19263819939959553,
+      -0.1592345646878431,
+      -0.11469182142267968,
+      -0.1733236566868172,
+      -0.20282714430120038,
+      -0.21265085989743748,
+      -0.29709324253188785,
+      -0.304130468658663,
+      -0.25357083302266165,
+      -0.5088458989024064,
+      -0.36669209159539895,
+      -0.034740893694655724
+     ]
+    },
+    "mean_per_index_correlation": {
+     "RGA_RGE": 0.0571742180488091,
+     "RGA_RGR": -0.03500245754980171,
+     "RGE_RGR": -0.1523872760067539
+    }
+   },
+   "last_rga_knot": {
+    "point_value": 0.0,
+    "max_abs_over_replicates": 4.440892098500626e-16,
+    "note": "the accumulated partial RGA curve ends at zero by construction, so this coordinate carries no sampling variation"
+   },
+   "arms": {
+    "arithmetic": {
+     "description": "Compliance Score, arithmetic mean variant (article eq. 13 and 17); closed form (mean RGA + mean RGE + mean RGR)/3",
+     "V_point": 0.672086493118253,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6463140722882964,
+       0.700129106778225
+      ],
+      "width": 0.05381503448992864,
+      "sd": 0.013904602374205342,
+      "mean": 0.6731760060862355
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6443022523648533,
+       0.7016078022754317
+      ],
+      "width": 0.05730554991057846,
+      "sd": 0.014473199263750625,
+      "mean": 0.6738512701615736
+     },
+     "empirical_understatement_of_width_pct": -6.48613431865972,
+     "empirical_understatement_mc_se_pct": 3.467705023267544,
+     "plugin_minus_bootstrap_mean": -0.0010895129679825422,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.594132663534175,
+       0.9365096884284537,
+       0.48561712739213
+      ],
+      "gradient_at_point": [
+       0.3333333333333333,
+       0.3333333333333333,
+       0.3333333333333333
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0015161015137727636,
+        1.879300434767014e-05,
+        -5.603081926310211e-05
+       ],
+       [
+        1.879300434767014e-05,
+        9.406028342609395e-06,
+        -1.710138512591657e-05
+       ],
+       [
+        -5.603081926310211e-05,
+        -1.710138512591657e-05,
+        0.00032321256263013494
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.15737253188805297,
+        -0.08004214446987298
+       ],
+       [
+        0.15737253188805297,
+        1.0,
+        -0.3101587442491882
+       ],
+       [
+        -0.08004214446987298,
+        -0.3101587442491882,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00019333796718475673,
+      "var_cross_terms_declared_zero": 0.00020541334497172308,
+      "cross_covariance_share_of_variance_pct": -6.245735363208271,
+      "ci95_delta_measured_covariance": [
+       0.6448339732454604,
+       0.6993390129910455
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6439958023839562,
+       0.7001771838525498
+      ],
+      "width_delta_measured": 0.05450503974558518,
+      "width_delta_declared_zero": 0.0561813814685937,
+      "understatement_of_width_pct": -3.075571966983648,
+      "understatement_factor": 0.9701619704039207,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.33333333333333,
+        "RGE": 33.33333333333333,
+        "RGR": 33.33333333333333
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.0001684557237525293,
+        "RGE": 1.0451142602899328e-06,
+        "RGR": 3.591250695890388e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 87.13018255309905,
+        "RGE": 0.5405633851995586,
+        "RGR": 18.57498942490966
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 4.1762231883711425e-06,
+        "RGA_RGR": -1.2451293169578247e-05,
+        "RGE_RGR": -3.800307805759238e-06
+       },
+       "cross_total": -1.2075377786966343e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -34.58461724384957,
+        "RGA_RGR": 103.11307347267969,
+        "RGE_RGR": 31.471543771169888
+       }
+      },
+      "cross_share_mc_se_pct": 1.8449135763299964,
+      "understatement_mc_se_pct": 0.8945738566549315
+     }
+    },
+    "geometric": {
+     "description": "Compliance Score, geometric mean variant (article eq. 14 and 17); closed form mean(RGA^1/3) * mean(RGE^1/3) * mean(RGR^1/3)",
+     "V_point": 0.6007333530656127,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5666085995284205,
+       0.63248314126607
+      ],
+      "width": 0.0658745417376495,
+      "sd": 0.016902233524775954,
+      "mean": 0.5997552172851706
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5644121782496246,
+       0.6337156518781621
+      ],
+      "width": 0.0693034736285375,
+      "sd": 0.017690492238900176,
+      "mean": 0.6006539910453903
+     },
+     "empirical_understatement_of_width_pct": -5.205245912061129,
+     "empirical_understatement_mc_se_pct": 3.0725907909071095,
+     "plugin_minus_bootstrap_mean": 0.0009781357804421464,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.8000982297037441,
+       0.9764877235328814,
+       0.7689031635035357
+      ],
+      "gradient_at_point": [
+       0.7508244997467984,
+       0.6151980599327874,
+       0.7812860989260975
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0003940225856276792,
+        2.8720315239565525e-06,
+        -1.3893740680420838e-05
+       ],
+       [
+        2.8720315239565525e-06,
+        1.2126511293656786e-06,
+        -4.431129446155694e-06
+       ],
+       [
+        -1.3893740680420838e-05,
+        -4.431129446155694e-06,
+        0.00013282892640937102
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999998,
+        0.13138951406175806,
+        -0.06073126106552522
+       ],
+       [
+        0.13138951406175806,
+        1.0,
+        -0.34914045069755884
+       ],
+       [
+        -0.06073126106552522,
+        -0.3491404506975589,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00028575729489135616,
+      "var_cross_terms_declared_zero": 0.0003036640651056027,
+      "cross_covariance_share_of_variance_pct": -6.266426276555648,
+      "ci95_delta_measured_covariance": [
+       0.5676014216242057,
+       0.6338652845070197
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.5665791000152567,
+       0.6348876061159687
+      ],
+      "width_delta_measured": 0.06626386288281395,
+      "width_delta_declared_zero": 0.06830850610071201,
+      "understatement_of_width_pct": -3.0856082470078094,
+      "understatement_factor": 0.9700675167030662,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 34.96583952836724,
+        "RGE": 28.649726599261015,
+        "RGR": 36.38443387237174
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.0002221252795551816,
+        "RGE": 4.5895043942334074e-07,
+        "RGR": 8.107983511099777e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 77.73214665950445,
+        "RGE": 0.1606084770636676,
+        "RGR": 28.373671139987522
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 2.653215897208494e-06,
+        "RGA_RGR": -1.6300379550713676e-05,
+        "RGE_RGR": -4.259606560741333e-06
+       },
+       "cross_total": -1.7906770214246515e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -14.816831094965478,
+        "RGA_RGR": 91.02914347862239,
+        "RGE_RGR": 23.787687616343103
+       }
+      },
+      "cross_share_mc_se_pct": 2.0955664882608485,
+      "understatement_mc_se_pct": 1.0157763665475874
+     }
+    },
+    "rms": {
+     "description": "Compliance Score, root mean square variant (article eq. 15 and 17); no closed form, evaluated as the full L^3 tensor",
+     "V_point": 0.7210700735299823,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.7008217406341211,
+       0.7461523521005561
+      ],
+      "width": 0.04533061146643502,
+      "sd": 0.011708361802949147,
+      "mean": 0.7230570398894831
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6998030644662034,
+       0.7473358864909937
+      ],
+      "width": 0.047532822024790256,
+      "sd": 0.012017094134269065,
+      "mean": 0.7235249294409832
+     },
+     "empirical_understatement_of_width_pct": -4.858109094746843,
+     "empirical_understatement_mc_se_pct": 3.0306268065584274,
+     "plugin_minus_bootstrap_mean": -0.001986966359500797,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.18373240769767135,
+       0.4121669986255538,
+       0.12517066720675718
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.00012572443710547645,
+        2.496382844046792e-06,
+        -3.3945127513044288e-06
+       ],
+       [
+        2.496382844046792e-06,
+        1.7509197567743454e-06,
+        -1.1611643428866767e-06
+       ],
+       [
+        -3.3945127513044288e-06,
+        -1.1611643428866767e-06,
+        1.305033517039804e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.16825509253682575,
+        -0.08380245887723695
+       ],
+       [
+        0.16825509253682575,
+        1.0,
+        -0.2429124288951169
+       ],
+       [
+        -0.08380245887723696,
+        -0.24291242889511694,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.0001364071035323602,
+      "var_cross_terms_declared_zero": 0.00014052569203264884,
+      "cross_covariance_share_of_variance_pct": -3.0193357923706365,
+      "ci95_delta_measured_covariance": [
+       0.6981789776394461,
+       0.7439611694205185
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6978359680125976,
+       0.744304179047367
+      ],
+      "width_delta_measured": 0.04578219178107234,
+      "width_delta_declared_zero": 0.046468211034769356,
+      "understatement_of_width_pct": -1.4984412650611345,
+      "understatement_factor": 0.9852368051530171,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.00012572443710547645,
+        "RGE": 1.7509197567743454e-06,
+        "RGR": 1.305033517039804e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 92.1685409701926,
+        "RGE": 1.2835986627037865,
+        "RGR": 9.567196159474257
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 4.992765688093584e-06,
+        "RGA_RGR": -6.7890255026088576e-06,
+        "RGE_RGR": -2.3223286857733533e-06
+       },
+       "cross_total": -4.1185885002886265e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -121.22516458596668,
+        "RGA_RGR": 164.83864562174855,
+        "RGE_RGR": 56.386518964218126
+       }
+      },
+      "cross_share_mc_se_pct": 1.3922350223927118,
+      "understatement_mc_se_pct": 0.6857034285424426
+     }
+    },
+    "topsis": {
+     "description": "TOPSIS closeness coefficient with the hand-built ideal and anti-ideal vectors of the Kolesnikov MSc thesis sec. 3.2.3, equal weights; brought forward from unpublished work, absent from the article",
+     "V_point": 0.41532617132801286,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.39389813273322266,
+       0.43806860550214166
+      ],
+      "width": 0.044170472768919,
+      "sd": 0.01150300312428052,
+      "mean": 0.41648351208707524
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.3917564660188736,
+       0.4392642021655274
+      ],
+      "width": 0.04750773614665382,
+      "sd": 0.012007567310925876,
+      "mean": 0.4170552514158875
+     },
+     "empirical_understatement_of_width_pct": -7.555416930205738,
+     "empirical_understatement_mc_se_pct": 3.1851694885346924,
+     "plugin_minus_bootstrap_mean": -0.0011573407590623752,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.17547613690666866,
+       -0.0871045524996941,
+       0.11860407535156094
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.000122477124842681,
+        -3.216286426336404e-07,
+        -4.125689990972938e-06
+       ],
+       [
+        -3.216286426336404e-07,
+        3.229887372292102e-08,
+        2.1144929717594653e-07
+       ],
+       [
+        -4.125689990972938e-06,
+        2.1144929717594653e-07,
+        2.0028255637283235e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        -0.16170875640481908,
+        -0.08330048636276834
+       ],
+       [
+        -0.16170875640481908,
+        1.0,
+        0.2629002467228877
+       ],
+       [
+        -0.08330048636276834,
+        0.2629002467228877,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00013406594068082588,
+      "var_cross_terms_declared_zero": 0.00014253767935368716,
+      "cross_covariance_share_of_variance_pct": -6.319083452396135,
+      "ci95_delta_measured_covariance": [
+       0.3926323662177407,
+       0.438019976438285
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.391926328900456,
+       0.43872601375556974
+      ],
+      "width_delta_measured": 0.04538761022054428,
+      "width_delta_declared_zero": 0.04679968485511382,
+      "understatement_of_width_pct": -3.1111455917332664,
+      "understatement_factor": 0.9698272618941526,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.000122477124842681,
+        "RGE": 3.229887372292102e-08,
+        "RGR": 2.0028255637283235e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 91.35588369477475,
+        "RGE": 0.02409178167019747,
+        "RGR": 14.939107975951178
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": -6.432572852672808e-07,
+        "RGA_RGR": -8.251379981945876e-06,
+        "RGE_RGR": 4.2289859435189305e-07
+       },
+       "cross_total": -8.471738672861263e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 7.592978373234284,
+        "RGA_RGR": 97.39889650254092,
+        "RGE_RGR": -4.991874875775204
+       }
+      },
+      "cross_share_mc_se_pct": 1.725408234425029,
+      "understatement_mc_se_pct": 0.8365579392481453
+     }
+    },
+    "arithmetic_weighted_SENSITIVITY": {
+     "description": "SENSITIVITY CHECK ONLY, and a declared departure from the authors' stated position that they do not assign weights: arithmetic variant with w = (0.50, 0.20, 0.30)",
+     "V_point": 0.6300534076704173,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5933155796834508,
+       0.6698216926909722
+      ],
+      "width": 0.07650611300752141,
+      "sd": 0.019834009657381454,
+      "mean": 0.6317754301152065
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5898903542650676,
+       0.6716084105910941
+      ],
+      "width": 0.08171805632602647,
+      "sd": 0.020437736665082286,
+      "mean": 0.6326895843669489
+     },
+     "empirical_understatement_of_width_pct": -6.812453428385079,
+     "empirical_understatement_mc_se_pct": 2.782794833234162,
+     "plugin_minus_bootstrap_mean": -0.0017220224447892507,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.594132663534175,
+       0.9365096884284537,
+       0.48561712739213
+      ],
+      "gradient_at_point": [
+       0.5,
+       0.2,
+       0.3
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0015161015137727636,
+        1.879300434767014e-05,
+        -5.603081926310211e-05
+       ],
+       [
+        1.879300434767014e-05,
+        9.406028342609395e-06,
+        -1.710138512591657e-05
+       ],
+       [
+        -5.603081926310211e-05,
+        -1.710138512591657e-05,
+        0.00032321256263013494
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.15737253188805297,
+        -0.08004214446987298
+       ],
+       [
+        0.15737253188805297,
+        1.0,
+        -0.3101587442491882
+       ],
+       [
+        -0.08004214446987298,
+        -0.3101587442491882,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00039338793908910084,
+      "var_cross_terms_declared_zero": 0.00040849075021360745,
+      "cross_covariance_share_of_variance_pct": -3.839164759213909,
+      "ci95_delta_measured_covariance": [
+       0.59117946307293,
+       0.6689273522679046
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.5904402735406867,
+       0.6696665418001478
+      ],
+      "width_delta_measured": 0.07774788919497454,
+      "width_delta_declared_zero": 0.0792262682594611,
+      "understatement_of_width_pct": -1.9015037961726655,
+      "understatement_factor": 0.9813397867024992,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 50.0,
+        "RGE": 20.0,
+        "RGR": 30.0
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.0003790253784431909,
+        "RGE": 3.762411337043759e-07,
+        "RGR": 2.9089130636712143e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 96.34900839126722,
+        "RGE": 0.09564124781648649,
+        "RGR": 7.3945151201302
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 3.7586008695340284e-06,
+        "RGA_RGR": -1.6809245778930632e-05,
+        "RGE_RGR": -2.0521662151099885e-06
+       },
+       "cross_total": -1.5102811124506593e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -24.886763388274986,
+        "RGA_RGR": 111.29878828753337,
+        "RGE_RGR": 13.5879751007416
+       }
+      },
+      "cross_share_mc_se_pct": 1.189838538403627,
+      "understatement_mc_se_pct": 0.5837400550153176
+     }
+    },
+    "arithmetic_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.672086493118253,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6463140722882964,
+       0.700129106778225
+      ],
+      "width": 0.05381503448992864,
+      "sd": 0.013904602374205339,
+      "mean": 0.6731760060862355
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6443022523648534,
+       0.7016078022754318
+      ],
+      "width": 0.05730554991057846,
+      "sd": 0.014473199263750623,
+      "mean": 0.6738512701615736
+     },
+     "empirical_understatement_of_width_pct": -6.48613431865972,
+     "empirical_understatement_mc_se_pct": 3.4677050232675195,
+     "plugin_minus_bootstrap_mean": -0.0010895129679825422,
+     "delta_method": null
+    },
+    "geometric_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.6226940505914411,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5906078274409524,
+       0.6528636513169886
+      ],
+      "width": 0.06225582387603623,
+      "sd": 0.016085798825256077,
+      "mean": 0.6221414940875728
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5887597546031199,
+       0.654578246146293
+      ],
+      "width": 0.0658184915431731,
+      "sd": 0.016813099309866353,
+      "mean": 0.6230350527856277
+     },
+     "empirical_understatement_of_width_pct": -5.722625523727465,
+     "empirical_understatement_mc_se_pct": 2.6593542407937267,
+     "plugin_minus_bootstrap_mean": 0.0005525565038683178,
+     "delta_method": null
+    },
+    "rms_diagonal": {
+     "description": "matched-severity diagonal reading, i = j = k only",
+     "V_point": 0.711908309926694,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.691811789887986,
+       0.7367598830323463
+      ],
+      "width": 0.044948093144360324,
+      "sd": 0.01159147455657166,
+      "mean": 0.7138546650825937
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6908547571536033,
+       0.7381365237336677
+      ],
+      "width": 0.04728176658006433,
+      "sd": 0.011901395521955141,
+      "mean": 0.714309637594443
+     },
+     "empirical_understatement_of_width_pct": -5.191929784894156,
+     "empirical_understatement_mc_se_pct": 2.978875796115991,
+     "plugin_minus_bootstrap_mean": -0.0019463551558996928,
+     "delta_method": null
+    }
+   },
+   "product_space_vs_diagonal": {
+    "arithmetic": {
+     "V_product_space": 0.672086493118253,
+     "V_diagonal": 0.672086493118253,
+     "diagonal_minus_product_space": 0.0,
+     "ci95_of_difference_paired_bootstrap": [
+      -2.220446049250313e-16,
+      2.220446049250313e-16
+     ],
+     "difference_excludes_zero": false,
+     "sd_of_difference": 1.070222529175059e-16,
+     "ratio_of_difference_to_composite_ci_width": 0.0
+    },
+    "geometric": {
+     "V_product_space": 0.6007333530656127,
+     "V_diagonal": 0.6226940505914411,
+     "diagonal_minus_product_space": 0.02196069752582841,
+     "ci95_of_difference_paired_bootstrap": [
+      0.019489587753885644,
+      0.025896183687457233
+     ],
+     "difference_excludes_zero": true,
+     "sd_of_difference": 0.0016156801922690615,
+     "ratio_of_difference_to_composite_ci_width": 0.3333715415173376
+    },
+    "rms": {
+     "V_product_space": 0.7210700735299823,
+     "V_diagonal": 0.711908309926694,
+     "diagonal_minus_product_space": -0.009161763603288353,
+     "ci95_of_difference_paired_bootstrap": [
+      -0.01007763943608411,
+      -0.008339882165457025
+     ],
+     "difference_excludes_zero": true,
+     "sd_of_difference": 0.00043445196963791047,
+     "ratio_of_difference_to_composite_ci_width": 0.20210986145801643
+    }
+   },
+   "ordering_check": {
+    "point": {
+     "geometric": 0.6007333530656127,
+     "arithmetic": 0.672086493118253,
+     "rms": 0.7210700735299823
+    },
+    "point_ordering_holds": true,
+    "replicates_satisfying_geometric_le_arithmetic": 2000,
+    "replicates_satisfying_arithmetic_le_rms": 2000,
+    "replicates_total": 2000
+   },
+   "sensitivities": {
+    "anchor_dropped_L20": {
+     "arithmetic": {
+      "V_point": 0.6585706363682698,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.6321391231026631,
+        0.6874502048414395
+       ],
+       "width": 0.05531108173877641,
+       "sd": 0.01424177277381654,
+       "mean": 0.6597197892587638
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.6298885899225337,
+        0.6891186418530136
+       ],
+       "width": 0.05923005193047992,
+       "sd": 0.014824691886605765,
+       "mean": 0.6604221756689148
+      },
+      "empirical_understatement_of_width_pct": -7.085325523395203,
+      "shift_from_primary": -0.013515856749983124
+     },
+     "geometric": {
+      "V_point": 0.5858734799880672,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.5506380237313971,
+        0.6183749982729929
+       ],
+       "width": 0.06773697454159577,
+       "sd": 0.017244235815652063,
+       "mean": 0.5848683290847961
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.5490670215300174,
+        0.6195263882760951
+       ],
+       "width": 0.07045936674607767,
+       "sd": 0.018039977834420632,
+       "mean": 0.5857945676106091
+      },
+      "empirical_understatement_of_width_pct": -4.01906377263741,
+      "shift_from_primary": -0.014859873077545549
+     },
+     "rms": {
+      "V_point": 0.7088827789784868,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.6882054394261607,
+        0.7347870185209627
+       ],
+       "width": 0.046581579094801984,
+       "sd": 0.011998016484730973,
+       "mean": 0.7109878573700991
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.6868524181442085,
+        0.7359830000231155
+       ],
+       "width": 0.049130581878906954,
+       "sd": 0.012315738214661897,
+       "mean": 0.7114764813557936
+      },
+      "empirical_understatement_of_width_pct": -5.4721261787138875,
+      "shift_from_primary": -0.012187294551495476
+     }
+    },
+    "terminal_knot_dropped_L20": {
+     "arithmetic": {
+      "V_point": 0.6927219335845347,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.6658679197984311,
+        0.7220070978841128
+       ],
+       "width": 0.056139178085681696,
+       "sd": 0.014518566429559567,
+       "mean": 0.6939509419398637
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.6637579902632386,
+        0.7234615435466423
+       ],
+       "width": 0.05970355328340371,
+       "sd": 0.015071871456074967,
+       "mean": 0.6946572606490171
+      },
+      "empirical_understatement_of_width_pct": -6.349175957442643,
+      "shift_from_primary": 0.02063544046628174
+     },
+     "geometric": {
+      "V_point": 0.6415718032029296,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.6053252373810337,
+        0.6747648206805423
+       ],
+       "width": 0.06943958329950861,
+       "sd": 0.017969686239411805,
+       "mean": 0.6406217625713414
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.603252130133647,
+        0.676412692578822
+       ],
+       "width": 0.07316056244517499,
+       "sd": 0.018776318201790904,
+       "mean": 0.6415912298304078
+      },
+      "empirical_understatement_of_width_pct": -5.358585073324762,
+      "shift_from_primary": 0.040838450137316906
+     },
+     "rms": {
+      "V_point": 0.7368012071221035,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.7159113650507113,
+        0.7626059086015977
+       ],
+       "width": 0.046694543550886425,
+       "sd": 0.012062653369889157,
+       "mean": 0.7389291130989593
+      },
+      "independent_stream_bootstrap": {
+       "ci95_percentile": [
+        0.7150693653221178,
+        0.7637456800120864
+       ],
+       "width": 0.04867631468996858,
+       "sd": 0.012353948769841295,
+       "mean": 0.739408702717991
+      },
+      "empirical_understatement_of_width_pct": -4.244117167399808,
+      "shift_from_primary": 0.015731133592121194
+     }
+    },
+    "length20_truncation_ambiguity": {
+     "arithmetic": {
+      "V_anchor_dropped": 0.6585706363682698,
+      "V_terminal_knot_dropped": 0.6927219335845347,
+      "spread_between_the_two_readings": 0.034151297216264864,
+      "spread_as_fraction_of_primary_ci_width": 0.6346051347910258,
+      "shifts_have_opposite_signs": true
+     },
+     "geometric": {
+      "V_anchor_dropped": 0.5858734799880672,
+      "V_terminal_knot_dropped": 0.6415718032029296,
+      "spread_between_the_two_readings": 0.055698323214862455,
+      "spread_as_fraction_of_primary_ci_width": 0.8455212248259026,
+      "shifts_have_opposite_signs": true
+     },
+     "rms": {
+      "V_anchor_dropped": 0.7088827789784868,
+      "V_terminal_knot_dropped": 0.7368012071221035,
+      "spread_between_the_two_readings": 0.02791842814361667,
+      "spread_as_fraction_of_primary_ci_width": 0.6158846580811914,
+      "shifts_have_opposite_signs": true
+     }
+    },
+    "rgr_scaled_gaussian_noise": {
+     "note": "RGR rebuilt as a sweep of Gaussian noise at sigma_t = (t/d) column standard deviations, scored with the package rgr_score; the deposited fixed draw sits at t = 10, sigma = 0.5 column sd",
+     "curve_point": [
+      1.0,
+      0.9974496021394835,
+      0.9919905331358115,
+      0.9899382792931071,
+      0.97965101692993,
+      0.9743114562098643,
+      0.9555065802478118,
+      0.94826826911694,
+      0.9345704914014943,
+      0.9195307794957086,
+      0.9193873068289786,
+      0.905465415012446,
+      0.8768163638720723,
+      0.8797796977329232,
+      0.8795379363752012,
+      0.8816812618731649,
+      0.8569444435499558,
+      0.8720822741689752,
+      0.8495596077421526,
+      0.7958914208948906,
+      0.8205092134546264
+     ],
+     "arms": {
+      "arithmetic": {
+       "V_point": 0.815434306995091,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.7891337061581313,
+         0.8424191688925516
+        ],
+        "width": 0.053285462734420364,
+        "sd": 0.013711298656952012,
+        "mean": 0.8166481350597876
+       },
+       "shift_from_primary": 0.14334781387683804
+      },
+      "geometric": {
+       "V_point": 0.7583149295187805,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.7170944317027645,
+         0.7928396227047495
+        ],
+        "width": 0.07574519100198496,
+        "sd": 0.019285601788346866,
+        "mean": 0.7576952074907439
+       },
+       "shift_from_primary": 0.15758157645316784
+      },
+      "rms": {
+       "V_point": 0.8423392920817706,
+       "paired_bootstrap": {
+        "ci95_percentile": [
+         0.823031845664129,
+         0.8641884123250033
+        ],
+        "width": 0.041156566660874305,
+        "sd": 0.010518589398153994,
+        "mean": 0.8440278368499482
+       },
+       "shift_from_primary": 0.1212692185517883
+      }
+     }
+    },
+    "topsis_literal_thesis_length_L20": {
+     "note": "the thesis reference vectors are length 20 on a 20-predictor dataset and they keep the anchor, so the literal reading drops the last knot of each curve; the worst-case RGE is then exactly the printed [1.0, 0.9737, 0.9474, ..., 0.5]",
+     "Ci_point": 0.42356101297927284,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.40180056560813415,
+       0.44657102794274356
+      ],
+      "width": 0.04477046233460941,
+      "sd": 0.011670877741102868,
+      "mean": 0.4246902792538816
+     },
+     "shift_from_primary": 0.008234841651259983,
+     "Ci_point_anchor_dropped_instead": 0.4057632128732303,
+     "paired_bootstrap_anchor_dropped_instead": {
+      "ci95_percentile": [
+       0.383417585900905,
+       0.42983655567754053
+      ],
+      "width": 0.04641896977663551,
+      "sd": 0.01216268760460066,
+      "mean": 0.407072657602018
+     },
+     "shift_from_primary_anchor_dropped_instead": -0.009562958454782555,
+     "spread_between_the_two_length20_readings": 0.01779780010604254,
+     "spread_as_fraction_of_primary_ci_width": 0.40293433577568905
+    }
+   },
+   "conditioning_check": {
+    "B_full": 30,
+    "gross_check_only": true,
+    "seconds": 787.1392109394073,
+    "seconds_per_replicate": 26.237973697980244,
+    "arms": {
+     "arithmetic": {
+      "mean_frozen": 0.6671580542166861,
+      "mean_full": 0.6668496940236974,
+      "sd_frozen": 0.01277558063257268,
+      "sd_full": 0.013080665612385191,
+      "max_abs_paired_difference": 0.01149727245293497,
+      "mean_abs_paired_difference": 0.004944009928776453,
+      "sd_ratio_full_over_frozen": 1.0238803220445938,
+      "sd_ratio_mc_band_95": [
+       0.8104776029415335,
+       1.2354702843452596
+      ]
+     },
+     "geometric": {
+      "mean_frozen": 0.5922195002756994,
+      "mean_full": 0.5918556601580688,
+      "sd_frozen": 0.015380912912149925,
+      "sd_full": 0.014928532094223032,
+      "max_abs_paired_difference": 0.017605022805444293,
+      "mean_abs_paired_difference": 0.007419272210377866,
+      "sd_ratio_full_over_frozen": 0.9705881685625083,
+      "sd_ratio_mc_band_95": [
+       0.7330197988271064,
+       1.2655854371960227
+      ]
+     },
+     "rms": {
+      "mean_frozen": 0.7184552075814955,
+      "mean_full": 0.7182964563147568,
+      "sd_frozen": 0.010766420011366797,
+      "sd_full": 0.011194776974565456,
+      "max_abs_paired_difference": 0.006617074942775636,
+      "mean_abs_paired_difference": 0.0028982588057873127,
+      "sd_ratio_full_over_frozen": 1.0397863879308458,
+      "sd_ratio_mc_band_95": [
+       0.8884788544221439,
+       1.1585607811501568
+      ]
+     }
+    }
+   },
+   "curves_point": {
+    "RGA_partial": [
+     0.8272108843537415,
+     0.8272108843537415,
+     0.8272108843537415,
+     0.8027893261007462,
+     0.8027893261007462,
+     0.7970326366608425,
+     0.7833226262842298,
+     0.7497039605947357,
+     0.7345063721854976,
+     0.6758638858121631,
+     0.6496069717335071,
+     0.6359979559084716,
+     0.600538852316268,
+     0.591373596760632,
+     0.5550004090100826,
+     0.470871947546227,
+     0.4300449000711206,
+     0.3439369453963508,
+     0.25022031369212927,
+     0.12155325498270309,
+     0.0
+    ],
+    "RGE_greedy_mean_baseline": [
+     1.0,
+     0.9999287246231607,
+     0.9987579036470113,
+     0.9974649142204044,
+     0.9960893651306708,
+     0.9944229013286454,
+     0.9924796116415523,
+     0.99056005528914,
+     0.9867132650632222,
+     0.9826840627055438,
+     0.9778186277995988,
+     0.9694623563281699,
+     0.9615968906810153,
+     0.9530708200399025,
+     0.9447830882290188,
+     0.9316289225900045,
+     0.9165699280992465,
+     0.8999734335924798,
+     0.8731172081834548,
+     0.7937926173929498,
+     0.5057887604123358
+    ],
+    "RGE_greedy_removal_order": [
+     "foreign_worker",
+     "housing",
+     "own_telephone",
+     "num_dependents",
+     "job",
+     "existing_credits",
+     "residence_since",
+     "installment_commitment",
+     "personal_status",
+     "other_parties",
+     "purpose",
+     "property_magnitude",
+     "employment",
+     "age",
+     "other_payment_plans",
+     "savings_status",
+     "credit_history",
+     "credit_amount",
+     "duration",
+     "checking_status"
+    ],
+    "RGR_tail_swap": [
+     1.0,
+     0.9161234702018481,
+     0.8358759863964702,
+     0.763591310745945,
+     0.6892741683734327,
+     0.6225798993388549,
+     0.5716203254143442,
+     0.5246626862543493,
+     0.4598523157461426,
+     0.4077866872803898,
+     0.37236538626961935,
+     0.35371065003264196,
+     0.3426369524616278,
+     0.3322481687820038,
+     0.3109225441031298,
+     0.2983027511616335,
+     0.2926616059681722,
+     0.2818804787314377,
+     0.27765740377760895,
+     0.27186259322955747,
+     0.2723442909655204
+    ],
+    "RGR_tail_swap_p_grid": [
+     0.0,
+     0.025,
+     0.05,
+     0.075,
+     0.1,
+     0.125,
+     0.15,
+     0.175,
+     0.2,
+     0.225,
+     0.25,
+     0.275,
+     0.3,
+     0.325,
+     0.35,
+     0.375,
+     0.4,
+     0.425,
+     0.45,
+     0.475,
+     0.5
+    ],
+    "RGR_scaled_gaussian_noise": [
+     1.0,
+     0.9974496021394835,
+     0.9919905331358115,
+     0.9899382792931071,
+     0.97965101692993,
+     0.9743114562098643,
+     0.9555065802478118,
+     0.94826826911694,
+     0.9345704914014943,
+     0.9195307794957086,
+     0.9193873068289786,
+     0.905465415012446,
+     0.8768163638720723,
+     0.8797796977329232,
+     0.8795379363752012,
+     0.8816812618731649,
+     0.8569444435499558,
+     0.8720822741689752,
+     0.8495596077421526,
+     0.7958914208948906,
+     0.8205092134546264
+    ]
+   },
+   "timings_s": {
+    "point_curves": 20.46071720123291,
+    "precompute": 7.74133038520813,
+    "paired_bootstrap": 15.722652196884155,
+    "independent_stream_bootstrap": 10.982755422592163,
+    "conditioning_check": 787.1392109394073
+   }
+  }
+ },
+ "topsis_column_normalisation_sensitivity": {
+  "note": "column norms are held fixed at the point-estimate decision matrix; resampling them as well would confound the normaliser's own sampling variation with the model's, and would need the joint covariance across models, which this study does not estimate",
+  "alternative_sets": {
+   "models_and_references": {
+    "n_alternatives": 4,
+    "min_column_norm": 0.8741929525680554,
+    "n_columns_with_norm_below_1e-12": 0,
+    "models": {
+     "logit": {
+      "Ci_normalised": 0.3619471572436432,
+      "Ci_unnormalised": 0.38025052230318834,
+      "shift": -0.018303365059545162,
+      "shift_as_fraction_of_ci_width": 0.3779773307282651,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.33696068671740886,
+        0.38972393551162055
+       ],
+       "width": 0.05276324879421168,
+       "sd": 0.013167982707313603,
+       "mean": 0.3636534121633894
+      }
+     },
+     "rf": {
+      "Ci_normalised": 0.4055058306017904,
+      "Ci_unnormalised": 0.41532617132801286,
+      "shift": -0.009820340726222454,
+      "shift_as_fraction_of_ci_width": 0.22232817786665476,
+      "paired_bootstrap": {
+       "ci95_percentile": [
+        0.38249589857900373,
+        0.43058263943572517
+       ],
+       "width": 0.04808674085672143,
+       "sd": 0.012503177039146328,
+       "mean": 0.4064790335900976
+      }
+     }
+    }
+   },
+   "models_only": {
+    "n_alternatives": 2,
+    "min_column_norm": 2.220446049250313e-16,
+    "n_columns_with_norm_below_1e-12": 1,
+    "models": {
+     "logit": {
+      "Ci_normalised": 9.360677853597512e-16,
+      "Ci_unnormalised": 0.38025052230318834,
+      "shift": -0.3802505223031874,
+      "shift_as_fraction_of_ci_width": 7.852440081952832
+     },
+     "rf": {
+      "Ci_normalised": 1.097538291459412e-15,
+      "Ci_unnormalised": 0.41532617132801286,
+      "shift": -0.41532617132801175,
+      "shift_as_fraction_of_ci_width": 9.402801131444086
+     }
+    }
+   },
+   "one_model_logit_and_references": {
+    "n_alternatives": 3,
+    "min_column_norm": 0.7130154613752827,
+    "n_columns_with_norm_below_1e-12": 0,
+    "models": {
+     "logit": {
+      "Ci_normalised": 0.36599436465874774,
+      "Ci_unnormalised": 0.38025052230318834,
+      "shift": -0.014256157644440604,
+      "shift_as_fraction_of_ci_width": 0.294399657951253
+     },
+     "rf": {
+      "Ci_normalised": 0.4052268990592664,
+      "Ci_unnormalised": 0.41532617132801286,
+      "shift": -0.010099272268746462,
+      "shift_as_fraction_of_ci_width": 0.2286430648270742
+     }
+    }
+   },
+   "one_model_rf_and_references": {
+    "n_alternatives": 3,
+    "min_column_norm": 0.7112118321284083,
+    "n_columns_with_norm_below_1e-12": 0,
+    "models": {
+     "logit": {
+      "Ci_normalised": 0.36333153856776723,
+      "Ci_unnormalised": 0.38025052230318834,
+      "shift": -0.01691898373542111,
+      "shift_as_fraction_of_ci_width": 0.34938888505720045
+     },
+     "rf": {
+      "Ci_normalised": 0.40118176146482415,
+      "Ci_unnormalised": 0.41532617132801286,
+      "shift": -0.014144409863188712,
+      "shift_as_fraction_of_ci_width": 0.32022319383326975
+     }
+    }
+   }
+  },
+  "comparison_set_dependence_of_the_shift": {
+   "logit": {
+    "models_and_references": -0.018303365059545162,
+    "one_model_logit_and_references": -0.014256157644440604,
+    "one_model_rf_and_references": -0.01691898373542111
+   },
+   "rf": {
+    "models_and_references": -0.009820340726222454,
+    "one_model_logit_and_references": -0.010099272268746462,
+    "one_model_rf_and_references": -0.014144409863188712
+   }
+  }
+ },
+ "published_table5_california_hmda": {
+  "note": "Giudici and Kolesnikov, Table 5, California HMDA. Reproduced here ONLY to check the ordering the power-mean inequality forces. Their data are California HMDA and ours are German credit, so no numerical agreement is claimed or expected.",
+  "rows": {
+   "LR": [
+    0.59695,
+    0.47965,
+    0.67482
+   ],
+   "RF": [
+    0.63218,
+    0.53011,
+    0.69337
+   ],
+   "XGB": [
+    0.62893,
+    0.53042,
+    0.68661
+   ],
+   "SEM": [
+    0.63151,
+    0.53229,
+    0.68968
+   ],
+   "VEM": [
+    0.63217,
+    0.53141,
+    0.69202
+   ],
+   "NN": [
+    0.62639,
+    0.52752,
+    0.68482
+   ],
+   "Random": [
+    0.76681,
+    0.61145,
+    0.84059
+   ]
+  },
+  "column_order": [
+   "arithmetic",
+   "geometric",
+   "rms"
+  ],
+  "ordering_holds_per_row": {
+   "LR": true,
+   "RF": true,
+   "XGB": true,
+   "SEM": true,
+   "VEM": true,
+   "NN": true,
+   "Random": true
+  },
+  "ordering_holds_everywhere": true,
+  "middle_five_model_spread_per_column": {
+   "models": [
+    "RF",
+    "XGB",
+    "SEM",
+    "VEM",
+    "NN"
+   ],
+   "per_column": {
+    "arithmetic": {
+     "min": 0.62639,
+     "max": 0.63218,
+     "spread": 0.005789999999999962,
+     "indexing_shift_over_spread_logit": 0.0,
+     "indexing_shift_over_spread_rf": 0.0
+    },
+    "geometric": {
+     "min": 0.52752,
+     "max": 0.53229,
+     "spread": 0.004770000000000052,
+     "indexing_shift_over_spread_logit": 5.19016479683572,
+     "indexing_shift_over_spread_rf": 4.603919816735465
+    },
+    "rms": {
+     "min": 0.68482,
+     "max": 0.69337,
+     "spread": 0.008550000000000058,
+     "indexing_shift_over_spread_logit": 0.9809605049922768,
+     "indexing_shift_over_spread_rf": 1.0715512986302096
+    }
+   }
+  }
+ },
+ "total_runtime_s": 898.8270583152771
+}

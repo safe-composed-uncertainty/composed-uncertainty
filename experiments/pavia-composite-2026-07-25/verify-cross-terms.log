@@ -1,0 +1,86 @@
+==============================================================================
+A. factorisation of the triple sum, re-verified by brute force
+==============================================================================
+  arithmetic closed form : max |brute - closed| = 4.774e-15  (factorises)
+  geometric  closed form : max |brute - closed| = 2.887e-15  (factorises)
+  rms: nearest natural candidate closed form is off by at least 2.205e-02
+
+==============================================================================
+logit
+==============================================================================
+[point] max abs gap vs study curves: RGA 0.00e+00  RGE 0.00e+00  RGR 0.00e+00
+[deposit point] recomputed RGA/RGE/RGR = 0.8052154195 / 0.9895241103 / 0.9542332361
+[deposit point] stored     RGA/RGE/RGR = 0.8052154195 / 0.9895241103 / 0.9542332361  (max |gap| 0.00e+00)
+[paired] regenerated B = 2000 replicates in 22.1 s
+[B] Sigma of curve means, recomputed:
+      [ 1.682766e-03  2.266763e-05 -3.431201e-05]
+      [ 2.266763e-05  7.666556e-06 -5.450009e-06]
+      [-3.431201e-05 -5.450009e-06  2.059483e-04]
+[B] max |Sigma_recomputed - Sigma_stored| = 0.00e+00
+[B] corr(curve means): RGA-RGE +0.1996  RGA-RGR -0.0583  RGE-RGR -0.1372
+[B] arithmetic arm by hand: var_meas 2.069102e-04 (stored 2.069102e-04)  var_decl 2.107089e-04 (stored 2.107089e-04)
+[B] arithmetic under% = -0.914 (stored -0.914), cross share = -1.836 (stored -1.836)
+[B] geometric under% = -1.862 (stored -1.862)
+[B] rms under% = +1.264 (stored +1.264); corr of projections RGA-RGE +0.2099 RGA-RGR -0.0387 RGE-RGR -0.0252
+[ind] regenerated independent streams in 11.0 s
+[ind] arithmetic empirical understatement +0.89% (stored +0.89%)
+[ind] geometric  empirical understatement +1.45% (stored +1.45%)
+[C] scalar metrics on the SAME index streams:
+    recomputed corr: RGA-RGE +0.2858  RGA-RGR +0.1596  RGE-RGR +0.5967
+    deposit    corr: RGA-RGE +0.2858  RGA-RGR +0.1596  RGE-RGR +0.5967  (max |gap| 0.00e+00)
+[D] RGE-RGR correlation, bridged one estimator change at a time:
+      +0.5967   scalar RGE (bare)      x scalar RGR (bare)      [deposit pair]
+      +0.6144   scalar RGE (class_ord) x scalar RGR (class_ord) [convention only]
+      +0.4249   curve-mean RGE         x scalar RGR (class_ord) [RGE estimator swapped]
+      -0.2083   scalar RGE (class_ord) x curve-mean RGR (swap)  [RGR estimator swapped]
+      +0.5354   curve-mean RGE         x noise-sweep RGR mean   [sweep, same family]
+      -0.1372   curve-mean RGE         x curve-mean RGR (swap)  [study pair]
+[D] same bridge for RGA-RGE and RGA-RGR endpoints:
+      RGA-RGE: scalars +0.2858 -> curve means +0.1996
+      RGA-RGR: scalars +0.1596 -> curve means -0.0583
+[E] max |corr(all 21 knots) - corr(deterministic knot deleted)| = 7.22e-16
+[E] arithmetic cross share, deterministic knots deleted: -1.836% (all knots: -1.836%)
+[E] replicate sd of the deterministic knots: RGA[-1] 1.11e-16, RGE[0] 0.00e+00, RGR[0] 0.00e+00
+[diag] arithmetic diagonal == product space at every replicate: max |diff| = 4.44e-16
+[diag] geometric diagonal - product at the point: +0.024757 (stored +0.024757)
+
+==============================================================================
+rf
+==============================================================================
+[point] max abs gap vs study curves: RGA 0.00e+00  RGE 0.00e+00  RGR 0.00e+00
+[deposit point] recomputed RGA/RGE/RGR = 0.8272108844 / 0.9877025997 / 0.9091507825
+[deposit point] stored     RGA/RGE/RGR = 0.8272108844 / 0.9877025997 / 0.9091507825  (max |gap| 0.00e+00)
+[paired] regenerated B = 2000 replicates in 22.5 s
+[B] Sigma of curve means, recomputed:
+      [ 1.516102e-03  1.879300e-05 -5.603082e-05]
+      [ 1.879300e-05  9.406028e-06 -1.710139e-05]
+      [-5.603082e-05 -1.710139e-05  3.232126e-04]
+[B] max |Sigma_recomputed - Sigma_stored| = 0.00e+00
+[B] corr(curve means): RGA-RGE +0.1574  RGA-RGR -0.0800  RGE-RGR -0.3102
+[B] arithmetic arm by hand: var_meas 1.933380e-04 (stored 1.933380e-04)  var_decl 2.054133e-04 (stored 2.054133e-04)
+[B] arithmetic under% = -3.076 (stored -3.076), cross share = -6.246 (stored -6.246)
+[B] geometric under% = -3.086 (stored -3.086)
+[B] rms under% = -1.498 (stored -1.498); corr of projections RGA-RGE +0.1683 RGA-RGR -0.0838 RGE-RGR -0.2429
+[ind] regenerated independent streams in 11.2 s
+[ind] arithmetic empirical understatement -6.49% (stored -6.49%)
+[ind] geometric  empirical understatement -5.21% (stored -5.21%)
+[C] scalar metrics on the SAME index streams:
+    recomputed corr: RGA-RGE +0.2922  RGA-RGR +0.1530  RGE-RGR +0.3415
+    deposit    corr: RGA-RGE +0.2922  RGA-RGR +0.1530  RGE-RGR +0.3415  (max |gap| 0.00e+00)
+[D] RGE-RGR correlation, bridged one estimator change at a time:
+      +0.3415   scalar RGE (bare)      x scalar RGR (bare)      [deposit pair]
+      +0.3437   scalar RGE (class_ord) x scalar RGR (class_ord) [convention only]
+      +0.2879   curve-mean RGE         x scalar RGR (class_ord) [RGE estimator swapped]
+      -0.1529   scalar RGE (class_ord) x curve-mean RGR (swap)  [RGR estimator swapped]
+      +0.4711   curve-mean RGE         x noise-sweep RGR mean   [sweep, same family]
+      -0.3102   curve-mean RGE         x curve-mean RGR (swap)  [study pair]
+[D] same bridge for RGA-RGE and RGA-RGR endpoints:
+      RGA-RGE: scalars +0.2922 -> curve means +0.1574
+      RGA-RGR: scalars +0.1530 -> curve means -0.0800
+[E] max |corr(all 21 knots) - corr(deterministic knot deleted)| = 8.33e-16
+[E] arithmetic cross share, deterministic knots deleted: -6.246% (all knots: -6.246%)
+[E] replicate sd of the deterministic knots: RGA[-1] 1.10e-16, RGE[0] 0.00e+00, RGR[0] 0.00e+00
+[diag] arithmetic diagonal == product space at every replicate: max |diff| = 3.33e-16
+[diag] geometric diagonal - product at the point: +0.021961 (stored +0.021961)
+
+[verdict] see the verification log and the study summary, section 5a

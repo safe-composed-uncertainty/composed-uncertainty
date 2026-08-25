@@ -1,0 +1,39 @@
+Probe 4: side-by-side comparability of the two datasets under the pinned split
+run of 2026-07-28T00:00:28+00:00
+
+== german-credit (credit-g v1)
+   n                      1000
+   d                      20
+   pos_share              0.7
+   n_train                700
+   n_test                 300
+   pos_share_test         0.7
+   pos_in_test            210
+   dup_rows               0
+   integer_valued_cols    20
+   binary_cols            3
+   cols_with_le12_levels  17
+   grid                   20
+   L                      21
+   tensor_cells           9261
+   p_grid_spacing         0.025
+
+== taiwan (default-of-credit-card-clients v1)
+   n                      30000
+   d                      23
+   pos_share              0.2212
+   n_train                21000
+   n_test                 9000
+   pos_share_test         0.2212222222222222
+   pos_in_test            1991
+   dup_rows               56
+   integer_valued_cols    23
+   binary_cols            1
+   cols_with_le12_levels  9
+   grid                   23
+   L                      24
+   tensor_cells           13824
+   p_grid_spacing         0.021739130434782608
+
+[note] positive class: german-credit codes y=1 for 'good' (the MAJORITY, 70.0%);
+       taiwan codes y=1 for 'default' (the MINORITY, 22.1%). Declared below.

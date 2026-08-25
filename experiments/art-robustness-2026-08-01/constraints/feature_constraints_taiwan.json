@@ -1,0 +1,5 @@
+{
+ "_status": "DRAFT placeholder — the Taiwan default-of-credit-card-clients set (OpenML 42477) ships numeric columns X1..X23; mutability + legal category sets must be filled from the UCI data dictionary and confirmed with Vasily/Paolo (ART shortlist Q2). SEX, EDUCATION, MARRIAGE, AGE are the immutable/categorical candidates.",
+ "dataset": "UCI default of credit card clients (OpenML 42477)",
+ "features": []
+}

@@ -52,7 +52,7 @@ def main(root="."):
     if not files:
         print("check_provenance: no result files found — nothing to check")
         return 0
-    bad = []
+    bad, exempted = [], []
     for f in files:
         rel = os.path.relpath(f, root)
         try:
@@ -64,12 +64,18 @@ def main(root="."):
         if not missing:
             continue
         if rel in exempt:
+            exempted.append(rel)
             print(f"  exempt  {rel}  ({', '.join(missing)}) — {exempt[rel]}")
             continue
         bad.append((rel, "missing " + ", ".join(missing)))
     for rel, why in bad:
         print(f"  FAIL    {rel}  {why}")
-    print(f"\ncheck_provenance: {len(files) - len(bad)}/{len(files)} files carry full provenance")
+    complete = len(files) - len(bad) - len(exempted)
+    # Count exemptions separately. A summary that folds them into "complete"
+    # turns a green check into an overstatement, which is the failure this
+    # check exists to prevent.
+    print(f"\ncheck_provenance: {complete}/{len(files)} files carry full provenance, "
+          f"{len(exempted)} exempted by declaration, {len(bad)} undeclared")
     if bad:
         print("Record the missing fields, or declare the file in "
               f"{EXEMPT_FILE} with the upstream artifact it inherits from.")

@@ -1,0 +1,88 @@
+{
+ "certificate": {
+  "composed_score": 0.8075750870877466,
+  "file": "real-chain.json",
+  "interval95": [
+   0.7682542914606106,
+   0.8468958827148826
+  ],
+  "interval_method": "first_order_delta"
+ },
+ "claim_boundary": "dev-only, non-certified research instrument; one live OID4VP presentation REQUEST carrying the certificate binding as a requested claim path. No holder presented a credential here: this is not a completed wallet round trip and establishes no interoperability or conformance claim.",
+ "dcql_query_sent": {
+  "dcql_query": {
+   "credentials": [
+    {
+     "claims": [
+      {
+       "path": [
+        "principal"
+       ]
+      },
+      {
+       "path": [
+        "scope"
+       ]
+      },
+      {
+       "path": [
+        "action_hash"
+       ]
+      },
+      {
+       "path": [
+        "scope",
+        "uncertainty_policy"
+       ]
+      }
+     ],
+     "format": "dc+sd-jwt",
+     "id": "machine_mandate_with_uncertainty_policy",
+     "meta": {
+      "vct_values": [
+       "https://vocab.tyche.institute/vct/machine-mandate"
+      ]
+     }
+    }
+   ]
+  },
+  "jar_mode": "by_reference",
+  "nonce": "tyche-cert-7337d096e95b",
+  "response_mode": "direct_post.jwt"
+ },
+ "generated_utc": "2026-08-02T09:53:09.843971+00:00",
+ "oid4vp": {
+  "http": 200,
+  "init_ms": 19,
+  "nonce_echoed": true,
+  "ok": true,
+  "request_jwt_alg": "ES512",
+  "request_jwt_file": "wallet-bench-request.jwt",
+  "request_jwt_typ": "oauth-authz-req+jwt",
+  "requested_claim_paths_in_signed_request": [
+   [
+    "principal"
+   ],
+   [
+    "scope"
+   ],
+   [
+    "action_hash"
+   ],
+   [
+    "scope",
+    "uncertainty_policy"
+   ]
+  ],
+  "response_mode": "direct_post.jwt",
+  "response_type": "vp_token",
+  "transaction_id": "6hICFTYhcCYWb10BbPSNvdhb\u2026",
+  "uncertainty_policy_path_requested": true
+ },
+ "uncertainty_policy_requested": {
+  "certificate_payload_sha256": "37f6db238679c9dfcb44f403da3fe873a62486112e77566c82860316884dcf35",
+  "minimum_lower_bound": 0.75,
+  "policy_id": "research-chain-lcb-0.75"
+ },
+ "verifier": "http://localhost:18080"
+}

@@ -1,0 +1,26 @@
+[config] tag=production B=2000 arms=['A_logit', 'A_rf', 'B_logit', 'B_rf']
+[pin] pavia module sha256 9bf1e6a089fa22e7139d0408cbaf0bd42bf2873164f5e238a6d8ee878aaa54d4
+[pin] frozen npz sha256 5d262536075ac3c1e33723c46a726810f8afc5a32a611d9aa2d5ad3b1c7c463e
+[G1] split reproduced: N=1000 train=700 eval=300 == CSV split column
+[G2] p_full_A_logit reproduced, max abs gap 0.0e+00
+[G2] p_full_A_rf reproduced, max abs gap 0.0e+00
+[G2] p_full_B_logit reproduced, max abs gap 0.0e+00
+[G2] p_full_B_rf reproduced, max abs gap 0.0e+00
+[G3] paired_fixed_A_logit: point gap 0.0e+00, max replicate gap over B=2000: 0.0e+00
+[G3] paired_fixed_A_rf: point gap 0.0e+00, max replicate gap over B=2000: 0.0e+00
+[G3] paired_fixed_B_logit: point gap 0.0e+00, max replicate gap over B=2000: 0.0e+00
+[G3] paired_fixed_B_rf: point gap 0.0e+00, max replicate gap over B=2000: 0.0e+00
+[gates] G1-G3 passed at 10.3s
+[grid] severity s_t = t/9, t = 0..9 -> curve length L = 10
+[G4] A_logit fastpath vs package curves: RGA 0.0e+00 RGE 0.0e+00 RGR 0.0e+00
+[bootstrap] A_logit: paired + independent, both families, B=2000, 14.7s
+[arm] A_logit complete in 15.4s
+[G4] A_rf fastpath vs package curves: RGA 0.0e+00 RGE 0.0e+00 RGR 0.0e+00
+[bootstrap] A_rf: paired + independent, both families, B=2000, 20.0s
+[arm] A_rf complete in 20.7s
+[G4] B_logit fastpath vs package curves: RGA 0.0e+00 RGE 0.0e+00 RGR 0.0e+00
+[bootstrap] B_logit: paired + independent, both families, B=2000, 14.7s
+[arm] B_logit complete in 15.5s
+[G4] B_rf fastpath vs package curves: RGA 0.0e+00 RGE 1.1e-16 RGR 0.0e+00
+[bootstrap] B_rf: paired + independent, both families, B=2000, 24.2s
+[arm] B_rf complete in 24.9s

@@ -1,0 +1,56 @@
+==============================================================================
+Probe 2: cost of one metric vector and one bootstrap replicate, Taiwan
+run of 2026-07-27T19:50:34+00:00
+==============================================================================
+[data]  n_train = 21000, n_test = 9000, d = 23 -> GRID = 23, L = d + 1 = 24
+[check] vectorised tail swap vs the pinned loop form at p = 0.30: max abs diff = 0.0e+00
+[fit]   logit trained in 0.67 s
+[fit]   rf    trained in 0.83 s
+[cost]  one tail swap on 9000 x 23 rows: 0.009 s (the sweep pays it 24 times)
+
+##############################################################################
+### logit
+##############################################################################
+[cost]  predict_proba on the full test block: 0.001 s
+[cost]  RGA partial curve (L = 24): 0.00 s
+[cost]  RGE greedy curve, 276 model evaluations: 0.91 s
+[cost]  RGR tail-swap sweep, 24 severities: 0.26 s
+[COST]  ONE FULL METRIC VECTOR (three curves, no reuse): 1.18 s
+        RGA head 0.7511 0.7402 0.7251 ... tail 0.0389 -0.0000
+        RGE head 1.0000 1.0000 0.9999 ... tail 0.9283 0.5006
+        RGR head 1.0000 0.7918 0.6648 ... tail 0.0912 0.0912
+        RGE greedy removal order: 10 14 8 22 21 9 19 4
+[cost]  precompute (24 masked + 24 swapped + 24 noise prediction vectors): 0.29 s
+[cost]  bridge precompute (23 single masks + 1 fixed Gaussian draw): 0.02 s
+[COST]  ONE PAIRED BOOTSTRAP REPLICATE (fast path): 0.099 s
+[cost]  Gaussian-sweep RGR add-on per replicate: 0.050 s
+[cost]  deposited scalar triple per replicate (bridge): 0.026 s
+[COST]  ONE FULL-RECOMPUTE REPLICATE (conditioning check): 1.2 s
+[cost]  rms tensor composite: 0.09 s per 1000 replicates; brute-force triple sum at L = 24: 0.00 s
+
+##############################################################################
+### rf
+##############################################################################
+[cost]  predict_proba on the full test block: 0.054 s
+[cost]  RGA partial curve (L = 24): 0.00 s
+[cost]  RGE greedy curve, 276 model evaluations: 21.71 s
+[cost]  RGR tail-swap sweep, 24 severities: 2.51 s
+[COST]  ONE FULL METRIC VECTOR (three curves, no reuse): 24.23 s
+        RGA head 0.7654 0.7539 0.7400 ... tail 0.0404 -0.0000
+        RGE head 1.0000 0.9970 0.9938 ... tail 0.8243 0.5006
+        RGR head 1.0000 0.9403 0.8606 ... tail 0.3645 0.3645
+        RGE greedy removal order: 9 1 3 2 10 4 7 11
+[cost]  precompute (24 masked + 24 swapped + 24 noise prediction vectors): 6.19 s
+[cost]  bridge precompute (23 single masks + 1 fixed Gaussian draw): 3.48 s
+[COST]  ONE PAIRED BOOTSTRAP REPLICATE (fast path): 0.083 s
+[cost]  Gaussian-sweep RGR add-on per replicate: 0.041 s
+[cost]  deposited scalar triple per replicate (bridge): 0.022 s
+[COST]  ONE FULL-RECOMPUTE REPLICATE (conditioning check): 27.3 s
+[cost]  rms tensor composite: 0.09 s per 1000 replicates; brute-force triple sum at L = 24: 0.00 s
+
+##############################################################################
+### matched-n control: a 1000-row stratified subsample, split 70/30 as in German credit
+##############################################################################
+[ctrl]  n_train = 700, n_test = 300, positive share test 0.2200
+[ctrl]  logit one metric vector 0.16 s, one paired replicate 0.006 s
+[ctrl]  rf    one metric vector 28.94 s, one paired replicate 0.006 s

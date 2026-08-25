@@ -1,0 +1,74 @@
+[data] statlog-german-credit (OpenML credit-g v1): train=700, test=300, d=20, B=2000
+[precompute] 1.0s
+[logit] fixed-draw paired pass 1.9s
+[logit] independent-stream pass 5.5s
+[logit] redraw pass 0.6s
+[rf] fixed-draw paired pass 1.8s
+[rf] independent-stream pass 5.7s
+[rf] redraw pass 205.4s
+[shapley] logit efficiency residual: min-game 2.220e-16, product-game 2.220e-16
+[shapley] rf efficiency residual: min-game 2.220e-16, product-game 2.220e-16
+[logit/wsum_equal] C=0.9163  redraw CI=[0.8957, 0.9363]  cross-var share 7.46%  width understatement 3.80%
+[logit/wsum_accuracy_led] C=0.8868  redraw CI=[0.8564, 0.9153]  cross-var share 4.23%  width understatement 2.14%
+[logit/wsum_accuracy_light] C=0.9385  redraw CI=[0.9254, 0.9524]  cross-var share 13.02%  width understatement 6.74%
+[logit/geomean] C=0.9127  redraw CI=[0.8889, 0.9345]  cross-var share 6.33%  width understatement 3.22%
+[logit/topsis] C=0.8883  redraw CI=[0.8573, 0.9172]  cross-var share 1.97%  width understatement 0.99%
+[logit/shapley_min] C=0.8052  redraw CI=[0.7443, 0.8601]  cross-var share 0.00%  width understatement 0.00%
+[logit/shapley_prod] C=0.7603  redraw CI=[0.7025, 0.8161]  cross-var share 6.33%  width understatement 3.22%
+[rf/wsum_equal] C=0.9080  redraw CI=[0.8883, 0.9308]  cross-var share 11.78%  width understatement 6.07%
+[rf/wsum_accuracy_led] C=0.8839  redraw CI=[0.8556, 0.9136]  cross-var share 7.72%  width understatement 3.94%
+[rf/wsum_accuracy_light] C=0.9242  redraw CI=[0.9103, 0.9431]  cross-var share 15.41%  width understatement 8.03%
+[rf/geomean] C=0.9056  redraw CI=[0.8836, 0.9297]  cross-var share 10.95%  width understatement 5.63%
+[rf/topsis] C=0.8896  redraw CI=[0.8620, 0.9174]  cross-var share 6.87%  width understatement 3.49%
+[rf/shapley_min] C=0.8272  redraw CI=[0.7697, 0.8787]  cross-var share 0.00%  width understatement 0.00%
+[rf/shapley_prod] C=0.7428  redraw CI=[0.6899, 0.8036]  cross-var share 10.95%  width understatement 5.63%
+[continuity] logit: point 0.0e+00, C 0.0e+00, Sigma_fixed 0.0e+00, Sigma_redraw 0.0e+00, paired CI 0.0e+00, independent CI 0.0e+00
+[continuity] rf: point 0.0e+00, C 0.0e+00, Sigma_fixed 0.0e+00, Sigma_redraw 0.0e+00, paired CI 0.0e+00, independent CI 0.0e+00
+[linear] logit wsum_equal/redraw: var rel.diff 0.00e+00, endpoint gap 0.00061
+[linear] rf wsum_equal/redraw: var rel.diff 1.13e-16, endpoint gap 0.00174
+[weights] logit: cross-var share over the simplex 0.00% to 36.67% (max at w=[0.02, 0.88, 0.1]); interior (all w >= 0.10) 0.98% to 21.35%
+[weights] rf: cross-var share over the simplex 0.00% to 33.59% (max at w=[0.02, 0.92, 0.06]); interior (all w >= 0.10) 1.89% to 23.09%
+[diagnostics] single components over the six replicate matrices: smallest 0.6414, largest 0.9925
+[diagnostics] closest approach of the replicate cloud: to the ideal (1,1,1) 0.1109, to the anti-ideal (0,0,0) 1.5087
+[diagnostics] logit/paired argmin counts {'RGA': 2000, 'RGE': 0, 'RGR': 0}
+[diagnostics] logit/ind    argmin counts {'RGA': 2000, 'RGE': 0, 'RGR': 0}
+[diagnostics] logit/redraw argmin counts {'RGA': 2000, 'RGE': 0, 'RGR': 0}
+[diagnostics] rf/paired    argmin counts {'RGA': 2000, 'RGE': 0, 'RGR': 0}
+[diagnostics] rf/ind       argmin counts {'RGA': 1997, 'RGE': 0, 'RGR': 3}
+[diagnostics] rf/redraw    argmin counts {'RGA': 1999, 'RGE': 0, 'RGR': 1}
+[diagnostics] matrices in which RGA is the argmin in EVERY replicate: 4 of 6
+[nonsmooth/logit] coarse sweep (fixed draw):
+    s= 0.50  RGA=0.8052 RGR=0.9542  argmin=RGA frac(RGR<RGA)=0.0000  sd_delta=0.02942 sd_boot=0.02942 ratio=1.000
+    s= 0.75  RGA=0.8052 RGR=0.9141  argmin=RGA frac(RGR<RGA)=0.0000  sd_delta=0.02942 sd_boot=0.02942 ratio=1.000
+    s= 1.00  RGA=0.8052 RGR=0.8792  argmin=RGA frac(RGR<RGA)=0.0055  sd_delta=0.02942 sd_boot=0.02932 ratio=1.003
+    s= 1.25  RGA=0.8052 RGR=0.8474  argmin=RGA frac(RGR<RGA)=0.1020  sd_delta=0.02942 sd_boot=0.02776 ratio=1.060
+    s= 1.50  RGA=0.8052 RGR=0.8191  argmin=RGA frac(RGR<RGA)=0.3495  sd_delta=0.02942 sd_boot=0.02343 ratio=1.256
+    s= 1.75  RGA=0.8052 RGR=0.7944  argmin=RGR frac(RGR<RGA)=0.6380  sd_delta=0.01894 sd_boot=0.02018 ratio=0.939
+    s= 2.00  RGA=0.8052 RGR=0.7731  argmin=RGR frac(RGR<RGA)=0.8365  sd_delta=0.02013 sd_boot=0.01980 ratio=1.016
+    s= 2.50  RGA=0.8052 RGR=0.7396  argmin=RGR frac(RGR<RGA)=0.9655  sd_delta=0.02188 sd_boot=0.02156 ratio=1.015
+    s= 3.00  RGA=0.8052 RGR=0.7143  argmin=RGR frac(RGR<RGA)=0.9935  sd_delta=0.02309 sd_boot=0.02302 ratio=1.003
+    s= 4.00  RGA=0.8052 RGR=0.6779  argmin=RGR frac(RGR<RGA)=1.0000  sd_delta=0.02492 sd_boot=0.02492 ratio=1.000
+    s= 6.00  RGA=0.8052 RGR=0.6371  argmin=RGR frac(RGR<RGA)=1.0000  sd_delta=0.02645 sd_boot=0.02645 ratio=1.000
+    s= 8.00  RGA=0.8052 RGR=0.6148  argmin=RGR frac(RGR<RGA)=1.0000  sd_delta=0.02738 sd_boot=0.02738 ratio=1.000
+[nonsmooth/logit] chosen level s=1.6091: frac(RGR<RGA)=0.5000, argmin counts {'RGA': 1000, 'RGE': 0, 'RGR': 1000}
+[nonsmooth/logit]   min composite: sd_delta=0.02942 sd_boot=0.02152 ratio=1.367  delta CI=[0.7476, 0.8629]  boot CI=[0.7443, 0.8286]
+[nonsmooth/logit]   geomean control at the same level: sd ratio 0.997, lower-bound gap 0.00135
+[nonsmooth/logit] sweep 2.1s
+[nonsmooth/rf] coarse sweep (fixed draw):
+    s= 0.50  RGA=0.8272 RGR=0.9092  argmin=RGA frac(RGR<RGA)=0.0000  sd_delta=0.02786 sd_boot=0.02786 ratio=1.000
+    s= 0.75  RGA=0.8272 RGR=0.8601  argmin=RGA frac(RGR<RGA)=0.1425  sd_delta=0.02786 sd_boot=0.02536 ratio=1.099
+    s= 1.00  RGA=0.8272 RGR=0.8221  argmin=RGR frac(RGR<RGA)=0.5640  sd_delta=0.02027 sd_boot=0.02110 ratio=0.961
+    s= 1.25  RGA=0.8272 RGR=0.7736  argmin=RGR frac(RGR<RGA)=0.9330  sd_delta=0.02436 sd_boot=0.02374 ratio=1.026
+    s= 1.50  RGA=0.8272 RGR=0.7397  argmin=RGR frac(RGR<RGA)=0.9905  sd_delta=0.02640 sd_boot=0.02626 ratio=1.005
+    s= 1.75  RGA=0.8272 RGR=0.7041  argmin=RGR frac(RGR<RGA)=0.9990  sd_delta=0.02764 sd_boot=0.02762 ratio=1.001
+    s= 2.00  RGA=0.8272 RGR=0.6741  argmin=RGR frac(RGR<RGA)=1.0000  sd_delta=0.02833 sd_boot=0.02833 ratio=1.000
+    s= 2.50  RGA=0.8272 RGR=0.6431  argmin=RGR frac(RGR<RGA)=1.0000  sd_delta=0.02951 sd_boot=0.02951 ratio=1.000
+    s= 3.00  RGA=0.8272 RGR=0.6112  argmin=RGR frac(RGR<RGA)=1.0000  sd_delta=0.03026 sd_boot=0.03026 ratio=1.000
+    s= 4.00  RGA=0.8272 RGR=0.5860  argmin=RGR frac(RGR<RGA)=1.0000  sd_delta=0.03006 sd_boot=0.03006 ratio=1.000
+    s= 6.00  RGA=0.8272 RGR=0.5662  argmin=RGR frac(RGR<RGA)=1.0000  sd_delta=0.03006 sd_boot=0.03006 ratio=1.000
+    s= 8.00  RGA=0.8272 RGR=0.5554  argmin=RGR frac(RGR<RGA)=1.0000  sd_delta=0.02969 sd_boot=0.02969 ratio=1.000
+[nonsmooth/rf] chosen level s=0.9324: frac(RGR<RGA)=0.4985, argmin counts {'RGA': 1003, 'RGE': 0, 'RGR': 997}
+[nonsmooth/rf]   min composite: sd_delta=0.02786 sd_boot=0.02148 ratio=1.297  delta CI=[0.7726, 0.8818]  boot CI=[0.7683, 0.8520]
+[nonsmooth/rf]   geomean control at the same level: sd ratio 0.997, lower-bound gap 0.00151
+[nonsmooth/rf] sweep 3.9s
+[done] results-aggregation.json, run-aggregation.log; total 228.7s

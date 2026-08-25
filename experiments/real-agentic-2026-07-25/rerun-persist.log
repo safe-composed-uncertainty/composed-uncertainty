@@ -1,0 +1,20 @@
+[config] tag=production N=1000 B=2000 episode_seed=20260727 seed=20260727 noise_sd=0.5
+[episodes] 1000 chained executions in 0.9s (0.9 ms/episode)
+[labels] all executed verdicts match their channel's expected cell
+[split] train=700 eval=300 | eval 2x2 cells {'A0B0': 153, 'A0B1': 59, 'A1B0': 34, 'A1B1': 54} | prevalence eval: DENY=0.293 REJECT=0.377
+[scorers] held-out AUC: A_logit=0.820 A_rf=0.851 B_logit=0.666 B_rf=0.735
+[precompute] done at 3.6s
+[redraw] 4 arms x 2000 fresh perturbation predictions in 457.5s
+[A/logit] point RGA=0.9225 RGE=0.9532 RGR=0.9352 C=0.9369 | redraw corr RGA-RGE=+0.253 RGA-RGR=+0.310 RGE-RGR=+0.539 | 1.1s
+[A/rf] point RGA=0.9337 RGE=0.9666 RGR=0.9247 C=0.9415 | redraw corr RGA-RGE=+0.279 RGA-RGR=+0.214 RGE-RGR=+0.242 | 1.1s
+[B/logit] point RGA=0.7515 RGE=0.9589 RGR=0.8887 C=0.8620 | redraw corr RGA-RGE=+0.051 RGA-RGR=+0.415 RGE-RGR=+0.094 | 1.1s
+[B/rf] point RGA=0.7902 RGE=0.9433 RGR=0.8384 C=0.8549 | redraw corr RGA-RGE=+0.516 RGA-RGR=+0.444 RGE-RGR=+0.448 | 1.1s
+[chain/logit/fixed_draw] rho=+0.3190 h=0.8076 understatement=11.0%
+[chain/logit/redraw] rho=+0.3137 h=0.8076 understatement=11.0%
+[chain/rf/fixed_draw] rho=+0.2753 h=0.8049 understatement=9.7%
+[chain/rf/redraw] rho=+0.2398 h=0.8049 understatement=8.5%
+[chain+joint] pass in 4.4s
+[replicates] /srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/real-agentic-2026-07-25/replicates-real-agentic.npz
+[done] /srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/real-agentic-2026-07-25/results-real-agentic.json
+[done] /srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/real-agentic-2026-07-25/episodes-real-agentic.csv
+[total] 470.3s

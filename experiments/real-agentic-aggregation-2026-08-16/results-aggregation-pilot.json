@@ -1,0 +1,2127 @@
+{
+ "purpose": "Section 8 aggregation analysis parallel to Section 6",
+ "tag": "pilot",
+ "B": 200,
+ "alpha": 0.05,
+ "seed": 20260727,
+ "grid": 9,
+ "curve_length_L": 10,
+ "index_streams": {
+  "paired_bootstrap": "default_rng(SEED+1) per arm (frozen run's rule; G3)",
+  "independent_streams": "default_rng(SEED+10+k), k=0,1,2 (Section 6 rule)",
+  "gaussian_control_rng": "default_rng(SEED) fresh per arm, arm order A_logit, A_rf, B_logit, B_rf"
+ },
+ "pins": {
+  "pavia_module_sha256": "9bf1e6a089fa22e7139d0408cbaf0bd42bf2873164f5e238a6d8ee878aaa54d4",
+  "frozen_npz_sha256": "5d262536075ac3c1e33723c46a726810f8afc5a32a611d9aa2d5ad3b1c7c463e",
+  "episodes_csv_sha256": "76e6eca616caa6f08c04522c6699e0a28c7aa393658d97479d9db5dbf27bab0f"
+ },
+ "gates": "G1 split, G2 y/p_full, G3 scalar replicates: all bit-level",
+ "arms": {
+  "A_logit": {
+   "point_curves": {
+    "RGA": [
+     0.9225206611570248,
+     0.9225206611570248,
+     0.8668513451873979,
+     0.7648103689528408,
+     0.6389156580141016,
+     0.5287577859427047,
+     0.40286307500396545,
+     0.3047977212201054,
+     0.15460753974932873,
+     -2.220446049250313e-16
+    ],
+    "RGE": [
+     1.0,
+     0.9985757381199711,
+     0.9955030753683909,
+     0.9926559987800244,
+     0.9728264230108454,
+     0.954512154221781,
+     0.9089645466326475,
+     0.8246772699278916,
+     0.6881942172147976,
+     0.4966812111524805
+    ],
+    "RGR_tail_swap": [
+     1.0,
+     0.5569581212029184,
+     0.5292010419277078,
+     0.5028513872371025,
+     0.49470471931341203,
+     0.4872625792707131,
+     0.4497869751300073,
+     0.4364809394933672,
+     0.44530548511316376,
+     0.459040161457384
+    ],
+    "RGR_gaussian": [
+     1.0,
+     0.9903956411017281,
+     0.9717365609942321,
+     0.9459054438143997,
+     0.9382858725123213,
+     0.9005993863863504,
+     0.8936032965983216,
+     0.8735029679684597,
+     0.8703139416801241,
+     0.8509953364527081
+    ],
+    "greedy_removal_order": [
+     "tool_code",
+     "payee_unknown",
+     "n_methods_allowed",
+     "log10_cap",
+     "log10_amount",
+     "headroom_frac",
+     "issuer_on_list",
+     "method_in_scope",
+     "expiry_margin_s"
+    ]
+   },
+   "fastpath_max_abs_gap": {
+    "RGA": 0.0,
+    "RGE": 0.0,
+    "RGR": 0.0
+   },
+   "curve_summary_corr_paired": {
+    "tail_swap": [
+     [
+      1.0,
+      0.02442594047625973,
+      -0.013965765967590672
+     ],
+     [
+      0.02442594047625973,
+      1.0,
+      -0.1940601047365636
+     ],
+     [
+      -0.013965765967590672,
+      -0.19406010473656357,
+      1.0
+     ]
+    ],
+    "gaussian": [
+     [
+      1.0,
+      0.02442594047625973,
+      0.4853368269195717
+     ],
+     [
+      0.02442594047625973,
+      1.0,
+      0.19818240394533726
+     ],
+     [
+      0.48533682691957164,
+      0.19818240394533726,
+      1.0
+     ]
+    ]
+   },
+   "tail_swap": {
+    "arithmetic": {
+     "description": "volume composite, arithmetic (tail-swap family)",
+     "V_point": 0.6566942286986367,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6270049142239895,
+       0.6722136179190427
+      ],
+      "width": 0.04520870369505314,
+      "sd": 0.011825520415545236,
+      "mean": 0.6480921676898797
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6248920382867087,
+       0.6722360146594707
+      ],
+      "width": 0.047343976372762,
+      "sd": 0.01248778188123474,
+      "mean": 0.6496631671344961
+     },
+     "empirical_understatement_of_width_pct": -4.723145109649551,
+     "empirical_understatement_mc_se_pct": 9.930310299682992,
+     "plugin_minus_bootstrap_mean": 0.008602061008757045,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.5506644816384494,
+       0.8832590634428831,
+       0.5361591410145776
+      ],
+      "gradient_at_point": [
+       0.3333333333333333,
+       0.3333333333333333,
+       0.3333333333333333
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0008177736831281638,
+        4.252585605051115e-06,
+        -8.596271647812238e-06
+       ],
+       [
+        4.252585605051115e-06,
+        3.706554671475156e-05,
+        -2.543022908055157e-05
+       ],
+       [
+        -8.596271647812238e-06,
+        -2.543022908055157e-05,
+        0.0004632949982900058
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.02442594047625973,
+        -0.013965765967590672
+       ],
+       [
+        0.02442594047625973,
+        1.0,
+        -0.1940601047365636
+       ],
+       [
+        -0.013965765967590672,
+        -0.19406010473656357,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00013984293309847728,
+      "var_cross_terms_declared_zero": 0.00014645935868143567,
+      "cross_covariance_share_of_variance_pct": -4.731326379073519,
+      "ci95_delta_measured_covariance": [
+       0.6335166345857249,
+       0.6798718228115485
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6329746672507515,
+       0.6804137901465219
+      ],
+      "width_delta_measured": 0.04635518822582361,
+      "width_delta_declared_zero": 0.04743912289577057,
+      "understatement_of_width_pct": -2.3383243848918767,
+      "understatement_factor": 0.9771510389783451,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.33333333333333,
+        "RGE": 33.33333333333333,
+        "RGR": 33.33333333333333
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 9.086374256979598e-05,
+        "RGE": 4.11839407941684e-06,
+        "RGR": 5.1477222032222864e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 64.97556977427654,
+        "RGE": 2.945014086994778,
+        "RGR": 36.8107425178022
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 9.450190233446921e-07,
+        "RGA_RGR": -1.9102825884027194e-06,
+        "RGE_RGR": -5.6511620179003485e-06
+       },
+       "cross_total": -6.616425582958376e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -14.28292378559708,
+        "RGA_RGR": 28.871821566662014,
+        "RGE_RGR": 85.41110221893506
+       }
+      },
+      "cross_share_mc_se_pct": 7.2938119383281235,
+      "understatement_mc_se_pct": 3.5364410128922628
+     },
+     "_name": "arithmetic"
+    },
+    "geometric": {
+     "description": "volume composite, geometric (tail-swap family)",
+     "V_point": 0.5726002469817769,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5324919372357044,
+       0.588758067578145
+      ],
+      "width": 0.056266130342440546,
+      "sd": 0.015376770631078581,
+      "mean": 0.5579721795078643
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5292716150462201,
+       0.5891613285847295
+      ],
+      "width": 0.05988971353850936,
+      "sd": 0.015709986174897855,
+      "mean": 0.5603738401577477
+     },
+     "empirical_understatement_of_width_pct": -6.440078914287106,
+     "empirical_understatement_mc_se_pct": 11.700413568999345,
+     "plugin_minus_bootstrap_mean": 0.014628067473912654,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.7433114489290042,
+       0.9552305529805512,
+       0.8064408227084281
+      ],
+      "gradient_at_point": [
+       0.7703369130218624,
+       0.5994366964028999,
+       0.7100338063972275
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.00029877570463372375,
+        8.992956988500596e-07,
+        -5.309562449220654e-06
+       ],
+       [
+        8.992956988500596e-07,
+        5.74849821743635e-06,
+        -5.9013556726410964e-06
+       ],
+       [
+        -5.309562449220654e-06,
+        -5.9013556726410964e-06,
+        0.00013946185540297232
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999998,
+        0.02169964735502971,
+        -0.026011079361299483
+       ],
+       [
+        0.021699647355029706,
+        1.0,
+        -0.20842358911707629
+       ],
+       [
+        -0.026011079361299483,
+        -0.20842358911707626,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.0002396729257919396,
+      "var_cross_terms_declared_zero": 0.00024967415953554853,
+      "cross_covariance_share_of_variance_pct": -4.172867548790649,
+      "ci95_delta_measured_covariance": [
+       0.5422573124686977,
+       0.6029431814948562
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.5416306973814481,
+       0.6035697965821057
+      ],
+      "width_delta_measured": 0.06068586902615847,
+      "width_delta_declared_zero": 0.061939099200657585,
+      "understatement_of_width_pct": -2.065110370189993,
+      "understatement_factor": 0.9797667355406775,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 37.03885788470501,
+        "RGE": 28.821740505525998,
+        "RGR": 34.13940160976901
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.00017729916778676095,
+        "RGE": 2.0655754026699066e-06,
+        "RGR": 7.030941634611766e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 73.9754676924479,
+        "RGE": 0.8618309288980915,
+        "RGR": 29.335568927444633
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 8.305323378976427e-07,
+        "RGA_RGR": -5.808292310816658e-06,
+        "RGE_RGR": -5.023473770689917e-06
+       },
+       "cross_total": -1.0001233743608932e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -8.3042988414142,
+        "RGA_RGR": 58.075758048633936,
+        "RGE_RGR": 50.22854079278026
+       }
+      },
+      "cross_share_mc_se_pct": 6.540648032789212,
+      "understatement_mc_se_pct": 3.192555891400316
+     },
+     "_name": "geometric"
+    },
+    "rms": {
+     "description": "volume composite, RMS tensor (tail-swap family)",
+     "V_point": 0.7026210004298903,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6793133405932492,
+       0.7155374709023639
+      ],
+      "width": 0.036224130309114644,
+      "sd": 0.009337718666707951,
+      "mean": 0.6976287210987219
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6804735916586531,
+       0.7165607229280019
+      ],
+      "width": 0.036087131269348816,
+      "sd": 0.009746341644599098,
+      "mean": 0.6987570091014451
+     },
+     "empirical_understatement_of_width_pct": 0.3781982854985433,
+     "empirical_understatement_mc_se_pct": 9.50674783245929,
+     "plugin_minus_bootstrap_mean": 0.004992279331168414,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.1775857401654905,
+       0.3797810150685056,
+       0.14525424519589408
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        6.368956558227248e-05,
+        6.9929226072446e-07,
+        -6.343853928417459e-07
+       ],
+       [
+        6.9929226072446e-07,
+        6.130793327261917e-06,
+        -2.3156722169880365e-06
+       ],
+       [
+        -6.343853928417459e-07,
+        -2.3156722169880365e-06,
+        2.6726398080082266e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.03538883292678881,
+        -0.015376192760055338
+       ],
+       [
+        0.03538883292678881,
+        1.0,
+        -0.18090415035480292
+       ],
+       [
+        -0.015376192760055338,
+        -0.18090415035480292,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 9.204522629140601e-05,
+      "var_cross_terms_declared_zero": 9.654675698961667e-05,
+      "cross_covariance_share_of_variance_pct": -4.890563997267239,
+      "ci95_delta_measured_covariance": [
+       0.6838170660958232,
+       0.7214249347639574
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6833627452844423,
+       0.7218792555753383
+      ],
+      "width_delta_measured": 0.03760786866813425,
+      "width_delta_declared_zero": 0.03851651029089604,
+      "understatement_of_width_pct": -2.4160944369913118,
+      "understatement_factor": 0.9764090356083853,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 6.368956558227248e-05,
+        "RGE": 6.130793327261917e-06,
+        "RGR": 2.6726398080082266e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 69.19377370059112,
+        "RGE": 6.660631489842216,
+        "RGR": 29.03615880683388
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 1.39858452144892e-06,
+        "RGA_RGR": -1.2687707856834919e-06,
+        "RGE_RGR": -4.631344433976073e-06
+       },
+       "cross_total": -4.5015306982106454e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -31.06908772175776,
+        "RGA_RGR": 28.185318966897796,
+        "RGE_RGR": 102.88376875485994
+       }
+      },
+      "cross_share_mc_se_pct": 7.329734713540294,
+      "understatement_mc_se_pct": 3.545880551264675
+     },
+     "_name": "rms"
+    },
+    "topsis": {
+     "description": "TOPSIS closeness, thesis reference (tail-swap family)",
+     "V_point": 0.41728067386244966,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.3906439297675597,
+       0.43083767311885396
+      ],
+      "width": 0.040193743351294275,
+      "sd": 0.01063349456885278,
+      "mean": 0.4102429554070586
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.38879247835973035,
+       0.4306725508162569
+      ],
+      "width": 0.04188007245652653,
+      "sd": 0.011073494788351144,
+      "mean": 0.41137691916453933
+     },
+     "empirical_understatement_of_width_pct": -4.195501500056098,
+     "empirical_understatement_mc_se_pct": 8.77055373239303,
+     "plugin_minus_bootstrap_mean": 0.007037718455391084,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.1818214763948988,
+       -0.09150717325862984,
+       0.12462060881151948
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        7.62382218050857e-05,
+        -2.688579938945307e-07,
+        -7.882091022197242e-07
+       ],
+       [
+        -2.688579938945307e-07,
+        2.6191712510491303e-07,
+        5.699472275346802e-07
+       ],
+       [
+        -7.882091022197242e-07,
+        5.699472275346802e-07,
+        3.75072914475369e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        -0.06016648318764239,
+        -0.014739990890549566
+       ],
+       [
+        -0.06016648318764239,
+        1.0,
+        0.1818422708710054
+       ],
+       [
+        -0.014739990890549566,
+        0.1818422708710054,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00011303319064056837,
+      "var_cross_terms_declared_zero": 0.00011400743037772751,
+      "cross_covariance_share_of_variance_pct": -0.8619058982923811,
+      "ci95_delta_measured_covariance": [
+       0.3964429113333917,
+       0.4381184363915076
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.396353303051734,
+       0.4382080446731653
+      ],
+      "width_delta_measured": 0.04167552505811592,
+      "width_delta_declared_zero": 0.04185474162143127,
+      "understatement_of_width_pct": -0.4300283273346528,
+      "understatement_factor": 0.9957181299806762,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 7.62382218050857e-05,
+        "RGE": 2.6191712510491303e-07,
+        "RGR": 3.75072914475369e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 67.44764203596966,
+        "RGE": 0.23171700597019973,
+        "RGR": 33.18254685635255
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": -5.377159877890614e-07,
+        "RGA_RGR": -1.5764182044394483e-06,
+        "RGE_RGR": 1.1398944550693603e-06
+       },
+       "cross_total": -9.742397371591494e-07,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 55.19339514491816,
+        "RGA_RGR": 161.81009091624935,
+        "RGE_RGR": -117.00348606116751
+       }
+      },
+      "cross_share_mc_se_pct": 6.982639490147886,
+      "understatement_mc_se_pct": 3.4584084624295492
+     },
+     "_name": "topsis"
+    }
+   },
+   "gaussian_control": {
+    "arithmetic": {
+     "description": "volume composite, arithmetic (gaussian control family)",
+     "V_point": 0.7858191299440657,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.7530387480969685,
+       0.8007195904347406
+      ],
+      "width": 0.047680842337772145,
+      "sd": 0.01147410562982502,
+      "mean": 0.7776364180654278
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.7607401473096383,
+       0.794907762669744
+      ],
+      "width": 0.034167615360105597,
+      "sd": 0.009437724152003394,
+      "mean": 0.7785636993041481
+     },
+     "empirical_understatement_of_width_pct": 28.340998848003874,
+     "empirical_understatement_mc_se_pct": 7.666731457011695,
+     "plugin_minus_bootstrap_mean": 0.008182711878637838,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.5506644816384494,
+       0.8832590634428831,
+       0.9235338447508645
+      ],
+      "gradient_at_point": [
+       0.3333333333333333,
+       0.3333333333333333,
+       0.3333333333333333
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0008177736831281638,
+        4.252585605051115e-06,
+        0.00011586024026068998
+       ],
+       [
+        4.252585605051115e-06,
+        3.706554671475156e-05,
+        1.0072213209755631e-05
+       ],
+       [
+        0.00011586024026068998,
+        1.0072213209755631e-05,
+        6.96865920455321e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.02442594047625973,
+        0.4853368269195717
+       ],
+       [
+        0.02442594047625973,
+        1.0,
+        0.19818240394533726
+       ],
+       [
+        0.48533682691957164,
+        0.19818240394533726,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00013165510000438232,
+      "var_cross_terms_declared_zero": 0.0001027250913209386,
+      "cross_covariance_share_of_variance_pct": 21.974088875008068,
+      "ci95_delta_measured_covariance": [
+       0.7633302961548003,
+       0.808307963733331
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.7659542310477353,
+       0.805684028840396
+      ],
+      "width_delta_measured": 0.04497766757853064,
+      "width_delta_declared_zero": 0.039729797792660816,
+      "understatement_of_width_pct": 11.667723268902474,
+      "understatement_factor": 1.1320890132201793,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.33333333333333,
+        "RGE": 33.33333333333333,
+        "RGR": 33.33333333333333
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 9.086374256979598e-05,
+        "RGE": 4.11839407941684e-06,
+        "RGR": 7.742954671725788e-06
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 69.01650036099738,
+        "RGE": 3.128169041138363,
+        "RGR": 5.881241722856201
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 9.450190233446921e-07,
+        "RGA_RGR": 2.5746720057931107e-05,
+        "RGE_RGR": 2.238269602167918e-06
+       },
+       "cross_total": 2.8930008683443717e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 3.2665701337501316,
+        "RGA_RGR": 88.99658600056223,
+        "RGE_RGR": 7.736843865687644
+       }
+      },
+      "cross_share_mc_se_pct": 3.426654933183817,
+      "understatement_mc_se_pct": 1.933211045445099
+     },
+     "_name": "arithmetic"
+    },
+    "geometric": {
+     "description": "volume composite, geometric (gaussian control family)",
+     "V_point": 0.6912259618153117,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6425240874690283,
+       0.7072963911956497
+      ],
+      "width": 0.06477230372662135,
+      "sd": 0.01716444474479494,
+      "mean": 0.6744044953534359
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6509722757437935,
+       0.7030615100415751
+      ],
+      "width": 0.05208923429778167,
+      "sd": 0.014576565790253768,
+      "mean": 0.6767093167325552
+     },
+     "empirical_understatement_of_width_pct": 19.581007157580764,
+     "empirical_understatement_mc_se_pct": 6.508116399843293,
+     "plugin_minus_bootstrap_mean": 0.016821466461875767,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.7433114489290042,
+       0.9552305529805512,
+       0.9735113393017885
+      ],
+      "gradient_at_point": [
+       0.9299277749740843,
+       0.7236221241652279,
+       0.7100338063972275
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.00029877570463372375,
+        8.992956988500596e-07,
+        2.086855206606633e-05
+       ],
+       [
+        8.992956988500596e-07,
+        5.74849821743635e-06,
+        1.1585844568000003e-06
+       ],
+       [
+        2.086855206606633e-05,
+        1.1585844568000003e-06,
+        9.102989407033625e-06
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999998,
+        0.02169964735502971,
+        0.4001544573466831
+       ],
+       [
+        0.021699647355029706,
+        1.0,
+        0.160161629479717
+       ],
+       [
+        0.40015445734668315,
+        0.160161629479717,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00029592934131776567,
+      "var_cross_terms_declared_zero": 0.0002659703056120927,
+      "cross_covariance_share_of_variance_pct": 10.123712495782334,
+      "ci95_delta_measured_covariance": [
+       0.6575094913816003,
+       0.7249424322490231
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6592617008894545,
+       0.723190222741169
+      ],
+      "width_delta_measured": 0.06743294086742276,
+      "width_delta_declared_zero": 0.06392852185171453,
+      "understatement_of_width_pct": 5.1968948271114535,
+      "understatement_factor": 1.0548177701314119,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 39.34397469384264,
+        "RGE": 30.615464240601696,
+        "RGR": 30.04056106555566
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.0002583709714018586,
+        "RGE": 3.010080249973174e-06,
+        "RGR": 4.589253960260915e-06
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 87.30833186440366,
+        "RGE": 1.0171618118600085,
+        "RGR": 1.5507938279540268
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 1.2103014898600886e-06,
+        "RGA_RGR": 2.7558181699948374e-05,
+        "RGE_RGR": 1.1905525158644421e-06
+       },
+       "cross_total": 2.9959035705672904e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 4.039854625998231,
+        "RGA_RGR": 91.98621067342994,
+        "RGE_RGR": 3.9739347005718364
+       }
+      },
+      "cross_share_mc_se_pct": 2.3163955586335763,
+      "understatement_mc_se_pct": 1.2222689279532821
+     },
+     "_name": "geometric"
+    },
+    "rms": {
+     "description": "volume composite, RMS tensor (gaussian control family)",
+     "V_point": 0.8245668779852636,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.8008234177521346,
+       0.8378833335784098
+      ],
+      "width": 0.037059915826275214,
+      "sd": 0.009059625281171014,
+      "mean": 0.8205409256462424
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.8067029846414389,
+       0.8345570500812541
+      ],
+      "width": 0.02785406543981528,
+      "sd": 0.00711103750773548,
+      "mean": 0.8208432495903735
+     },
+     "empirical_understatement_of_width_pct": 24.840451418222198,
+     "empirical_understatement_mc_se_pct": 8.21313920799864,
+     "plugin_minus_bootstrap_mean": 0.004025952339021255,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.15337356232660937,
+       0.3222704841512816,
+       0.34892283150737274
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        4.625632765165985e-05,
+        6.048381870595877e-07,
+        1.1265172489665763e-05
+       ],
+       [
+        6.048381870595877e-07,
+        4.212553159373964e-06,
+        1.4910116796533634e-06
+       ],
+       [
+        1.1265172489665763e-05,
+        1.4910116796533634e-06,
+        9.533960971002005e-06
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.04332922592674396,
+        0.5364331223496277
+       ],
+       [
+        0.04332922592674396,
+        1.0,
+        0.2352727687455675
+       ],
+       [
+        0.5364331223496277,
+        0.2352727687455675,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 8.672488649479325e-05,
+      "var_cross_terms_declared_zero": 6.000284178203582e-05,
+      "cross_covariance_share_of_variance_pct": 30.81242973360566,
+      "ci95_delta_measured_covariance": [
+       0.8063144786854697,
+       0.8428192772850576
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.8093847027185136,
+       0.8397490532520137
+      ],
+      "width_delta_measured": 0.036504798599587995,
+      "width_delta_declared_zero": 0.030364350533500006,
+      "understatement_of_width_pct": 16.82093396389068,
+      "understatement_factor": 1.2022255690703292,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 4.625632765165985e-05,
+        "RGE": 4.212553159373964e-06,
+        "RGR": 9.533960971002005e-06
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 53.33685579909864,
+        "RGE": 4.857375235223715,
+        "RGR": 10.993339232071985
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 1.2096763741191753e-06,
+        "RGA_RGR": 2.2530344979331525e-05,
+        "RGE_RGR": 2.982023359306727e-06
+       },
+       "cross_total": 2.672204471275743e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 4.526885525124734,
+        "RGA_RGR": 84.31370137097056,
+        "RGE_RGR": 11.159413103904704
+       }
+      },
+      "cross_share_mc_se_pct": 3.5740310912956104,
+      "understatement_mc_se_pct": 2.1365170375486766
+     },
+     "_name": "rms"
+    },
+    "topsis": {
+     "description": "TOPSIS closeness, thesis reference (gaussian control family)",
+     "V_point": 0.5191642767186923,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.49914708023047255,
+       0.5277095283562498
+      ],
+      "width": 0.028562448125777296,
+      "sd": 0.0074702048266287345,
+      "mean": 0.5133995998293892
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5006001244408217,
+       0.5261245792972901
+      ],
+      "width": 0.02552445485646837,
+      "sd": 0.00633348311230248,
+      "mean": 0.513893379080389
+     },
+     "empirical_understatement_of_width_pct": 10.636319603735823,
+     "empirical_understatement_mc_se_pct": 8.890748955295164,
+     "plugin_minus_bootstrap_mean": 0.005764676889303044,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.12162095959063378,
+       -0.14816834357890482,
+       0.17640721799733233
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        4.1679526978681475e-05,
+        -4.034613078211809e-07,
+        5.547515089182077e-06
+       ],
+       [
+        -4.034613078211809e-07,
+        9.12399867323325e-07,
+        -4.3734014225704894e-07
+       ],
+       [
+        5.547515089182077e-06,
+        -4.3734014225704894e-07,
+        3.2249808650853542e-06
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        -0.0654256271697854,
+        0.4784907321164765
+       ],
+       [
+        -0.06542562716978538,
+        1.0,
+        -0.2549547831441567
+       ],
+       [
+        0.4784907321164765,
+        -0.25495478314415676,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 5.523033498929785e-05,
+      "var_cross_terms_declared_zero": 4.5816907711090154e-05,
+      "cross_covariance_share_of_variance_pct": 17.04394383997809,
+      "ci95_delta_measured_covariance": [
+       0.5045983899446393,
+       0.5337301634927452
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.5058976356870032,
+       0.5324309177503813
+      ],
+      "width_delta_measured": 0.029131773548105824,
+      "width_delta_declared_zero": 0.026533282063378134,
+      "understatement_of_width_pct": 8.919784716974933,
+      "understatement_factor": 1.0979332853930721,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 4.1679526978681475e-05,
+        "RGE": 9.12399867323325e-07,
+        "RGR": 3.2249808650853542e-06
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 75.46491794184817,
+        "RGE": 1.6519904641174519,
+        "RGR": 5.839147754056296
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": -8.069226156423618e-07,
+        "RGA_RGR": 1.1095030178364154e-05,
+        "RGE_RGR": -8.746802845140979e-07
+       },
+       "cross_total": 9.413427278207695e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -8.572038555079791,
+        "RGA_RGR": 117.8638751908076,
+        "RGE_RGR": -9.291836635727812
+       }
+      },
+      "cross_share_mc_se_pct": 2.293266822538464,
+      "understatement_mc_se_pct": 1.2576645332435945
+     },
+     "_name": "topsis"
+    }
+   }
+  },
+  "B_logit": {
+   "point_curves": {
+    "RGA": [
+     0.7514870364096201,
+     0.7514870364096201,
+     0.6532614868080737,
+     0.534482528161613,
+     0.46174413654634616,
+     0.3699568600546477,
+     0.27896472757775487,
+     0.20926862610609231,
+     0.13663080606582068,
+     0.0
+    ],
+    "RGE": [
+     1.0,
+     0.9994014238980762,
+     0.9949588643159568,
+     0.9770227929262492,
+     0.9539392492242083,
+     0.9037177867903605,
+     0.8561159349789482,
+     0.7975852689180896,
+     0.6916327578622544,
+     0.500756042476578
+    ],
+    "RGR_tail_swap": [
+     1.0,
+     0.5694286311872511,
+     0.4823945467458715,
+     0.4563020484406023,
+     0.4026123252370006,
+     0.3750201208961574,
+     0.36565204867540524,
+     0.36969624388910655,
+     0.37060979860854865,
+     0.37055135756358154
+    ],
+    "RGR_gaussian": [
+     1.0,
+     0.9834682584117269,
+     0.949753000758228,
+     0.9075894858804141,
+     0.9057198325097467,
+     0.8708750114240003,
+     0.8792373544563791,
+     0.819333442183038,
+     0.8404827141028892,
+     0.8095604658199382
+    ],
+    "greedy_removal_order": [
+     "tool_code",
+     "log10_amount",
+     "ear_nonce_match",
+     "payee_unknown",
+     "nonce_match",
+     "headroom_frac",
+     "n_package_fields",
+     "issuer_on_list",
+     "expiry_margin_s"
+    ]
+   },
+   "fastpath_max_abs_gap": {
+    "RGA": 0.0,
+    "RGE": 0.0,
+    "RGR": 0.0
+   },
+   "curve_summary_corr_paired": {
+    "tail_swap": [
+     [
+      1.0,
+      0.033231644099841,
+      0.14529412601257383
+     ],
+     [
+      0.033231644099841,
+      0.9999999999999999,
+      -0.34216346100694833
+     ],
+     [
+      0.14529412601257383,
+      -0.34216346100694833,
+      1.0
+     ]
+    ],
+    "gaussian": [
+     [
+      1.0,
+      0.033231644099841,
+      0.542143514232417
+     ],
+     [
+      0.033231644099841,
+      0.9999999999999999,
+      -0.11625513520877802
+     ],
+     [
+      0.5421435142324171,
+      -0.11625513520877802,
+      1.0
+     ]
+    ]
+   },
+   "tail_swap": {
+    "arithmetic": {
+     "description": "volume composite, arithmetic (tail-swap family)",
+     "V_point": 0.5861560162257945,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5567019307104598,
+       0.6128064425324893
+      ],
+      "width": 0.05610451182202947,
+      "sd": 0.014333321537631675,
+      "mean": 0.5856458388548053
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5556090158141,
+       0.6126074829228199
+      ],
+      "width": 0.05699846710871981,
+      "sd": 0.014279148531005224,
+      "mean": 0.5846370670718009
+     },
+     "empirical_understatement_of_width_pct": -1.593375038225231,
+     "empirical_understatement_mc_se_pct": 9.567136599425988,
+     "plugin_minus_bootstrap_mean": 0.0005101773709892399,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.41472832441395885,
+       0.8675130121390721,
+       0.4762267121243525
+      ],
+      "gradient_at_point": [
+       0.3333333333333333,
+       0.3333333333333333,
+       0.3333333333333333
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0011055908205654618,
+        1.2552505785696553e-05,
+        0.00011279985621678871
+       ],
+       [
+        1.2552505785696553e-05,
+        0.0001290514177713316,
+        -9.075661665564641e-05
+       ],
+       [
+        0.00011279985621678871,
+        -9.075661665564641e-05,
+        0.0005451632276797562
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.033231644099841,
+        0.14529412601257383
+       ],
+       [
+        0.033231644099841,
+        0.9999999999999999,
+        -0.34216346100694833
+       ],
+       [
+        0.14529412601257383,
+        -0.34216346100694833,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00020544410630113634,
+      "var_cross_terms_declared_zero": 0.0001977561628907277,
+      "cross_covariance_share_of_variance_pct": 3.742109495776813,
+      "ci95_delta_measured_covariance": [
+       0.5580632222332041,
+       0.6142488102183848
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.5585938654337534,
+       0.6137181670178355
+      ],
+      "width_delta_measured": 0.056185587985180745,
+      "width_delta_declared_zero": 0.05512430158408214,
+      "understatement_of_width_pct": 1.8888943573546424,
+      "understatement_factor": 1.0192526049419386,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.33333333333333,
+        "RGE": 33.33333333333333,
+        "RGR": 33.33333333333333
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.00012284342450727352,
+        "RGE": 1.4339046419036842e-05,
+        "RGR": 6.0573691964417356e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 59.79408546634664,
+        "RGE": 6.979536515892512,
+        "RGR": 29.484268521984028
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 2.7894457301547893e-06,
+        "RGA_RGR": 2.5066634714841934e-05,
+        "RGE_RGR": -2.016813703458809e-05
+       },
+       "cross_total": 7.687943410408633e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 36.28338010888823,
+        "RGA_RGR": 326.05123863040484,
+        "RGE_RGR": -262.3346187392931
+       }
+      },
+      "cross_share_mc_se_pct": 6.100635629937082,
+      "understatement_mc_se_pct": 3.0870689323099785
+     },
+     "_name": "arithmetic"
+    },
+    "geometric": {
+     "description": "volume composite, geometric (tail-swap family)",
+     "V_point": 0.494405564492046,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.45505292632010685,
+       0.5245650974160525
+      ],
+      "width": 0.06951217109594565,
+      "sd": 0.01856159800831694,
+      "mean": 0.4909313398264918
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.4542961580682747,
+       0.5252421835033897
+      ],
+      "width": 0.07094602543511497,
+      "sd": 0.017822273578659908,
+      "mean": 0.48996332767627204
+     },
+     "empirical_understatement_of_width_pct": -2.062738534220454,
+     "empirical_understatement_mc_se_pct": 10.09404560788069,
+     "plugin_minus_bootstrap_mean": 0.003474224665554193,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.6750502292042094,
+       0.9496990161496868,
+       0.7711897930500513
+      ],
+      "gradient_at_point": [
+       0.7323981877243143,
+       0.520591846558384,
+       0.6410945385268583
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0004195838015498548,
+        3.579384154348067e-06,
+        4.831339460278112e-05
+       ],
+       [
+        3.579384154348067e-06,
+        1.828427576603194e-05,
+        -2.1733371280626185e-05
+       ],
+       [
+        4.831339460278112e-05,
+        -2.1733371280626185e-05,
+        0.00020252465342108096
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.04086580638495613,
+        0.16573691376646693
+       ],
+       [
+        0.04086580638495613,
+        0.9999999999999998,
+        -0.3571488607326556
+       ],
+       [
+        0.16573691376646693,
+        -0.3571488607326556,
+        0.9999999999999999
+       ]
+      ],
+      "var_measured_covariance": 0.0003468534781803066,
+      "var_cross_terms_declared_zero": 0.0003132611409659785,
+      "cross_covariance_share_of_variance_pct": 9.684878292287335,
+      "ci95_delta_measured_covariance": [
+       0.4579031898673154,
+       0.5309079391167766
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.4597157998179456,
+       0.5290953291661464
+      ],
+      "width_delta_measured": 0.0730047492494612,
+      "width_delta_declared_zero": 0.0693795293482008,
+      "understatement_of_width_pct": 4.965731597642808,
+      "understatement_factor": 1.0522520105760045,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 38.667660263866914,
+        "RGE": 27.48514263997058,
+        "RGR": 33.84719709616251
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.0002250677324544744,
+        "RGE": 4.955328916906152e-06,
+        "RGR": 8.323807959459797e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 64.88841733265718,
+        "RGE": 1.4286519319060127,
+        "RGR": 23.998052443149465
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 2.7294989388311185e-06,
+        "RGA_RGR": 4.536980230113362e-05,
+        "RGE_RGR": -1.4506964025636624e-05
+       },
+       "cross_total": 3.3592337214328116e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 8.125361809201259,
+        "RGA_RGR": 135.05997517130803,
+        "RGE_RGR": -43.18533698050929
+       }
+      },
+      "cross_share_mc_se_pct": 4.872732365378147,
+      "understatement_mc_se_pct": 2.5528065958566466
+     },
+     "_name": "geometric"
+    },
+    "rms": {
+     "description": "volume composite, RMS tensor (tail-swap family)",
+     "V_point": 0.6423480043275412,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6203120492834362,
+       0.664738934882904
+      ],
+      "width": 0.044426885599467836,
+      "sd": 0.0108658982665484,
+      "mean": 0.6432518145580899
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.620980827511154,
+       0.6627609245005271
+      ],
+      "width": 0.04178009698937313,
+      "sd": 0.011224195073441873,
+      "mean": 0.6422315842981016
+     },
+     "empirical_understatement_of_width_pct": 5.957628076739219,
+     "empirical_understatement_mc_se_pct": 10.143012662669056,
+     "plugin_minus_bootstrap_mean": -0.0009038102305486406,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.11494889416368956,
+       0.3986498831502926,
+       0.1287492270135591
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        7.054804402016944e-05,
+        1.248135848837644e-06,
+        5.317618535902853e-06
+       ],
+       [
+        1.248135848837644e-06,
+        2.6542885824390485e-05,
+        -8.580694648122902e-06
+       ],
+       [
+        5.317618535902853e-06,
+        -8.580694648122902e-06,
+        2.745885201374361e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.028843323375161767,
+        0.12081851758790028
+       ],
+       [
+        0.028843323375161767,
+        1.0,
+        -0.3178390030066529
+       ],
+       [
+        0.12081851758790028,
+        -0.31783900300665285,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00012051990133153873,
+      "var_cross_terms_declared_zero": 0.00012454978185830353,
+      "cross_covariance_share_of_variance_pct": -3.3437469515337437,
+      "ci95_delta_measured_covariance": [
+       0.6208312146497286,
+       0.6638647940053539
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.6204744390457883,
+       0.6642215696092942
+      ],
+      "width_delta_measured": 0.0430335793556253,
+      "width_delta_declared_zero": 0.04374713056350595,
+      "understatement_of_width_pct": -1.6581265573656578,
+      "understatement_factor": 0.9836891883264248,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 7.054804402016944e-05,
+        "RGE": 2.6542885824390485e-05,
+        "RGR": 2.745885201374361e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 58.53642696412315,
+        "RGE": 22.023653795876868,
+        "RGR": 22.78366619153374
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 2.496271697675288e-06,
+        "RGA_RGR": 1.0635237071805706e-05,
+        "RGE_RGR": -1.7161389296245804e-05
+       },
+       "cross_total": -4.02988052676481e-06,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -61.944062140206825,
+        "RGA_RGR": -263.90948816399975,
+        "RGE_RGR": 425.8535503042065
+       }
+      },
+      "cross_share_mc_se_pct": 7.658000540662454,
+      "understatement_mc_se_pct": 3.7323636991652105
+     },
+     "_name": "rms"
+    },
+    "topsis": {
+     "description": "TOPSIS closeness, thesis reference (tail-swap family)",
+     "V_point": 0.3529250447656749,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.3243361229602847,
+       0.3783483265877817
+      ],
+      "width": 0.054012203627497035,
+      "sd": 0.014899059146154414,
+      "mean": 0.3530962054126463
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.3241387942435228,
+       0.3788524964677224
+      ],
+      "width": 0.05471370222419958,
+      "sd": 0.014070263787820085,
+      "mean": 0.35216633373182127
+     },
+     "empirical_understatement_of_width_pct": -1.2987779605152294,
+     "empirical_understatement_mc_se_pct": 11.11256365993076,
+     "plugin_minus_bootstrap_mean": -0.0001711606469714244,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.1586925134080529,
+       -0.05387417465346931,
+       0.12444410544421716
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0001411631525065653,
+        -1.9521242287197247e-07,
+        1.1688559297519867e-05
+       ],
+       [
+        -1.9521242287197247e-07,
+        2.6733103453170793e-07,
+        1.1630704870058743e-06
+       ],
+       [
+        1.1688559297519867e-05,
+        1.1630704870058743e-06,
+        5.686328220955868e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        -0.03177767271865057,
+        0.13046209494543248
+       ],
+       [
+        -0.03177767271865057,
+        1.0,
+        0.2983083322354498
+       ],
+       [
+        0.13046209494543248,
+        0.2983083322354498,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00022360660047396325,
+      "var_cross_terms_declared_zero": 0.0001982937657506557,
+      "cross_covariance_share_of_variance_pct": 11.320253816145732,
+      "ci95_delta_measured_covariance": [
+       0.32361676013903506,
+       0.3822333293923147
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.32532545535692625,
+       0.3805246341744235
+      ],
+      "width_delta_measured": 0.05861656925327968,
+      "width_delta_declared_zero": 0.05519917881749731,
+      "understatement_of_width_pct": 5.830075828928127,
+      "understatement_factor": 1.0619101680313243,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.0001411631525065653,
+        "RGE": 2.6733103453170793e-07,
+        "RGR": 5.686328220955868e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 63.1301366808277,
+        "RGE": 0.11955417861774434,
+        "RGR": 25.430055324408837
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": -3.9042484574394493e-07,
+        "RGA_RGR": 2.3377118595039733e-05,
+        "RGE_RGR": 2.3261409740117486e-06
+       },
+       "cross_total": 2.5312834723307538e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -1.5423987475588807,
+        "RGA_RGR": 92.35282753027484,
+        "RGE_RGR": 9.189571217284037
+       }
+      },
+      "cross_share_mc_se_pct": 5.152280224794605,
+      "understatement_mc_se_pct": 2.721420006022041
+     },
+     "_name": "topsis"
+    }
+   },
+   "gaussian_control": {
+    "arithmetic": {
+     "description": "volume composite, arithmetic (gaussian control family)",
+     "V_point": 0.7262810977025557,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.6954601387965458,
+       0.751547004616016
+      ],
+      "width": 0.0560868658194702,
+      "sd": 0.014020059657182752,
+      "mean": 0.7251541946784273
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.6984327255071794,
+       0.7472481560281045
+      ],
+      "width": 0.048815430520925074,
+      "sd": 0.012513802896255933,
+      "mean": 0.724006141758163
+     },
+     "empirical_understatement_of_width_pct": 12.964595529281464,
+     "empirical_understatement_mc_se_pct": 9.54479713591572,
+     "plugin_minus_bootstrap_mean": 0.0011269030241283229,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.41472832441395885,
+       0.8675130121390721,
+       0.8966019565546361
+      ],
+      "gradient_at_point": [
+       0.3333333333333333,
+       0.3333333333333333,
+       0.3333333333333333
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0011055908205654618,
+        1.2552505785696553e-05,
+        0.00020500750327111272
+       ],
+       [
+        1.2552505785696553e-05,
+        0.0001290514177713316,
+        -1.501937336360321e-05
+       ],
+       [
+        0.00020500750327111272,
+        -1.501937336360321e-05,
+        0.00012933514539546575
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.033231644099841,
+        0.542143514232417
+       ],
+       [
+        0.033231644099841,
+        0.9999999999999999,
+        -0.11625513520877802
+       ],
+       [
+        0.5421435142324171,
+        -0.11625513520877802,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00019656207279096342,
+      "var_cross_terms_declared_zero": 0.00015155304263691767,
+      "cross_covariance_share_of_variance_pct": 22.89812552084308,
+      "ci95_delta_measured_covariance": [
+       0.6988022857133744,
+       0.7537599096917369
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.7021525923107867,
+       0.7504096030943246
+      ],
+      "width_delta_measured": 0.05495762397836235,
+      "width_delta_declared_zero": 0.04825701078353777,
+      "understatement_of_width_pct": 12.192326941686392,
+      "understatement_factor": 1.1388526368713745,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.33333333333333,
+        "RGE": 33.33333333333333,
+        "RGR": 33.33333333333333
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.00012284342450727352,
+        "RGE": 1.4339046419036842e-05,
+        "RGR": 1.4370571710607305e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 62.49599567354633,
+        "RGE": 7.294920233307619,
+        "RGR": 7.310958572302949
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 2.7894457301547893e-06,
+        "RGA_RGR": 4.5557222949136154e-05,
+        "RGE_RGR": -3.3376385252451575e-06
+       },
+       "cross_total": 4.500903015404579e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 6.197524631407883,
+        "RGA_RGR": 101.21796180280745,
+        "RGE_RGR": -7.4154864342153415
+       }
+      },
+      "cross_share_mc_se_pct": 3.1704468729196598,
+      "understatement_mc_se_pct": 1.8006351766661888
+     },
+     "_name": "arithmetic"
+    },
+    "geometric": {
+     "description": "volume composite, geometric (gaussian control family)",
+     "V_point": 0.6178594530696776,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.5716388632231086,
+       0.6515904218432841
+      ],
+      "width": 0.07995155862017544,
+      "sd": 0.020461261052570005,
+      "mean": 0.6130622224161155
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.5758336187143861,
+       0.6453205982233265
+      ],
+      "width": 0.06948697950894045,
+      "sd": 0.018693815596155846,
+      "mean": 0.6120874123849084
+     },
+     "empirical_understatement_of_width_pct": 13.088649291940513,
+     "empirical_understatement_mc_se_pct": 9.053996673078636,
+     "plugin_minus_bootstrap_mean": 0.004797230653562079,
+     "delta_method": {
+      "summaries_are_exact": true,
+      "summary_point": [
+       0.6750502292042094,
+       0.9496990161496868,
+       0.9637571620707119
+      ],
+      "gradient_at_point": [
+       0.9152792286257694,
+       0.6505844931530325,
+       0.6410945385268583
+      ],
+      "Sigma_of_summaries": [
+       [
+        0.0004195838015498548,
+        3.579384154348067e-06,
+        4.3740936733601986e-05
+       ],
+       [
+        3.579384154348067e-06,
+        1.828427576603194e-05,
+        -2.33838201731291e-06
+       ],
+       [
+        4.3740936733601986e-05,
+        -2.33838201731291e-06,
+        1.7726908186344087e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.04086580638495613,
+        0.5071801233927887
+       ],
+       [
+        0.04086580638495613,
+        0.9999999999999998,
+        -0.12988532442932768
+       ],
+       [
+        0.5071801233927887,
+        -0.12988532442932768,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.00042017013939003053,
+      "var_cross_terms_declared_zero": 0.00036652528771168524,
+      "cross_covariance_share_of_variance_pct": 12.767411733785416,
+      "ci95_delta_measured_covariance": [
+       0.5776840092245611,
+       0.6580348969147941
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.5803362362634454,
+       0.6553826698759098
+      ],
+      "width_delta_measured": 0.08035088769023309,
+      "width_delta_declared_zero": 0.07504643361246437,
+      "understatement_of_width_pct": 6.60161229110291,
+      "understatement_factor": 1.0706822939136673,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 41.47243040740629,
+        "RGE": 29.4787855690088,
+        "RGR": 29.048784023584926
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 0.00035150048341614184,
+        "RGE": 7.739005901838114e-06,
+        "RGR": 7.285798393705326e-06
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 83.6567024792438,
+        "RGE": 1.84187432097697,
+        "RGR": 1.7340114659938155
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 4.262806516154204e-06,
+        "RGA_RGR": 5.1332658739923675e-05,
+        "RGE_RGR": -1.9506135777326327e-06
+       },
+       "cross_total": 5.364485167834524e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 7.946347846600471,
+        "RGA_RGR": 95.68981390369856,
+        "RGE_RGR": -3.6361617502990224
+       }
+      },
+      "cross_share_mc_se_pct": 1.8349097295058174,
+      "understatement_mc_se_pct": 0.9818997712869467
+     },
+     "_name": "geometric"
+    },
+    "rms": {
+     "description": "volume composite, RMS tensor (gaussian control family)",
+     "V_point": 0.7748816785185375,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.75031130464883,
+       0.795994749208543
+      ],
+      "width": 0.04568344455971296,
+      "sd": 0.010744346664713323,
+      "mean": 0.7751013506868546
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.7554429007991275,
+       0.7911497176530542
+      ],
+      "width": 0.03570681685392674,
+      "sd": 0.009718820113793937,
+      "mean": 0.7738853716747752
+     },
+     "empirical_understatement_of_width_pct": 21.838606527898186,
+     "empirical_understatement_mc_se_pct": 8.285228525695993,
+     "plugin_minus_bootstrap_mean": -0.00021967216831708658,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.09617170342431726,
+       0.32937361658422437,
+       0.34933635850999584
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        4.854092507236078e-05,
+        9.062473176127124e-07,
+        1.721769367042583e-05
+       ],
+       [
+        9.062473176127124e-07,
+        1.771051007895033e-05,
+        -1.9011490458239962e-06
+       ],
+       [
+        1.721769367042583e-05,
+        -1.9011490458239962e-06,
+        1.8683727781324786e-05
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        1.0,
+        0.030908446334084717,
+        0.5717276378248011
+       ],
+       [
+        0.030908446334084717,
+        1.0,
+        -0.10451265141998005
+       ],
+       [
+        0.5717276378248012,
+        -0.10451265141998005,
+        1.0
+       ]
+      ],
+      "var_measured_covariance": 0.000117380746817065,
+      "var_cross_terms_declared_zero": 8.49351629326359e-05,
+      "cross_covariance_share_of_variance_pct": 27.641316624944235,
+      "ci95_delta_measured_covariance": [
+       0.7536469591834467,
+       0.7961163978536283
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.7568185965324902,
+       0.7929447605045848
+      ],
+      "width_delta_measured": 0.04246943867018156,
+      "width_delta_declared_zero": 0.03612616397209462,
+      "understatement_of_width_pct": 14.936092627333563,
+      "understatement_factor": 1.1755867216620828,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 4.854092507236078e-05,
+        "RGE": 1.771051007895033e-05,
+        "RGR": 1.8683727781324786e-05
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 41.353396011366854,
+        "RGE": 15.088087747943645,
+        "RGR": 15.917199615745261
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": 1.8124946352254248e-06,
+        "RGA_RGR": 3.443538734085166e-05,
+        "RGE_RGR": -3.8022980916479924e-06
+       },
+       "cross_total": 3.244558388442909e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": 5.58625987956178,
+        "RGA_RGR": 106.13274047867417,
+        "RGE_RGR": -11.719000358235954
+       }
+      },
+      "cross_share_mc_se_pct": 4.190653775403072,
+      "understatement_mc_se_pct": 2.449296056899836
+     },
+     "_name": "rms"
+    },
+    "topsis": {
+     "description": "TOPSIS closeness, thesis reference (gaussian control family)",
+     "V_point": 0.48351565639524646,
+     "paired_bootstrap": {
+      "ci95_percentile": [
+       0.46102977434748593,
+       0.5015077466190153
+      ],
+      "width": 0.04047797227152938,
+      "sd": 0.010113099610813229,
+      "mean": 0.4826287014523404
+     },
+     "independent_stream_bootstrap": {
+      "ci95_percentile": [
+       0.46563101199834617,
+       0.49713909832765174
+      ],
+      "width": 0.031508086329305574,
+      "sd": 0.008579649723537905,
+      "mean": 0.48203647433693275
+     },
+     "empirical_understatement_of_width_pct": 22.15991918284127,
+     "empirical_understatement_mc_se_pct": 8.248112308163382,
+     "plugin_minus_bootstrap_mean": 0.0008869549429060819,
+     "delta_method": {
+      "summaries_are_exact": false,
+      "summary_point": [
+       0.10206859090133259,
+       -0.12731758881284627,
+       0.2044059872154485
+      ],
+      "gradient_at_point": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "Sigma_of_summaries": [
+       [
+        6.578475873307876e-05,
+        -5.77677104318263e-07,
+        1.2847114645820057e-05
+       ],
+       [
+        -5.77677104318263e-07,
+        2.8824101038279858e-06,
+        4.987645414152331e-07
+       ],
+       [
+        1.2847114645820057e-05,
+        4.987645414152331e-07,
+        8.453297910695218e-06
+       ]
+      ],
+      "Corr_of_summaries": [
+       [
+        0.9999999999999998,
+        -0.04195122298872431,
+        0.5447909308895167
+       ],
+       [
+        -0.0419512229887243,
+        1.0,
+        0.10104261972825815
+       ],
+       [
+        0.5447909308895167,
+        0.10104261972825815,
+        0.9999999999999999
+       ]
+      ],
+      "var_measured_covariance": 0.00010265687091343601,
+      "var_cross_terms_declared_zero": 7.712046674760196e-05,
+      "cross_covariance_share_of_variance_pct": 24.875494390791697,
+      "ci95_delta_measured_covariance": [
+       0.46365735479930736,
+       0.5033739579911856
+      ],
+      "ci95_delta_cross_terms_declared_zero": [
+       0.4663035938447087,
+       0.5007277189457842
+      ],
+      "width_delta_measured": 0.039716603191878176,
+      "width_delta_declared_zero": 0.03442412510107547,
+      "understatement_of_width_pct": 13.325606082760345,
+      "understatement_factor": 1.1537432854215768,
+      "cross_term_decomposition": {
+       "gradient_share_of_L1_pct": {
+        "RGA": 33.333333333333336,
+        "RGE": 33.333333333333336,
+        "RGR": 33.333333333333336
+       },
+       "diagonal_contributions_to_variance": {
+        "RGA": 6.578475873307876e-05,
+        "RGE": 2.8824101038279858e-06,
+        "RGR": 8.453297910695218e-06
+       },
+       "diagonal_share_of_variance_pct": {
+        "RGA": 64.08217798548608,
+        "RGE": 2.8078102110267302,
+        "RGR": 8.234517412695487
+       },
+       "cross_contributions_to_variance": {
+        "RGA_RGE": -1.155354208636526e-06,
+        "RGA_RGR": 2.5694229291640113e-05,
+        "RGE_RGR": 9.975290828304663e-07
+       },
+       "cross_total": 2.5536404165834054e-05,
+       "share_of_cross_total_pct": {
+        "RGA_RGE": -4.524341802916443,
+        "RGA_RGR": 100.61803973958565,
+        "RGE_RGR": 3.9063020633307928
+       }
+      },
+      "cross_share_mc_se_pct": 2.950741508046359,
+      "understatement_mc_se_pct": 1.7001862075243979
+     },
+     "_name": "topsis"
+    }
+   }
+  }
+ },
+ "runtime_seconds": 12.6
+}

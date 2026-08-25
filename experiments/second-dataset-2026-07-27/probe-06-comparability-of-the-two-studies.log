@@ -1,0 +1,68 @@
+================================================================================================
+C1. Does the grid length L drive it? Taiwan curve means restricted to the first k knots.
+================================================================================================
+model  k      rho(A,E)   rho(A,R)   rho(E,R)     under%     cross%
+logit  21      +0.2603    -0.2542    -0.4799    -9.6265   -20.1797
+logit  24      +0.2805    -0.2540    -0.5423    -9.8312   -20.6288
+logit  21sub    +0.2815    -0.2560    -0.5314    -9.6725   -20.2806
+rf     21      +0.2381    -0.1093    -0.1689    -3.5382    -7.2015
+rf     24      +0.2477    -0.1078    -0.2266    -4.1778    -8.5302
+rf     21sub    +0.2481    -0.1077    -0.2387    -4.2790    -8.7411
+
+================================================================================================
+C2. Counterfactual decomposition of the arithmetic understatement: swap the German correlation matrix onto the Taiwan sd mix and vice versa.
+================================================================================================
+--- logit
+   german corr + german sd  ->  -0.9138  (reported  -0.9138)
+   taiwan corr + taiwan sd  ->  -9.8312  (reported  -9.8312)
+   TAIWAN corr + german sd  ->  -8.2651   <- correlations alone
+   GERMAN corr + taiwan sd  ->  -1.4382   <- sd mix alone
+   sd ratios german [1.     0.0675 0.3498]   taiwan [1.     0.0497 0.4044]
+--- rf
+   german corr + german sd  ->  -3.0756  (reported  -3.0756)
+   taiwan corr + taiwan sd  ->  -4.1778  (reported  -4.1778)
+   TAIWAN corr + german sd  ->  -3.3145   <- correlations alone
+   GERMAN corr + taiwan sd  ->  -4.8536   <- sd mix alone
+   sd ratios german [1.     0.0788 0.4617]   taiwan [1.     0.1938 0.7193]
+
+================================================================================================
+C3. Which pair carries the cross term? 2 g_i g_j Sigma_ij as a share of the cross total.
+================================================================================================
+german  logit  share of cross total: {'RGA_RGE': -132.6, 'RGA_RGR': 200.7, 'RGE_RGR': 31.9}   cross share of var  -1.8359
+german  rf     share of cross total: {'RGA_RGE': -34.6, 'RGA_RGR': 103.1, 'RGE_RGR': 31.5}   cross share of var  -6.2457
+taiwan  logit  share of cross total: {'RGA_RGE': -14.0, 'RGA_RGR': 103.0, 'RGE_RGR': 10.9}   cross share of var -20.6288
+taiwan  rf     share of cross total: {'RGA_RGE': -78.5, 'RGA_RGR': 126.9, 'RGE_RGR': 51.7}   cross share of var  -8.5302
+
+================================================================================================
+C4. Sign pattern of the three cross contributions (the near-cancellation).
+================================================================================================
+german  logit   positive +5.037e-06  negative -8.836e-06  net -3.799e-06  |net|/(|pos|+|neg|) = 0.274
+german  rf      positive +4.176e-06  negative -1.625e-05  net -1.208e-05  |net|/(|pos|+|neg|) = 0.591
+taiwan  logit   positive +9.494e-08  negative -7.745e-07  net -6.796e-07  |net|/(|pos|+|neg|) = 0.782
+taiwan  rf      positive +3.064e-07  negative -6.964e-07  net -3.901e-07  |net|/(|pos|+|neg|) = 0.389
+
+================================================================================================
+C5. Is the breach of condition (d) an artefact of the class coding? An INDICATION only:
+    the flipped-coding correlation matrix applied to the primary run's sd mix. The flipped
+    covariance itself was not deposited, so this is not the paired recomputation section 4.3
+    of the pre-registration asked for.
+================================================================================================
+logit  primary correlations ->  -9.831    flipped correlations on the same sd mix ->  -8.077
+rf     primary correlations ->  -4.178    flipped correlations on the same sd mix ->  -3.748
+
+================================================================================================
+C6. Why rungs 4 and 6 are invariant to relabelling: it is the two-column class_order
+    convention, not rank-reversal. Synthetic 500-point pair, p -> 1 - p.
+================================================================================================
+  bare 1-D convention   : 0.992833092124 -> 0.993285477150   gap 4.524e-04
+  class_order=[0,1]     : 0.993059284637 -> 0.993059284637   gap 3.331e-16
+  => the invariance belongs to the two-column convention. Rungs 1 and 3, which use the
+     bare convention, carry no such guarantee.
+
+================================================================================================
+C7. How exactly do rungs 4 and 6 survive the coding flip? Primary against flipped, verbatim.
+================================================================================================
+logit  rung 4  primary -0.3789431439035956  flipped -0.3789431439035865  gap 9.104e-15
+logit  rung 6  primary -0.5423386608210231  flipped -0.5423386608210065  gap 1.665e-14
+rf     rung 4  primary -0.3174358937127401  flipped -0.3174284836861602  gap 7.410e-06
+rf     rung 6  primary -0.2265729209781699  flipped -0.2265726460140400  gap 2.750e-07

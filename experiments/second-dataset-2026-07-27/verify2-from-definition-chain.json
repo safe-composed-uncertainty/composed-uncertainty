@@ -1,0 +1,135 @@
+{
+ "y_test identical to the run": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 0.0,
+  "ok": true
+ },
+ "logit point scalar RGA": {
+  "mine": 0.7511335896905168,
+  "run": 0.7511335896905168,
+  "gap": 0.0,
+  "tol": 0.0,
+  "ok": true
+ },
+ "logit point scalar RGE": {
+  "mine": 0.9924954545880232,
+  "run": 0.9924954545880232,
+  "gap": 0.0,
+  "tol": 0.0,
+  "ok": true
+ },
+ "logit point scalar RGR": {
+  "mine": 0.9490714252797621,
+  "run": 0.9490714252797621,
+  "gap": 0.0,
+  "tol": 0.0,
+  "ok": true
+ },
+ "logit point C geomean": {
+  "mine": 0.8910762515504053,
+  "run": 0.8910762515504053,
+  "gap": 0.0,
+  "tol": 0.0,
+  "ok": true
+ },
+ "rf point scalar RGA": {
+  "mine": 0.7653610059144612,
+  "run": 0.7653610059144612,
+  "gap": 0.0,
+  "tol": 1e-06,
+  "ok": true
+ },
+ "rf point scalar RGE": {
+  "mine": 0.9860630413887612,
+  "run": 0.9860630424684899,
+  "gap": 1.0797286398300798e-09,
+  "tol": 1e-06,
+  "ok": true
+ },
+ "rf point scalar RGR": {
+  "mine": 0.8536128208368724,
+  "run": 0.8536128208368724,
+  "gap": 0.0,
+  "tol": 1e-06,
+  "ok": true
+ },
+ "rf point C geomean": {
+  "mine": 0.8636623364391924,
+  "run": 0.8636623367544263,
+  "gap": 3.152338390322029e-10,
+  "tol": 1e-06,
+  "ok": true
+ },
+ "chain fixed_draw rho": {
+  "mine": 0.783636309746146,
+  "run": 0.7836363203621649,
+  "gap": 1.061601895280262e-08,
+  "tol": 0.001,
+  "ok": true
+ },
+ "chain fixed_draw h_point": {
+  "mine": 0.7695889973595006,
+  "run": 0.769588997640398,
+  "gap": 2.808974164381084e-10,
+  "tol": 1e-06,
+  "ok": true
+ },
+ "chain fixed_draw width measured": {
+  "mine": 0.018824140871874877,
+  "run": 0.018824140839379,
+  "gap": 3.2495877516636185e-11,
+  "tol": 1e-06,
+  "ok": true
+ },
+ "chain fixed_draw width declared zero": {
+  "mine": 0.014103008723723848,
+  "run": 0.01410300865529357,
+  "gap": 6.843027880454322e-11,
+  "tol": 1e-06,
+  "ok": true
+ },
+ "chain fixed_draw understatement pct": {
+  "mine": 25.0801998363966,
+  "run": 25.080200070587544,
+  "gap": 2.3419094574705923e-07,
+  "tol": 0.01,
+  "ok": true
+ },
+ "chain redraw rho": {
+  "mine": 0.7252905759483472,
+  "run": 0.7252908265539981,
+  "gap": 2.5060565089773945e-07,
+  "tol": 0.001,
+  "ok": true
+ },
+ "chain redraw h_point": {
+  "mine": 0.7695889973595006,
+  "run": 0.769588997640398,
+  "gap": 2.808974164381084e-10,
+  "tol": 1e-06,
+  "ok": true
+ },
+ "chain redraw width measured": {
+  "mine": 0.018968246811890296,
+  "run": 0.018968252162166577,
+  "gap": 5.3502762810409e-09,
+  "tol": 1e-06,
+  "ok": true
+ },
+ "chain redraw width declared zero": {
+  "mine": 0.014459744969487619,
+  "run": 0.014459748133853312,
+  "gap": 3.164365693086868e-09,
+  "tol": 1e-06,
+  "ok": true
+ },
+ "chain redraw understatement pct": {
+  "mine": 23.76867976842494,
+  "run": 23.768684588165545,
+  "gap": 4.819740606620826e-06,
+  "tol": 0.01,
+  "ok": true
+ }
+}

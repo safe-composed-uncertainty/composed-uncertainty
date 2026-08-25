@@ -1,0 +1,9 @@
+Probe 5: is the 300-tree forest's predict_proba bitwise reproducible at n = 9000?
+run of 2026-07-28T01:53:27+00:00
+same fitted forest, two predict_proba calls, n_jobs=-1: max abs diff = 2.220e-16
+same forest, n_jobs=1 vs n_jobs=-1:                    max abs diff = 1.110e-16
+a SECOND fit with the same random_state:               max abs diff = 2.220e-16
+rge_score on those two probability vectors: 0.965296445923 vs 0.965296445923 -> gap 0.000e+00
+distinct rounded probabilities among 9000 rows: 442 ; ties are therefore dense
+smallest positive gap between adjacent sorted probabilities: 2.776e-17
+number of adjacent pairs closer than 1e-12: 8558

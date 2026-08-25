@@ -1,0 +1,106 @@
+{
+ "generated_utc": "2026-07-27T23:57:53+00:00",
+ "offline_fetch_ok": true,
+ "offline_fetch_seconds": 0.1537621021270752,
+ "n_test": 9000,
+ "d": 23,
+ "L": 24,
+ "B_plan": 2000,
+ "B_full_plan": {
+  "logit": 300,
+  "rf": 30
+ },
+ "reps_per_benchmark": 5,
+ "models": {
+  "logit": {
+   "fit_s": 0.24296975135803223,
+   "metric_vector_point_s": 1.0842046737670898,
+   "metric_vector_parts_s": {
+    "rga_curve": 0.003033161163330078,
+    "rge_greedy_curve": 0.8294987678527832,
+    "rgr_tail_swap_sweep": 0.25167274475097656
+   },
+   "precompute_curve_s": 0.28155016899108887,
+   "precompute_bridge_s": 0.01975727081298828,
+   "curve_replicate_s": 0.09825763702392579,
+   "noise_sweep_replicate_s": 0.04987068176269531,
+   "scalar_replicate_s": 0.0249509334564209,
+   "redraw_perturbation_and_predict_s": 0.0026274681091308593,
+   "full_recompute_replicate_s": 1.0807056427001953,
+   "replicate_cost_by_n_s": {
+    "300": 0.005927276611328125,
+    "1000": 0.012297439575195312,
+    "3000": 0.032655525207519534,
+    "9000": 0.0992424488067627
+   },
+   "replicate_cost_exponent_in_n": 0.9503692884056933
+  },
+  "rf": {
+   "fit_s": 0.6838886737823486,
+   "metric_vector_point_s": 27.355347871780396,
+   "metric_vector_parts_s": {
+    "rga_curve": 0.0029981136322021484,
+    "rge_greedy_curve": 25.668106079101562,
+    "rgr_tail_swap_sweep": 1.6842436790466309
+   },
+   "precompute_curve_s": 5.341161012649536,
+   "precompute_bridge_s": 1.1011409759521484,
+   "curve_replicate_s": 0.08420543670654297,
+   "noise_sweep_replicate_s": 0.041605138778686525,
+   "scalar_replicate_s": 0.020951604843139647,
+   "redraw_perturbation_and_predict_s": 0.0676297664642334,
+   "full_recompute_replicate_s": 24.895238399505615,
+   "replicate_cost_by_n_s": {
+    "300": 0.006284236907958984,
+    "1000": 0.012023544311523438,
+    "3000": 0.0303591251373291,
+    "9000": 0.08266963958740234
+   },
+   "replicate_cost_exponent_in_n": 0.8774640908346041
+  }
+ },
+ "tail_swap_bite_mean_over_columns": {
+  "taiwan_n9000": {
+   "p=0.125": 0.25,
+   "p=0.250": 0.5,
+   "p=0.500": 0.8811787439613527
+  },
+  "german_n300": {
+   "p=0.125": 0.23433333333333334,
+   "p=0.250": 0.44066666666666665,
+   "p=0.500": 0.7016666666666667
+  }
+ },
+ "index_stream_MB_int64": 144.0,
+ "index_streams_held_MB_int64": 576.0,
+ "projection": {
+  "items_s": {
+   "D1 logit deposited-scalar precompute": 0.01975727081298828,
+   "D1 logit scheme-B redraw, B fresh perturbations": 5.254936218261719,
+   "D1 logit paired pass, both schemes": 49.9018669128418,
+   "D1 rf deposited-scalar precompute": 1.1011409759521484,
+   "D1 rf scheme-B redraw, B fresh perturbations": 135.2595329284668,
+   "D1 rf paired pass, both schemes": 41.9032096862793,
+   "D1 chain, shared stream, both models, both schemes": 91.8050765991211,
+   "D2 logit point curves": 1.0842046737670898,
+   "D2 logit curve precompute": 0.28155016899108887,
+   "D2 logit paired pass + Gaussian-sweep arm": 296.2566375732422,
+   "D2 logit independent-stream pass": 196.51527404785156,
+   "D2 logit conditioning check, B_full = 300": 324.2116928100586,
+   "D2 rf point curves": 27.355347871780396,
+   "D2 rf curve precompute": 5.341161012649536,
+   "D2 rf paired pass + Gaussian-sweep arm": 251.621150970459,
+   "D2 rf independent-stream pass": 168.41087341308594,
+   "D2 rf conditioning check, B_full = 30": 746.8571519851685,
+   "D3 logit bridge: paired curve + independent + scalar + sweep": 542.6737785339357,
+   "D3 rf bridge: paired curve + independent + scalar + sweep": 461.9352340698242
+  },
+  "total_s": 3347.7895777225494,
+  "total_min": 55.79649296204249
+ },
+ "reduced_designs_s": {
+  "B_1000_instead_of_2000": 2227.020792245865,
+  "rf_conditioning_at_B_full_10": 2849.884809732437
+ },
+ "probe_total_s": 66.3761796951294
+}

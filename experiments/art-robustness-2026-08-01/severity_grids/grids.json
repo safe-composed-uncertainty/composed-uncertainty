@@ -1,0 +1,9 @@
+{
+  "_note": "Per-family predeclared severity grids. Frozen BEFORE the full run. Equal knot counts are NOT required for the Cartesian composite average (normalize by the actual product of curve lengths). Every value is data, not code.",
+  "gaussian_sd": [0, 0.10, 0.25, 0.50, 0.75, 1.00],
+  "tail_swap_mass": [0, 0.10, 0.25, 0.50],
+  "hopskipjump_fraction": [0, 0.25, 0.50, 0.75, 1.00],
+  "fgm_eps": [0, 0.05, 0.10, 0.20, 0.40],
+  "poisoning_fraction": [0, 0.005, 0.01, 0.02, 0.05],
+  "_open_questions": "hopskipjump_fraction interpolates the single top-budget attack; fgm_eps is logit-only; poisoning_fraction lives in the SEPARATE poisoning pilot with uncertainty_scope=training_procedure. Q5 (per-family grids inside the Compliance Score) stays open for the 27.08 meeting."
+}

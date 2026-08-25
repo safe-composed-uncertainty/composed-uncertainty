@@ -1,0 +1,240 @@
+{
+ "logit point curve RGA max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit point curve RGE max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit point curve RGR max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit terminal RGA knot (structural zero)": {
+  "mine": -1.1102230246251565e-16,
+  "run": -1.1102230246251565e-16,
+  "gap": 0.0,
+  "tol": 1e-20,
+  "ok": true
+ },
+ "logit replicate matrix Ab max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit replicate matrix Eb max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit replicate matrix Rb max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit replicate matrix Rb_noise max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit replicate matrix SC max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit replicate matrix SC_co max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit curve-summary corr RGA-RGE": {
+  "mine": 0.2804617910719206,
+  "run": 0.2804617910719206,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit curve-summary corr RGA-RGR": {
+  "mine": -0.2540400984263465,
+  "run": -0.2540400984263465,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit curve-summary corr RGE-RGR = rung 6": {
+  "mine": -0.542338660821023,
+  "run": -0.542338660821023,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit curve-summary Sigma max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-18,
+  "ok": true
+ },
+ "logit bridge rung 1": {
+  "mine": 0.502840564328793,
+  "run": 0.502840564328793,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit bridge rung 2": {
+  "mine": 0.4951993805226484,
+  "run": 0.4951993805226484,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit bridge rung 3": {
+  "mine": 0.44902291663840616,
+  "run": 0.44902291663840616,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit bridge rung 4": {
+  "mine": -0.3789431439035956,
+  "run": -0.3789431439035956,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit bridge rung 5": {
+  "mine": 0.6061913537083778,
+  "run": 0.6061913537083778,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit bridge rung 6": {
+  "mine": -0.5423386608210231,
+  "run": -0.5423386608210231,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit RGA-RGE scalars": {
+  "mine": 0.20933220275134265,
+  "run": 0.20933220275134265,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit RGA-RGR scalars": {
+  "mine": 0.22236775677196283,
+  "run": 0.22236775677196283,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit RGA-RGE curve means": {
+  "mine": 0.2804617910719206,
+  "run": 0.2804617910719206,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit RGA-RGR curve means": {
+  "mine": -0.2540400984263465,
+  "run": -0.2540400984263465,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit delta understatement % arithmetic": {
+  "mine": -9.831160627901747,
+  "run": -9.831160627901747,
+  "gap": 0.0,
+  "tol": 1e-09,
+  "ok": true
+ },
+ "logit cross share of variance % arithmetic": {
+  "mine": -20.628838448719545,
+  "run": -20.628838448719545,
+  "gap": 0.0,
+  "tol": 1e-09,
+  "ok": true
+ },
+ "logit delta understatement % geometric": {
+  "mine": -13.404074300088297,
+  "run": -13.40407430008832,
+  "gap": 2.3092638912203256e-14,
+  "tol": 1e-09,
+  "ok": true
+ },
+ "logit cross share of variance % geometric": {
+  "mine": -28.60484067859952,
+  "run": -28.60484067859952,
+  "gap": 0.0,
+  "tol": 1e-09,
+  "ok": true
+ },
+ "logit delta understatement % rms": {
+  "mine": -5.165923359564228,
+  "run": -5.165923359564228,
+  "gap": 0.0,
+  "tol": 1e-09,
+  "ok": true
+ },
+ "logit cross share of variance % rms": {
+  "mine": -10.598714360697326,
+  "run": -10.598714360697326,
+  "gap": 0.0,
+  "tol": 1e-09,
+  "ok": true
+ },
+ "logit delta understatement % topsis": {
+  "mine": -8.003651139010781,
+  "run": -8.003651139010781,
+  "gap": 0.0,
+  "tol": 1e-09,
+  "ok": true
+ },
+ "logit cross share of variance % topsis": {
+  "mine": -16.64788659357146,
+  "run": -16.64788659357146,
+  "gap": 0.0,
+  "tol": 1e-09,
+  "ok": true
+ },
+ "logit per-severity-index RGE-RGR max abs gap": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 1e-12,
+  "ok": true
+ },
+ "logit per-index None positions agree": {
+  "mine": 0.0,
+  "run": 0.0,
+  "gap": 0.0,
+  "tol": 0.0,
+  "ok": true
+ }
+}

@@ -1,0 +1,5 @@
+pool size 5055
+numeric tokens scanned: 854
+UNTRACED: 2
+  L171: '1005'   << separate 1,005-second pass over both models, was absorbed into the paired loop it
+  L657: '8999'   << tie-dense -- 442 distinct values among 9,000 rows, and 8,558 of the 8,999

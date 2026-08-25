@@ -1,0 +1,467 @@
+{
+ "study": "Arm inventory behind the numerical-agreement remark",
+ "total_arms": 46,
+ "arms_carrying_a_gradient": 44,
+ "arms_with_a_non_zero_cross_term_sum": 40,
+ "arms_excluded_for_carrying_no_gradient": [
+  "certificate/german-chain",
+  "certificate/real-chain"
+ ],
+ "arms_excluded_for_an_identically_zero_cross_term": [
+  "aggregation/logit/shapley_min/fixed_draw",
+  "aggregation/logit/shapley_min/redraw",
+  "aggregation/rf/shapley_min/fixed_draw",
+  "aggregation/rf/shapley_min/redraw"
+ ],
+ "largest_identity_residual_pp": 2.220446049250313e-14,
+ "arms": [
+  {
+   "arm": "aggregation/logit/wsum_equal/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 8.197949547802907,
+   "implied_understatement_pct": 4.1866134341358885,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/wsum_equal/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 7.464990003820171,
+   "implied_understatement_pct": 3.804880583171044,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/wsum_accuracy_led/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 4.633511386478206,
+   "implied_understatement_pct": 2.3442328310704474,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/wsum_accuracy_led/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 4.231124732679525,
+   "implied_understatement_pct": 2.138426710316743,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/wsum_accuracy_light/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 14.67650793158236,
+   "implied_understatement_pct": 7.629283824137401,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/wsum_accuracy_light/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 13.020516540770032,
+   "implied_understatement_pct": 6.737208137848471,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/geomean/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 6.935724073734761,
+   "implied_understatement_pct": 3.5301726308866854,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/geomean/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 6.333344490255277,
+   "implied_understatement_pct": 3.2184648242523872,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/topsis/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 2.1624240268218853,
+   "implied_understatement_pct": 1.08712117566383,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/topsis/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 1.9718960040928213,
+   "implied_understatement_pct": 0.9908569899187647,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/shapley_min/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": true,
+   "cross_share_of_variance_pct": 0.0,
+   "implied_understatement_pct": 0.0,
+   "cross_term_sum_is_zero": true
+  },
+  {
+   "arm": "aggregation/logit/shapley_min/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": true,
+   "cross_share_of_variance_pct": 0.0,
+   "implied_understatement_pct": 0.0,
+   "cross_term_sum_is_zero": true
+  },
+  {
+   "arm": "aggregation/logit/shapley_prod/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 6.9357240737347725,
+   "implied_understatement_pct": 3.5301726308866965,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/logit/shapley_prod/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 6.333344490255288,
+   "implied_understatement_pct": 3.2184648242523983,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/wsum_equal/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 12.325975612935203,
+   "implied_understatement_pct": 6.365591587779662,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/wsum_equal/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 11.775026789064002,
+   "implied_understatement_pct": 6.071850220002739,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/wsum_accuracy_led/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 8.036919774179264,
+   "implied_understatement_pct": 4.1026172276736546,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/wsum_accuracy_led/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 7.719989762088786,
+   "implied_understatement_pct": 3.937515003040226,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/wsum_accuracy_light/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 16.492937312790477,
+   "implied_understatement_pct": 8.617801138728598,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/wsum_accuracy_light/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 15.409292282371734,
+   "implied_understatement_pct": 8.026793185391067,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/geomean/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 11.442865534826574,
+   "implied_understatement_pct": 5.895199662730577,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/geomean/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 10.946476478630874,
+   "implied_understatement_pct": 5.631825533515212,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/topsis/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 7.166478167530332,
+   "implied_understatement_pct": 3.649845961477738,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/topsis/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 6.867274031532434,
+   "implied_understatement_pct": 3.4947017161919947,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/shapley_min/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": true,
+   "cross_share_of_variance_pct": 0.0,
+   "implied_understatement_pct": 0.0,
+   "cross_term_sum_is_zero": true
+  },
+  {
+   "arm": "aggregation/rf/shapley_min/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": true,
+   "cross_share_of_variance_pct": 0.0,
+   "implied_understatement_pct": 0.0,
+   "cross_term_sum_is_zero": true
+  },
+  {
+   "arm": "aggregation/rf/shapley_prod/fixed_draw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 11.442865534826574,
+   "implied_understatement_pct": 5.895199662730577,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "aggregation/rf/shapley_prod/redraw",
+   "source": "aggregation-2026-07-25/results-aggregation.json",
+   "carries_gradient": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 10.946476478630874,
+   "implied_understatement_pct": 5.631825533515212,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "volume/logit/arithmetic",
+   "source": "pavia-composite-2026-07-25/results-pavia-composite.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": -1.8359431042543228,
+   "implied_understatement_pct": -0.9137964325266701,
+   "recorded_understatement_pct": -0.9137964325266701,
+   "identity_residual_pp": 0.0,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "volume/logit/geometric",
+   "source": "pavia-composite-2026-07-25/results-pavia-composite.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": -3.7591718484417225,
+   "implied_understatement_pct": -1.8622461211423191,
+   "recorded_understatement_pct": -1.862246121142297,
+   "identity_residual_pp": -2.220446049250313e-14,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "volume/logit/rms",
+   "source": "pavia-composite-2026-07-25/results-pavia-composite.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": 2.5126503740994455,
+   "implied_understatement_pct": 1.2643176830683167,
+   "recorded_understatement_pct": 1.2643176830683167,
+   "identity_residual_pp": 0.0,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "volume/logit/topsis",
+   "source": "pavia-composite-2026-07-25/results-pavia-composite.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": -3.0179245894679907,
+   "implied_understatement_pct": -1.4977460781607554,
+   "recorded_understatement_pct": -1.4977460781607554,
+   "identity_residual_pp": 0.0,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "volume/logit/arithmetic_weighted_SENSITIVITY",
+   "source": "pavia-composite-2026-07-25/results-pavia-composite.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": -1.4809033773406144,
+   "implied_understatement_pct": -0.7377304575304722,
+   "recorded_understatement_pct": -0.73773045753045,
+   "identity_residual_pp": -2.220446049250313e-14,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "volume/rf/arithmetic",
+   "source": "pavia-composite-2026-07-25/results-pavia-composite.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": -6.245735363208271,
+   "implied_understatement_pct": -3.075571966983648,
+   "recorded_understatement_pct": -3.075571966983648,
+   "identity_residual_pp": 0.0,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "volume/rf/geometric",
+   "source": "pavia-composite-2026-07-25/results-pavia-composite.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": -6.266426276555648,
+   "implied_understatement_pct": -3.0856082470078094,
+   "recorded_understatement_pct": -3.0856082470078094,
+   "identity_residual_pp": 0.0,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "volume/rf/rms",
+   "source": "pavia-composite-2026-07-25/results-pavia-composite.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": -3.0193357923706365,
+   "implied_understatement_pct": -1.4984412650611345,
+   "recorded_understatement_pct": -1.4984412650611345,
+   "identity_residual_pp": 0.0,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "volume/rf/topsis",
+   "source": "pavia-composite-2026-07-25/results-pavia-composite.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": -6.319083452396135,
+   "implied_understatement_pct": -3.1111455917332664,
+   "recorded_understatement_pct": -3.1111455917332664,
+   "identity_residual_pp": 0.0,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "volume/rf/arithmetic_weighted_SENSITIVITY",
+   "source": "pavia-composite-2026-07-25/results-pavia-composite.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "cross_share_of_variance_pct": -3.839164759213909,
+   "implied_understatement_pct": -1.9015037961726655,
+   "recorded_understatement_pct": -1.9015037961726655,
+   "identity_residual_pp": 0.0,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "chain/german/fixed_draw",
+   "source": "redraw-2026-07-24/results-redraw.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "recorded_understatement_pct": 23.79266021704757,
+   "implied_variance_share_pct": 41.92441363205636,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "chain/german/redraw",
+   "source": "redraw-2026-07-24/results-redraw.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "recorded_understatement_pct": 23.571134411426385,
+   "implied_variance_share_pct": 41.586285048437475,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "chain/real/logit/fixed_draw",
+   "source": "real-agentic-2026-07-25/results-real-agentic.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "recorded_understatement_pct": 11.023847010081244,
+   "implied_variance_share_pct": 20.83244199114572,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "chain/real/logit/redraw",
+   "source": "real-agentic-2026-07-25/results-real-agentic.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "recorded_understatement_pct": 11.027592442067224,
+   "implied_variance_share_pct": 20.839106933451067,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "chain/real/rf/fixed_draw",
+   "source": "real-agentic-2026-07-25/results-real-agentic.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "recorded_understatement_pct": 9.655535628548906,
+   "implied_variance_share_pct": 18.378777574356043,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "chain/real/rf/redraw",
+   "source": "real-agentic-2026-07-25/results-real-agentic.json",
+   "carries_gradient": true,
+   "gradient_is_non_negative": true,
+   "gradient_is_one_hot": false,
+   "recorded_understatement_pct": 8.456735743014221,
+   "implied_variance_share_pct": 16.198307691756696,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "certificate/german-chain",
+   "source": "certificate-examples/german-chain.json",
+   "carries_gradient": false,
+   "gradient_is_one_hot": false,
+   "recorded_understatement_pct": 23.571134411426385,
+   "cross_term_sum_is_zero": false
+  },
+  {
+   "arm": "certificate/real-chain",
+   "source": "certificate-examples/real-chain.json",
+   "carries_gradient": false,
+   "gradient_is_one_hot": false,
+   "recorded_understatement_pct": 11.027592442067224,
+   "cross_term_sum_is_zero": false
+  }
+ ]
+}
