@@ -146,8 +146,13 @@ indep = [s["coverage"]["composite_independent_percentile"]
          for s in cov["scenarios"]]
 assert (min(paired), max(paired)) == (0.941, 0.971)
 assert (min(indep), max(indep)) == (0.802, 0.998)
+def shortname(n):
+    return (n.replace("central-", "c-").replace("offbound-", "ob-")
+             .replace("positive", "pos").replace("negative", "neg"))
+
 COVER = {"nominal": 0.95,
-         "scenarios": [s["scenario"]["name"] for s in cov["scenarios"]],
+         "scenarios": [shortname(s["scenario"]["name"])
+                       for s in cov["scenarios"]],
          "paired": paired, "independent": indep,
          "outer": cov["outer_replications_per_scenario"],
          "mc_se": rnd(cov["scenarios"][0]
@@ -202,7 +207,12 @@ DATA2 = {"presets": PRESETS, "cloud": CLOUD, "flip": FLIP, "cover": COVER,
                                     "reasons": [r["reason"] for r in
                                                 s["rows"]]}
                                 for k, s in v1["scenarios"].items()},
-                  "certificate": v1["certificate"]}}
+                  "certificate": {
+                      "interval": [rnd(x) for x in
+                                   cert0["measurement"]["composed_score"]
+                                   ["interval95"]],
+                      "point": rnd(cert0["measurement"]["composed_score"]
+                                   ["value"])}}}
 
 (HERE / "console-v2-data.json").write_text(json.dumps(DATA2, indent=1))
 
@@ -453,15 +463,15 @@ function p_render() {
     `<rect x="${X(b_[0])}" y="${y}" width="${X(b_[1])-X(b_[0])}"
       height="18" fill="none" stroke="black" stroke-width="2"
       ${dash ? 'stroke-dasharray="5,3"' : ''}/>` +
-    `<text x="${X(b_[1]) + 6}" y="${y + 14}" font-size="12">${label}</text>`;
+    `<text x="${X(b_[0])}" y="${y - 5}" font-size="12">${label}</text>`;
   document.getElementById('p_band').innerHTML =
-    band(p.measured, 25, false, 'measured covariance') +
-    band(p.independent, 60, true, 'cross-term declared zero') +
-    `<line x1="${X(p.tau)}" y1="12" x2="${X(p.tau)}" y2="105"
+    band(p.measured, 30, false, 'measured covariance') +
+    band(p.independent, 72, true, 'cross-term declared zero') +
+    `<line x1="${X(p.tau)}" y1="14" x2="${X(p.tau)}" y2="100"
       stroke="black" stroke-dasharray="3,3"/>` +
     `<text x="${X(p.tau)}" y="118" font-size="12"
       text-anchor="middle">policy ${p.tau.toFixed(4)}</text>` +
-    `<circle cx="${X(p.h)}" cy="34" r="4" fill="white" stroke="black"
+    `<circle cx="${X(p.h)}" cy="39" r="4" fill="white" stroke="black"
       stroke-width="2"/>`;
   document.getElementById('p_note').textContent =
     p.note + '. Cross-link correlation ' + p.rho.toFixed(3) +
@@ -541,8 +551,8 @@ rho_s.oninput = theory; peff_s.oninput = theory;
       fill="white" stroke="black" stroke-width="1.6"/>`;
     s += `<line x1="${X(i)}" y1="${Y(D.cover.paired[i])}" x2="${X(i)}"
       y2="${Y(D.cover.independent[i])}" stroke="#999"/>`;
-    s += `<text x="${X(i)}" y="248" font-size="9" text-anchor="middle"
-      transform="rotate(-25 ${X(i)} 248)">${n}</text>`;
+    s += `<text x="${X(i)}" y="246" font-size="9" text-anchor="end"
+      transform="rotate(-30 ${X(i)} 246)">${n}</text>`;
   });
   s += `<circle cx="${padl + 12}" cy="18" r="5" fill="black"/>
     <text x="${padl + 22}" y="22" font-size="12">paired percentile

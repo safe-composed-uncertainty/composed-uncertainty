@@ -8069,15 +8069,15 @@
  "cover": {
   "nominal": 0.95,
   "scenarios": [
-   "central-positive-n100",
-   "central-positive-n300",
-   "central-positive-n800",
-   "upper-bound-positive-n300",
-   "central-zero-n300",
-   "central-negative-n300",
+   "c-pos-n100",
+   "c-pos-n300",
+   "c-pos-n800",
+   "upper-bound-pos-n300",
+   "c-zero-n300",
+   "c-neg-n300",
    "mixed-sign-n300",
-   "central-positive-noise-n300",
-   "upper-bound-positive-noise-n300"
+   "c-pos-noise-n300",
+   "upper-bound-pos-noise-n300"
   ],
   "paired": [
    0.952,
@@ -9282,6 +9282,12 @@
     ]
    }
   },
-  "certificate": "real-chain.json"
+  "certificate": {
+   "interval": [
+    0.7683,
+    0.8469
+   ],
+   "point": 0.8076
+  }
  }
 }
