@@ -1,0 +1,15 @@
+[start] australian-credit-approval at 2026-08-27T16:34:05+00:00
+[data] retained=690 train=483 test=207 raw_d=14 encoded_d=42
+[model] logit
+[logit] fit warnings: none
+[logit] paired bootstrap 12/12
+[logit] full conditioning 3/3
+[logit/flip] fit warnings: none
+[logit/flip] paired bootstrap 12/12
+[model] rf
+[rf] fit warnings: none
+[rf] paired bootstrap 12/12
+[rf] full conditioning 2/2
+[rf/flip] fit warnings: none
+[rf/flip] paired bootstrap 12/12
+[done] australian-credit-approval in 42.9s
