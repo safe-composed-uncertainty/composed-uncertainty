@@ -1,0 +1,442 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tyche.institute/schemas/composed-uncertainty-certificate-0.3.schema.json",
+  "title": "Composed uncertainty certificate profile 0.3",
+  "type": "object",
+  "required": ["certificate", "signature"],
+  "additionalProperties": false,
+  "properties": {
+    "certificate": {
+      "type": "object",
+      "required": [
+        "schema",
+        "certificate_id",
+        "certificate_type",
+        "subject",
+        "measurement",
+        "estimation",
+        "validity"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "composed-uncertainty-certificate/0.3"
+        },
+        "certificate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "certificate_type": {
+          "enum": ["link", "chain"]
+        },
+        "subject": {
+          "$ref": "#/$defs/subject"
+        },
+        "measurement": {
+          "type": "object"
+        },
+        "estimation": {
+          "$ref": "#/$defs/estimation"
+        },
+        "validity": {
+          "$ref": "#/$defs/validity"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "certificate_type": {
+                "const": "link"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "measurement": {
+                "$ref": "#/$defs/linkMeasurement"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "certificate_type": {
+                "const": "chain"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "measurement": {
+                "$ref": "#/$defs/chainMeasurement"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "signature": {
+      "$ref": "#/$defs/signature"
+    }
+  },
+  "$defs": {
+    "numberVector": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "number"
+      }
+    },
+    "numberMatrix": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/numberVector"
+      }
+    },
+    "numberVector2": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "number"
+      }
+    },
+    "numberMatrix2": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "$ref": "#/$defs/numberVector2"
+      }
+    },
+    "numberVector3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "number"
+      }
+    },
+    "numberMatrix3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/numberVector3"
+      }
+    },
+    "intervalMethod": {
+      "enum": [
+        "paired_bootstrap_percentile",
+        "first_order_delta",
+        "logit_delta"
+      ]
+    },
+    "interval": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "items": false
+    },
+    "subject": {
+      "type": "object",
+      "required": [
+        "system_id",
+        "substrate",
+        "dataset",
+        "test_sample_digest"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "system_id": {
+          "type": "string"
+        },
+        "substrate": {
+          "type": "object",
+          "required": ["name", "version_or_commit"],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "version_or_commit": {
+              "type": "string"
+            },
+            "module_set_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "dataset": {
+          "type": "string"
+        },
+        "test_sample_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "estimation": {
+      "type": "object",
+      "required": [
+        "method",
+        "resampling_unit",
+        "replicates",
+        "alpha",
+        "seed",
+        "perturbation_family",
+        "conditioning_scheme",
+        "uncertainty_scope"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "resampling_unit": {
+          "type": "string"
+        },
+        "replicates": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "alpha": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "exclusiveMaximum": 1
+        },
+        "seed": {
+          "type": "integer"
+        },
+        "perturbation_family": {
+          "type": "string"
+        },
+        "conditioning_scheme": {
+          "enum": ["fixed_draw", "redraw_per_replicate"]
+        },
+        "uncertainty_scope": {
+          "enum": ["fixed_artifact_evaluation", "training_procedure"]
+        }
+      }
+    },
+    "validity": {
+      "type": "object",
+      "required": [
+        "issued_utc",
+        "recalibrate_by_utc",
+        "recalibration_triggers"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "issued_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "recalibrate_by_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "recalibration_triggers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "horizon_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "linkMeasurement": {
+      "type": "object",
+      "required": [
+        "component_order",
+        "component_point_estimates",
+        "component_covariance",
+        "aggregator",
+        "composed_score"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "component_order": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "string"
+          }
+        },
+        "component_point_estimates": {
+          "$ref": "#/$defs/numberVector3"
+        },
+        "component_covariance": {
+          "$ref": "#/$defs/numberMatrix3"
+        },
+        "aggregator": {
+          "type": "string"
+        },
+        "composed_score": {
+          "type": "object",
+          "required": ["estimator", "value", "interval95", "interval_method"],
+          "additionalProperties": false,
+          "properties": {
+            "estimator": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            },
+            "interval95": {
+              "$ref": "#/$defs/interval"
+            },
+            "interval_method": {
+              "$ref": "#/$defs/intervalMethod"
+            }
+          }
+        }
+      }
+    },
+    "chainMeasurement": {
+      "type": "object",
+      "required": [
+        "chain_functional",
+        "estimator",
+        "link_certificate_payload_sha256",
+        "link_point_values",
+        "link_covariance",
+        "cross_link_covariance",
+        "composed_score",
+        "zero_cross_term_sensitivity"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "chain_functional": {
+          "type": "string"
+        },
+        "estimator": {
+          "type": "string"
+        },
+        "link_certificate_payload_sha256": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "link_point_values": {
+          "$ref": "#/$defs/numberVector2"
+        },
+        "link_covariance": {
+          "$ref": "#/$defs/numberMatrix2"
+        },
+        "cross_link_covariance": {
+          "type": "object",
+          "required": [
+            "status",
+            "value",
+            "correlation",
+            "provenance",
+            "shared_sample_digest"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": ["measured", "declared_zero"]
+            },
+            "value": {
+              "type": "number"
+            },
+            "correlation": {
+              "type": "number",
+              "minimum": -1,
+              "maximum": 1
+            },
+            "provenance": {
+              "type": "string"
+            },
+            "shared_sample_digest": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "composed_score": {
+          "type": "object",
+          "required": ["value", "interval95", "interval_method"],
+          "additionalProperties": false,
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "interval95": {
+              "$ref": "#/$defs/interval"
+            },
+            "interval_method": {
+              "$ref": "#/$defs/intervalMethod"
+            }
+          }
+        },
+        "zero_cross_term_sensitivity": {
+          "type": "object",
+          "required": ["interval95", "width_change_pct"],
+          "additionalProperties": false,
+          "properties": {
+            "interval95": {
+              "$ref": "#/$defs/interval"
+            },
+            "width_change_pct": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "required": [
+        "algorithm",
+        "canonicalization",
+        "payload_sha256",
+        "public_key_hex",
+        "signature_hex",
+        "key_use"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "const": "Ed25519"
+        },
+        "canonicalization": {
+          "const": "UTF-8 JSON; sorted keys; separators comma/colon; ensure_ascii=false"
+        },
+        "payload_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "public_key_hex": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "signature_hex": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{128}$"
+        },
+        "key_use": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

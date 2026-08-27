@@ -1,0 +1,85 @@
+{
+  "certificate": {
+    "schema": "composed-uncertainty-certificate/0.3",
+    "certificate_id": "example-german-rf-link-20260727",
+    "certificate_type": "link",
+    "subject": {
+      "system_id": "300-tree random-forest link",
+      "substrate": {
+        "name": "safeai",
+        "version_or_commit": "39768fcd5264c881f7174268bbffda52b298ae89"
+      },
+      "dataset": "Statlog German credit (OpenML credit-g v1), held-out rows",
+      "test_sample_digest": "fabffe0abe7180657ef28dd4b0d4f3a16d897c0566c0cd1e4ba3a2e6c672ddbf"
+    },
+    "measurement": {
+      "component_order": [
+        "RGA",
+        "RGE",
+        "RGR"
+      ],
+      "component_point_estimates": [
+        0.8272108843537415,
+        0.9877025996971712,
+        0.9091507824866948
+      ],
+      "component_covariance": [
+        [
+          0.0007762303354183281,
+          7.855674303583472e-06,
+          5.166881598810581e-05
+        ],
+        [
+          7.855674303583472e-06,
+          9.311505448562985e-07,
+          4.2330968983111226e-06
+        ],
+        [
+          5.166881598810581e-05,
+          4.2330968983111226e-06,
+          0.0001782522931470087
+        ]
+      ],
+      "aggregator": "geometric mean of RGA, RGE and RGR",
+      "composed_score": {
+        "estimator": "plug-in geometric mean of full-sample component estimates",
+        "value": 0.9056480394647118,
+        "interval95": [
+          0.883627304530491,
+          0.9297034874384458
+        ],
+        "interval_method": "paired_bootstrap_percentile"
+      }
+    },
+    "estimation": {
+      "method": "paired nonparametric bootstrap over shared evaluation rows; fresh perturbation per replicate; seed = model base + replicate index; bases: logistic 20360723, random forest 20460723",
+      "resampling_unit": "evaluation row",
+      "replicates": 2000,
+      "alpha": 0.05,
+      "seed": 20260723,
+      "perturbation_family": "Gaussian feature noise, scale 0.5 column SD",
+      "conditioning_scheme": "redraw_per_replicate",
+      "uncertainty_scope": "fixed_artifact_evaluation"
+    },
+    "validity": {
+      "issued_utc": "2026-07-27T00:00:00Z",
+      "recalibrate_by_utc": "2026-10-25T00:00:00Z",
+      "recalibration_triggers": [
+        "model retrain",
+        "substrate version or module-set change",
+        "evaluation-sample change",
+        "perturbation-family or conditioning-scheme change",
+        "detected distribution shift"
+      ],
+      "horizon_rule": "90 days maximum; a chain expires at the earliest input-link expiry"
+    }
+  },
+  "signature": {
+    "algorithm": "Ed25519",
+    "canonicalization": "UTF-8 JSON; sorted keys; separators comma/colon; ensure_ascii=false",
+    "payload_sha256": "d1d1157f85b575ce81e3eaa5b333a293d9ff5a33995842486fdab7cd461231fb",
+    "public_key_hex": "5db9d9bc7b1b4e7f6eaa55fdd25bb9898345494a201a21c406576e09bb8f4352",
+    "signature_hex": "ce035947469f870a9785466d3113ed0e1b81e7ef4519343dc32f321bf5da226f9819772832b5002edffde66c0168c302ec79189a514189c630e8929f4b6d4909",
+    "key_use": "PUBLICATION EXAMPLE KEY — NEVER OPERATIONAL"
+  }
+}

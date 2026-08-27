@@ -1,0 +1,91 @@
+{
+  "certificate": {
+    "schema": "composed-uncertainty-certificate/0.3",
+    "certificate_id": "example-real-two-stage-chain-20260727",
+    "certificate_type": "chain",
+    "subject": {
+      "system_id": "executed two-stage agentic research pipeline",
+      "substrate": {
+        "name": "executed authorization-and-evidence pipeline with safeai metric layer",
+        "version_or_commit": "39768fcd5264c881f7174268bbffda52b298ae89",
+        "module_set_sha256": "61ac5f26d9dab406bb8cc9ee834ee017c83e9e06c11b5c9655bf397800a0d306"
+      },
+      "dataset": "1,000 executed randomized episodes; held-out evaluation rows",
+      "test_sample_digest": "41e53ec1b3e20012abea624d1b1b2df03301962b06cdebefdc0e6c61e64e97f8"
+    },
+    "measurement": {
+      "chain_functional": "h = C_A × C_B (both-must-hold)",
+      "estimator": "plug-in product of the two full-sample link scores",
+      "link_certificate_payload_sha256": [
+        "10757ba4457323ffd1165cea2a2193f0ff84864b1129ac74cea16a0ec9ab1485",
+        "37a43256d7788d937fd5f18811e8f0feab6c0acf33bbc6e107d4ab213c141ca6"
+      ],
+      "link_point_values": [
+        0.9369023297993998,
+        0.8619629404280129
+      ],
+      "link_covariance": [
+        [
+          9.784290208992411e-05,
+          5.192955563639075e-05
+        ],
+        [
+          5.192955563639075e-05,
+          0.0002801530809426592
+        ]
+      ],
+      "cross_link_covariance": {
+        "status": "measured",
+        "value": 5.192955563639075e-05,
+        "correlation": 0.3136550194779371,
+        "provenance": "same paired bootstrap index stream over the shared sample; fresh perturbation per replicate; seed = stage/model base + replicate index; bases: A/logistic 20360727, B/logistic 20460727, A/random forest 20560727, B/random forest 20660727",
+        "shared_sample_digest": "41e53ec1b3e20012abea624d1b1b2df03301962b06cdebefdc0e6c61e64e97f8"
+      },
+      "composed_score": {
+        "value": 0.8075750870877466,
+        "interval95": [
+          0.7682542914606106,
+          0.8468958827148826
+        ],
+        "interval_method": "first_order_delta"
+      },
+      "zero_cross_term_sensitivity": {
+        "interval95": [
+          0.7725904285473494,
+          0.8425597456281438
+        ],
+        "width_change_pct": 11.027592442067224
+      }
+    },
+    "estimation": {
+      "method": "paired nonparametric bootstrap over shared evaluation rows; fresh perturbation per replicate; seed = stage/model base + replicate index; bases: A/logistic 20360727, B/logistic 20460727, A/random forest 20560727, B/random forest 20660727",
+      "resampling_unit": "evaluation row",
+      "replicates": 2000,
+      "alpha": 0.05,
+      "seed": 20260727,
+      "perturbation_family": "Gaussian feature noise, scale 0.5 column SD",
+      "conditioning_scheme": "redraw_per_replicate",
+      "uncertainty_scope": "fixed_artifact_evaluation"
+    },
+    "validity": {
+      "issued_utc": "2026-07-27T00:00:00Z",
+      "recalibrate_by_utc": "2026-10-25T00:00:00Z",
+      "recalibration_triggers": [
+        "model retrain",
+        "substrate version or module-set change",
+        "evaluation-sample change",
+        "perturbation-family or conditioning-scheme change",
+        "detected distribution shift"
+      ],
+      "horizon_rule": "90 days maximum; a chain expires at the earliest input-link expiry"
+    }
+  },
+  "signature": {
+    "algorithm": "Ed25519",
+    "canonicalization": "UTF-8 JSON; sorted keys; separators comma/colon; ensure_ascii=false",
+    "payload_sha256": "37f6db238679c9dfcb44f403da3fe873a62486112e77566c82860316884dcf35",
+    "public_key_hex": "5db9d9bc7b1b4e7f6eaa55fdd25bb9898345494a201a21c406576e09bb8f4352",
+    "signature_hex": "c4a369dc783c5951cf53bf8bbfd7c1faa742277abf9c977a478db7ce4529383a71386ff1bbf3a08a6ba6dca4dae1e7921571e2124615d9bfa3a2a70c5f9c0108",
+    "key_use": "PUBLICATION EXAMPLE KEY — NEVER OPERATIONAL"
+  }
+}
