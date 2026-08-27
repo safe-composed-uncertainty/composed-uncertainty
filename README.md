@@ -16,6 +16,12 @@ version.
 | `figures/` | one generator per figure in the paper |
 | `data/` | pointers and checksums, never copies of the public datasets |
 
+The prospectively specified six-dataset credit robustness extension lives in
+`experiments/six-dataset-robustness-2026-08-27/`. Its protocol states the claim
+boundary, `RUNBOOK.md` gives exact commands, and its deposits contain derived
+curves rather than raw credit records. This extension is separate from the
+original Taiwan pre-registration.
+
 ## Three rules
 
 These are rules rather than habits, and `tools/` enforces them.

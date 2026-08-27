@@ -1,0 +1,7 @@
+__pycache__/
+_runtime/
+.venv/
+openml-cache/
+raw-data/
+*.tmp
+*.tmp.npz

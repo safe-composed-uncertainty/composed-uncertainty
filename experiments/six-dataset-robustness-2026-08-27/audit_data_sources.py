@@ -12,7 +12,6 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-
 HERE = Path(__file__).resolve().parent
 MANIFEST = HERE / "dataset-manifest.json"
 SAS_HMEQ_URL = (
