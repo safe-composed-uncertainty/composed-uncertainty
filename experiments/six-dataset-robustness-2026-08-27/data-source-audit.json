@@ -1,0 +1,127 @@
+{
+  "audit": "six-dataset source bytes and OpenML metadata",
+  "generated_utc": "2026-08-27T15:38:26+00:00",
+  "python": "3.12.3",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+  "manifest_sha256": "b86e0e173e66f0b67f52046065b991e26097c4f98b1eabc7155ec81869042b7b",
+  "raw_data_retained": false,
+  "datasets": [
+    {
+      "slug": "australian-credit-approval",
+      "openml_data_id": 40981,
+      "metadata_url": "https://www.openml.org/api/v1/json/data/40981",
+      "download_url": "https://openml.org/data/v1/download/18151910/Australian.arff",
+      "download_bytes": 37567,
+      "download_md5": "920e2419a28215109651fcc5cbd1662e",
+      "download_sha256": "ede7221ff0bb55cdb0ba4bdeb8a71caa8b147d817826101cd9dc30428715f63b",
+      "checks": {
+        "id": true,
+        "version": true,
+        "name": true,
+        "api_md5_matches_manifest": true,
+        "download_md5_matches_api": true,
+        "download_sha256_matches_manifest": true
+      },
+      "all_checks_pass": true
+    },
+    {
+      "slug": "hmeq",
+      "openml_data_id": 43337,
+      "metadata_url": "https://www.openml.org/api/v1/json/data/43337",
+      "download_url": "https://openml.org/data/v1/download/22102162/HMEQ_Data.arff",
+      "download_bytes": 488798,
+      "download_md5": "4bf8f0e280258bfcb084b7a0806bb87c",
+      "download_sha256": "760f6a54019189ed83e8909b4ccf008736b700ff2925589d8475eca4c6965e58",
+      "checks": {
+        "id": true,
+        "version": true,
+        "name": true,
+        "api_md5_matches_manifest": true,
+        "download_md5_matches_api": true,
+        "download_sha256_matches_manifest": true
+      },
+      "all_checks_pass": true
+    },
+    {
+      "slug": "fico-heloc-cleaned",
+      "openml_data_id": 45554,
+      "metadata_url": "https://www.openml.org/api/v1/json/data/45554",
+      "download_url": "https://openml.org/data/v1/download/22116522/FICO-HELOC-cleaned.arff",
+      "download_bytes": 786589,
+      "download_md5": "2c675bd4d9cfc63d97771af7a65fd417",
+      "download_sha256": "e2598f0b585e19a67eadc545ddfc659122b654be74c791e91c21a998404f0bcd",
+      "checks": {
+        "id": true,
+        "version": true,
+        "name": true,
+        "api_md5_matches_manifest": true,
+        "download_md5_matches_api": true,
+        "download_sha256_matches_manifest": true
+      },
+      "all_checks_pass": true
+    },
+    {
+      "slug": "give-me-some-credit",
+      "openml_data_id": 45577,
+      "metadata_url": "https://www.openml.org/api/v1/json/data/45577",
+      "download_url": "https://openml.org/data/v1/download/22116561/Give-Me-Some-Credit.arff",
+      "download_bytes": 7069611,
+      "download_md5": "53fbc48b682ecfac16697dfea4cb3c39",
+      "download_sha256": "1d1a66d10042a3ff8ed4f7712f52c2701ccef1924509cc11420188f512af327a",
+      "checks": {
+        "id": true,
+        "version": true,
+        "name": true,
+        "api_md5_matches_manifest": true,
+        "download_md5_matches_api": true,
+        "download_sha256_matches_manifest": true
+      },
+      "all_checks_pass": true
+    },
+    {
+      "slug": "lending-club",
+      "openml_data_id": 43729,
+      "metadata_url": "https://www.openml.org/api/v1/json/data/43729",
+      "download_url": "https://openml.org/data/v1/download/22102554/Lending-Club-Loan-Data.arff",
+      "download_bytes": 774056,
+      "download_md5": "288a71ad762c87cc83b06148e2a0f965",
+      "download_sha256": "a48a56b1aedb9869f7a1541c8b58d7ab3df7599c5674faa17dffbb088c0a2821",
+      "checks": {
+        "id": true,
+        "version": true,
+        "name": true,
+        "api_md5_matches_manifest": true,
+        "download_md5_matches_api": true,
+        "download_sha256_matches_manifest": true
+      },
+      "all_checks_pass": true
+    },
+    {
+      "slug": "credit-risk-benchmark",
+      "openml_data_id": 43454,
+      "metadata_url": "https://www.openml.org/api/v1/json/data/43454",
+      "download_url": "https://openml.org/data/v1/download/22102279/Credit-Risk-Dataset.arff",
+      "download_bytes": 1776949,
+      "download_md5": "e8e3a44d5c1eeb990a544e1f44b445f5",
+      "download_sha256": "9da0a02336eaba46fa38830f7f2fd74b057f7f59ddf0bd34b575fdee5eda5e22",
+      "checks": {
+        "id": true,
+        "version": true,
+        "name": true,
+        "api_md5_matches_manifest": true,
+        "download_md5_matches_api": true,
+        "download_sha256_matches_manifest": true
+      },
+      "all_checks_pass": true
+    }
+  ],
+  "hmeq_official_sas_cross_pointer": {
+    "url": "https://support.sas.com/documentation/onlinedoc/viya/exampledatasets/hmeq.csv",
+    "download_bytes": 438194,
+    "download_md5": "b474e325fd339103ed4914d9a589c2f1",
+    "download_sha256": "2562c8a353f1ca15f5121aaf0077a141512e701a04cf837da753c895ca1ab2b1",
+    "sha256_matches_manifest": true
+  },
+  "status": "PASS",
+  "failures": []
+}
