@@ -28,9 +28,17 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.patches import Rectangle  # noqa: E402
 
+def _expdir(root):
+    """The studies directory, named `experiments` here and `experiment`
+    in the authoring tree."""
+    for name in ('experiments', 'experiment'):
+        if (root / name).is_dir():
+            return root / name
+    raise SystemExit('no experiments directory beside ' + str(root))
+
 HERE = Path(__file__).resolve().parent
 PAPER = HERE.parent
-RESULTS = PAPER / "experiment" / "redraw-2026-07-24" / "results-redraw.json"
+RESULTS = _expdir(PAPER) / "redraw-2026-07-24" / "results-redraw.json"
 
 # 'redraw' = perturbations redrawn on every bootstrap replicate, i.e. the
 # unconditional correlations. 'fixed_draw' would be conditional on one

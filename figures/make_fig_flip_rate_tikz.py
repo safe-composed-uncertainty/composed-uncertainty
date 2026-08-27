@@ -24,10 +24,18 @@ by article/.
 import json
 import pathlib
 
+def _expdir(root):
+    """The studies directory, named `experiments` here and `experiment`
+    in the authoring tree."""
+    for name in ('experiments', 'experiment'):
+        if (root / name).is_dir():
+            return root / name
+    raise SystemExit('no experiments directory beside ' + str(root))
+
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
-RES_GC = ROOT / 'experiment' / 'redraw-2026-07-24' / 'results-redraw.json'
-RES_RA = (ROOT / 'experiment' / 'real-agentic-2026-07-25'
+RES_GC = _expdir(ROOT) / 'redraw-2026-07-24' / 'results-redraw.json'
+RES_RA = (_expdir(ROOT) / 'real-agentic-2026-07-25'
           / 'results-real-agentic.json')
 OUTS = (
     HERE / 'fig-flip-rate-tikz.tex',
@@ -163,6 +171,8 @@ def main():
 
     rendered = '\n'.join(L)
     for out in OUTS:
+        if not out.parent.is_dir():
+            continue
         out.write_text(rendered)
         print(f'wrote {out}')
     for a in arms:

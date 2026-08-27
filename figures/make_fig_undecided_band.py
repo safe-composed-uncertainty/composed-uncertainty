@@ -26,8 +26,16 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+def _expdir(root):
+    """The studies directory, named `experiments` here and `experiment`
+    in the authoring tree."""
+    for name in ('experiments', 'experiment'):
+        if (root / name).is_dir():
+            return root / name
+    raise SystemExit('no experiments directory beside ' + str(root))
+
 HERE = Path(__file__).resolve().parent
-EXP = HERE.parent / "experiment"
+EXP = _expdir(HERE.parent)
 
 os.environ.setdefault("MPLCONFIGDIR", "/tmp/tyche-mpl-safe")
 matplotlib.rcParams.update({

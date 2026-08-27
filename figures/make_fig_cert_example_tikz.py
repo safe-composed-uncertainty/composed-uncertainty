@@ -10,9 +10,17 @@ experiment/certificate-examples/real-chain.json; nothing is hard-coded.
 import json
 import pathlib
 
+def _expdir(root):
+    """The studies directory, named `experiments` here and `experiment`
+    in the authoring tree."""
+    for name in ('experiments', 'experiment'):
+        if (root / name).is_dir():
+            return root / name
+    raise SystemExit('no experiments directory beside ' + str(root))
+
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
-CERT = ROOT / 'experiment' / 'certificate-examples' / 'real-chain.json'
+CERT = _expdir(ROOT) / 'certificate-examples' / 'real-chain.json'
 OUTS = (
     HERE / 'fig-cert-example-tikz.tex',
     ROOT / 'article' / 'fig-cert-example-tikz.tex',
@@ -88,6 +96,8 @@ def main():
 
     rendered = '\n'.join(L)
     for out in OUTS:
+        if not out.parent.is_dir():
+            continue
         out.write_text(rendered)
         print(f'wrote {out}')
     print(f'  point {point:.4f}  interval [{lo:.4f}, {hi:.4f}]')

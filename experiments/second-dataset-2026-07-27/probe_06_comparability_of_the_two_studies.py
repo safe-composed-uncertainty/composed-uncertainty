@@ -4,8 +4,10 @@ correlations themselves?"""
 import json, math
 import numpy as np
 
-D2 = "/srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/second-dataset-2026-07-27"
-DP = "/srv/tyche/repos/tyche-research-vault/papers/safe-composed-uncertainty/experiment/pavia-composite-2026-07-25"
+from pathlib import Path
+_EXP = Path(__file__).resolve().parent.parent
+D2 = str(_EXP / "second-dataset-2026-07-27")
+DP = str(_EXP / "pavia-composite-2026-07-25")
 z = np.load(D2 + "/replicates-second-dataset.npz")
 tw = json.load(open(D2 + "/results-second-dataset.json"))
 ge = json.load(open(DP + "/results-pavia-composite.json"))

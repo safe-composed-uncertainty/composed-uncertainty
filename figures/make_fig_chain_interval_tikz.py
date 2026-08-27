@@ -8,9 +8,17 @@ experiment/redraw-2026-07-24/results-redraw.json; nothing is hard-coded.
 import json
 import pathlib
 
+def _expdir(root):
+    """The studies directory, named `experiments` here and `experiment`
+    in the authoring tree."""
+    for name in ('experiments', 'experiment'):
+        if (root / name).is_dir():
+            return root / name
+    raise SystemExit('no experiments directory beside ' + str(root))
+
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
-RESULTS = ROOT / 'experiment' / 'redraw-2026-07-24' / 'results-redraw.json'
+RESULTS = _expdir(ROOT) / 'redraw-2026-07-24' / 'results-redraw.json'
 OUTS = (
     HERE / 'fig-chain-interval-tikz.tex',
     ROOT / 'article' / 'fig-chain-interval-tikz.tex',
@@ -103,6 +111,8 @@ def main():
 
     rendered = '\n'.join(L)
     for out in OUTS:
+        if not out.parent.is_dir():
+            continue
         out.write_text(rendered)
         print(f'wrote {out}')
     print(f'  point {point:.4f}  measured [{lo_m:.4f}, {hi_m:.4f}]  naive [{lo_n:.4f}, {hi_n:.4f}]')
