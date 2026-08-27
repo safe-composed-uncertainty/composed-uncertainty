@@ -32,7 +32,8 @@
       "openml_version": 2,
       "openml_name": "HMEQ_Data",
       "openml_md5": "4bf8f0e280258bfcb084b7a0806bb87c",
-      "download_sha256": "2562c8a353f1ca15f5121aaf0077a141512e701a04cf837da753c895ca1ab2b1",
+      "download_sha256": "760f6a54019189ed83e8909b4ccf008736b700ff2925589d8475eca4c6965e58",
+      "official_sas_csv_sha256": "2562c8a353f1ca15f5121aaf0077a141512e701a04cf837da753c895ca1ab2b1",
       "license": "OpenML CC0; SAS example-data access terms",
       "target_column": "BAD",
       "adverse_values": [1, "1"],
@@ -137,4 +138,3 @@
     }
   ]
 }
-
