@@ -1240,6 +1240,14 @@ def validate_schema_preflight_binding(results: dict[str, Any],
 
     expected_contract = {
         "raw_frame_sha256": entry["raw_frame_sha256"],
+        "source_rows": entry["source_rows"],
+        "raw_d": entry["source_predictors"],
+        "source_adverse_count": entry["source_adverse_count"],
+        "predictor_names": entry["predictor_names"],
+        "predictor_dtypes": entry["predictor_dtypes"],
+        "missing_cells_by_predictor": entry["missing_cells_by_predictor"],
+        "duplicate_full_rows_including_target":
+            entry["duplicate_full_rows_including_target"],
         "retained_source_indices_sha256": entry["retained_source_indices_sha256"],
         "processed_train_sha256": entry["processed_train_sha256"],
         "processed_test_sha256": entry["processed_test_sha256"],
@@ -1248,6 +1256,9 @@ def validate_schema_preflight_binding(results: dict[str, Any],
         "n_retained": entry["retained_rows"],
         "n_train": entry["train_rows"],
         "n_test": entry["test_rows"],
+        "retained_adverse_count": entry["retained_adverse_count"],
+        "train_adverse_count": entry["train_adverse_count"],
+        "test_adverse_count": entry["test_adverse_count"],
         "encoded_d": entry["encoded_d"],
         "curve_length_L": entry["curve_length_L"],
     }
@@ -1426,7 +1437,7 @@ def verify_results_dir(results_dir: Path) -> dict[str, Any]:
     }
     return {
         "verifier": "verify_six_dataset.py",
-        "verifier_schema": "1.2",
+        "verifier_schema": "1.3",
         "status": "PASS",
         "scope": "all-six-intended-datasets",
         "protocol_sha256": protocol_digest,
@@ -1589,7 +1600,7 @@ def main(argv: list[str] | None = None) -> int:
             )
             report = {
                 "verifier": "verify_six_dataset.py",
-                "verifier_schema": "1.2",
+                "verifier_schema": "1.3",
                 "status": "PASS",
                 "scope": "single-dataset",
                 "dataset": one,
@@ -1600,7 +1611,7 @@ def main(argv: list[str] | None = None) -> int:
             json.JSONDecodeError) as exc:
         failure = {
             "verifier": "verify_six_dataset.py",
-            "verifier_schema": "1.2",
+            "verifier_schema": "1.3",
             "status": "FAIL",
             "input": str(single_path if single_path is not None else results_dir),
             "error": str(exc),

@@ -1,0 +1,7 @@
+{
+  "error": "australian-credit-approval: run-time preflight binding disagrees with the frozen audit",
+  "input": "/home/anton/projects/composed-uncertainty/experiments/six-dataset-robustness-2026-08-27",
+  "status": "FAIL",
+  "verifier": "verify_six_dataset.py",
+  "verifier_schema": "1.2"
+}

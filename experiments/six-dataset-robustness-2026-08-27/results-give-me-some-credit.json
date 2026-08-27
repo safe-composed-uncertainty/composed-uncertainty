@@ -1,0 +1,5786 @@
+{
+  "schema_version": "six-dataset-runner-v1",
+  "status": "completed",
+  "slug": "give-me-some-credit",
+  "dataset": {
+    "slug": "give-me-some-credit",
+    "name": "Give Me Some Credit"
+  },
+  "generated_utc": "2026-08-27T17:29:47+00:00",
+  "protocol_sha256": "791769816ef3dbe99a7f67b4abb07deafefdbe45f5aa9415e05708f017bd488d",
+  "dataset_spec_sha256": "b86e0e173e66f0b67f52046065b991e26097c4f98b1eabc7155ec81869042b7b",
+  "manifest_entry_sha256": "85c68f6e8a0f6dc47f0d6ebbd5782ce70a7229d6f58f209642d15277c12ba66b",
+  "manifest_sha256": "b86e0e173e66f0b67f52046065b991e26097c4f98b1eabc7155ec81869042b7b",
+  "runner_sha256": "70ee5e109ea649e2fe6ec552788d2568ed01a3f001c1e2f040002dcee373a545",
+  "requirements_sha256": "0f82ff87831ea010b09b9bdce3467ebdbc608d9166c69bcfa753e517061c489f",
+  "source_audit_sha256": "42c5ebafd911315a002d1bd259c8b7ee61772b66e32fb4bc482f07bd1d796199",
+  "schema_audit_sha256": "7dfb10655a7c9999d1535c40e5f8349067a858ebe93bc5d46a1e621be9aeac65",
+  "repository_commit": "111c1d5bed06c0b253ea2220650102e381d88b48",
+  "B": 2000,
+  "alpha": 0.05,
+  "B_conditioning_check": {
+    "logit": 100,
+    "rf": 30
+  },
+  "config": {
+    "seed": 20260723,
+    "bootstrap_seed": 20260724,
+    "test_size": 0.3,
+    "row_cap": 30000,
+    "B": 2000,
+    "alpha": 0.05,
+    "z": 1.959963984540054,
+    "B_conditioning_check": {
+      "logit": 100,
+      "rf": 30
+    },
+    "conditioning": {
+      "logit": 100,
+      "rf": 30
+    },
+    "d": 10,
+    "encoded_d": 10,
+    "curve_length_L": 11
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "numpy": "2.5.1",
+    "pandas": "3.0.5",
+    "scipy": "1.18.0",
+    "scikit_learn": "1.9.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.6.0",
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "/home/anton/.cache/composed-uncertainty-six-dataset-venv/lib/python3.12/site-packages/numpy.libs/libscipy_openblas64_-017048f4.so",
+        "version": "0.3.33.112.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "/home/anton/.cache/composed-uncertainty-six-dataset-venv/lib/python3.12/site-packages/scipy.libs/libscipy_openblas-5f890258.so",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libgomp",
+        "filepath": "/home/anton/.cache/composed-uncertainty-six-dataset-venv/lib/python3.12/site-packages/scikit_learn.libs/libgomp-e985bcbb.so.1.0.0",
+        "version": null
+      }
+    ],
+    "safeai_commit": "39768fcd5264c881f7174268bbffda52b298ae89"
+  },
+  "dataset_manifest_entry": {
+    "order": 4,
+    "slug": "give-me-some-credit",
+    "name": "Give Me Some Credit",
+    "openml_data_id": 45577,
+    "openml_version": 1,
+    "openml_name": "Give-Me-Some-Credit",
+    "openml_md5": "53fbc48b682ecfac16697dfea4cb3c39",
+    "download_sha256": "1d1a66d10042a3ff8ed4f7712f52c2701ccef1924509cc11420188f512af327a",
+    "license": "Publicly fetchable competition snapshot; no express open redistribution licence in OpenML record",
+    "target_column": "SeriousDlqin2yrs",
+    "adverse_values": [
+      1,
+      "1"
+    ],
+    "favorable_values": [
+      0,
+      "0"
+    ],
+    "rows": 150000,
+    "raw_predictors": 10,
+    "adverse_count": 10026,
+    "notes": "Stratified-sampled to 30000 by the frozen cap; raw data is not redistributed."
+  },
+  "dataset_provenance": {
+    "openml": {
+      "id": 45577,
+      "version": 1,
+      "name": "Give-Me-Some-Credit",
+      "md5_checksum": "53fbc48b682ecfac16697dfea4cb3c39",
+      "url": "https://openml.org/data/v1/download/22116561/Give-Me-Some-Credit.arff",
+      "license": "Public"
+    },
+    "manifest_download_sha256": "1d1a66d10042a3ff8ed4f7712f52c2701ccef1924509cc11420188f512af327a",
+    "raw_frame_sha256": "cef9445567604da4ee7f2cf8c7d9cea984da771ce6221844e45d56e6b33a8625"
+  },
+  "provenance": {
+    "openml": {
+      "id": 45577,
+      "version": 1,
+      "name": "Give-Me-Some-Credit",
+      "md5_checksum": "53fbc48b682ecfac16697dfea4cb3c39",
+      "url": "https://openml.org/data/v1/download/22116561/Give-Me-Some-Credit.arff",
+      "license": "Public"
+    },
+    "manifest_download_sha256": "1d1a66d10042a3ff8ed4f7712f52c2701ccef1924509cc11420188f512af327a",
+    "raw_frame_sha256": "cef9445567604da4ee7f2cf8c7d9cea984da771ce6221844e45d56e6b33a8625"
+  },
+  "raw_duplicate_full_rows": 609,
+  "all_six_preflight_match": {
+    "raw_frame_sha256": "cef9445567604da4ee7f2cf8c7d9cea984da771ce6221844e45d56e6b33a8625",
+    "source_rows": 150000,
+    "raw_d": 10,
+    "source_adverse_count": 10026,
+    "predictor_names": [
+      "RevolvingUtilizationOfUnsecuredLines",
+      "age",
+      "NumberOfTime30-59DaysPastDueNotWorse",
+      "DebtRatio",
+      "MonthlyIncome",
+      "NumberOfOpenCreditLinesAndLoans",
+      "NumberOfTimes90DaysLate",
+      "NumberRealEstateLoansOrLines",
+      "NumberOfTime60-89DaysPastDueNotWorse",
+      "NumberOfDependents"
+    ],
+    "predictor_dtypes": {
+      "RevolvingUtilizationOfUnsecuredLines": "float64",
+      "age": "int64",
+      "NumberOfTime30-59DaysPastDueNotWorse": "int64",
+      "DebtRatio": "float64",
+      "MonthlyIncome": "float64",
+      "NumberOfOpenCreditLinesAndLoans": "int64",
+      "NumberOfTimes90DaysLate": "int64",
+      "NumberRealEstateLoansOrLines": "int64",
+      "NumberOfTime60-89DaysPastDueNotWorse": "int64",
+      "NumberOfDependents": "float64"
+    },
+    "missing_cells_by_predictor": {
+      "RevolvingUtilizationOfUnsecuredLines": 0,
+      "age": 0,
+      "NumberOfTime30-59DaysPastDueNotWorse": 0,
+      "DebtRatio": 0,
+      "MonthlyIncome": 29731,
+      "NumberOfOpenCreditLinesAndLoans": 0,
+      "NumberOfTimes90DaysLate": 0,
+      "NumberRealEstateLoansOrLines": 0,
+      "NumberOfTime60-89DaysPastDueNotWorse": 0,
+      "NumberOfDependents": 3924
+    },
+    "duplicate_full_rows_including_target": 609,
+    "retained_source_indices_sha256": "ecfaa422c754d94503577e519a55668b2a57d52fd32c9f4b77a71389ae98eec2",
+    "processed_train_sha256": "c3f23a9ba606bae1d52896d8ecc7b90bf2da2c996dc0874703cad11a4bc94cc7",
+    "processed_test_sha256": "9a2da8a23320eca6ba8b1b0cb71faf6cd99e32a0aa942fc46017fba637470b6b",
+    "train_indices_sha256": "8f416251ac921412a386095ac9370de399264374e1eb89dace7993fb99ccf2d0",
+    "test_indices_sha256": "2050617297a31d298246e225093e3299d9905f936193d01da83c24f9a47f8a4b",
+    "n_retained": 30000,
+    "n_train": 21000,
+    "n_test": 9000,
+    "retained_adverse_count": 2005,
+    "train_adverse_count": 1404,
+    "test_adverse_count": 601,
+    "encoded_d": 10,
+    "curve_length_L": 11
+  },
+  "d": 10,
+  "curve_length_L": 11,
+  "n_retained": 30000,
+  "n_train": 21000,
+  "n_test": 9000,
+  "adverse_count_retained": 2005,
+  "adverse_count_train": 1404,
+  "adverse_count_test": 601,
+  "sampling": {
+    "applied": true,
+    "rng_seed": 20265727,
+    "retained_source_indices_sha256": "ecfaa422c754d94503577e519a55668b2a57d52fd32c9f4b77a71389ae98eec2"
+  },
+  "preprocessing": {
+    "adapter_version": "training-only-median-mode-onehot-v1",
+    "raw_d": 10,
+    "encoded_d_before_zero_variance": 10,
+    "encoded_d": 10,
+    "numeric_columns": [
+      "RevolvingUtilizationOfUnsecuredLines",
+      "age",
+      "NumberOfTime30-59DaysPastDueNotWorse",
+      "DebtRatio",
+      "MonthlyIncome",
+      "NumberOfOpenCreditLinesAndLoans",
+      "NumberOfTimes90DaysLate",
+      "NumberRealEstateLoansOrLines",
+      "NumberOfTime60-89DaysPastDueNotWorse",
+      "NumberOfDependents"
+    ],
+    "categorical_columns": [],
+    "numeric_fill_values": {
+      "RevolvingUtilizationOfUnsecuredLines": 0.149079822,
+      "age": 52.0,
+      "NumberOfTime30-59DaysPastDueNotWorse": 0.0,
+      "DebtRatio": 0.3667582035,
+      "MonthlyIncome": 5400.0,
+      "NumberOfOpenCreditLinesAndLoans": 8.0,
+      "NumberOfTimes90DaysLate": 0.0,
+      "NumberRealEstateLoansOrLines": 1.0,
+      "NumberOfTime60-89DaysPastDueNotWorse": 0.0,
+      "NumberOfDependents": 0.0
+    },
+    "categorical_fill_values": {},
+    "category_maps": {},
+    "zero_variance_columns_removed": [],
+    "train_imputed_cells": 4859,
+    "test_imputed_cells": 1932,
+    "train_imputed_cells_by_column": {
+      "RevolvingUtilizationOfUnsecuredLines": 0,
+      "age": 0,
+      "NumberOfTime30-59DaysPastDueNotWorse": 0,
+      "DebtRatio": 0,
+      "MonthlyIncome": 4278,
+      "NumberOfOpenCreditLinesAndLoans": 0,
+      "NumberOfTimes90DaysLate": 0,
+      "NumberRealEstateLoansOrLines": 0,
+      "NumberOfTime60-89DaysPastDueNotWorse": 0,
+      "NumberOfDependents": 581
+    },
+    "test_imputed_cells_by_column": {
+      "RevolvingUtilizationOfUnsecuredLines": 0,
+      "age": 0,
+      "NumberOfTime30-59DaysPastDueNotWorse": 0,
+      "DebtRatio": 0,
+      "MonthlyIncome": 1727,
+      "NumberOfOpenCreditLinesAndLoans": 0,
+      "NumberOfTimes90DaysLate": 0,
+      "NumberRealEstateLoansOrLines": 0,
+      "NumberOfTime60-89DaysPastDueNotWorse": 0,
+      "NumberOfDependents": 205
+    },
+    "unseen_test_levels": 0,
+    "unseen_test_levels_by_column": {},
+    "processed_train_sha256": "c3f23a9ba606bae1d52896d8ecc7b90bf2da2c996dc0874703cad11a4bc94cc7",
+    "processed_test_sha256": "9a2da8a23320eca6ba8b1b0cb71faf6cd99e32a0aa942fc46017fba637470b6b",
+    "encoded_columns": [
+      "num__RevolvingUtilizationOfUnsecuredLines",
+      "num__age",
+      "num__NumberOfTime30-59DaysPastDueNotWorse",
+      "num__DebtRatio",
+      "num__MonthlyIncome",
+      "num__NumberOfOpenCreditLinesAndLoans",
+      "num__NumberOfTimes90DaysLate",
+      "num__NumberRealEstateLoansOrLines",
+      "num__NumberOfTime60-89DaysPastDueNotWorse",
+      "num__NumberOfDependents"
+    ],
+    "encoded_feature_names": [
+      "num__RevolvingUtilizationOfUnsecuredLines",
+      "num__age",
+      "num__NumberOfTime30-59DaysPastDueNotWorse",
+      "num__DebtRatio",
+      "num__MonthlyIncome",
+      "num__NumberOfOpenCreditLinesAndLoans",
+      "num__NumberOfTimes90DaysLate",
+      "num__NumberRealEstateLoansOrLines",
+      "num__NumberOfTime60-89DaysPastDueNotWorse",
+      "num__NumberOfDependents"
+    ]
+  },
+  "models": {
+    "logit": {
+      "curves_point": {
+        "RGA_partial": [
+          0.6726482195474426,
+          0.6030461720339532,
+          0.5382733557385037,
+          0.47339879424581754,
+          0.40567374891523,
+          0.33574233307495016,
+          0.27123830152532336,
+          0.2039044425818931,
+          0.1310811475934407,
+          0.06293732261079665,
+          0.0
+        ],
+        "RGE_greedy_mean_baseline": [
+          1.0,
+          0.9996965973232396,
+          0.9992323992006474,
+          0.9982209933571287,
+          0.9945783303302325,
+          0.989469646187658,
+          0.9811281042896265,
+          0.957711631396658,
+          0.9393114733272299,
+          0.8449620452549433,
+          0.5001570930846095
+        ],
+        "RGR_tail_swap": [
+          1.0,
+          0.6304400566582234,
+          0.4724487378513359,
+          0.3648132264655454,
+          0.2928949929298777,
+          0.24128762351440863,
+          0.20777621005161362,
+          0.18986530521155426,
+          0.18017520272927723,
+          0.17706596977810085,
+          0.17649179725266378
+        ],
+        "RGR_scaled_gaussian_noise": [
+          1.0,
+          0.9278645121188805,
+          0.820900732813421,
+          0.7467533139551148,
+          0.6942932385719021,
+          0.6667417268518456,
+          0.639800249217814,
+          0.6197296523488347,
+          0.6121723519424891,
+          0.584358642121072,
+          0.5806144105363229
+        ]
+      },
+      "marginal_intervals": {
+        "RGA_partial": {
+          "ci95_percentile_by_knot": [
+            [
+              0.6496872363833038,
+              0.6954785479368435
+            ],
+            [
+              0.5819049868692404,
+              0.623319529316427
+            ],
+            [
+              0.5195452962226702,
+              0.5578423248950402
+            ],
+            [
+              0.4534335731973558,
+              0.48945602151324696
+            ],
+            [
+              0.3862817048920763,
+              0.42059427616086736
+            ],
+            [
+              0.32167448203250215,
+              0.3524390530584345
+            ],
+            [
+              0.2560904437743833,
+              0.28400731456636447
+            ],
+            [
+              0.19090303032929992,
+              0.21553290763739302
+            ],
+            [
+              0.1248160775896588,
+              0.14343777831356724
+            ],
+            [
+              0.06032002514430271,
+              0.07349877672751441
+            ],
+            [
+              -2.220446049250313e-16,
+              1.1102230246251565e-16
+            ]
+          ],
+          "bootstrap_sd_by_knot": [
+            0.011790342983881355,
+            0.010672748014986471,
+            0.00985597826445889,
+            0.00924343136212017,
+            0.008860360804074551,
+            0.008042544837876963,
+            0.0072323430257869485,
+            0.006156085890385167,
+            0.004757529536807864,
+            0.003332464442597858,
+            9.13676881033466e-17
+          ]
+        },
+        "RGE_greedy_mean_baseline": {
+          "ci95_percentile_by_knot": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.9994142851061073,
+              0.999914177746129
+            ],
+            [
+              0.998965614166844,
+              0.9994408937445564
+            ],
+            [
+              0.9978588550948685,
+              0.9985138432900535
+            ],
+            [
+              0.9939480557646115,
+              0.9951394032978133
+            ],
+            [
+              0.9882866807477501,
+              0.9905222490141777
+            ],
+            [
+              0.9795907305443504,
+              0.9825557443347863
+            ],
+            [
+              0.9536631430575591,
+              0.9612604066611615
+            ],
+            [
+              0.9332470815478201,
+              0.9452816145019679
+            ],
+            [
+              0.8332633617919316,
+              0.8548728023886569
+            ],
+            [
+              0.4984490307365937,
+              0.5016956248753747
+            ]
+          ],
+          "bootstrap_sd_by_knot": [
+            0.0,
+            0.00012728796674628436,
+            0.00012140841555973253,
+            0.00016995795835290326,
+            0.0003118093129224424,
+            0.0005811297573995021,
+            0.0007817190422804263,
+            0.0019066726677593026,
+            0.0030943575477645896,
+            0.005582578280221837,
+            0.0008346575030188931
+          ]
+        },
+        "RGR_tail_swap": {
+          "ci95_percentile_by_knot": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.6148443032146054,
+              0.646793749727443
+            ],
+            [
+              0.457554034875339,
+              0.48718397585698053
+            ],
+            [
+              0.3519572983925866,
+              0.37788617262023494
+            ],
+            [
+              0.2821010166617151,
+              0.30436308192989486
+            ],
+            [
+              0.23176105907099467,
+              0.2516166255935744
+            ],
+            [
+              0.1991529761434551,
+              0.21722276094782808
+            ],
+            [
+              0.18183395642870867,
+              0.19875986546037774
+            ],
+            [
+              0.1722567727721281,
+              0.18906852383529493
+            ],
+            [
+              0.169078673915671,
+              0.18561576590918688
+            ],
+            [
+              0.16855220342618496,
+              0.18491195489266612
+            ]
+          ],
+          "bootstrap_sd_by_knot": [
+            0.0,
+            0.008134278688012767,
+            0.007500648544268145,
+            0.006550372783406721,
+            0.005706236747410631,
+            0.0050679167571455646,
+            0.004572973630592552,
+            0.00435319151762598,
+            0.004278926755394921,
+            0.004214963855803083,
+            0.004191638846621374
+          ]
+        },
+        "RGR_scaled_gaussian_noise": {
+          "ci95_percentile_by_knot": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.9236326822326645,
+              0.9319512134405751
+            ],
+            [
+              0.8112784231714194,
+              0.8296982548289974
+            ],
+            [
+              0.7344917004486275,
+              0.7586207857109494
+            ],
+            [
+              0.6814827502787296,
+              0.707028387987058
+            ],
+            [
+              0.654543277990162,
+              0.6787641177012986
+            ],
+            [
+              0.6265982389205789,
+              0.6532011765247454
+            ],
+            [
+              0.6070508777233264,
+              0.633164199455843
+            ],
+            [
+              0.5977962364636191,
+              0.6257939439831177
+            ],
+            [
+              0.5711494668165548,
+              0.5975733633516267
+            ],
+            [
+              0.5661561239158952,
+              0.5945150102368711
+            ]
+          ],
+          "bootstrap_sd_by_knot": [
+            0.0,
+            0.002123467147067054,
+            0.004752712417118832,
+            0.006124485704590265,
+            0.0066094054468340034,
+            0.006387434447518979,
+            0.006847247571996591,
+            0.006603291549546169,
+            0.007190121544544482,
+            0.006742616880322604,
+            0.0072647499484727335
+          ]
+        }
+      },
+      "curve_mean_correlations": {
+        "labels": [
+          "RGA",
+          "RGE",
+          "RGR_tail",
+          "RGR_gaussian"
+        ],
+        "matrix": [
+          [
+            1.0,
+            0.021085822820586166,
+            0.039638877390099,
+            0.2603454631754581
+          ],
+          [
+            0.021085822820586166,
+            1.0,
+            -0.5417924169850432,
+            0.08933044243975233
+          ],
+          [
+            0.039638877390099,
+            -0.5417924169850432,
+            1.0,
+            -0.02276772964774466
+          ],
+          [
+            0.2603454631754581,
+            0.08933044243975231,
+            -0.02276772964774466,
+            1.0
+          ]
+        ]
+      },
+      "primary_family_contrast": {
+        "corr_RGE_RGR_tail": -0.5417924169850431,
+        "corr_RGE_RGR_gaussian": 0.0893304424397523,
+        "fisher_z_tail_minus_gaussian": -0.6962585066301975,
+        "prespecified_direction_delta_lt_zero": true
+      },
+      "primary_endpoint": {
+        "corr_RGE_RGR_tail": -0.5417924169850431,
+        "corr_RGE_RGR_gaussian": 0.0893304424397523,
+        "fisher_z_tail_minus_gaussian": -0.6962585066301975,
+        "prespecified_direction_delta_lt_zero": true
+      },
+      "arms": {
+        "arithmetic": {
+          "V_point": 0.5404748870927857,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.5358450081790381,
+              0.5452527877644832
+            ],
+            "width": 0.00940777958544503,
+            "mean": 0.5404436580569028,
+            "sd": 0.0024252060328290186
+          },
+          "delta_method": {
+            "summary_point": [
+              0.33617671253339554,
+              0.9276789376138158,
+              0.35756901113114553
+            ],
+            "gradient_at_point": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "Sigma_of_summaries": [
+              [
+                4.0577336262298674e-05,
+                1.0100436992814212e-07,
+                8.996154806332746e-07
+              ],
+              [
+                1.0100436992814212e-07,
+                5.65477966870562e-07,
+                -1.451558599658425e-06
+              ],
+              [
+                8.996154806332746e-07,
+                -1.451558599658425e-06,
+                1.2693681984057179e-05
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.021085822820586166,
+                0.039638877390099
+              ],
+              [
+                0.021085822820586166,
+                1.0,
+                -0.5417924169850432
+              ],
+              [
+                0.039638877390099,
+                -0.5417924169850432,
+                1.0
+              ]
+            ],
+            "var_measured_covariance": 5.881624301670265e-06,
+            "var_cross_terms_declared_zero": 5.981832912580712e-06,
+            "width_delta_measured": 0.00950663295886828,
+            "width_delta_declared_zero": 0.009587275902142716,
+            "understatement_of_width_pct": -0.848280812179758,
+            "signed_width_change_pct_zero_vs_measured": -0.848280812179758
+          }
+        },
+        "geometric": {
+          "V_point": 0.4146897293953532,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.40844815230425807,
+              0.4217558259921265
+            ],
+            "width": 0.013307673687868449,
+            "mean": 0.4148834579937733,
+            "sd": 0.0034245052584939337
+          },
+          "delta_method": {
+            "summary_point": [
+              0.6264385257106739,
+              0.9719645329753422,
+              0.6810741589250081
+            ],
+            "gradient_at_point": [
+              0.6619799268011195,
+              0.4266510920166193,
+              0.6088760290801372
+            ],
+            "Sigma_of_summaries": [
+              [
+                1.8254393662883272e-05,
+                1.7769551217034308e-08,
+                8.644504765519206e-07
+              ],
+              [
+                1.7769551217034308e-08,
+                7.425208817506834e-08,
+                -4.859113582768269e-07
+              ],
+              [
+                8.644504765519206e-07,
+                -4.859113582768269e-07,
+                8.772932608594666e-06
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.015262947755359257,
+                0.06830995754640413
+              ],
+              [
+                0.015262947755359255,
+                1.0,
+                -0.6020468915611356
+              ],
+              [
+                0.06830995754640413,
+                -0.6020468915611356,
+                0.9999999999999999
+              ]
+            ],
+            "var_measured_covariance": 1.1719735925498513e-05,
+            "var_cross_terms_declared_zero": 1.12652990224121e-05,
+            "width_delta_measured": 0.013419520549887331,
+            "width_delta_declared_zero": 0.013156775029983886,
+            "understatement_of_width_pct": 1.957935225231655,
+            "signed_width_change_pct_zero_vs_measured": 1.957935225231655
+          }
+        },
+        "rms": {
+          "V_point": 0.6314141653432003,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.6282964876839016,
+              0.6343740596575782
+            ],
+            "width": 0.006077571973676643,
+            "mean": 0.631349822769279,
+            "sd": 0.001577343259495661
+          },
+          "delta_method": {
+            "summary_point": [
+              0.08091482830605523,
+              0.4618958787507605,
+              0.08860345828638445
+            ],
+            "gradient_at_point": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Sigma_of_summaries": [
+              [
+                2.1553768254520977e-06,
+                1.2218948698747561e-08,
+                -7.631250228804678e-09
+              ],
+              [
+                1.2218948698747561e-08,
+                1.3692541630302566e-07,
+                -9.67320506557637e-08
+              ],
+              [
+                -7.631250228804678e-09,
+                -9.67320506557637e-08,
+                3.82591257720246e-07
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.022492110160501528,
+                -0.008403623149483138
+              ],
+              [
+                0.022492110160501528,
+                1.0,
+                -0.42263050288928217
+              ],
+              [
+                -0.008403623149483138,
+                -0.4226305028892821,
+                1.0
+              ]
+            ],
+            "var_measured_covariance": 2.490604795103728e-06,
+            "var_cross_terms_declared_zero": 2.6748934994753695e-06,
+            "width_delta_measured": 0.006186293157946623,
+            "width_delta_declared_zero": 0.006411082039087328,
+            "understatement_of_width_pct": -3.6336603423320124,
+            "signed_width_change_pct_zero_vs_measured": -3.6336603423320124
+          }
+        },
+        "topsis": {
+          "V_point": 0.29350206547273144,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.28841566430812854,
+              0.29850612580143526
+            ],
+            "width": 0.010090461493306724,
+            "mean": 0.29343637419072727,
+            "sd": 0.0025947618928179026
+          },
+          "delta_method": {
+            "summary_point": [
+              0.12993144139921686,
+              0.022870601063103353,
+              0.08699218496931788
+            ],
+            "gradient_at_point": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Sigma_of_summaries": [
+              [
+                5.640767215373363e-06,
+                1.1961629718670214e-09,
+                1.617370409906195e-08
+              ],
+              [
+                1.1961629718670214e-09,
+                6.104715450201513e-09,
+                -3.8437728664552843e-08
+              ],
+              [
+                1.617370409906195e-08,
+                -3.8437728664552843e-08,
+                1.1252036418841614e-06
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.006445974049636057,
+                0.006419849395847303
+              ],
+              [
+                0.006445974049636056,
+                1.0,
+                -0.4637772481473951
+              ],
+              [
+                0.006419849395847303,
+                -0.4637772481473951,
+                0.9999999999999998
+              ]
+            ],
+            "var_measured_covariance": 6.729939849520478e-06,
+            "var_cross_terms_declared_zero": 6.772075572707726e-06,
+            "width_delta_measured": 0.010169127159728378,
+            "width_delta_declared_zero": 0.010200911614789202,
+            "understatement_of_width_pct": -0.3125583401758947,
+            "signed_width_change_pct_zero_vs_measured": -0.3125583401758947
+          }
+        }
+      },
+      "composites_tail": {
+        "arithmetic": {
+          "V_point": 0.5404748870927857,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.5358450081790381,
+              0.5452527877644832
+            ],
+            "width": 0.00940777958544503,
+            "mean": 0.5404436580569028,
+            "sd": 0.0024252060328290186
+          },
+          "delta_method": {
+            "summary_point": [
+              0.33617671253339554,
+              0.9276789376138158,
+              0.35756901113114553
+            ],
+            "gradient_at_point": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "Sigma_of_summaries": [
+              [
+                4.0577336262298674e-05,
+                1.0100436992814212e-07,
+                8.996154806332746e-07
+              ],
+              [
+                1.0100436992814212e-07,
+                5.65477966870562e-07,
+                -1.451558599658425e-06
+              ],
+              [
+                8.996154806332746e-07,
+                -1.451558599658425e-06,
+                1.2693681984057179e-05
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.021085822820586166,
+                0.039638877390099
+              ],
+              [
+                0.021085822820586166,
+                1.0,
+                -0.5417924169850432
+              ],
+              [
+                0.039638877390099,
+                -0.5417924169850432,
+                1.0
+              ]
+            ],
+            "var_measured_covariance": 5.881624301670265e-06,
+            "var_cross_terms_declared_zero": 5.981832912580712e-06,
+            "width_delta_measured": 0.00950663295886828,
+            "width_delta_declared_zero": 0.009587275902142716,
+            "understatement_of_width_pct": -0.848280812179758,
+            "signed_width_change_pct_zero_vs_measured": -0.848280812179758
+          }
+        },
+        "geometric": {
+          "V_point": 0.4146897293953532,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.40844815230425807,
+              0.4217558259921265
+            ],
+            "width": 0.013307673687868449,
+            "mean": 0.4148834579937733,
+            "sd": 0.0034245052584939337
+          },
+          "delta_method": {
+            "summary_point": [
+              0.6264385257106739,
+              0.9719645329753422,
+              0.6810741589250081
+            ],
+            "gradient_at_point": [
+              0.6619799268011195,
+              0.4266510920166193,
+              0.6088760290801372
+            ],
+            "Sigma_of_summaries": [
+              [
+                1.8254393662883272e-05,
+                1.7769551217034308e-08,
+                8.644504765519206e-07
+              ],
+              [
+                1.7769551217034308e-08,
+                7.425208817506834e-08,
+                -4.859113582768269e-07
+              ],
+              [
+                8.644504765519206e-07,
+                -4.859113582768269e-07,
+                8.772932608594666e-06
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.015262947755359257,
+                0.06830995754640413
+              ],
+              [
+                0.015262947755359255,
+                1.0,
+                -0.6020468915611356
+              ],
+              [
+                0.06830995754640413,
+                -0.6020468915611356,
+                0.9999999999999999
+              ]
+            ],
+            "var_measured_covariance": 1.1719735925498513e-05,
+            "var_cross_terms_declared_zero": 1.12652990224121e-05,
+            "width_delta_measured": 0.013419520549887331,
+            "width_delta_declared_zero": 0.013156775029983886,
+            "understatement_of_width_pct": 1.957935225231655,
+            "signed_width_change_pct_zero_vs_measured": 1.957935225231655
+          }
+        },
+        "rms": {
+          "V_point": 0.6314141653432003,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.6282964876839016,
+              0.6343740596575782
+            ],
+            "width": 0.006077571973676643,
+            "mean": 0.631349822769279,
+            "sd": 0.001577343259495661
+          },
+          "delta_method": {
+            "summary_point": [
+              0.08091482830605523,
+              0.4618958787507605,
+              0.08860345828638445
+            ],
+            "gradient_at_point": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Sigma_of_summaries": [
+              [
+                2.1553768254520977e-06,
+                1.2218948698747561e-08,
+                -7.631250228804678e-09
+              ],
+              [
+                1.2218948698747561e-08,
+                1.3692541630302566e-07,
+                -9.67320506557637e-08
+              ],
+              [
+                -7.631250228804678e-09,
+                -9.67320506557637e-08,
+                3.82591257720246e-07
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.022492110160501528,
+                -0.008403623149483138
+              ],
+              [
+                0.022492110160501528,
+                1.0,
+                -0.42263050288928217
+              ],
+              [
+                -0.008403623149483138,
+                -0.4226305028892821,
+                1.0
+              ]
+            ],
+            "var_measured_covariance": 2.490604795103728e-06,
+            "var_cross_terms_declared_zero": 2.6748934994753695e-06,
+            "width_delta_measured": 0.006186293157946623,
+            "width_delta_declared_zero": 0.006411082039087328,
+            "understatement_of_width_pct": -3.6336603423320124,
+            "signed_width_change_pct_zero_vs_measured": -3.6336603423320124
+          }
+        },
+        "topsis": {
+          "V_point": 0.29350206547273144,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.28841566430812854,
+              0.29850612580143526
+            ],
+            "width": 0.010090461493306724,
+            "mean": 0.29343637419072727,
+            "sd": 0.0025947618928179026
+          },
+          "delta_method": {
+            "summary_point": [
+              0.12993144139921686,
+              0.022870601063103353,
+              0.08699218496931788
+            ],
+            "gradient_at_point": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Sigma_of_summaries": [
+              [
+                5.640767215373363e-06,
+                1.1961629718670214e-09,
+                1.617370409906195e-08
+              ],
+              [
+                1.1961629718670214e-09,
+                6.104715450201513e-09,
+                -3.8437728664552843e-08
+              ],
+              [
+                1.617370409906195e-08,
+                -3.8437728664552843e-08,
+                1.1252036418841614e-06
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.006445974049636057,
+                0.006419849395847303
+              ],
+              [
+                0.006445974049636056,
+                1.0,
+                -0.4637772481473951
+              ],
+              [
+                0.006419849395847303,
+                -0.4637772481473951,
+                0.9999999999999998
+              ]
+            ],
+            "var_measured_covariance": 6.729939849520478e-06,
+            "var_cross_terms_declared_zero": 6.772075572707726e-06,
+            "width_delta_measured": 0.010169127159728378,
+            "width_delta_declared_zero": 0.010200911614789202,
+            "understatement_of_width_pct": -0.3125583401758947,
+            "signed_width_change_pct_zero_vs_measured": -0.3125583401758947
+          }
+        }
+      },
+      "matched_severity_diagonal": {
+        "arithmetic": {
+          "V_point": 0.5404748870927857,
+          "product_space_V_point": 0.5404748870927857,
+          "diagonal_minus_product_space": 0.0,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.5358450081790381,
+              0.5452527877644832
+            ],
+            "width": 0.00940777958544503,
+            "mean": 0.5404436580569028,
+            "sd": 0.0024252060328290173
+          },
+          "difference_paired_bootstrap": {
+            "ci95_percentile": [
+              -1.1102230246251565e-16,
+              1.1102230246251565e-16
+            ],
+            "width": 2.220446049250313e-16,
+            "mean": 1.6653345369377348e-19,
+            "sd": 8.209430295328836e-17
+          }
+        },
+        "geometric": {
+          "V_point": 0.44717906641482047,
+          "product_space_V_point": 0.4146897293953532,
+          "diagonal_minus_product_space": 0.03248933701946727,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.4408888119866592,
+              0.4541798067063645
+            ],
+            "width": 0.013290994719705296,
+            "mean": 0.4473015820899668,
+            "sd": 0.003426782861056292
+          },
+          "difference_paired_bootstrap": {
+            "ci95_percentile": [
+              0.03162074106056448,
+              0.03319423378689444
+            ],
+            "width": 0.0015734927263299642,
+            "mean": 0.03241812409619355,
+            "sd": 0.00040791312751522156
+          }
+        },
+        "rms": {
+          "V_point": 0.6229691526887572,
+          "product_space_V_point": 0.6314141653432003,
+          "diagonal_minus_product_space": -0.008445012654443085,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.6201072655544427,
+              0.6256798521445551
+            ],
+            "width": 0.005572586590112394,
+            "mean": 0.6229062202075653,
+            "sd": 0.001439209978020492
+          },
+          "difference_paired_bootstrap": {
+            "ci95_percentile": [
+              -0.008743920772232804,
+              -0.00813306562384597
+            ],
+            "width": 0.0006108551483868345,
+            "mean": -0.008443602561713675,
+            "sd": 0.00015662964306168044
+          }
+        }
+      },
+      "deterministic_knot_check": {
+        "replicate_sd": {
+          "RGA_last": 9.134484332536673e-17,
+          "RGE_first": 0.0,
+          "RGR_tail_first": 0.0,
+          "RGR_gaussian_first": 0.0
+        },
+        "max_abs_correlation_change_after_dropping_deterministic_knots": 1.4432899320127035e-15
+      },
+      "fit_warnings": [],
+      "RGE_greedy_removal_order": [
+        "num__RevolvingUtilizationOfUnsecuredLines",
+        "num__NumberOfOpenCreditLinesAndLoans",
+        "num__DebtRatio",
+        "num__NumberRealEstateLoansOrLines",
+        "num__MonthlyIncome",
+        "num__NumberOfDependents",
+        "num__NumberOfTime60-89DaysPastDueNotWorse",
+        "num__NumberOfTimes90DaysLate",
+        "num__NumberOfTime30-59DaysPastDueNotWorse",
+        "num__age"
+      ],
+      "fast_path_vs_package_max_abs_gap": 0.0,
+      "conditioning_check": {
+        "B_requested": 100,
+        "B_completed": 100,
+        "B_full": 100,
+        "greedy_orders": [
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ],
+          [
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__NumberRealEstateLoansOrLines",
+            "num__MonthlyIncome",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__age"
+          ]
+        ],
+        "composites_tail": {
+          "arithmetic": {
+            "sd_frozen": 0.002679584148021832,
+            "sd_full": 0.002619895522136368,
+            "sd_ratio_full_over_frozen": 0.9777246682364769,
+            "mean_abs_paired_difference": 0.0009283006373452296,
+            "max_abs_paired_difference": 0.0028571731787109256
+          },
+          "geometric": {
+            "sd_frozen": 0.0037793454369546946,
+            "sd_full": 0.0036897162645642637,
+            "sd_ratio_full_over_frozen": 0.9762844720373981,
+            "mean_abs_paired_difference": 0.0013243714995853945,
+            "max_abs_paired_difference": 0.004198884601374131
+          },
+          "rms": {
+            "sd_frozen": 0.0017257235018691634,
+            "sd_full": 0.0016913846164285295,
+            "sd_ratio_full_over_frozen": 0.9801017454977922,
+            "mean_abs_paired_difference": 0.0004953301230384089,
+            "max_abs_paired_difference": 0.001423446966315356
+          },
+          "topsis": {
+            "sd_frozen": 0.0028916946544348646,
+            "sd_full": 0.002811749872287152,
+            "sd_ratio_full_over_frozen": 0.9723536570415189,
+            "mean_abs_paired_difference": 0.0008503486867074134,
+            "max_abs_paired_difference": 0.002484136037569362
+          }
+        },
+        "primary_endpoint_frozen": {
+          "corr_RGE_RGR_tail": -0.43633592735692966,
+          "corr_RGE_RGR_gaussian": 0.16132002669479426,
+          "fisher_z_tail_minus_gaussian": -0.6304377962519159,
+          "prespecified_direction_delta_lt_zero": true
+        },
+        "primary_endpoint_full_order_tail": {
+          "corr_RGE_RGR_tail": -0.2416436831143827,
+          "corr_RGE_RGR_gaussian": 0.16126055960031677,
+          "fisher_z_tail_minus_gaussian": -0.4091996331822315,
+          "prespecified_direction_delta_lt_zero": true
+        }
+      },
+      "label_complement": {
+        "curves_point": {
+          "RGA_partial": [
+            0.6890943296150777,
+            0.6686517099805072,
+            0.6429709888687034,
+            0.6072262342007744,
+            0.5821410144817846,
+            0.5458422439019515,
+            0.509856160603873,
+            0.46873631250766246,
+            0.41661184972001697,
+            0.3425791345383944,
+            1.1102230246251565e-16
+          ],
+          "RGE_greedy_mean_baseline": [
+            1.0,
+            0.9996965973232423,
+            0.9992323992006518,
+            0.9982209933571375,
+            0.9945783303302409,
+            0.9894696461876658,
+            0.9811281042896363,
+            0.9577120557860446,
+            0.9393119231489475,
+            0.8449620452549609,
+            0.5001570930846269
+          ],
+          "RGR_tail_swap": [
+            1.0,
+            0.6304400585437597,
+            0.47244873973686674,
+            0.36481322835107277,
+            0.29289499481540426,
+            0.24128762539991666,
+            0.20777621193712004,
+            0.18986530709705968,
+            0.18017520461478753,
+            0.17706597166360855,
+            0.17649179913816843
+          ],
+          "RGR_scaled_gaussian_noise": [
+            1.0,
+            0.9278645121188926,
+            0.8209007328134148,
+            0.7467533139551046,
+            0.6942932385719125,
+            0.6667417268518594,
+            0.6398002492178179,
+            0.6197296523488456,
+            0.6121723519424969,
+            0.5843586421210901,
+            0.5806144105363242
+          ]
+        },
+        "marginal_intervals": {
+          "RGA_partial": {
+            "ci95_percentile_by_knot": [
+              [
+                0.6618255449406568,
+                0.7160801144151039
+              ],
+              [
+                0.6337057556837908,
+                0.6965319818045619
+              ],
+              [
+                0.6046853469552138,
+                0.673893714638232
+              ],
+              [
+                0.5668873614405616,
+                0.6454370879168945
+              ],
+              [
+                0.5388836498958496,
+                0.6208591544183141
+              ],
+              [
+                0.5023072408766542,
+                0.5873613494844275
+              ],
+              [
+                0.4666867112120055,
+                0.5535734493837551
+              ],
+              [
+                0.4231110996534382,
+                0.509522180875723
+              ],
+              [
+                0.37157563356593193,
+                0.4555751703663305
+              ],
+              [
+                0.3016563968528732,
+                0.37804299072656533
+              ],
+              [
+                -1.1102230246251565e-16,
+                1.1102230246251565e-16
+              ]
+            ],
+            "bootstrap_sd_by_knot": [
+              0.013580749847314786,
+              0.015889476369749776,
+              0.017966236727330318,
+              0.020094540858278602,
+              0.021066701723169566,
+              0.021705257955745693,
+              0.022268044298052268,
+              0.022066565352115684,
+              0.021753474755999227,
+              0.01993754801383085,
+              7.657284724868224e-17
+            ]
+          },
+          "RGE_greedy_mean_baseline": {
+            "ci95_percentile_by_knot": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.9994142851061104,
+                0.9999141777461297
+              ],
+              [
+                0.9989656141668521,
+                0.9994408937445594
+              ],
+              [
+                0.9978588550948793,
+                0.9985138432900658
+              ],
+              [
+                0.9939480557646163,
+                0.9951394032978267
+              ],
+              [
+                0.9882866807477593,
+                0.9905222490141754
+              ],
+              [
+                0.9795907305443454,
+                0.9825557443348057
+              ],
+              [
+                0.9536632011915683,
+                0.9612609848135497
+              ],
+              [
+                0.9332474334378008,
+                0.945283215272639
+              ],
+              [
+                0.8332633617919832,
+                0.8548728023886712
+              ],
+              [
+                0.49844903073661057,
+                0.5016956248753811
+              ]
+            ],
+            "bootstrap_sd_by_knot": [
+              0.0,
+              0.00012728796674548414,
+              0.00012140841555882395,
+              0.0001699579583518071,
+              0.0003118093129221566,
+              0.0005811297573990175,
+              0.0007817190422803273,
+              0.001906736323556456,
+              0.0030944252235999463,
+              0.00558257828022116,
+              0.0008346575030188355
+            ]
+          },
+          "RGR_tail_swap": {
+            "ci95_percentile_by_knot": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.61484430329002,
+                0.6467937498923516
+              ],
+              [
+                0.45755403548425677,
+                0.48718398227114557
+              ],
+              [
+                0.35195730022416455,
+                0.37788617262621954
+              ],
+              [
+                0.2821010167082694,
+                0.3043630812318856
+              ],
+              [
+                0.23176105966499408,
+                0.2516166255935703
+              ],
+              [
+                0.19915297623903902,
+                0.21722276185954598
+              ],
+              [
+                0.18183396130236415,
+                0.19875986574639465
+              ],
+              [
+                0.17225677337936546,
+                0.18906852383530878
+              ],
+              [
+                0.169078675674194,
+                0.1856157673623125
+              ],
+              [
+                0.16855220384539993,
+                0.1849119558242201
+              ]
+            ],
+            "bootstrap_sd_by_knot": [
+              0.0,
+              0.008134278518108868,
+              0.007500648646666626,
+              0.006550372933260613,
+              0.0057062367540968665,
+              0.005067916715056129,
+              0.004572973643114513,
+              0.004353191514470661,
+              0.00427892671499308,
+              0.004214963789458299,
+              0.0041916387814519805
+            ]
+          },
+          "RGR_scaled_gaussian_noise": {
+            "ci95_percentile_by_knot": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.9236326822326781,
+                0.9319512134405724
+              ],
+              [
+                0.8112784231714053,
+                0.8296982548289974
+              ],
+              [
+                0.7344917004486273,
+                0.7586207857109301
+              ],
+              [
+                0.6814827502787335,
+                0.7070283879870816
+              ],
+              [
+                0.6545432779901647,
+                0.6787641177012919
+              ],
+              [
+                0.6265982389205733,
+                0.6532011765247561
+              ],
+              [
+                0.6070508777233312,
+                0.6331641994558355
+              ],
+              [
+                0.5977962364636145,
+                0.625793943983133
+              ],
+              [
+                0.5711494668165685,
+                0.5975733633516481
+              ],
+              [
+                0.5661561239158988,
+                0.5945150102368755
+              ]
+            ],
+            "bootstrap_sd_by_knot": [
+              0.0,
+              0.002123467147066505,
+              0.00475271241711851,
+              0.0061244857045895254,
+              0.0066094054468334,
+              0.0063874344475188865,
+              0.006847247571996358,
+              0.006603291549545889,
+              0.00719012154454428,
+              0.006742616880322227,
+              0.0072647499484720665
+            ]
+          }
+        },
+        "curve_mean_correlations": {
+          "labels": [
+            "RGA",
+            "RGE",
+            "RGR_tail",
+            "RGR_gaussian"
+          ],
+          "matrix": [
+            [
+              1.0,
+              0.12415668409527171,
+              -0.03335035725259907,
+              0.21056557065395773
+            ],
+            [
+              0.1241566840952717,
+              1.0,
+              -0.5418043026727798,
+              0.08934655370199644
+            ],
+            [
+              -0.03335035725259908,
+              -0.5418043026727798,
+              1.0,
+              -0.022767798826280324
+            ],
+            [
+              0.2105655706539577,
+              0.08934655370199644,
+              -0.022767798826280328,
+              1.0
+            ]
+          ]
+        },
+        "primary_family_contrast": {
+          "corr_RGE_RGR_tail": -0.5418043026727797,
+          "corr_RGE_RGR_gaussian": 0.08934655370199639,
+          "fisher_z_tail_minus_gaussian": -0.6962915719367687,
+          "prespecified_direction_delta_lt_zero": true
+        },
+        "primary_endpoint": {
+          "corr_RGE_RGR_tail": -0.5418043026727797,
+          "corr_RGE_RGR_gaussian": 0.08934655370199639,
+          "fisher_z_tail_minus_gaussian": -0.6962915719367687,
+          "prespecified_direction_delta_lt_zero": true
+        },
+        "arms": {
+          "arithmetic": {
+            "V_point": 0.5942860093236263,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.5830127341884223,
+                0.604455261589301
+              ],
+              "width": 0.021442527400878708,
+              "mean": 0.593837505901805,
+              "sd": 0.005599373432971709
+            },
+            "delta_method": {
+              "summary_point": [
+                0.49760999803806777,
+                0.9276790170875596,
+                0.3575690128452513
+              ],
+              "gradient_at_point": [
+                0.3333333333333333,
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "Sigma_of_summaries": [
+                [
+                  0.0002726615904107063,
+                  1.5416793821132068e-06,
+                  -1.962032865711918e-06
+                ],
+                [
+                  1.5416793821132068e-06,
+                  5.65488730941806e-07,
+                  -1.4516042551574527e-06
+                ],
+                [
+                  -1.962032865711918e-06,
+                  -1.4516042551574527e-06,
+                  1.2693681912688477e-05
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  0.12415668409527171,
+                  -0.03335035725259907
+                ],
+                [
+                  0.1241566840952717,
+                  1.0,
+                  -0.5418043026727798
+                ],
+                [
+                  -0.03335035725259908,
+                  -0.5418043026727798,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 3.135298284186936e-05,
+              "var_cross_terms_declared_zero": 3.176897345048184e-05,
+              "width_delta_measured": 0.0219491405292299,
+              "width_delta_declared_zero": 0.022094271048011604,
+              "understatement_of_width_pct": -0.6612127640644117,
+              "signed_width_change_pct_zero_vs_measured": -0.6612127640644117
+            }
+          },
+          "geometric": {
+            "V_point": 0.4899931194457791,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.4776972367600735,
+                0.5003422371901779
+              ],
+              "width": 0.022645000430104423,
+              "mean": 0.4894497559820702,
+              "sd": 0.0059865839434116545
+            },
+            "delta_method": {
+              "summary_point": [
+                0.7401932970102869,
+                0.9719645604234025,
+                0.681074160363533
+              ],
+              "gradient_at_point": [
+                0.6619799468934793,
+                0.5041265282679963,
+                0.7194416525569526
+              ],
+              "Sigma_of_summaries": [
+                [
+                  7.269842389870127e-05,
+                  2.5573811593356263e-07,
+                  -3.9481463142098643e-07
+                ],
+                [
+                  2.5573811593356263e-07,
+                  7.425329951672097e-08,
+                  -4.859211612251692e-07
+                ],
+                [
+                  -3.9481463142098643e-07,
+                  -4.859211612251692e-07,
+                  8.772932392243019e-06
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  0.11007155078588364,
+                  -0.01563357674072871
+                ],
+                [
+                  0.11007155078588363,
+                  1.0,
+                  -0.6020541339852364
+                ],
+                [
+                  -0.01563357674072871,
+                  -0.6020541339852366,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 3.585957415103111e-05,
+              "var_cross_terms_declared_zero": 3.6417426215231335e-05,
+              "width_delta_measured": 0.023473651392896974,
+              "width_delta_declared_zero": 0.02365553154435367,
+              "understatement_of_width_pct": -0.7748268405814995,
+              "signed_width_change_pct_zero_vs_measured": -0.7748268405814995
+            }
+          },
+          "rms": {
+            "V_point": 0.6643517786338993,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.655527089331493,
+                0.6729599423512715
+              ],
+              "width": 0.017432853019778594,
+              "mean": 0.6640564797179003,
+              "sd": 0.004534645429920849
+            },
+            "delta_method": {
+              "summary_point": [
+                0.14090264290229093,
+                0.4386580684092283,
+                0.08479106732237991
+              ],
+              "gradient_at_point": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Sigma_of_summaries": [
+                [
+                  2.024064578383991e-05,
+                  2.0675761830469336e-07,
+                  -1.4079276838074956e-07
+                ],
+                [
+                  2.0675761830469336e-07,
+                  1.2240812677274588e-07,
+                  -8.596682128673668e-08
+                ],
+                [
+                  -1.4079276838074956e-07,
+                  -8.596682128673668e-08,
+                  3.4255014991972e-07
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  0.13135427522831492,
+                  -0.053469495343783216
+                ],
+                [
+                  0.13135427522831492,
+                  1.0,
+                  -0.4198205194130616
+                ],
+                [
+                  -0.05346949534378322,
+                  -0.4198205194130616,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 2.0665600117806786e-05,
+              "var_cross_terms_declared_zero": 2.0705604060532377e-05,
+              "width_delta_measured": 0.01781977012842606,
+              "width_delta_declared_zero": 0.017837009318395523,
+              "understatement_of_width_pct": -0.09674193238868867,
+              "signed_width_change_pct_zero_vs_measured": -0.09674193238868867
+            }
+          },
+          "topsis": {
+            "V_point": 0.3439523155619735,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.33205094180298633,
+                0.35447526667291723
+              ],
+              "width": 0.0224243248699309,
+              "mean": 0.34349838474145244,
+              "sd": 0.005859366258109116
+            },
+            "delta_method": {
+              "summary_point": [
+                0.1809892462730673,
+                -0.025143458830600842,
+                0.07620913022846841
+              ],
+              "gradient_at_point": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Sigma_of_summaries": [
+                [
+                  3.395152956684258e-05,
+                  9.276617688384065e-09,
+                  -2.4384305333232417e-07
+                ],
+                [
+                  9.276617688384065e-09,
+                  6.571504133628145e-10,
+                  -1.130634607196055e-08
+                ],
+                [
+                  -2.4384305333232417e-07,
+                  -1.130634607196055e-08,
+                  8.935151596561553e-07
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  0.06210514693345485,
+                  -0.04427206228874347
+                ],
+                [
+                  0.06210514693345485,
+                  1.0,
+                  -0.46659375215207993
+                ],
+                [
+                  -0.04427206228874347,
+                  -0.46659375215207993,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 3.43539563134803e-05,
+              "var_cross_terms_declared_zero": 3.48457018769121e-05,
+              "width_delta_measured": 0.022975579079201423,
+              "width_delta_declared_zero": 0.023139432044744904,
+              "understatement_of_width_pct": -0.7131614179501033,
+              "signed_width_change_pct_zero_vs_measured": -0.7131614179501033
+            }
+          }
+        },
+        "composites_tail": {
+          "arithmetic": {
+            "V_point": 0.5942860093236263,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.5830127341884223,
+                0.604455261589301
+              ],
+              "width": 0.021442527400878708,
+              "mean": 0.593837505901805,
+              "sd": 0.005599373432971709
+            },
+            "delta_method": {
+              "summary_point": [
+                0.49760999803806777,
+                0.9276790170875596,
+                0.3575690128452513
+              ],
+              "gradient_at_point": [
+                0.3333333333333333,
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "Sigma_of_summaries": [
+                [
+                  0.0002726615904107063,
+                  1.5416793821132068e-06,
+                  -1.962032865711918e-06
+                ],
+                [
+                  1.5416793821132068e-06,
+                  5.65488730941806e-07,
+                  -1.4516042551574527e-06
+                ],
+                [
+                  -1.962032865711918e-06,
+                  -1.4516042551574527e-06,
+                  1.2693681912688477e-05
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  0.12415668409527171,
+                  -0.03335035725259907
+                ],
+                [
+                  0.1241566840952717,
+                  1.0,
+                  -0.5418043026727798
+                ],
+                [
+                  -0.03335035725259908,
+                  -0.5418043026727798,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 3.135298284186936e-05,
+              "var_cross_terms_declared_zero": 3.176897345048184e-05,
+              "width_delta_measured": 0.0219491405292299,
+              "width_delta_declared_zero": 0.022094271048011604,
+              "understatement_of_width_pct": -0.6612127640644117,
+              "signed_width_change_pct_zero_vs_measured": -0.6612127640644117
+            }
+          },
+          "geometric": {
+            "V_point": 0.4899931194457791,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.4776972367600735,
+                0.5003422371901779
+              ],
+              "width": 0.022645000430104423,
+              "mean": 0.4894497559820702,
+              "sd": 0.0059865839434116545
+            },
+            "delta_method": {
+              "summary_point": [
+                0.7401932970102869,
+                0.9719645604234025,
+                0.681074160363533
+              ],
+              "gradient_at_point": [
+                0.6619799468934793,
+                0.5041265282679963,
+                0.7194416525569526
+              ],
+              "Sigma_of_summaries": [
+                [
+                  7.269842389870127e-05,
+                  2.5573811593356263e-07,
+                  -3.9481463142098643e-07
+                ],
+                [
+                  2.5573811593356263e-07,
+                  7.425329951672097e-08,
+                  -4.859211612251692e-07
+                ],
+                [
+                  -3.9481463142098643e-07,
+                  -4.859211612251692e-07,
+                  8.772932392243019e-06
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  0.11007155078588364,
+                  -0.01563357674072871
+                ],
+                [
+                  0.11007155078588363,
+                  1.0,
+                  -0.6020541339852364
+                ],
+                [
+                  -0.01563357674072871,
+                  -0.6020541339852366,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 3.585957415103111e-05,
+              "var_cross_terms_declared_zero": 3.6417426215231335e-05,
+              "width_delta_measured": 0.023473651392896974,
+              "width_delta_declared_zero": 0.02365553154435367,
+              "understatement_of_width_pct": -0.7748268405814995,
+              "signed_width_change_pct_zero_vs_measured": -0.7748268405814995
+            }
+          },
+          "rms": {
+            "V_point": 0.6643517786338993,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.655527089331493,
+                0.6729599423512715
+              ],
+              "width": 0.017432853019778594,
+              "mean": 0.6640564797179003,
+              "sd": 0.004534645429920849
+            },
+            "delta_method": {
+              "summary_point": [
+                0.14090264290229093,
+                0.4386580684092283,
+                0.08479106732237991
+              ],
+              "gradient_at_point": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Sigma_of_summaries": [
+                [
+                  2.024064578383991e-05,
+                  2.0675761830469336e-07,
+                  -1.4079276838074956e-07
+                ],
+                [
+                  2.0675761830469336e-07,
+                  1.2240812677274588e-07,
+                  -8.596682128673668e-08
+                ],
+                [
+                  -1.4079276838074956e-07,
+                  -8.596682128673668e-08,
+                  3.4255014991972e-07
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  0.13135427522831492,
+                  -0.053469495343783216
+                ],
+                [
+                  0.13135427522831492,
+                  1.0,
+                  -0.4198205194130616
+                ],
+                [
+                  -0.05346949534378322,
+                  -0.4198205194130616,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 2.0665600117806786e-05,
+              "var_cross_terms_declared_zero": 2.0705604060532377e-05,
+              "width_delta_measured": 0.01781977012842606,
+              "width_delta_declared_zero": 0.017837009318395523,
+              "understatement_of_width_pct": -0.09674193238868867,
+              "signed_width_change_pct_zero_vs_measured": -0.09674193238868867
+            }
+          },
+          "topsis": {
+            "V_point": 0.3439523155619735,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.33205094180298633,
+                0.35447526667291723
+              ],
+              "width": 0.0224243248699309,
+              "mean": 0.34349838474145244,
+              "sd": 0.005859366258109116
+            },
+            "delta_method": {
+              "summary_point": [
+                0.1809892462730673,
+                -0.025143458830600842,
+                0.07620913022846841
+              ],
+              "gradient_at_point": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Sigma_of_summaries": [
+                [
+                  3.395152956684258e-05,
+                  9.276617688384065e-09,
+                  -2.4384305333232417e-07
+                ],
+                [
+                  9.276617688384065e-09,
+                  6.571504133628145e-10,
+                  -1.130634607196055e-08
+                ],
+                [
+                  -2.4384305333232417e-07,
+                  -1.130634607196055e-08,
+                  8.935151596561553e-07
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  0.06210514693345485,
+                  -0.04427206228874347
+                ],
+                [
+                  0.06210514693345485,
+                  1.0,
+                  -0.46659375215207993
+                ],
+                [
+                  -0.04427206228874347,
+                  -0.46659375215207993,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 3.43539563134803e-05,
+              "var_cross_terms_declared_zero": 3.48457018769121e-05,
+              "width_delta_measured": 0.022975579079201423,
+              "width_delta_declared_zero": 0.023139432044744904,
+              "understatement_of_width_pct": -0.7131614179501033,
+              "signed_width_change_pct_zero_vs_measured": -0.7131614179501033
+            }
+          }
+        },
+        "matched_severity_diagonal": {
+          "arithmetic": {
+            "V_point": 0.5942860093236262,
+            "product_space_V_point": 0.5942860093236263,
+            "diagonal_minus_product_space": -1.1102230246251565e-16,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.5830127341884224,
+                0.604455261589301
+              ],
+              "width": 0.021442527400878597,
+              "mean": 0.593837505901805,
+              "sd": 0.005599373432971709
+            },
+            "difference_paired_bootstrap": {
+              "ci95_percentile": [
+                -1.1102230246251565e-16,
+                1.1102230246251565e-16
+              ],
+              "width": 2.220446049250313e-16,
+              "mean": 3.885780586188048e-19,
+              "sd": 8.518978929268643e-17
+            }
+          },
+          "geometric": {
+            "V_point": 0.5150098302650973,
+            "product_space_V_point": 0.4899931194457791,
+            "diagonal_minus_product_space": 0.025016710819318166,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.5027884029935347,
+                0.5252203332188286
+              ],
+              "width": 0.022431930225293883,
+              "mean": 0.5144939970599528,
+              "sd": 0.005884955188228319
+            },
+            "difference_paired_bootstrap": {
+              "ci95_percentile": [
+                0.024303590114706945,
+                0.025811712655453442
+              ],
+              "width": 0.0015081225407464968,
+              "mean": 0.025044241077882577,
+              "sd": 0.00038761499087616133
+            }
+          },
+          "rms": {
+            "V_point": 0.6554974585861818,
+            "product_space_V_point": 0.6643517786338993,
+            "diagonal_minus_product_space": -0.008854320047717468,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.6469532398264871,
+                0.6638129154398646
+              ],
+              "width": 0.016859675613377534,
+              "mean": 0.6552059383347169,
+              "sd": 0.004376873912844142
+            },
+            "difference_paired_bootstrap": {
+              "ci95_percentile": [
+                -0.009196175400375131,
+                -0.008470288260242346
+              ],
+              "width": 0.0007258871401327853,
+              "mean": -0.008850541383183412,
+              "sd": 0.0001828611523606061
+            }
+          }
+        },
+        "deterministic_knot_check": {
+          "replicate_sd": {
+            "RGA_last": 7.655370164337107e-17,
+            "RGE_first": 0.0,
+            "RGR_tail_first": 0.0,
+            "RGR_gaussian_first": 0.0
+          },
+          "max_abs_correlation_change_after_dropping_deterministic_knots": 2.3314683517128287e-15
+        },
+        "fit_warnings": [],
+        "RGE_greedy_removal_order": [
+          "num__RevolvingUtilizationOfUnsecuredLines",
+          "num__NumberOfOpenCreditLinesAndLoans",
+          "num__DebtRatio",
+          "num__NumberRealEstateLoansOrLines",
+          "num__MonthlyIncome",
+          "num__NumberOfDependents",
+          "num__NumberOfTime60-89DaysPastDueNotWorse",
+          "num__NumberOfTimes90DaysLate",
+          "num__NumberOfTime30-59DaysPastDueNotWorse",
+          "num__age"
+        ]
+      }
+    },
+    "rf": {
+      "curves_point": {
+        "RGA_partial": [
+          0.7109031424153441,
+          0.6487675112192705,
+          0.5907335865783943,
+          0.5226025191202885,
+          0.45562583756285724,
+          0.3865013495802595,
+          0.31238367059214683,
+          0.24143601089371963,
+          0.1619666332413915,
+          0.08098331662069569,
+          -1.1102230246251565e-16
+        ],
+        "RGE_greedy_mean_baseline": [
+          1.0,
+          0.9881112763755655,
+          0.9760966563421407,
+          0.9537891206622526,
+          0.9339012042532241,
+          0.9116058116684272,
+          0.8832795924159158,
+          0.8460616960967445,
+          0.7436390977218225,
+          0.7107275650510103,
+          0.5045588933554547
+        ],
+        "RGR_tail_swap": [
+          1.0,
+          0.6921039015182898,
+          0.5971184267943939,
+          0.5164883882823478,
+          0.4718021305036023,
+          0.44286239668893496,
+          0.42795027163318283,
+          0.41852269936418457,
+          0.41442874687801323,
+          0.4132353032226695,
+          0.41454533433957025
+        ],
+        "RGR_scaled_gaussian_noise": [
+          1.0,
+          0.7402898055722644,
+          0.6717619238557098,
+          0.6339504271645957,
+          0.6074894391235635,
+          0.5937791038101119,
+          0.5820655280532118,
+          0.5639210534571291,
+          0.5588003070105523,
+          0.5442271362604694,
+          0.5481844748543389
+        ]
+      },
+      "marginal_intervals": {
+        "RGA_partial": {
+          "ci95_percentile_by_knot": [
+            [
+              0.6891097642176804,
+              0.7345470102024201
+            ],
+            [
+              0.6289172116157585,
+              0.6710101225879099
+            ],
+            [
+              0.5707285223940998,
+              0.6110269281563417
+            ],
+            [
+              0.5033950874194587,
+              0.5426361379581853
+            ],
+            [
+              0.4345698456036955,
+              0.47370081925147967
+            ],
+            [
+              0.365107090543296,
+              0.4054828364551102
+            ],
+            [
+              0.29509844599061164,
+              0.33828513900881857
+            ],
+            [
+              0.22404378450465778,
+              0.2707000337232537
+            ],
+            [
+              0.1519520179735522,
+              0.2024488965268073
+            ],
+            [
+              0.07440903527935251,
+              0.12503765942371903
+            ],
+            [
+              -2.220446049250313e-16,
+              2.220446049250313e-16
+            ]
+          ],
+          "bootstrap_sd_by_knot": [
+            0.011559035123930732,
+            0.010715622203160365,
+            0.01018454812351182,
+            0.010071647444124403,
+            0.0100206420289878,
+            0.010271174531863674,
+            0.010742552709466932,
+            0.011423882721057658,
+            0.012268920956821628,
+            0.012171283304906166,
+            9.584127567891796e-17
+          ]
+        },
+        "RGE_greedy_mean_baseline": {
+          "ci95_percentile_by_knot": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.9868508714660169,
+              0.9893082359372586
+            ],
+            [
+              0.9739847343258405,
+              0.9780467690696724
+            ],
+            [
+              0.9502946969314893,
+              0.9570848421807961
+            ],
+            [
+              0.9292435382478996,
+              0.9383226075293019
+            ],
+            [
+              0.9055246707926394,
+              0.9178491205696229
+            ],
+            [
+              0.8756830410572031,
+              0.8906204158984599
+            ],
+            [
+              0.8368105120897387,
+              0.8549915860519381
+            ],
+            [
+              0.7289716795684794,
+              0.7572149971799413
+            ],
+            [
+              0.6947482903343171,
+              0.7228053443734386
+            ],
+            [
+              0.4956875080137372,
+              0.504476528777648
+            ]
+          ],
+          "bootstrap_sd_by_knot": [
+            0.0,
+            0.0006376139799384983,
+            0.0010221468590343957,
+            0.001741556601693852,
+            0.0022957703710758844,
+            0.0030606209652732073,
+            0.003865377272377647,
+            0.00465085882919676,
+            0.007066772334468646,
+            0.007050828623983632,
+            0.0022272404494774124
+          ]
+        },
+        "RGR_tail_swap": {
+          "ci95_percentile_by_knot": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.6801695510911988,
+              0.7037704702205899
+            ],
+            [
+              0.5851392870385158,
+              0.6091792147434448
+            ],
+            [
+              0.5050196346753809,
+              0.5272822592886924
+            ],
+            [
+              0.46063707479665245,
+              0.4820864983675987
+            ],
+            [
+              0.4318750772569375,
+              0.4530713272698056
+            ],
+            [
+              0.4174836465220144,
+              0.43837440539331185
+            ],
+            [
+              0.4080019473090295,
+              0.42904502415920065
+            ],
+            [
+              0.4037470035916953,
+              0.4243957311533794
+            ],
+            [
+              0.4023786967246097,
+              0.42313660491526933
+            ],
+            [
+              0.4037272479364862,
+              0.42474914251912754
+            ]
+          ],
+          "bootstrap_sd_by_knot": [
+            0.0,
+            0.006057746339832132,
+            0.006126252315532555,
+            0.005721855988541818,
+            0.005477688020989921,
+            0.005422831038555825,
+            0.005363617307604459,
+            0.005331067450702309,
+            0.0052916678556975605,
+            0.005293179541939329,
+            0.005314690620697053
+          ]
+        },
+        "RGR_scaled_gaussian_noise": {
+          "ci95_percentile_by_knot": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              0.7288189634834348,
+              0.7525569523560307
+            ],
+            [
+              0.6588632025825146,
+              0.6842957198015613
+            ],
+            [
+              0.6213418813366686,
+              0.6468355592561065
+            ],
+            [
+              0.5945337743023074,
+              0.6204721750266349
+            ],
+            [
+              0.5818362102418242,
+              0.6058096663537967
+            ],
+            [
+              0.5684890210863225,
+              0.595571908465404
+            ],
+            [
+              0.5509410884590045,
+              0.5764015449770814
+            ],
+            [
+              0.5462619191530885,
+              0.5714715543283914
+            ],
+            [
+              0.5322496565933615,
+              0.5564472261660246
+            ],
+            [
+              0.5360209486649002,
+              0.5605142122269804
+            ]
+          ],
+          "bootstrap_sd_by_knot": [
+            0.0,
+            0.005976104448376945,
+            0.006569215022676792,
+            0.0065568952926367205,
+            0.00656516473160834,
+            0.006199493967220582,
+            0.0068204057839548055,
+            0.006330352159592173,
+            0.006421094654412017,
+            0.006126972479711807,
+            0.006214631468594592
+          ]
+        }
+      },
+      "curve_mean_correlations": {
+        "labels": [
+          "RGA",
+          "RGE",
+          "RGR_tail",
+          "RGR_gaussian"
+        ],
+        "matrix": [
+          [
+            0.9999999999999998,
+            0.21237271257980103,
+            -0.05921084059637317,
+            0.18992820285441056
+          ],
+          [
+            0.21237271257980106,
+            1.0,
+            -0.10745343112149935,
+            0.5467917649303337
+          ],
+          [
+            -0.059210840596373174,
+            -0.10745343112149937,
+            0.9999999999999998,
+            -0.06674083430471439
+          ],
+          [
+            0.18992820285441056,
+            0.5467917649303337,
+            -0.06674083430471439,
+            1.0
+          ]
+        ]
+      },
+      "primary_family_contrast": {
+        "corr_RGE_RGR_tail": -0.10745343112149935,
+        "corr_RGE_RGR_gaussian": 0.5467917649303337,
+        "fisher_z_tail_minus_gaussian": -0.721663148965099,
+        "prespecified_direction_delta_lt_zero": true
+      },
+      "primary_endpoint": {
+        "corr_RGE_RGR_tail": -0.10745343112149935,
+        "corr_RGE_RGR_gaussian": 0.5467917649303337,
+        "fisher_z_tail_minus_gaussian": -0.721663148965099,
+        "prespecified_direction_delta_lt_zero": true
+      },
+      "arms": {
+        "arithmetic": {
+          "V_point": 0.5870524876058217,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.5807206026130356,
+              0.5937217121112148
+            ],
+            "width": 0.01300110949817923,
+            "mean": 0.5868526571069178,
+            "sd": 0.0032731956088530596
+          },
+          "delta_method": {
+            "summary_point": [
+              0.3738094161658516,
+              0.8592519012675054,
+              0.5280961453841081
+            ],
+            "gradient_at_point": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "Sigma_of_summaries": [
+              [
+                7.085289223618242e-05,
+                4.284055422746858e-06,
+                -2.0910992638609126e-06
+              ],
+              [
+                4.284055422746858e-06,
+                5.743215995879246e-06,
+                -1.0804196979991663e-06
+              ],
+              [
+                -2.0910992638609126e-06,
+                -1.0804196979991663e-06,
+                1.7603104290499306e-05
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                0.9999999999999998,
+                0.21237271257980103,
+                -0.05921084059637317
+              ],
+              [
+                0.21237271257980106,
+                1.0,
+                -0.10745343112149935
+              ],
+              [
+                -0.059210840596373174,
+                -0.10745343112149937,
+                0.9999999999999998
+              ]
+            ],
+            "var_measured_covariance": 1.0713809493814947e-05,
+            "var_cross_terms_declared_zero": 1.046657916917344e-05,
+            "width_delta_measured": 0.012830691015413299,
+            "width_delta_declared_zero": 0.01268178739325253,
+            "understatement_of_width_pct": 1.160526911464821,
+            "signed_width_change_pct_zero_vs_measured": 1.160526911464821
+          }
+        },
+        "geometric": {
+          "V_point": 0.49499413316548463,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.48691534028366484,
+              0.5066332262020414
+            ],
+            "width": 0.019717885918376588,
+            "mean": 0.4950488015578454,
+            "sd": 0.005967692952946097
+          },
+          "delta_method": {
+            "summary_point": [
+              0.6526899589593559,
+              0.9472008492133702,
+              0.8006653631417134
+            ],
+            "gradient_at_point": [
+              0.7583909119035624,
+              0.5225862430091427,
+              0.6182284833993417
+            ],
+            "Sigma_of_summaries": [
+              [
+                5.769092804277628e-05,
+                8.772863878065451e-07,
+                -4.454445041483924e-07
+              ],
+              [
+                8.772863878065451e-07,
+                8.589073363104459e-07,
+                -2.0911951161617429e-07
+              ],
+              [
+                -4.454445041483924e-07,
+                -2.0911951161617429e-07,
+                5.477224455875465e-06
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.12462766895513022,
+                -0.025058759791057452
+              ],
+              [
+                0.12462766895513022,
+                1.0,
+                -0.09641422852809693
+              ],
+              [
+                -0.025058759791057452,
+                -0.09641422852809692,
+                0.9999999999999998
+              ]
+            ],
+            "var_measured_covariance": 3.565187872197517e-05,
+            "var_cross_terms_declared_zero": 3.5509323177441576e-05,
+            "width_delta_measured": 0.02340557403618623,
+            "width_delta_declared_zero": 0.023358733076677022,
+            "understatement_of_width_pct": 0.2001273689625771,
+            "signed_width_change_pct_zero_vs_measured": 0.2001273689625771
+          }
+        },
+        "rms": {
+          "V_point": 0.6404930263421637,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.6355188002653454,
+              0.6449719001796662
+            ],
+            "width": 0.009453099914320862,
+            "mean": 0.6402206542134361,
+            "sd": 0.0024349481013624286
+          },
+          "delta_method": {
+            "summary_point": [
+              0.09511470530406148,
+              0.3909265243801423,
+              0.1544517966579599
+            ],
+            "gradient_at_point": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Sigma_of_summaries": [
+              [
+                3.237876689443632e-06,
+                4.914298759346758e-07,
+                -1.6007339287684864e-07
+              ],
+              [
+                4.914298759346758e-07,
+                1.1252416196710918e-06,
+                -1.3679444898024117e-07
+              ],
+              [
+                -1.6007339287684864e-07,
+                -1.3679444898024117e-07,
+                1.167983699376103e-06
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.25745925559987093,
+                -0.08231341250377004
+              ],
+              [
+                0.25745925559987093,
+                1.0,
+                -0.11932383144136734
+              ],
+              [
+                -0.08231341250377006,
+                -0.11932383144136732,
+                1.0
+              ]
+            ],
+            "var_measured_covariance": 5.920226076646e-06,
+            "var_cross_terms_declared_zero": 5.531102008490827e-06,
+            "width_delta_measured": 0.009537778500811422,
+            "width_delta_declared_zero": 0.00921900224507535,
+            "understatement_of_width_pct": 3.3422484670717956,
+            "signed_width_change_pct_zero_vs_measured": 3.3422484670717956
+          }
+        },
+        "topsis": {
+          "V_point": 0.3581246202289369,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.352286140969811,
+              0.3642114028516655
+            ],
+            "width": 0.011925261881854499,
+            "mean": 0.35808480346111526,
+            "sd": 0.0029676789497526655
+          },
+          "delta_method": {
+            "summary_point": [
+              0.13404184946552797,
+              -0.06173877240155848,
+              0.15489170320096268
+            ],
+            "gradient_at_point": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Sigma_of_summaries": [
+              [
+                7.371260691590501e-06,
+                -8.119112528526118e-08,
+                -2.851471671137057e-07
+              ],
+              [
+                -8.119112528526118e-08,
+                1.6460602278610772e-08,
+                2.2509988769700805e-08
+              ],
+              [
+                -2.851471671137057e-07,
+                2.2509988769700805e-08,
+                2.102068907628173e-06
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                -0.233085262305946,
+                -0.07243937618565148
+              ],
+              [
+                -0.23308526230594598,
+                1.0,
+                0.12101214059649623
+              ],
+              [
+                -0.07243937618565148,
+                0.12101214059649623,
+                1.0
+              ]
+            ],
+            "var_measured_covariance": 8.802133594238753e-06,
+            "var_cross_terms_declared_zero": 9.489790201497284e-06,
+            "width_delta_measured": 0.011629795137751402,
+            "width_delta_declared_zero": 0.012075535313364525,
+            "understatement_of_width_pct": -3.8327431423637703,
+            "signed_width_change_pct_zero_vs_measured": -3.8327431423637703
+          }
+        }
+      },
+      "composites_tail": {
+        "arithmetic": {
+          "V_point": 0.5870524876058217,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.5807206026130356,
+              0.5937217121112148
+            ],
+            "width": 0.01300110949817923,
+            "mean": 0.5868526571069178,
+            "sd": 0.0032731956088530596
+          },
+          "delta_method": {
+            "summary_point": [
+              0.3738094161658516,
+              0.8592519012675054,
+              0.5280961453841081
+            ],
+            "gradient_at_point": [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            "Sigma_of_summaries": [
+              [
+                7.085289223618242e-05,
+                4.284055422746858e-06,
+                -2.0910992638609126e-06
+              ],
+              [
+                4.284055422746858e-06,
+                5.743215995879246e-06,
+                -1.0804196979991663e-06
+              ],
+              [
+                -2.0910992638609126e-06,
+                -1.0804196979991663e-06,
+                1.7603104290499306e-05
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                0.9999999999999998,
+                0.21237271257980103,
+                -0.05921084059637317
+              ],
+              [
+                0.21237271257980106,
+                1.0,
+                -0.10745343112149935
+              ],
+              [
+                -0.059210840596373174,
+                -0.10745343112149937,
+                0.9999999999999998
+              ]
+            ],
+            "var_measured_covariance": 1.0713809493814947e-05,
+            "var_cross_terms_declared_zero": 1.046657916917344e-05,
+            "width_delta_measured": 0.012830691015413299,
+            "width_delta_declared_zero": 0.01268178739325253,
+            "understatement_of_width_pct": 1.160526911464821,
+            "signed_width_change_pct_zero_vs_measured": 1.160526911464821
+          }
+        },
+        "geometric": {
+          "V_point": 0.49499413316548463,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.48691534028366484,
+              0.5066332262020414
+            ],
+            "width": 0.019717885918376588,
+            "mean": 0.4950488015578454,
+            "sd": 0.005967692952946097
+          },
+          "delta_method": {
+            "summary_point": [
+              0.6526899589593559,
+              0.9472008492133702,
+              0.8006653631417134
+            ],
+            "gradient_at_point": [
+              0.7583909119035624,
+              0.5225862430091427,
+              0.6182284833993417
+            ],
+            "Sigma_of_summaries": [
+              [
+                5.769092804277628e-05,
+                8.772863878065451e-07,
+                -4.454445041483924e-07
+              ],
+              [
+                8.772863878065451e-07,
+                8.589073363104459e-07,
+                -2.0911951161617429e-07
+              ],
+              [
+                -4.454445041483924e-07,
+                -2.0911951161617429e-07,
+                5.477224455875465e-06
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.12462766895513022,
+                -0.025058759791057452
+              ],
+              [
+                0.12462766895513022,
+                1.0,
+                -0.09641422852809693
+              ],
+              [
+                -0.025058759791057452,
+                -0.09641422852809692,
+                0.9999999999999998
+              ]
+            ],
+            "var_measured_covariance": 3.565187872197517e-05,
+            "var_cross_terms_declared_zero": 3.5509323177441576e-05,
+            "width_delta_measured": 0.02340557403618623,
+            "width_delta_declared_zero": 0.023358733076677022,
+            "understatement_of_width_pct": 0.2001273689625771,
+            "signed_width_change_pct_zero_vs_measured": 0.2001273689625771
+          }
+        },
+        "rms": {
+          "V_point": 0.6404930263421637,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.6355188002653454,
+              0.6449719001796662
+            ],
+            "width": 0.009453099914320862,
+            "mean": 0.6402206542134361,
+            "sd": 0.0024349481013624286
+          },
+          "delta_method": {
+            "summary_point": [
+              0.09511470530406148,
+              0.3909265243801423,
+              0.1544517966579599
+            ],
+            "gradient_at_point": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Sigma_of_summaries": [
+              [
+                3.237876689443632e-06,
+                4.914298759346758e-07,
+                -1.6007339287684864e-07
+              ],
+              [
+                4.914298759346758e-07,
+                1.1252416196710918e-06,
+                -1.3679444898024117e-07
+              ],
+              [
+                -1.6007339287684864e-07,
+                -1.3679444898024117e-07,
+                1.167983699376103e-06
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                0.25745925559987093,
+                -0.08231341250377004
+              ],
+              [
+                0.25745925559987093,
+                1.0,
+                -0.11932383144136734
+              ],
+              [
+                -0.08231341250377006,
+                -0.11932383144136732,
+                1.0
+              ]
+            ],
+            "var_measured_covariance": 5.920226076646e-06,
+            "var_cross_terms_declared_zero": 5.531102008490827e-06,
+            "width_delta_measured": 0.009537778500811422,
+            "width_delta_declared_zero": 0.00921900224507535,
+            "understatement_of_width_pct": 3.3422484670717956,
+            "signed_width_change_pct_zero_vs_measured": 3.3422484670717956
+          }
+        },
+        "topsis": {
+          "V_point": 0.3581246202289369,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.352286140969811,
+              0.3642114028516655
+            ],
+            "width": 0.011925261881854499,
+            "mean": 0.35808480346111526,
+            "sd": 0.0029676789497526655
+          },
+          "delta_method": {
+            "summary_point": [
+              0.13404184946552797,
+              -0.06173877240155848,
+              0.15489170320096268
+            ],
+            "gradient_at_point": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Sigma_of_summaries": [
+              [
+                7.371260691590501e-06,
+                -8.119112528526118e-08,
+                -2.851471671137057e-07
+              ],
+              [
+                -8.119112528526118e-08,
+                1.6460602278610772e-08,
+                2.2509988769700805e-08
+              ],
+              [
+                -2.851471671137057e-07,
+                2.2509988769700805e-08,
+                2.102068907628173e-06
+              ]
+            ],
+            "Corr_of_summaries": [
+              [
+                1.0,
+                -0.233085262305946,
+                -0.07243937618565148
+              ],
+              [
+                -0.23308526230594598,
+                1.0,
+                0.12101214059649623
+              ],
+              [
+                -0.07243937618565148,
+                0.12101214059649623,
+                1.0
+              ]
+            ],
+            "var_measured_covariance": 8.802133594238753e-06,
+            "var_cross_terms_declared_zero": 9.489790201497284e-06,
+            "width_delta_measured": 0.011629795137751402,
+            "width_delta_declared_zero": 0.012075535313364525,
+            "understatement_of_width_pct": -3.8327431423637703,
+            "signed_width_change_pct_zero_vs_measured": -3.8327431423637703
+          }
+        }
+      },
+      "matched_severity_diagonal": {
+        "arithmetic": {
+          "V_point": 0.5870524876058217,
+          "product_space_V_point": 0.5870524876058217,
+          "diagonal_minus_product_space": 0.0,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.5807206026130358,
+              0.5937217121112148
+            ],
+            "width": 0.013001109498179009,
+            "mean": 0.5868526571069178,
+            "sd": 0.003273195608853059
+          },
+          "difference_paired_bootstrap": {
+            "ci95_percentile": [
+              -2.220446049250313e-16,
+              2.220446049250313e-16
+            ],
+            "width": 4.440892098500626e-16,
+            "mean": 1.2212453270876721e-18,
+            "sd": 8.938523415674672e-17
+          }
+        },
+        "geometric": {
+          "V_point": 0.5184583948181086,
+          "product_space_V_point": 0.49499413316548463,
+          "diagonal_minus_product_space": 0.023464261652623997,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.5104784015178307,
+              0.5293882334948721
+            ],
+            "width": 0.018909831977041325,
+            "mean": 0.5185991194027115,
+            "sd": 0.005620435675004031
+          },
+          "difference_paired_bootstrap": {
+            "ci95_percentile": [
+              0.022701604418524528,
+              0.02416112988954439
+            ],
+            "width": 0.0014595254710198617,
+            "mean": 0.023550317844866085,
+            "sd": 0.0005204039148424074
+          }
+        },
+        "rms": {
+          "V_point": 0.6309000931950011,
+          "product_space_V_point": 0.6404930263421637,
+          "diagonal_minus_product_space": -0.009592933147162586,
+          "paired_bootstrap": {
+            "ci95_percentile": [
+              0.6258556200033062,
+              0.6353927225103101
+            ],
+            "width": 0.009537102507003903,
+            "mean": 0.6305778707169949,
+            "sd": 0.002427114748693051
+          },
+          "difference_paired_bootstrap": {
+            "ci95_percentile": [
+              -0.009993789748063133,
+              -0.009238789215134316
+            ],
+            "width": 0.0007550005329288179,
+            "mean": -0.009642783496441279,
+            "sd": 0.0001946507448832065
+          }
+        }
+      },
+      "deterministic_knot_check": {
+        "replicate_sd": {
+          "RGA_last": 9.581731236420969e-17,
+          "RGE_first": 0.0,
+          "RGR_tail_first": 0.0,
+          "RGR_gaussian_first": 0.0
+        },
+        "max_abs_correlation_change_after_dropping_deterministic_knots": 1.4432899320127035e-15
+      },
+      "fit_warnings": [],
+      "RGE_greedy_removal_order": [
+        "num__NumberRealEstateLoansOrLines",
+        "num__NumberOfDependents",
+        "num__NumberOfOpenCreditLinesAndLoans",
+        "num__age",
+        "num__NumberOfTime60-89DaysPastDueNotWorse",
+        "num__DebtRatio",
+        "num__NumberOfTime30-59DaysPastDueNotWorse",
+        "num__RevolvingUtilizationOfUnsecuredLines",
+        "num__MonthlyIncome",
+        "num__NumberOfTimes90DaysLate"
+      ],
+      "fast_path_vs_package_max_abs_gap": 0.0,
+      "conditioning_check": {
+        "B_requested": 30,
+        "B_completed": 30,
+        "B_full": 30,
+        "greedy_orders": [
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ],
+          [
+            "num__NumberOfDependents",
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__age",
+            "num__MonthlyIncome",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__DebtRatio",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__DebtRatio",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__age",
+            "num__MonthlyIncome",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__DebtRatio",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__DebtRatio",
+            "num__age",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__age",
+            "num__DebtRatio",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome"
+          ],
+          [
+            "num__NumberOfDependents",
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__DebtRatio",
+            "num__age",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ],
+          [
+            "num__NumberOfDependents",
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__DebtRatio",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__age",
+            "num__DebtRatio",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__DebtRatio",
+            "num__age",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__DebtRatio",
+            "num__age",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__DebtRatio",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__DebtRatio",
+            "num__age",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate",
+            "num__NumberOfTime30-59DaysPastDueNotWorse"
+          ],
+          [
+            "num__NumberOfDependents",
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__NumberOfTimes90DaysLate",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ],
+          [
+            "num__NumberRealEstateLoansOrLines",
+            "num__NumberOfDependents",
+            "num__NumberOfOpenCreditLinesAndLoans",
+            "num__age",
+            "num__DebtRatio",
+            "num__NumberOfTime30-59DaysPastDueNotWorse",
+            "num__NumberOfTime60-89DaysPastDueNotWorse",
+            "num__RevolvingUtilizationOfUnsecuredLines",
+            "num__MonthlyIncome",
+            "num__NumberOfTimes90DaysLate"
+          ]
+        ],
+        "composites_tail": {
+          "arithmetic": {
+            "sd_frozen": 0.0038087139492516166,
+            "sd_full": 0.004204626859982996,
+            "sd_ratio_full_over_frozen": 1.103949237460895,
+            "mean_abs_paired_difference": 0.0028416705649283633,
+            "max_abs_paired_difference": 0.006313870020158707
+          },
+          "geometric": {
+            "sd_frozen": 0.009316207661696904,
+            "sd_full": 0.009020413756044284,
+            "sd_ratio_full_over_frozen": 0.9682495371084566,
+            "mean_abs_paired_difference": 0.002231991969687573,
+            "max_abs_paired_difference": 0.005272215180410544
+          },
+          "rms": {
+            "sd_frozen": 0.0026017471433007642,
+            "sd_full": 0.0040687059278238895,
+            "sd_ratio_full_over_frozen": 1.563836031606836,
+            "mean_abs_paired_difference": 0.003208705750578748,
+            "max_abs_paired_difference": 0.007007615536584022
+          },
+          "topsis": {
+            "sd_frozen": 0.003555157588945359,
+            "sd_full": 0.0032093897088358455,
+            "sd_ratio_full_over_frozen": 0.9027418978037242,
+            "mean_abs_paired_difference": 0.0014053206792470462,
+            "max_abs_paired_difference": 0.00482151204663861
+          }
+        },
+        "primary_endpoint_frozen": {
+          "corr_RGE_RGR_tail": -0.05414349937273931,
+          "corr_RGE_RGR_gaussian": 0.5344098479302378,
+          "fisher_z_tail_minus_gaussian": -0.6504941887180579,
+          "prespecified_direction_delta_lt_zero": true
+        },
+        "primary_endpoint_full_order_tail": {
+          "corr_RGE_RGR_tail": 0.008814411924357713,
+          "corr_RGE_RGR_gaussian": 0.15538873593258262,
+          "fisher_z_tail_minus_gaussian": -0.14784318741739838,
+          "prespecified_direction_delta_lt_zero": true
+        }
+      },
+      "label_complement": {
+        "curves_point": {
+          "RGA_partial": [
+            0.8438129880104809,
+            0.8371528892765919,
+            0.8274946789860393,
+            0.8103276109246047,
+            0.7833920836133745,
+            0.7645498209970882,
+            0.7387042549268437,
+            0.6991905461323716,
+            0.6160410808168106,
+            0.46835978494147823,
+            1.1102230246251565e-16
+          ],
+          "RGE_greedy_mean_baseline": [
+            1.0,
+            0.9881112763755655,
+            0.9760966563421407,
+            0.9537891206622526,
+            0.9339012042532241,
+            0.9116058116684272,
+            0.8832795924159158,
+            0.8460616960967445,
+            0.7436390977218225,
+            0.7107275650510103,
+            0.5045588933554547
+          ],
+          "RGR_tail_swap": [
+            1.0,
+            0.6921039015182898,
+            0.5971184267943939,
+            0.5164883882823478,
+            0.4718021305036023,
+            0.44286239668893496,
+            0.42795027163318283,
+            0.41852269936418457,
+            0.41442874687801323,
+            0.4132353032226695,
+            0.41454533433957025
+          ],
+          "RGR_scaled_gaussian_noise": [
+            1.0,
+            0.7402898055722644,
+            0.6717619238557098,
+            0.6339504415200667,
+            0.6074894391235635,
+            0.5937791078657167,
+            0.5820655280532117,
+            0.5639210288140557,
+            0.5588003070105523,
+            0.5442271109467354,
+            0.5481848718135747
+          ]
+        },
+        "marginal_intervals": {
+          "RGA_partial": {
+            "ci95_percentile_by_knot": [
+              [
+                0.8249924965145314,
+                0.8619169048139353
+              ],
+              [
+                0.8160541381756646,
+                0.8579637585944372
+              ],
+              [
+                0.8030075370577208,
+                0.8518432754635561
+              ],
+              [
+                0.7797740304410048,
+                0.8380962797378877
+              ],
+              [
+                0.7515575413402147,
+                0.8188841788018419
+              ],
+              [
+                0.724421294985031,
+                0.7975583948547262
+              ],
+              [
+                0.6983915454756183,
+                0.775173620253612
+              ],
+              [
+                0.6556537489412203,
+                0.7359589474881814
+              ],
+              [
+                0.5695482043003436,
+                0.6549484161630431
+              ],
+              [
+                0.4228073112832532,
+                0.5059861221499533
+              ],
+              [
+                -1.1102230246251565e-16,
+                2.220446049250313e-16
+              ]
+            ],
+            "bootstrap_sd_by_knot": [
+              0.009414557565803417,
+              0.010562165728340749,
+              0.012371806829508253,
+              0.014712804220108584,
+              0.01698209893949608,
+              0.018516176917380733,
+              0.019296593397654216,
+              0.02031191708566059,
+              0.021545429625437863,
+              0.02123580668995595,
+              8.699063005960153e-17
+            ]
+          },
+          "RGE_greedy_mean_baseline": {
+            "ci95_percentile_by_knot": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.9868508714660169,
+                0.9893082359372586
+              ],
+              [
+                0.9739847343258405,
+                0.9780467690696724
+              ],
+              [
+                0.9502946969314893,
+                0.9570848421807963
+              ],
+              [
+                0.9292435382478996,
+                0.9383226075293019
+              ],
+              [
+                0.9055246707926394,
+                0.9178491205696222
+              ],
+              [
+                0.8756830410572032,
+                0.8906204158984599
+              ],
+              [
+                0.8368105120897387,
+                0.8549915860519381
+              ],
+              [
+                0.7289716795684794,
+                0.7572149971799412
+              ],
+              [
+                0.6947482903343171,
+                0.7228053443734387
+              ],
+              [
+                0.49568750801373707,
+                0.504476528777648
+              ]
+            ],
+            "bootstrap_sd_by_knot": [
+              0.0,
+              0.0006376139799384995,
+              0.0010221468590343953,
+              0.001741556601693856,
+              0.0022957703710758844,
+              0.0030606209652732086,
+              0.0038653772723776453,
+              0.00465085882919676,
+              0.007066772334468649,
+              0.00705082862398363,
+              0.0022272404494774107
+            ]
+          },
+          "RGR_tail_swap": {
+            "ci95_percentile_by_knot": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.6801695510911988,
+                0.7037704702205899
+              ],
+              [
+                0.5851392870385158,
+                0.6091792147434448
+              ],
+              [
+                0.5050196346753809,
+                0.5272822592886924
+              ],
+              [
+                0.46063707479665245,
+                0.4820864983675987
+              ],
+              [
+                0.43187507725693763,
+                0.4530713272698055
+              ],
+              [
+                0.41748364652201453,
+                0.4383744053933119
+              ],
+              [
+                0.40800194724175926,
+                0.4290450240759295
+              ],
+              [
+                0.40374700359169535,
+                0.4243957311533794
+              ],
+              [
+                0.4023786967246097,
+                0.4231366049152694
+              ],
+              [
+                0.4037272479364863,
+                0.42474914251912743
+              ]
+            ],
+            "bootstrap_sd_by_knot": [
+              0.0,
+              0.006057746339832136,
+              0.0061262523155325545,
+              0.005721855988541817,
+              0.005477688020989918,
+              0.005422831038555827,
+              0.0053636173076044595,
+              0.005331067468094785,
+              0.0052916678556975535,
+              0.005293179541939328,
+              0.005314690620697056
+            ]
+          },
+          "RGR_scaled_gaussian_noise": {
+            "ci95_percentile_by_knot": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.7288189634834348,
+                0.7525569523560307
+              ],
+              [
+                0.6588632025825146,
+                0.6842957198015613
+              ],
+              [
+                0.6213418813366686,
+                0.6468355809448414
+              ],
+              [
+                0.5945337743023072,
+                0.6204721750266349
+              ],
+              [
+                0.5818362367451972,
+                0.6058096663537966
+              ],
+              [
+                0.5684890210863224,
+                0.5955719084654039
+              ],
+              [
+                0.5509410884590045,
+                0.5764015449770814
+              ],
+              [
+                0.5462619191530884,
+                0.5714715543283915
+              ],
+              [
+                0.5322496565933615,
+                0.5564471469992001
+              ],
+              [
+                0.5360209617316213,
+                0.5605142152180085
+              ]
+            ],
+            "bootstrap_sd_by_knot": [
+              0.0,
+              0.005976104448376947,
+              0.006569215022676795,
+              0.006556896465020569,
+              0.006565164731608339,
+              0.006199493342750925,
+              0.00682040578395481,
+              0.0063303517615353085,
+              0.006421094654412011,
+              0.006126970674185809,
+              0.006214629930531849
+            ]
+          }
+        },
+        "curve_mean_correlations": {
+          "labels": [
+            "RGA",
+            "RGE",
+            "RGR_tail",
+            "RGR_gaussian"
+          ],
+          "matrix": [
+            [
+              0.9999999999999999,
+              0.19061287056745443,
+              -0.02109967433867905,
+              0.11915169092097408
+            ],
+            [
+              0.19061287056745443,
+              0.9999999999999998,
+              -0.10745343151473434,
+              0.546791681262239
+            ],
+            [
+              -0.02109967433867905,
+              -0.10745343151473433,
+              1.0,
+              -0.06674085426898148
+            ],
+            [
+              0.1191516909209741,
+              0.5467916812622389,
+              -0.06674085426898148,
+              1.0
+            ]
+          ]
+        },
+        "primary_family_contrast": {
+          "corr_RGE_RGR_tail": -0.10745343151473434,
+          "corr_RGE_RGR_gaussian": 0.5467916812622391,
+          "fisher_z_tail_minus_gaussian": -0.7216630300107885,
+          "prespecified_direction_delta_lt_zero": true
+        },
+        "primary_endpoint": {
+          "corr_RGE_RGR_tail": -0.10745343151473434,
+          "corr_RGE_RGR_gaussian": 0.5467916812622391,
+          "fisher_z_tail_minus_gaussian": -0.7216630300107885,
+          "prespecified_direction_delta_lt_zero": true
+        },
+        "arms": {
+          "arithmetic": {
+            "V_point": 0.6863592197513161,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.6759381555519268,
+                0.6955328333659401
+              ],
+              "width": 0.01959467781401325,
+              "mean": 0.6857292292257505,
+              "sd": 0.004912571296256995
+            },
+            "delta_method": {
+              "summary_point": [
+                0.6717296126023349,
+                0.8592519012675054,
+                0.5280961453841081
+              ],
+              "gradient_at_point": [
+                0.3333333333333333,
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "Sigma_of_summaries": [
+                [
+                  0.00018597024899009515,
+                  6.229476229182678e-06,
+                  -1.2072358387840226e-06
+                ],
+                [
+                  6.229476229182678e-06,
+                  5.743215995879247e-06,
+                  -1.0804197024077832e-06
+                ],
+                [
+                  -1.2072358387840226e-06,
+                  -1.0804197024077832e-06,
+                  1.760310430531696e-05
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  0.9999999999999999,
+                  0.19061287056745443,
+                  -0.02109967433867905
+                ],
+                [
+                  0.19061287056745443,
+                  0.9999999999999998,
+                  -0.10745343151473434
+                ],
+                [
+                  -0.02109967433867905,
+                  -0.10745343151473433,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 2.4133356740808115e-05,
+              "var_cross_terms_declared_zero": 2.325739658792126e-05,
+              "width_delta_measured": 0.01925692562429791,
+              "width_delta_declared_zero": 0.01890421447921617,
+              "understatement_of_width_pct": 1.8316067266557767,
+              "signed_width_change_pct_zero_vs_measured": 1.8316067266557767
+            }
+          },
+          "geometric": {
+            "V_point": 0.6214551059904908,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.6111842867163327,
+                0.6302346775642873
+              ],
+              "width": 0.019050390847954568,
+              "mean": 0.6206987420707502,
+              "sd": 0.004813353801111699
+            },
+            "delta_method": {
+              "summary_point": [
+                0.8194390204790792,
+                0.9472008492133702,
+                0.8006653631417134
+              ],
+              "gradient_at_point": [
+                0.7583909119035624,
+                0.6560964409043719,
+                0.7761733360763561
+              ],
+              "Sigma_of_summaries": [
+                [
+                  3.315607009760929e-05,
+                  1.033729018146969e-06,
+                  -3.104146860981647e-07
+                ],
+                [
+                  1.033729018146969e-06,
+                  8.589073363104468e-07,
+                  -2.0911951266397395e-07
+                ],
+                [
+                  -3.104146860981647e-07,
+                  -2.0911951266397395e-07,
+                  5.477224461764734e-06
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  0.19370999368564612,
+                  -0.023034588910101635
+                ],
+                [
+                  0.19370999368564612,
+                  1.0,
+                  -0.09641422895934963
+                ],
+                [
+                  -0.02303458891010163,
+                  -0.09641422895934963,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 2.3189680612949685e-05,
+              "var_cross_terms_declared_zero": 2.273939254275981e-05,
+              "width_delta_measured": 0.01887667376840476,
+              "width_delta_declared_zero": 0.01869250545653106,
+              "understatement_of_width_pct": 0.975639639341308,
+              "signed_width_change_pct_zero_vs_measured": 0.975639639341308
+            }
+          },
+          "rms": {
+            "V_point": 0.7187657485486747,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.7085789393605904,
+                0.7280234437862376
+              ],
+              "width": 0.01944450442564727,
+              "mean": 0.7182838431843468,
+              "sd": 0.004861555586054368
+            },
+            "delta_method": {
+              "summary_point": [
+                0.23100691203820373,
+                0.34934432111829783,
+                0.1384145153921731
+              ],
+              "gradient_at_point": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Sigma_of_summaries": [
+                [
+                  2.070391426526947e-05,
+                  7.982147756143744e-07,
+                  -8.72559215195336e-08
+                ],
+                [
+                  7.982147756143744e-07,
+                  8.795640877744374e-07,
+                  -1.0802387506305281e-07
+                ],
+                [
+                  -8.72559215195336e-08,
+                  -1.0802387506305281e-07,
+                  9.125428361462947e-07
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  0.9999999999999998,
+                  0.18705089385228332,
+                  -0.02007437576052313
+                ],
+                [
+                  0.18705089385228332,
+                  1.0,
+                  -0.12057558504450183
+                ],
+                [
+                  -0.02007437576052313,
+                  -0.12057558504450183,
+                  0.9999999999999999
+                ]
+              ],
+              "var_measured_covariance": 2.370189114725378e-05,
+              "var_cross_terms_declared_zero": 2.2496021189190203e-05,
+              "width_delta_measured": 0.019084007840571647,
+              "width_delta_declared_zero": 0.018592206864999825,
+              "understatement_of_width_pct": 2.577031929982121,
+              "signed_width_change_pct_zero_vs_measured": 2.577031929982121
+            }
+          },
+          "topsis": {
+            "V_point": 0.4526248575162307,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.44357277829751784,
+                0.4607002343797342
+              ],
+              "width": 0.01712745608221633,
+              "mean": 0.4522659381315764,
+              "sd": 0.004258689327231327
+            },
+            "delta_method": {
+              "summary_point": [
+                0.20702975452044245,
+                -0.12119640792396587,
+                0.12281982079113274
+              ],
+              "gradient_at_point": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Sigma_of_summaries": [
+                [
+                  1.7266895670647598e-05,
+                  -2.5562089339271843e-07,
+                  -9.996059807034393e-08
+                ],
+                [
+                  -2.5562089339271843e-07,
+                  1.0306159850022244e-07,
+                  4.30152107669935e-08
+                ],
+                [
+                  -9.996059807034393e-08,
+                  4.30152107669935e-08,
+                  1.3642734193105022e-06
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  -0.19161997484849297,
+                  -0.020595436676849134
+                ],
+                [
+                  -0.19161997484849297,
+                  1.0,
+                  0.11471571314067433
+                ],
+                [
+                  -0.020595436676849134,
+                  0.11471571314067434,
+                  0.9999999999999998
+                ]
+              ],
+              "var_measured_covariance": 1.8109098127066184e-05,
+              "var_cross_terms_declared_zero": 1.8734230688458323e-05,
+              "width_delta_measured": 0.01668116959149254,
+              "width_delta_declared_zero": 0.01696664677855902,
+              "understatement_of_width_pct": -1.711373926754356,
+              "signed_width_change_pct_zero_vs_measured": -1.711373926754356
+            }
+          }
+        },
+        "composites_tail": {
+          "arithmetic": {
+            "V_point": 0.6863592197513161,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.6759381555519268,
+                0.6955328333659401
+              ],
+              "width": 0.01959467781401325,
+              "mean": 0.6857292292257505,
+              "sd": 0.004912571296256995
+            },
+            "delta_method": {
+              "summary_point": [
+                0.6717296126023349,
+                0.8592519012675054,
+                0.5280961453841081
+              ],
+              "gradient_at_point": [
+                0.3333333333333333,
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "Sigma_of_summaries": [
+                [
+                  0.00018597024899009515,
+                  6.229476229182678e-06,
+                  -1.2072358387840226e-06
+                ],
+                [
+                  6.229476229182678e-06,
+                  5.743215995879247e-06,
+                  -1.0804197024077832e-06
+                ],
+                [
+                  -1.2072358387840226e-06,
+                  -1.0804197024077832e-06,
+                  1.760310430531696e-05
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  0.9999999999999999,
+                  0.19061287056745443,
+                  -0.02109967433867905
+                ],
+                [
+                  0.19061287056745443,
+                  0.9999999999999998,
+                  -0.10745343151473434
+                ],
+                [
+                  -0.02109967433867905,
+                  -0.10745343151473433,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 2.4133356740808115e-05,
+              "var_cross_terms_declared_zero": 2.325739658792126e-05,
+              "width_delta_measured": 0.01925692562429791,
+              "width_delta_declared_zero": 0.01890421447921617,
+              "understatement_of_width_pct": 1.8316067266557767,
+              "signed_width_change_pct_zero_vs_measured": 1.8316067266557767
+            }
+          },
+          "geometric": {
+            "V_point": 0.6214551059904908,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.6111842867163327,
+                0.6302346775642873
+              ],
+              "width": 0.019050390847954568,
+              "mean": 0.6206987420707502,
+              "sd": 0.004813353801111699
+            },
+            "delta_method": {
+              "summary_point": [
+                0.8194390204790792,
+                0.9472008492133702,
+                0.8006653631417134
+              ],
+              "gradient_at_point": [
+                0.7583909119035624,
+                0.6560964409043719,
+                0.7761733360763561
+              ],
+              "Sigma_of_summaries": [
+                [
+                  3.315607009760929e-05,
+                  1.033729018146969e-06,
+                  -3.104146860981647e-07
+                ],
+                [
+                  1.033729018146969e-06,
+                  8.589073363104468e-07,
+                  -2.0911951266397395e-07
+                ],
+                [
+                  -3.104146860981647e-07,
+                  -2.0911951266397395e-07,
+                  5.477224461764734e-06
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  0.19370999368564612,
+                  -0.023034588910101635
+                ],
+                [
+                  0.19370999368564612,
+                  1.0,
+                  -0.09641422895934963
+                ],
+                [
+                  -0.02303458891010163,
+                  -0.09641422895934963,
+                  1.0
+                ]
+              ],
+              "var_measured_covariance": 2.3189680612949685e-05,
+              "var_cross_terms_declared_zero": 2.273939254275981e-05,
+              "width_delta_measured": 0.01887667376840476,
+              "width_delta_declared_zero": 0.01869250545653106,
+              "understatement_of_width_pct": 0.975639639341308,
+              "signed_width_change_pct_zero_vs_measured": 0.975639639341308
+            }
+          },
+          "rms": {
+            "V_point": 0.7187657485486747,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.7085789393605904,
+                0.7280234437862376
+              ],
+              "width": 0.01944450442564727,
+              "mean": 0.7182838431843468,
+              "sd": 0.004861555586054368
+            },
+            "delta_method": {
+              "summary_point": [
+                0.23100691203820373,
+                0.34934432111829783,
+                0.1384145153921731
+              ],
+              "gradient_at_point": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Sigma_of_summaries": [
+                [
+                  2.070391426526947e-05,
+                  7.982147756143744e-07,
+                  -8.72559215195336e-08
+                ],
+                [
+                  7.982147756143744e-07,
+                  8.795640877744374e-07,
+                  -1.0802387506305281e-07
+                ],
+                [
+                  -8.72559215195336e-08,
+                  -1.0802387506305281e-07,
+                  9.125428361462947e-07
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  0.9999999999999998,
+                  0.18705089385228332,
+                  -0.02007437576052313
+                ],
+                [
+                  0.18705089385228332,
+                  1.0,
+                  -0.12057558504450183
+                ],
+                [
+                  -0.02007437576052313,
+                  -0.12057558504450183,
+                  0.9999999999999999
+                ]
+              ],
+              "var_measured_covariance": 2.370189114725378e-05,
+              "var_cross_terms_declared_zero": 2.2496021189190203e-05,
+              "width_delta_measured": 0.019084007840571647,
+              "width_delta_declared_zero": 0.018592206864999825,
+              "understatement_of_width_pct": 2.577031929982121,
+              "signed_width_change_pct_zero_vs_measured": 2.577031929982121
+            }
+          },
+          "topsis": {
+            "V_point": 0.4526248575162307,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.44357277829751784,
+                0.4607002343797342
+              ],
+              "width": 0.01712745608221633,
+              "mean": 0.4522659381315764,
+              "sd": 0.004258689327231327
+            },
+            "delta_method": {
+              "summary_point": [
+                0.20702975452044245,
+                -0.12119640792396587,
+                0.12281982079113274
+              ],
+              "gradient_at_point": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Sigma_of_summaries": [
+                [
+                  1.7266895670647598e-05,
+                  -2.5562089339271843e-07,
+                  -9.996059807034393e-08
+                ],
+                [
+                  -2.5562089339271843e-07,
+                  1.0306159850022244e-07,
+                  4.30152107669935e-08
+                ],
+                [
+                  -9.996059807034393e-08,
+                  4.30152107669935e-08,
+                  1.3642734193105022e-06
+                ]
+              ],
+              "Corr_of_summaries": [
+                [
+                  1.0,
+                  -0.19161997484849297,
+                  -0.020595436676849134
+                ],
+                [
+                  -0.19161997484849297,
+                  1.0,
+                  0.11471571314067433
+                ],
+                [
+                  -0.020595436676849134,
+                  0.11471571314067434,
+                  0.9999999999999998
+                ]
+              ],
+              "var_measured_covariance": 1.8109098127066184e-05,
+              "var_cross_terms_declared_zero": 1.8734230688458323e-05,
+              "width_delta_measured": 0.01668116959149254,
+              "width_delta_declared_zero": 0.01696664677855902,
+              "understatement_of_width_pct": -1.711373926754356,
+              "signed_width_change_pct_zero_vs_measured": -1.711373926754356
+            }
+          }
+        },
+        "matched_severity_diagonal": {
+          "arithmetic": {
+            "V_point": 0.6863592197513161,
+            "product_space_V_point": 0.6863592197513161,
+            "diagonal_minus_product_space": 0.0,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.6759381555519269,
+                0.6955328333659401
+              ],
+              "width": 0.01959467781401314,
+              "mean": 0.6857292292257505,
+              "sd": 0.004912571296256997
+            },
+            "difference_paired_bootstrap": {
+              "ci95_percentile": [
+                -2.220446049250313e-16,
+                2.220446049250313e-16
+              ],
+              "width": 4.440892098500626e-16,
+              "mean": 1.6653345369377347e-18,
+              "sd": 9.831381160657837e-17
+            }
+          },
+          "geometric": {
+            "V_point": 0.6405112299139323,
+            "product_space_V_point": 0.6214551059904908,
+            "diagonal_minus_product_space": 0.01905612392344147,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.6305422636133454,
+                0.6492078509384315
+              ],
+              "width": 0.018665587325086053,
+              "mean": 0.6399613052943812,
+              "sd": 0.004733440268663447
+            },
+            "difference_paired_bootstrap": {
+              "ci95_percentile": [
+                0.01883719557564963,
+                0.01971062230312051
+              ],
+              "width": 0.0008734267274708787,
+              "mean": 0.01926256322363106,
+              "sd": 0.00021944296704256615
+            }
+          },
+          "rms": {
+            "V_point": 0.7091426260173211,
+            "product_space_V_point": 0.7187657485486747,
+            "diagonal_minus_product_space": -0.009623122531353556,
+            "paired_bootstrap": {
+              "ci95_percentile": [
+                0.6987690603056809,
+                0.7183792033265496
+              ],
+              "width": 0.01961014302086872,
+              "mean": 0.7085461313194733,
+              "sd": 0.004897102777356151
+            },
+            "difference_paired_bootstrap": {
+              "ci95_percentile": [
+                -0.010054858631531799,
+                -0.009417564848548604
+              ],
+              "width": 0.0006372937829831945,
+              "mean": -0.009737711864873546,
+              "sd": 0.00016036992765627728
+            }
+          }
+        },
+        "deterministic_knot_check": {
+          "replicate_sd": {
+            "RGA_last": 8.696887968294992e-17,
+            "RGE_first": 0.0,
+            "RGR_tail_first": 0.0,
+            "RGR_gaussian_first": 0.0
+          },
+          "max_abs_correlation_change_after_dropping_deterministic_knots": 3.885780586188048e-16
+        },
+        "fit_warnings": [],
+        "RGE_greedy_removal_order": [
+          "num__NumberRealEstateLoansOrLines",
+          "num__NumberOfDependents",
+          "num__NumberOfOpenCreditLinesAndLoans",
+          "num__age",
+          "num__NumberOfTime60-89DaysPastDueNotWorse",
+          "num__DebtRatio",
+          "num__NumberOfTime30-59DaysPastDueNotWorse",
+          "num__RevolvingUtilizationOfUnsecuredLines",
+          "num__MonthlyIncome",
+          "num__NumberOfTimes90DaysLate"
+        ]
+      }
+    }
+  },
+  "completed_utc": "2026-08-27T17:42:56+00:00",
+  "runtime_seconds": 789.2111344337463,
+  "replicates_file": "replicates-give-me-some-credit.npz",
+  "replicates_sha256": "c02b81c8e2608daa1613a3853792d693b212b3db26f0e412d55b781cd866d763"
+}
