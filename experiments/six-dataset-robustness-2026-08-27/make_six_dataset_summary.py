@@ -129,7 +129,7 @@ def write_failure_summary(release_tag: str, specs: list[dict[str, Any]],
         release_commit = None
         release_url = None
     summary = {
-        "schema_version": "six-dataset-summary-v1",
+        "schema_version": "six-dataset-summary-v1.1",
         "status": "FAIL",
         "release_tag": release_tag,
         "release_url": release_url,
@@ -146,7 +146,9 @@ def write_failure_summary(release_tag: str, specs: list[dict[str, Any]],
         json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     with SUMMARY_CSV.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(inventory[0]))
+        writer = csv.DictWriter(
+            handle, fieldnames=list(inventory[0]), lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(inventory)
     lines = [
@@ -245,18 +247,33 @@ def render_markdown(summary: dict[str, Any]) -> str:
         )
     lines.extend([
         "",
+        "## Execution status and verifier correction",
+        "",
+        ("All six dataset runs completed on their first production attempt; no "
+         "outcome run was retried. The first directory-wide verifier 1.2 attempt "
+         "stopped before aggregate verification because it compared an 11-field "
+         "expected subset for exact equality with the runner's 21-field preflight "
+         "contract. That FAIL report is retained as "
+         "`verify-six-dataset-v1.2-initial-FAIL.json`. Verifier 1.3 instead requires "
+         "the complete frozen 21-field contract and passed all deposits; the "
+         "correction changed no dataset, model, seed, endpoint, replicate, metric "
+         "formula, tolerance, or aggregate logic. Full details are in "
+         "`PROTOCOL-DEVIATIONS.md`."),
+        "",
         "## Claim boundary and audit",
         "",
         ("The dataset is the replication unit; the two fitted models are sensitivity "
          "arms, not independent replications. These results describe only the six "
-         "frozen public snapshots under the recorded representation, split, model, "
-         "and perturbation design. Mixed-data one-hot runs change the feature unit "
-         "and are an adapted stratum. No statement of generality across credit data, "
+         "frozen, publicly retrievable benchmark cohorts under the recorded "
+         "representation, split, model, and perturbation design. Raw source files "
+         "are not redistributed. Mixed-data one-hot runs change the feature unit and "
+         "are an adapted stratum. No statement of generality across credit data, "
          "interval calibration, or legal validity is made."),
         "",
         (f"All six production JSON/NPZ deposits passed the independent verifier. "
          f"Protocol, source/schema audits, code, logs, deposits, and verifier output "
-         f"are in the immutable [{summary['release_tag']}]({release_url}) release."),
+         f"are in the immutable [{summary['release_tag']}]({release_url}) tagged "
+         "snapshot."),
         "",
         "## Manuscript-ready paragraph",
         "",
@@ -290,8 +307,9 @@ def main(argv: list[str] | None = None) -> int:
     paragraph = (
         "After completing the German-credit and Taiwan analyses, we prospectively "
         "fixed an extension protocol and applied the same estimators to six additional "
-        "public binary consumer-credit datasets. The prespecified tail-swap-versus-"
-        "Gaussian Fisher-z contrast had the expected negative direction in "
+        "publicly retrievable tabular consumer-credit benchmark cohorts. The "
+        "prespecified tail-swap-versus-Gaussian Fisher-z contrast had the expected "
+        "negative direction in "
         f"{aggregate['datasets_directionally_concordant_out_of_6']}/6 datasets "
         f"({aggregate['model_arms_delta_lt_zero_out_of_12']}/12 model fits). Across "
         "the 48 dataset/model/composite calculations, the signed effect of setting "
@@ -300,11 +318,12 @@ def main(argv: list[str] | None = None) -> int:
         f"{maximum_effect['signed_width_change_pct_zero_vs_measured']:+.2f}%. "
         "Complete selection, "
         "preprocessing, failures, results, replicate deposits, and independent "
-        f"verification are available in the immutable {args.release_tag} repository "
-        "release. This extension is separate from the original Taiwan pre-registration."
+        f"verification are available in the immutable {args.release_tag} tagged "
+        "repository snapshot. This extension is separate from the original Taiwan "
+        "pre-registration."
     )
     summary = {
-        "schema_version": "six-dataset-summary-v1",
+        "schema_version": "six-dataset-summary-v1.1",
         "status": "PASS",
         "release_tag": args.release_tag,
         "release_url": release_url,
@@ -317,18 +336,32 @@ def main(argv: list[str] | None = None) -> int:
         "intended_dataset_count": 6,
         "completed_and_verified_dataset_count": 6,
         "failures": [],
+        "deviations": [{
+            "type": "verifier-preflight-contract-correction",
+            "initial_verifier_schema": "1.2",
+            "initial_status": "FAIL",
+            "initial_report": "verify-six-dataset-v1.2-initial-FAIL.json",
+            "corrected_verifier_schema": "1.3",
+            "corrected_status": "PASS",
+            "outcome_run_retried": False,
+            "outcome_logic_changed": False,
+            "details": "PROTOCOL-DEVIATIONS.md",
+        }],
         "datasets": rows,
         "manuscript_ready_paragraph": paragraph,
         "claim_boundary": (
-            "Finite-set six-snapshot result; datasets are replication units; model "
-            "arms are sensitivities; mixed-data one-hot runs are an adapted stratum."
+            "Finite-set six-cohort result; datasets are replication units; model "
+            "arms are sensitivities; mixed-data one-hot runs are an adapted stratum; "
+            "raw source files are not redistributed."
         ),
     }
     SUMMARY_JSON.write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     with SUMMARY_CSV.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(
+            handle, fieldnames=list(rows[0]), lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
     SUMMARY_MD.write_text(render_markdown(summary), encoding="utf-8")

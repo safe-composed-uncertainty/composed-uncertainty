@@ -1,0 +1,146 @@
+{
+  "aggregate": {
+    "cross_covariance_effect_count": 48,
+    "cross_covariance_effect_signed_pct_range": {
+      "maximum": {
+        "composite": "geometric",
+        "model": "logit",
+        "signed_width_change_pct_zero_vs_measured": 4.97242777621103,
+        "slug": "australian-credit-approval"
+      },
+      "minimum": {
+        "composite": "geometric",
+        "model": "rf",
+        "signed_width_change_pct_zero_vs_measured": -8.375115276967215,
+        "slug": "fico-heloc-cleaned"
+      }
+    },
+    "dataset_classification": {
+      "contrary": [],
+      "directionally_concordant": [
+        "australian-credit-approval",
+        "hmeq",
+        "fico-heloc-cleaned",
+        "give-me-some-credit",
+        "lending-club",
+        "credit-risk-benchmark"
+      ],
+      "mixed": []
+    },
+    "datasets_directionally_concordant_out_of_6": 6,
+    "model_arms_delta_lt_zero_out_of_12": 12
+  },
+  "claim_boundary": "Finite-set six-cohort result; datasets are replication units; model arms are sensitivities; mixed-data one-hot runs are an adapted stratum; raw source files are not redistributed.",
+  "completed_and_verified_dataset_count": 6,
+  "dataset_spec_sha256": "b86e0e173e66f0b67f52046065b991e26097c4f98b1eabc7155ec81869042b7b",
+  "datasets": [
+    {
+      "classification": "directionally concordant",
+      "delta_logit": -1.0917993402356276,
+      "delta_rf": -0.8148658830180042,
+      "encoded_d": 42,
+      "name": "Statlog Australian Credit Approval",
+      "order": 1,
+      "raw_d": 14,
+      "retained_rows": 690,
+      "slug": "australian-credit-approval",
+      "source_rows": 690,
+      "test_rows": 207,
+      "verification": "PASS"
+    },
+    {
+      "classification": "directionally concordant",
+      "delta_logit": -0.7374611772229565,
+      "delta_rf": -0.3476981299138814,
+      "encoded_d": 18,
+      "name": "SAS HMEQ Home Equity",
+      "order": 2,
+      "raw_d": 12,
+      "retained_rows": 5960,
+      "slug": "hmeq",
+      "source_rows": 5960,
+      "test_rows": 1788,
+      "verification": "PASS"
+    },
+    {
+      "classification": "directionally concordant",
+      "delta_logit": -1.1372693834904504,
+      "delta_rf": -0.8018111870283405,
+      "encoded_d": 37,
+      "name": "FICO HELOC cleaned",
+      "order": 3,
+      "raw_d": 23,
+      "retained_rows": 9871,
+      "slug": "fico-heloc-cleaned",
+      "source_rows": 9871,
+      "test_rows": 2962,
+      "verification": "PASS"
+    },
+    {
+      "classification": "directionally concordant",
+      "delta_logit": -0.6962585066301975,
+      "delta_rf": -0.721663148965099,
+      "encoded_d": 10,
+      "name": "Give Me Some Credit",
+      "order": 4,
+      "raw_d": 10,
+      "retained_rows": 30000,
+      "slug": "give-me-some-credit",
+      "source_rows": 150000,
+      "test_rows": 9000,
+      "verification": "PASS"
+    },
+    {
+      "classification": "directionally concordant",
+      "delta_logit": -1.1153889272582078,
+      "delta_rf": -0.8498774718551831,
+      "encoded_d": 19,
+      "name": "Lending Club Loan Data",
+      "order": 5,
+      "raw_d": 13,
+      "retained_rows": 9578,
+      "slug": "lending-club",
+      "source_rows": 9578,
+      "test_rows": 2874,
+      "verification": "PASS"
+    },
+    {
+      "classification": "directionally concordant",
+      "delta_logit": -0.8612200369071161,
+      "delta_rf": -0.45858022376574614,
+      "encoded_d": 26,
+      "name": "Credit Risk Dataset",
+      "order": 6,
+      "raw_d": 11,
+      "retained_rows": 30000,
+      "slug": "credit-risk-benchmark",
+      "source_rows": 32581,
+      "test_rows": 9000,
+      "verification": "PASS"
+    }
+  ],
+  "deviations": [
+    {
+      "corrected_status": "PASS",
+      "corrected_verifier_schema": "1.3",
+      "details": "PROTOCOL-DEVIATIONS.md",
+      "initial_report": "verify-six-dataset-v1.2-initial-FAIL.json",
+      "initial_status": "FAIL",
+      "initial_verifier_schema": "1.2",
+      "outcome_logic_changed": false,
+      "outcome_run_retried": false,
+      "type": "verifier-preflight-contract-correction"
+    }
+  ],
+  "failures": [],
+  "intended_dataset_count": 6,
+  "manuscript_ready_paragraph": "After completing the German-credit and Taiwan analyses, we prospectively fixed an extension protocol and applied the same estimators to six additional publicly retrievable tabular consumer-credit benchmark cohorts. The prespecified tail-swap-versus-Gaussian Fisher-z contrast had the expected negative direction in 6/6 datasets (12/12 model fits). Across the 48 dataset/model/composite calculations, the signed effect of setting cross-covariances to zero ranged from -8.38% to +4.97%. Complete selection, preprocessing, failures, results, replicate deposits, and independent verification are available in the immutable six-dataset-robustness-results-v1 tagged repository snapshot. This extension is separate from the original Taiwan pre-registration.",
+  "protocol_sha256": "791769816ef3dbe99a7f67b4abb07deafefdbe45f5aa9415e05708f017bd488d",
+  "release_commit": "009d8b514478d4bf92073a432bb6eaaccb0930d8",
+  "release_tag": "six-dataset-robustness-results-v1",
+  "release_url": "https://github.com/safe-composed-uncertainty/composed-uncertainty/tree/six-dataset-robustness-results-v1",
+  "schema_version": "six-dataset-summary-v1.1",
+  "status": "PASS",
+  "verification_report": "verify-six-dataset.json",
+  "verification_report_sha256": "10f3f3b8d2cfa4dbac4afa7e925aab129f9cc806b8854481fc89901a88fbd3c5"
+}

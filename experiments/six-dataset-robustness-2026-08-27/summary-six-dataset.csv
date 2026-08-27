@@ -1,0 +1,7 @@
+order,slug,name,source_rows,retained_rows,test_rows,raw_d,encoded_d,delta_logit,delta_rf,classification,verification
+1,australian-credit-approval,Statlog Australian Credit Approval,690,690,207,14,42,-1.0917993402356276,-0.8148658830180042,directionally concordant,PASS
+2,hmeq,SAS HMEQ Home Equity,5960,5960,1788,12,18,-0.7374611772229565,-0.3476981299138814,directionally concordant,PASS
+3,fico-heloc-cleaned,FICO HELOC cleaned,9871,9871,2962,23,37,-1.1372693834904504,-0.8018111870283405,directionally concordant,PASS
+4,give-me-some-credit,Give Me Some Credit,150000,30000,9000,10,10,-0.6962585066301975,-0.721663148965099,directionally concordant,PASS
+5,lending-club,Lending Club Loan Data,9578,9578,2874,13,19,-1.1153889272582078,-0.8498774718551831,directionally concordant,PASS
+6,credit-risk-benchmark,Credit Risk Dataset,32581,30000,9000,11,26,-0.8612200369071161,-0.45858022376574614,directionally concordant,PASS

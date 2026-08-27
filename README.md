@@ -20,7 +20,9 @@ The prospectively specified six-dataset credit robustness extension lives in
 `experiments/six-dataset-robustness-2026-08-27/`. Its protocol states the claim
 boundary, `RUNBOOK.md` gives exact commands, and its deposits contain derived
 curves rather than raw credit records. This extension is separate from the
-original Taiwan pre-registration.
+original Taiwan pre-registration. The [verified intended-set summary](experiments/six-dataset-robustness-2026-08-27/SIX-DATASET-SUMMARY.md)
+reports all six cohorts, both model arms, the full 48-cell covariance-effect
+range, the preserved verifier correction, and the immutable results tag.
 
 ## Three rules
 
